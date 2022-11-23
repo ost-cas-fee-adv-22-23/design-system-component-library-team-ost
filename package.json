@@ -18,7 +18,9 @@
   "scripts": {
     "build": "tsc",
     "build-storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && build-storybook",
-    "storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && start-storybook -p 6006"
+    "storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && start-storybook -p 6006",
+    "format:check": "prettier --check **/* --ignore-unknown",
+    "format": "prettier --write **/* --ignore-unknown"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -36,6 +38,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "postcss": "^8.4.19",
+    "prettier": "^2.8.0",
     "react": "^18.2.0",
     "react-docgen-typescript": "^2.2.2",
     "react-dom": "^18.2.0",
