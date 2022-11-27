@@ -13,7 +13,7 @@
     "moduleResolution": "NodeNext",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "esnext",
     "target": "esnext"
   },
