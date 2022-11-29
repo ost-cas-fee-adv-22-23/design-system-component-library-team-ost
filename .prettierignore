@@ -1,0 +1,8 @@
+/.github
+/.vs
+/dist
+/storybook-static
+/node_modules
+
+package.json
+package-lock.json
