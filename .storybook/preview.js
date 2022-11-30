@@ -10,6 +10,22 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'background',
+    values: [
+      {
+        name: 'surface',
+        value: '#ffffff',
+      },
+      {
+        name: 'background',
+        value: '#f1f5f9', // bg-slate-100
+      },
+    ],
+    grid: {
+      disable: true,
+    },
+  },
   viewport: {
     viewports: customViewports,
   },
