@@ -17,6 +17,8 @@
   },
   "scripts": {
     "build": "tsc",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006",
     "build-storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && build-storybook",
     "storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && start-storybook -p 6006",
     "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
