@@ -19,3 +19,9 @@ export const ButtonComponent = Template.bind({});
 ButtonComponent.args = {
   type: ButtonType.primary,
 };
+ButtonComponent.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',
+  },
+}
