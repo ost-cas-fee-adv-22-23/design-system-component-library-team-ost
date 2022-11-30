@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, ButtonType } from './button';
 
 export default {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     type: {
@@ -15,11 +15,11 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>Hello World</Button>;
 
-export const ButtonComponent = Template.bind({});
-ButtonComponent.args = {
+export const Default = Template.bind({});
+Default.args = {
   type: ButtonType.primary,
 };
-ButtonComponent.parameters = {
+Default.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/LKQ4FJ4bTnCSjedbRpk931/Sample-File',

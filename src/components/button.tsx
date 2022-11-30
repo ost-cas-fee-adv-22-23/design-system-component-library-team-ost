@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { HeartFillIcon } from '../assets/icons'
+import { HeartFillIcon } from '../assets/icons';
 
 export enum ButtonType {
   primary = 'primary',
@@ -12,7 +12,7 @@ export type ButtonProps = {
 };
 
 export const Button: FC<ButtonProps> = ({ type, children }) => (
-  <button className={type === ButtonType.primary ? 'flex justify-center gap-x-2 bg-green-500 text-white' : 'bg-blue-200 text-black'}>
+  <button className={type === ButtonType.primary ? 'flex justify-center gap-m bg-green-500 text-white' : 'bg-blue-200 text-black'}>
     {children}
     <HeartFillIcon />
   </button>

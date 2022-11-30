@@ -1,0 +1,14 @@
+Weitere mögliche Themen:
+- borders (radius und type)
+- transisitons
+- shadows
+- elevations
+- gradients
+- zindex
+- opacity
+
+
+Variablen-Definition im Code bzw. gemäss TailwindConvention:
+{prefix}-{category}-{subcategory}-{name}
+x-color-status-warning
+x-space-xxl

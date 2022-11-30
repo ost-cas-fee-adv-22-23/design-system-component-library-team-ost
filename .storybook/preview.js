@@ -29,4 +29,9 @@ export const parameters = {
   viewport: {
     viewports: customViewports,
   },
+  options: {
+    storySort: {
+      order: ['Foundation', 'Components'],
+    },
+  },
 };
