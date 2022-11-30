@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['Poppins', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       spacing: {
         xxs: '4px',
@@ -14,10 +14,9 @@ module.exports = {
         m: '24px',
         l: '32px',
         xl: '48px',
-        xxl: '64px'
-      }
+        xxl: '64px',
+      },
     },
   },
-  plugins: [
-  ],
+  plugins: [],
 };
