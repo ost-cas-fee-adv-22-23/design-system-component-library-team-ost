@@ -1,4 +1,3 @@
-import 'tailwindcss/tailwind.css';
 import '../src/global.css';
 import { customViewports } from './viewports';
 
