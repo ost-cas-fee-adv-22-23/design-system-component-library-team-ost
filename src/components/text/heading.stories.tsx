@@ -18,12 +18,12 @@ export default {
 
 const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args}>Überschrift</Heading>;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Headings = Template.bind({});
+Headings.args = {
   headingLevel: 'h1',
   children: 'Überschrift',
 };
-Default.parameters = {
+Headings.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=KwYX2EgXyjwXRi98-0',
