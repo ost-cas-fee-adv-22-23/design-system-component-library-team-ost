@@ -8,12 +8,12 @@ export default {
   argTypes: {
     headingLevel: {
       options: ['h1', 'h2', 'h3', 'h4'],
-      control: { type: "select" }
+      control: { type: 'select' },
     },
     children: {
-      control: { type: "text"}
-    }
-  }
+      control: { type: 'text' },
+    },
+  },
 } as ComponentMeta<typeof Heading>;
 
 const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args}>Überschrift</Heading>;

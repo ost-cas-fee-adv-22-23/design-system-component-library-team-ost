@@ -5,11 +5,11 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 const classMap = {
-  "h1": "text-h1 font-poppins text-slate-600",
-  "h2": "text-h2 font-poppins text-slate-600",
-  "h3": "text-h3 font-poppins text-slate-600",
-  "h4": "text-h4 font-poppins text-slate-600",
-}
+  h1: 'text-h1 font-poppins text-slate-600',
+  h2: 'text-h2 font-poppins text-slate-600',
+  h3: 'text-h3 font-poppins text-slate-600',
+  h4: 'text-h4 font-poppins text-slate-600',
+};
 
 export const Heading = ({ headingLevel = 'h1', children }: HeadingProps) => {
   const HeadingElement = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => createElement(headingLevel, props, children);
