@@ -1,17 +1,31 @@
-// MyComponent.story.ts|tsx
-
 import React from 'react';
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Heading } from './heading';
 
 export default {
   title: 'Foundation/Typography',
   component: Heading,
+  argTypes: {
+    headingLevel: {
+      options: ['h1', 'h2', 'h3', 'h4'],
+      control: { type: "select" }
+    },
+    children: {
+      control: { type: "text"}
+    }
+  }
 } as ComponentMeta<typeof Heading>;
 
-export const HeadingH1: ComponentStory<typeof Heading> = () => <Heading headingLevel='h1'>Überschrift H1</Heading>;
-export const HeadingH2: ComponentStory<typeof Heading> = () => <Heading headingLevel='h2'>Überschrift H2</Heading>;
-export const HeadingH3: ComponentStory<typeof Heading> = () => <Heading headingLevel='h3'>Überschrift H3</Heading>;
-export const HeadingH4: ComponentStory<typeof Heading> = () => <Heading headingLevel='h4'>Überschrift H4</Heading>;
+const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args}>Überschrift</Heading>;
+
+export const Default = Template.bind({});
+Default.args = {
+  headingLevel: 'h1',
+  children: 'Überschrift',
+};
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=KwYX2EgXyjwXRi98-0',
+  },
+};

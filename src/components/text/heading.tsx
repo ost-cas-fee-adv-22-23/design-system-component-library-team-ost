@@ -1,12 +1,18 @@
-import React, { HTMLAttributes, createElement } from 'react';
-
-// Interface to declare the possible heading levels
+import React, { ReactNode, HTMLAttributes, createElement } from 'react';
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  headingLevel: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
+  headingLevel: 'h1' | 'h2' | 'h3' | 'h4';
+  children: ReactNode;
 }
 
-export const Heading = ({ headingLevel = 'p', children }: HeadingProps) => {
+const classMap = {
+  "h1": "text-h1 font-poppins text-slate-600",
+  "h2": "text-h2 font-poppins text-slate-600",
+  "h3": "text-h3 font-poppins text-slate-600",
+  "h4": "text-h4 font-poppins text-slate-600",
+}
+
+export const Heading = ({ headingLevel = 'h1', children }: HeadingProps) => {
   const HeadingElement = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => createElement(headingLevel, props, children);
 
-  return <HeadingElement className={`text-${headingLevel} font-poppins text-slate-600`}>{children}</HeadingElement>;
+  return <HeadingElement className={classMap[headingLevel]}>{children}</HeadingElement>;
 };
