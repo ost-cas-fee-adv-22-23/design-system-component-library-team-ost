@@ -7,11 +7,11 @@ export type LabelProps = {
   };
 
 const classMap = {
-    S: 'font-poppins text-xs text-current',
-    M: 'font-poppins text-base text-slate-600',
-    L: 'font-poppins text-xl text-slate-600',
-    XL: 'font-poppins text-2xl text-slate-600',
-    Placeholder: 'font-poppins text-base text-slate-300',
+    S: 'font-poppins font-semibold text-xs text-current',
+    M: 'font-poppins font-semibold text-base text-slate-600',
+    L: 'font-poppins font-semibold text-xl text-slate-600',
+    XL: 'font-poppins font-semibold text-2xl text-slate-600',
+    Placeholder: 'font-poppins font-medium text-base text-slate-300',
 }
 
 export const Label: FC<LabelProps> = ({ children, size = 'M', htmlFor }) => (
