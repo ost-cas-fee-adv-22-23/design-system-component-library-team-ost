@@ -8,9 +8,9 @@ export type LabelProps = {
 
 const classMap = {
     S: 'font-poppins font-semibold text-xs text-current',
-    M: 'font-poppins font-semibold text-base text-slate-600',
-    L: 'font-poppins font-semibold text-xl text-slate-600',
-    XL: 'font-poppins font-semibold text-2xl text-slate-600',
+    M: 'font-poppins font-semibold text-base text-current',
+    L: 'font-poppins font-semibold text-xl text-current',
+    XL: 'font-poppins font-semibold text-2xl text-current',
     Placeholder: 'font-poppins font-medium text-base text-slate-300',
 }
 
