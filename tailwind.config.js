@@ -24,6 +24,7 @@ module.exports = {
           lineHeight: '30px',
           fontWeight: '600',
         }],
+        'xs': ['14px'],
       },
       spacing: {
         xxs: '4px',
