@@ -13,15 +13,19 @@ export default {
     children: {
       control: { type: 'text' },
     },
+    htmlFor: {
+      control: { type: 'text' },
+    }
   },
 } as ComponentMeta<typeof Label>;
 
-const Template: ComponentStory<typeof Label> = ({ size, children }) => <Label size={size}>{children}</Label>;
+const Template: ComponentStory<typeof Label> = ({ size, children, htmlFor }) => <Label size={size} htmlFor={htmlFor}>{children}</Label>;
 
 export const Labels = Template.bind({});
 Labels.args = {
   size: 'M',
   children: 'Label',
+  htmlFor: 'input-id'
 };
 Labels.parameters = {
   design: {
