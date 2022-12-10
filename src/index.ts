@@ -1,3 +1,3 @@
 export * from './components/button';
-export * from './components/text/heading';
-export * from './components/link/link';
+export * from './components/link/public-api';
+export * from './components/text/public-api';
