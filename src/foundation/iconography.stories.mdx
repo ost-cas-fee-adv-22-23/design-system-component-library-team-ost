@@ -1,5 +1,120 @@
-import { Meta } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Story, Meta, Title, IconGallery, IconItem } from '@storybook/addon-docs';
+import { IconArrowDown } from '../assets/icon-arrow-down';
+import { IconArrowLeft } from '../assets/icon-arrow-left';
+import { IconArrowRight } from '../assets/icon-arrow-right';
+import { IconArrowUp } from '../assets/icon-arrow-up';
+import { IconCalendar } from '../assets/icon-calendar';
+import { IconCancel } from '../assets/icon-cancel';
+import { IconCheckmark } from '../assets/icon-checkmark';
+import { IconEdit } from '../assets/icon-edit';
+import { IconEye } from '../assets/icon-eye';
+import { IconFullscreen } from '../assets/icon-fullscreen';
+import { IconHeartFilled } from '../assets/icon-heart-filled';
+import { IconHeartOutline } from '../assets/icon-heart-outline';
+import { IconLocation } from '../assets/icon-location';
+import { IconLogout } from '../assets/icon-logout';
+import { IconMumble } from '../assets/icon-mumble';
+import { IconProfile } from '../assets/icon-profile';
+import { IconReplyFilled } from '../assets/icon-reply-filled';
+import { IconReplyOutline } from '../assets/icon-reply-outline';
+import { IconRepost } from '../assets/icon-repost';
+import { IconSend } from '../assets/icon-send';
+import { IconSettings } from '../assets/icon-settings';
+import { IconShare } from '../assets/icon-share';
+import { IconTime } from '../assets/icon-time';
+import { IconUpload } from '../assets/icon-upload';
 
 <Meta title="Foundation/Iconography" />
 
-Iconography
+# Iconography
+
+All available icon components can be found below:
+
+<IconGallery>
+    <IconItem name="IconArrowDown">
+        <IconArrowDown />
+    </IconItem>
+    <IconItem name="IconArrowLeft">
+        <IconArrowLeft />
+    </IconItem>
+    <IconItem name="IconArrowRight">
+        <IconArrowRight />
+    </IconItem>
+    <IconItem name="IconArrowUp">
+        <IconArrowUp />
+    </IconItem>
+    <IconItem name="IconCalendar">
+        <IconCalendar />
+    </IconItem>
+    <IconItem name="IconCancel">
+        <IconCancel />
+    </IconItem>
+    <IconItem name="IconCheckmark">
+        <IconCheckmark />
+    </IconItem>
+    <IconItem name="IconEdit">
+        <IconEdit />
+    </IconItem>
+    <IconItem name="IconEye">
+        <IconEye />
+    </IconItem>
+    <IconItem name="IconFullscreen">
+        <IconFullscreen />
+    </IconItem>
+    <IconItem name="IconHeartFilled">
+        <IconHeartFilled />
+    </IconItem>
+    <IconItem name="IconHeartOutline">
+        <IconHeartOutline  />
+    </IconItem>
+    <IconItem name="IconLocation">
+        <IconLocation />
+    </IconItem>
+    <IconItem name="IconLogout">
+        <IconLogout />
+    </IconItem>
+    <IconItem name="IconMumble">
+        <IconMumble />
+    </IconItem>
+    <IconItem name="IconProfile">
+        <IconProfile />
+    </IconItem>
+    <IconItem name="IconReplyFilled">
+        <IconReplyFilled />
+    </IconItem>
+    <IconItem name="IconReplyOutline">
+        <IconReplyOutline />
+    </IconItem>
+    <IconItem name="IconRepost">
+        <IconRepost />
+    </IconItem>
+    <IconItem name="IconSend">
+        <IconSend />
+    </IconItem>
+    <IconItem name="IconSettings">
+        <IconSettings />
+    </IconItem>
+    <IconItem name="IconShare">
+        <IconShare />
+    </IconItem>
+    <IconItem name="IconTime">
+        <IconTime />
+    </IconItem>
+    <IconItem name="IconUpload">
+        <IconUpload />
+    </IconItem>
+</IconGallery>
+
+## Usage
+Each icon is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component [here](/story/components-icon--icon).
+
+The color of the icon refers to the current text color of the element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+
+Size...
+
+
+<Canvas withSource="open" withToolbar>
+    <Story id="components-icon--icon" />
+</Canvas>
+
+<ArgsTable of={IconMumble} />
