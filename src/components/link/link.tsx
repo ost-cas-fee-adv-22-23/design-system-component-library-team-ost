@@ -3,6 +3,7 @@ import { IconProfile } from '../../assets/icon-profile';
 import { IconTime } from '../../assets/icon-time';
 import { IconLocation } from '../../assets/icon-location';
 import { IconCalendar } from '../../assets/icon-calendar';
+import { Label } from '../text/label';
 
 export enum LinkType {
   text = 'text',
@@ -41,16 +42,14 @@ export const Link: FC<LinkProps> = ({ type, href, target = '_blank', children })
 
   /* todo ns: join durch globaler Helper ersetzen*/
   // todo ns: Kann ein Icon dynamisch geladen werden?
-  // todo ns: Label s einfügen
+  // todo ns: Cursor Pointer beim Label mitgeben
   const classes = [...linkBaseStyle, ...linkVariantStyles[type]].join(' ');
 
   return (
     <a href={href} target={target} className={classes}>
       {type !== LinkType.text && linkVariantIcons[type]}
 
-      {/* <Label> */}
-      {children}
-      {/* </Label> */}
+      <Label size="S">{children}</Label>
     </a>
   );
 };
