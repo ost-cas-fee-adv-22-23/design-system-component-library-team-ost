@@ -52,8 +52,14 @@ module.exports = {
         'gradient-30-70': 'linear-gradient(90deg, var(--tw-gradient-from) -12.56%, var(--tw-gradient-to) 62.92%);',
         'gradient-20-80': 'linear-gradient(90deg, var(--tw-gradient-from) -15.33%, var(--tw-gradient-to) 38.87%);',
       },
+      cursor: {
+        inherit: 'inherit'
+      },
       outlineWidth: {
         3: '3px',
+      },
+      transitionDuration: {
+        350: '350ms',
       },
     },
   },

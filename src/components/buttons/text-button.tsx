@@ -21,11 +21,10 @@ export type TextButtonProps = {
 };
 
 export const TextButton: FC<TextButtonProps> = ({ color, size, text, onClick, children }) => {
-  const textButtonBaseStyle = ['flex items-center rounded-lg text-white border-0'];
+  const textButtonBaseStyle = [
+    'flex items-center rounded-lg text-white border-0 transition-all ease-in-out duration-350 active:duration-300',
+  ];
 
-  // todo: outline focus keyboard style
-  // todo: outline offset global definieren?
-  // todo: animationen
   const textButtonColorStyles = {
     slate: [
       'bg-slate-600',
@@ -72,7 +71,6 @@ export const TextButton: FC<TextButtonProps> = ({ color, size, text, onClick, ch
 
   const classes = [...textButtonBaseStyle, ...textButtonColorStyles[color], ...textButtonSizeStyles[size]].join(' ');
   // todo: icon dynamisch setzen oder von aussen als children mitgeben?
-  // todo: cursor pointer bei label setzen
   return (
     <button className={classes} onClick={onClick}>
       <Label size="M">{text}</Label>
