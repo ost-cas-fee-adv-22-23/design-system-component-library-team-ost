@@ -16,7 +16,11 @@ export default {
   },
 } as ComponentMeta<typeof Paragraph>;
 
-const Template: ComponentStory<typeof Paragraph> = ({ size, children }) => <div className='text-slate-600'><Paragraph size={size}>{children}</Paragraph></div>;
+const Template: ComponentStory<typeof Paragraph> = ({ size, children }) => (
+  <div className="text-slate-600">
+    <Paragraph size={size}>{children}</Paragraph>
+  </div>
+);
 
 export const Paragraphs = Template.bind({});
 Paragraphs.args = {
