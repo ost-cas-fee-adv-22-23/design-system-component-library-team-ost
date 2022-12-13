@@ -3,7 +3,7 @@ import { IconProps } from './icon-props';
 
 export const IconMumble: FC<IconProps> = ({ size = '16' }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_420_58)">
+    <g clipPath="url(#clip0_420_58)">
       <path
         d="M9.79291 10H6.20709C5.76166 10 5.53857 10.5386 5.85357 10.8535L7.64642 12.6464C7.84173 12.8417 8.15826 12.8417 8.35357 12.6464L10.1464 10.8535C10.4614 10.5386 10.2383 10 9.79291 10Z"
         fill="currentColor"

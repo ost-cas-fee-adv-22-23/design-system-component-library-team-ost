@@ -1,4 +1,3 @@
 export * from './components/button';
-export * from './components/text/heading';
-export * from './components/text/label';
-export * from './components/text/paragraph';
+export * from './components/link/public-api';
+export * from './components/text/public-api';
