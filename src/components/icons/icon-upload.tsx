@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { IconProps } from './icon-props';
+import { IconProps, IconSizes } from './icon-props';
 
-export const IconUpload: FC<IconProps> = ({ size = '16' }) => (
+export const IconUpload: FC<IconProps> = ({ size = IconSizes.m }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M14 10C13.7348 10 13.4804 10.1054 13.2929 10.2929C13.1054 10.4805 13 10.7348 13 11V13H3V11C3 10.7348 2.89464 10.4805 2.70711 10.2929C2.51957 10.1054 2.26522 10 2 10C1.73478 10 1.48043 10.1054 1.29289 10.2929C1.10536 10.4805 1 10.7348 1 11V13C1 13.5305 1.21071 14.0392 1.58579 14.4142C1.96086 14.7893 2.46957 15 3 15H13C13.5304 15 14.0391 14.7893 14.4142 14.4142C14.7893 14.0392 15 13.5305 15 13V11C15 10.7348 14.8946 10.4805 14.7071 10.2929C14.5196 10.1054 14.2652 10 14 10Z"

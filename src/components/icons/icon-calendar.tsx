@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { IconProps } from './icon-props';
+import { IconProps, IconSizes } from './icon-props';
 
-export const IconCalendar: FC<IconProps> = ({ size = '16' }) => (
+export const IconCalendar: FC<IconProps> = ({ size = IconSizes.m }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_478_1455)">
       <path

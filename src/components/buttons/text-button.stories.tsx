@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory, Story } from '@storybook/react';
 import React, { FC } from 'react';
-import { IconMumble } from '../../assets/icon-mumble';
+import { IconMumble } from '../icons/icon-mumble';
 import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonProps, TextButtonSizes } from './text-button';
+
 
 export default {
   title: 'Components/Buttons/TextButton',

@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { IconMumble } from '../../assets/icon-mumble';
+import { IconMumble } from '../icons/icon-mumble';
 import { IconButton, IconButtonColors, IconButtonSizes } from './icon-button';
 
 export default {
