@@ -27,8 +27,8 @@
     "storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && start-storybook -p 6006",
     "format:check": "prettier --check src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
-    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json}"
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
