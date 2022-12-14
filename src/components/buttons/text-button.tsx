@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Label } from '../text/label';
+import { Label, LabelSizes } from '../text/label';
 
 export enum TextButtonColors {
   slate = 'slate',
@@ -73,7 +73,7 @@ export const TextButton: FC<TextButtonProps> = ({ color, size, text, onClick, ch
   // todo: icon dynamisch setzen oder von aussen als children mitgeben?
   return (
     <button className={classes} onClick={onClick}>
-      <Label size="M">{text}</Label>
+      <Label size={LabelSizes.m}>{text}</Label>
       {children}
     </button>
   );

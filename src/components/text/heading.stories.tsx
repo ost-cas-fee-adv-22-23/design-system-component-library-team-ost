@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Heading } from './heading';
+import { Heading, HeadingSizes } from './heading';
 
 export default {
-  title: 'Foundation/Typography',
+  title: 'Components/Typography',
   component: Heading,
   argTypes: {
     headingLevel: {
-      options: ['h1', 'h2', 'h3', 'h4'],
+      options: HeadingSizes,
       control: { type: 'select' },
     },
     children: {
@@ -16,11 +16,11 @@ export default {
   },
 } as ComponentMeta<typeof Heading>;
 
-const Template: ComponentStory<typeof Heading> = (args) => <Heading {...args}>Überschrift</Heading>;
+const Template: ComponentStory<typeof Heading> = ({ headingLevel, children }) => <div style={{ color: '#475569' }}><Heading headingLevel={headingLevel}>{children}</Heading></div>;
 
 export const Headings = Template.bind({});
 Headings.args = {
-  headingLevel: 'h1',
+  headingLevel: HeadingSizes.h1,
   children: 'Überschrift',
 };
 Headings.parameters = {

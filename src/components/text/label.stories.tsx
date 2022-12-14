@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Label } from './label';
+import { Label, LabelSizes } from './label';
 
 export default {
-  title: 'Foundation/Typography',
+  title: 'Components/Typography',
   component: Label,
   argTypes: {
     size: {
-      options: ['S', 'M', 'L', 'XL', 'Placeholder'],
+      options: LabelSizes,
       control: { type: 'select' },
     },
     children: {
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof Label> = ({ size, children, htmlFor }) => 
 
 export const Labels = Template.bind({});
 Labels.args = {
-  size: 'M',
+  size: LabelSizes.m,
   children: 'Label',
   htmlFor: 'input-id',
 };

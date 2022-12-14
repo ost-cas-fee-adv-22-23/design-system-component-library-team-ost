@@ -3,7 +3,7 @@ import { IconProfile } from '../../assets/icon-profile';
 import { IconTime } from '../../assets/icon-time';
 import { IconLocation } from '../../assets/icon-location';
 import { IconCalendar } from '../../assets/icon-calendar';
-import { Label } from '../text/label';
+import { Label, LabelSizes } from '../text/label';
 
 export enum LinkType {
   text = 'text',
@@ -49,7 +49,7 @@ export const Link: FC<LinkProps> = ({ type, href, target = '_blank', children })
     <a href={href} target={target} className={classes}>
       {type !== LinkType.text && linkVariantIcons[type]}
 
-      <Label size="S">{children}</Label>
+      <Label size={LabelSizes.s}>{children}</Label>
     </a>
   );
 };

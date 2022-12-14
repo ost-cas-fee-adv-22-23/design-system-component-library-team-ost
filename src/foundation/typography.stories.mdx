@@ -1,0 +1,127 @@
+import { ArgsTable, Canvas, Meta, Typeset, Story, Title } from '@storybook/addon-docs/blocks';
+import { Heading } from '../components/text/heading';
+import { Paragraph } from '../components/text/paragraph';
+import { Label } from '../components/text/label';
+
+<Meta title="Foundation/Typography" />
+
+export const typography = {
+  type: {
+    primary: '"Poppins", sans-serif',
+  },
+  weight: {
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
+  size: {
+    xs: 14,
+    sm: 16,
+    base: 18,
+    lg: 20,
+    xxl: 24,
+    xxxl: 32,
+    xxxxl: 40,
+    xxxxxl: 48,
+  },
+};
+
+export const SampleHeading = 'Heading Text';
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+export const SampleLabel = 'Labeltext';
+
+# Heading Typography
+
+**Font:** Poppins
+
+**Sizes:** 2xl(1.5rem), 3xl(2rem), 4xl(2.5rem), 5xl(3rem)
+
+**Weights:** 600(semibold), 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxxxxl),
+    Number(typography.size.xxxxl),
+    Number(typography.size.xxxl),
+    Number(typography.size.xxl),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleHeading}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The heading component can be used as H1-H4 headings. [Documentation](/story/components-typography--headings).
+
+The text color is inherited from the parent element and has to be set outside the component.
+
+<ArgsTable of={Heading} />
+
+<Canvas withSource="open">
+    <Story id="components-typography--headings" />
+</Canvas>
+
+
+
+
+# Paragraph Typography
+
+**Font:** Poppins
+
+**Sizes:** base(1.125rem), 2xl(1.5rem)
+
+**Weights:** 500(medium)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxl),
+    Number(typography.size.base),
+  ]}
+  fontWeight={typography.weight.medium}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The paragraph component can be used in two different sizes. [Documentation](/story/components-typography--paragraphs).
+
+The text color is inherited from the parent element and has to be set outside the component.
+
+<ArgsTable of={Paragraph} />
+
+<Canvas withSource="open" withToolbar>
+    <Story id="components-typography--paragraphs" />
+</Canvas>
+
+
+
+# Label Typography
+
+**Font:** Poppins
+
+**Sizes:** xs(0.875rem), sm(1rem), lg(1.25rem), 2xl(1.5rem)
+
+**Weights:** 500(medium), 600(semibold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxl),
+    Number(typography.size.lg),
+    Number(typography.size.sm),
+    Number(typography.size.xs),
+  ]}
+  fontWeight={typography.weight.semibold}
+  sampleText={SampleLabel}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The label component can be used in four different sizes. An optional for attribute can be passed. [Documentation](/story/components-typography--labels).
+
+The text color is inherited from the parent element and has to be set outside the component.
+
+<ArgsTable of={Label} />
+
+<Canvas withSource="open" withToolbar>
+    <Story id="components-typography--labels" />
+</Canvas>
