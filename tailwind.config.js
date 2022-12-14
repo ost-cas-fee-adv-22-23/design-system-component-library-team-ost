@@ -8,35 +8,27 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       fontSize: {
-        h1: [
-          '48px',
-          {
-            lineHeight: '60px',
-            fontWeight: '700',
-          },
-        ],
-        h2: [
-          '40px',
-          {
-            lineHeight: '50px',
-            fontWeight: '700',
-          },
-        ],
-        h3: [
-          '32px',
-          {
-            lineHeight: '40px',
-            fontWeight: '600',
-          },
-        ],
-        h4: [
-          '24px',
-          {
-            lineHeight: '30px',
-            fontWeight: '600',
-          },
-        ],
-        xs: ['14px'],
+        'xs': '0.875rem',
+        'sm': '1rem',
+        'base': '1.125rem',
+        'lg': '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '2rem',
+        '4xl': '2.5rem',
+        '5xl': '3rem',
+      },
+      lineHeight: {
+        none: '1',
+        tight: '1.25',
+        snug: '1.4',
+        normal: '1.45',
+        relaxed: '1.625',
+        loose: '2',
+      },
+      fontWeight: {
+        medium: '500',
+        semibold: '600',
+        bold: '700',
       },
       spacing: {
         xxs: '4px',

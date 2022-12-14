@@ -1,13 +1,13 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Paragraph } from './paragraph';
+import { Paragraph, ParagraphSizes } from './paragraph';
 
 export default {
-  title: 'Foundation/Typography',
+  title: 'Components/Typography',
   component: Paragraph,
   argTypes: {
     size: {
-      options: ['M', 'L'],
+      options: ParagraphSizes,
       control: { type: 'select' },
     },
     children: {
@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Paragraph> = ({ size, children }) => (
 
 export const Paragraphs = Template.bind({});
 Paragraphs.args = {
-  size: 'M',
+  size: ParagraphSizes.m,
   children: 'Paragraph',
 };
 Paragraphs.parameters = {
