@@ -1,8 +1,9 @@
 import { FC, ReactNode } from 'react';
-import { IconProfile } from '../../assets/icon-profile';
-import { IconTime } from '../../assets/icon-time';
-import { IconLocation } from '../../assets/icon-location';
-import { IconCalendar } from '../../assets/icon-calendar';
+import { IconProfile } from '../icons/icon-profile';
+import { IconTime } from '../icons/icon-time';
+import { IconLocation } from '../icons/icon-location';
+import { IconCalendar } from '../icons/icon-calendar';
+import { IconSizes } from '../icons/icon-props';
 import { Label, LabelSizes } from '../text/label';
 
 export enum LinkType {
@@ -34,10 +35,10 @@ export const Link: FC<LinkProps> = ({ type, href, target = '_blank', children })
   // todo: Icon Size in ein System bringen (z.B. XS-XL)
   const linkVariantIcons = {
     text: '',
-    profile: <IconProfile size="12" />,
-    timestamp: <IconTime size="12" />,
-    location: <IconLocation size="12" />,
-    joined: <IconCalendar size="12" />,
+    profile: <IconProfile size={ IconSizes.s } />,
+    timestamp: <IconTime size={ IconSizes.s } />,
+    location: <IconLocation size={ IconSizes.s } />,
+    joined: <IconCalendar size={ IconSizes.s } />,
   };
 
   /* todo ns: join durch globaler Helper ersetzen*/
