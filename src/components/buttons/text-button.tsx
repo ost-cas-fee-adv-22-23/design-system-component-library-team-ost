@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import { IconProps } from 'src/assets/icon-props';
 import { Label, LabelSizes } from '../text/label';
+import { IconProps } from '../icons/icon-props';
 import { mergeClassNames } from './../../helpers/merge-class-names';
+
 
 export enum TextButtonColors {
   slate = 'slate',
