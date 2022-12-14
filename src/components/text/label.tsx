@@ -17,7 +17,7 @@ export type LabelProps = {
 const classMap = {
     s: 'font-poppins font-semibold text-xs leading-none text-current',
     m: 'font-poppins font-semibold text-sm leading-none text-current',
-    l: 'font-poppins font-semibold text-xl leading-none text-current',
+    l: 'font-poppins font-semibold text-lg leading-none text-current',
     xl: 'font-poppins font-semibold text-2xl leading-none text-current',
     placeholder: 'font-poppins font-medium text-sm leading-none text-slate-300',
 }
