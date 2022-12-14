@@ -17,10 +17,8 @@ export default {
     },
   },
   parameters: {
+    backgrounds: { default: 'surface' },
     layout: 'centered',
-    actions: {
-      handles: ['click button'],
-    },
   },
 } as ComponentMeta<typeof IconButton>;
 
@@ -30,7 +28,7 @@ export const Slate = Template.bind({});
 Slate.args = {
   color: IconButtonColors.slate,
   size: IconButtonSizes.l,
-  children: <IconMumble />,
+  icon: <IconMumble />,
 };
 Slate.parameters = {
   design: {
@@ -39,12 +37,11 @@ Slate.parameters = {
   },
 };
 
-// todo: Diese Story sollte nicht funktionieren, da kein Icon als Children mitgegeben wird.
 export const Slate1 = Template.bind({});
 Slate1.args = {
   color: IconButtonColors.slate,
   size: IconButtonSizes.l,
-  children: 'Txt',
+  icon: 'Should not work', // IconProps weisst allerdings keine zwingenden Props auf. Warum schlägt hier der Compiler nicht an?
 };
 Slate1.parameters = {
   design: {
