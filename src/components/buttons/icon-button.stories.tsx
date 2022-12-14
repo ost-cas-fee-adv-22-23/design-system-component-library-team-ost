@@ -17,6 +17,7 @@ export default {
     },
   },
   parameters: {
+    backgrounds: { default: 'surface' },
     layout: 'centered',
     actions: {
       handles: ['click button'],

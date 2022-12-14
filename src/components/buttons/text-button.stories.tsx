@@ -7,6 +7,7 @@ export default {
   title: 'Components/Buttons/TextButton',
   component: TextButton,
   parameters: {
+    backgrounds: { default: 'surface' },
     layout: 'centered',
     actions: {
       handles: ['click button'],
