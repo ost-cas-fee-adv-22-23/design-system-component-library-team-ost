@@ -5,6 +5,10 @@ import { Share } from './share';
 export default {
   title: 'Components/Interaction Buttons/Share',
   component: Share,
+  parameters: {
+    backgrounds: { default: 'surface' },
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Share>;
 
 const Template: ComponentStory<typeof Share> = (args) => <Share {...args} />;

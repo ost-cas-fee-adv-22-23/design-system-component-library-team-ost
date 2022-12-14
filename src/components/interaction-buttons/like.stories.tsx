@@ -11,6 +11,10 @@ export default {
   //     control: { type: 'select' },
   //   },
   // },
+  parameters: {
+    backgrounds: { default: 'surface' },
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Like>;
 
 const Template: ComponentStory<typeof Like> = (args) => <Like {...args} />;

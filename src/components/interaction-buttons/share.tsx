@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { ShareIcon } from '../../assets/icons';
 import { interactionButtonsBaseStyle } from './base-style';
+import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export type ShareProps = {
   linkToCopy: string;
@@ -17,9 +18,10 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
           setCopied(false);
         }, 2000);
       },
-      (err) => {
-        // console.log("failed to copy", err.mesage);
-      },
+      // todo: error handling
+      // (err) => {
+      //    console.log('failed to copy', err.mesage);
+      // },
     );
   };
 
@@ -27,7 +29,7 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
   /* todo ns: text durch label m ersetzen */
   /* todo ns: transition styles */
   /* todo ns: reset timer bei erneutem Click */
-  /* todo ns: error handling */
+
   /* todo ns: background in der story setzen */
 
   const shareVariantStyles = {
@@ -35,10 +37,12 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
     active: ['bg-slate-100', 'text-slate-700'],
   };
 
-  /* todo ns: join durch globaler Helper ersetzen*/
-  const classes = copied
-    ? [...interactionButtonsBaseStyle, ...shareVariantStyles.active].join(' ')
-    : [...interactionButtonsBaseStyle, ...shareVariantStyles.default].join(' ');
+    const classes = mergeClassNames([
+      interactionButtonsBaseStyle,
+      copied ? shareVariantStyles.active : shareVariantStyles.default,
+    ]);
+
+
   return (
     <button className={classes} onClick={copyToClipboard}>
       <ShareIcon />

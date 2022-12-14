@@ -5,6 +5,10 @@ import { Reply } from './reply';
 export default {
   title: 'Components/Interaction Buttons/Reply',
   component: Reply,
+  parameters: {
+    backgrounds: { default: 'surface' },
+    layout: 'centered',
+  },
 } as ComponentMeta<typeof Reply>;
 
 const Template: ComponentStory<typeof Reply> = (args) => <Reply {...args} />;
