@@ -35,10 +35,10 @@ export const Link: FC<LinkProps> = ({ type, href, target = '_blank', children })
   // todo: Icon Size in ein System bringen (z.B. XS-XL)
   const linkVariantIcons = {
     text: '',
-    profile: <IconProfile size={ IconSizes.s } />,
-    timestamp: <IconTime size={ IconSizes.s } />,
-    location: <IconLocation size={ IconSizes.s } />,
-    joined: <IconCalendar size={ IconSizes.s } />,
+    profile: <IconProfile size={IconSizes.s} />,
+    timestamp: <IconTime size={IconSizes.s} />,
+    location: <IconLocation size={IconSizes.s} />,
+    joined: <IconCalendar size={IconSizes.s} />,
   };
 
   /* todo ns: join durch globaler Helper ersetzen*/

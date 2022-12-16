@@ -11,9 +11,7 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
   children: ReactNode;
 }
 
-const baseStyles = [
-  'font-'
-]
+const baseStyles = ['font-'];
 
 const classMap = {
   h1: 'font-poppins text-current text-5xl leading-tight font-bold',
