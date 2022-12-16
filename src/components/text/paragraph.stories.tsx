@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta, Story } from '@storybook/react';
 import { Paragraph, ParagraphSizes } from './paragraph';
 
 export default {
