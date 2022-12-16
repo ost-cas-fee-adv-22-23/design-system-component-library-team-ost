@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory, Story } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { FC } from 'react';
 import { IconMumble } from '../icons/icon-mumble';
 import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonProps, TextButtonSizes } from './text-button';
