@@ -1,28 +1,21 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Like } from './like';
+import { Share } from './share';
 
 export default {
-  title: 'Components/Interaction Buttons/Like',
-  component: Like,
-  // argTypes: {
-  //   type: {
-  //     options: ['primary', 'secondary'],
-  //     control: { type: 'select' },
-  //   },
-  // },
+  title: 'Components/Buttons/Interaction Buttons/Share',
+  component: Share,
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
   },
-} as ComponentMeta<typeof Like>;
+} as ComponentMeta<typeof Share>;
 
-const Template: ComponentStory<typeof Like> = (args) => <Like {...args} />;
+const Template: ComponentStory<typeof Share> = (args) => <Share {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  likesCount: 0,
-  withReaction: true,
+  linkToCopy: 'https://www.fcsg.ch/',
 };
 Default.parameters = {
   design: {

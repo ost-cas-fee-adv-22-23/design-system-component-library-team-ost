@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
-import { ShareIcon } from '../../assets/icons';
+import { IconShare } from '../../icons/icon-share';
 import { interactionButtonsBaseStyle } from './base-style';
-import { mergeClassNames } from './../../helpers/merge-class-names';
+import { mergeClassNames } from '../../../helpers/merge-class-names';
+import { Label, LabelSizes } from '../../text/label';
 
 export type ShareProps = {
   linkToCopy: string;
@@ -16,7 +17,7 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
         setCopied(true);
         setTimeout(() => {
           setCopied(false);
-        }, 2000);
+        }, 1000);
       },
       // todo: error handling
       // (err) => {
@@ -25,28 +26,18 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
     );
   };
 
-  /* todo ns: padding nicht gemäss design system */
-  /* todo ns: text durch label m ersetzen */
-  /* todo ns: transition styles */
-  /* todo ns: reset timer bei erneutem Click */
-
-  /* todo ns: background in der story setzen */
-
+  /* todo: transition styles */
   const shareVariantStyles = {
     default: ['hover:bg-slate-100', 'hover:text-slate-600'],
-    active: ['bg-slate-100', 'text-slate-700'],
+    active: ['bg-slate-100', 'text-slate-700', 'pointer-events-none'],
   };
 
-    const classes = mergeClassNames([
-      interactionButtonsBaseStyle,
-      copied ? shareVariantStyles.active : shareVariantStyles.default,
-    ]);
-
+  const classes = mergeClassNames([interactionButtonsBaseStyle, copied ? shareVariantStyles.active : shareVariantStyles.default]);
 
   return (
     <button className={classes} onClick={copyToClipboard}>
-      <ShareIcon />
-      <span>{copied ? 'Link copied' : 'Copy Link'}</span>
+      <IconShare />
+      <Label size={LabelSizes.m}>{copied ? 'Link copied' : 'Copy Link'}</Label>
     </button>
   );
 };
