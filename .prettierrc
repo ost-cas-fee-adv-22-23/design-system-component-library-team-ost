@@ -1,9 +1,1 @@
-{
-  "semi": true,
-  "tabWidth": 2,
-  "printWidth": 140,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "bracketSameLine": true,
-  "bracketSpacing": true
-}
+"@smartive/prettier-config"
