@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { IconProps } from '../icons/icon-props';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
-
 export enum IconButtonColors {
   slate = 'slate',
 }
