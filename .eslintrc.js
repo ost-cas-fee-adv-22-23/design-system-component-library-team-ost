@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@smartive/eslint-config'],
+  extends: ['@smartive/eslint-config/react'],
 };
