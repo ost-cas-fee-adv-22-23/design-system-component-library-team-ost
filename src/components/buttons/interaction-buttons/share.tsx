@@ -18,7 +18,7 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
         setTimeout(() => {
           setCopied(false);
         }, 1000);
-      },
+      }
       // todo: error handling
       // (err) => {
       //    console.log('failed to copy', err.mesage);
@@ -32,7 +32,10 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
     active: ['bg-slate-100', 'text-slate-700', 'pointer-events-none'],
   };
 
-  const classes = mergeClassNames([interactionButtonsBaseStyle, copied ? shareVariantStyles.active : shareVariantStyles.default]);
+  const classes = mergeClassNames([
+    interactionButtonsBaseStyle,
+    copied ? shareVariantStyles.active : shareVariantStyles.default,
+  ]);
 
   return (
     <button className={classes} onClick={copyToClipboard}>

@@ -58,7 +58,8 @@ export const Like: FC<LikeProps> = ({ likesCount, withReaction, onClick }) => {
       onClick={() => {
         onClick();
         clickOnReactionButton();
-      }}>
+      }}
+    >
       {withReactionState ? (
         <span className="text-pink-600">
           <IconHeartFilled />

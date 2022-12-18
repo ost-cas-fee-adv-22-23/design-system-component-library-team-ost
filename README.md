@@ -11,6 +11,7 @@ To install the project run:
 `npm install` or `npm ci`
 
 This installs:
+
 - storybook
 - tailwindcss
 - Typescript
@@ -19,9 +20,10 @@ This installs:
 - husky, lint-staged as precommit hooks for linting/prettifying staged files
 
 ## Run Project
+
 The local server runs on port 6006. All components with a stories file are compiled to the storybook collection:
 `npm run storybook` starts local server: http://localhost:6006/
-`npm run build-storybook` publishes the storybook to the dist folder  
+`npm run build-storybook` publishes the storybook to the dist folder
 
 ## Deployment
 
