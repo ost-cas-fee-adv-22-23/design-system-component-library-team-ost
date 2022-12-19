@@ -1,7 +1,82 @@
-import { Meta } from '@storybook/addon-docs';
+import { ArgsTable, Canvas, Story, Meta, Title, IconGallery, IconItem } from '@storybook/addon-docs';
+import { MumbleViolet } from '../components/logos/mumble-violet';
+import { MumbleVioletHorizontal } from '../components/logos/mumble-violet-horizontal';
+import { MumbleWhite } from '../components/logos/mumble-white';
+import { MumbleWhiteHorizontal } from '../components/logos/mumble-white-horizontal';
+import { MumbleGradient } from '../components/logos/mumble-gradient';
+import { MumbleGradientHorizontal } from '../components/logos/mumble-gradient-horizontal';
+import { MumbleAppIconGradient } from '../components/logos/mumble-app-icon-gradient';
+import { MumbleAppIconWhite } from '../components/logos/mumble-app-icon-white';
+import { MumbleFavicon } from '../components/logos/mumble-favicon';
 
 <Meta title="Foundation/Branding" />
 
-Branding
+# Branding
 
-Logo
+All available brand components can be found below:
+
+<div className="inline-flex ">
+    <h2>Mumble Logo Variants</h2>
+    <div className="flex w-screen gap-x-6 gap-y-l flex-wrap items-start">
+        <div className="rounded-lg p-s">
+            <h3>MumbleViolet</h3>
+            <MumbleViolet />
+        </div>
+        <div className="rounded-lg p-s">
+            <h3>MumbleVioletHorizontal</h3>
+            <MumbleVioletHorizontal />
+        </div>
+    </div>
+    <div className="flex w-screen gap-x-6 gap-y-l flex-wrap items-start">
+        <div className="rounded-lg p-s">
+            <h3>MumbleWhite</h3>
+            <div className="bg-violet-600 rounded-lg p-s">
+                <MumbleWhite />
+            </div>
+        </div>
+        <div className="rounded-lg p-s">
+            <h3>MumbleWhiteHorizontal</h3>
+            <div className="bg-violet-600 rounded-lg p-s">
+                <MumbleWhiteHorizontal />
+            </div>
+        </div>
+    </div>
+    <div className="flex w-screen gap-x-6 gap-y-l flex-wrap items-start">
+        <div className="rounded-lg p-s">
+            <h3>MumbleGradient</h3>
+            <MumbleGradient />
+        </div>
+        <div className="rounded-lg p-s">
+            <h3>MumbleGradientHorizontal</h3>
+            <MumbleGradientHorizontal />
+        </div>
+    </div>
+    
+    <h2>App Icons</h2>
+    <div className="flex w-screen gap-x-l gap-y-l flex-wrap items-start">
+         <div className="rounded-lg p-s">
+            <h3>MumbleAppIconGradient</h3>
+            <MumbleAppIconGradient />
+        </div>
+         <div className="rounded-lg p-s">
+            <h3>MumbleAppIconWhite</h3>
+            <div className="bg-violet-600 rounded-lg p-s">
+                <MumbleAppIconWhite />
+            </div>
+        </div>
+         <div className="rounded-lg p-s">
+            <h3>MumbleFavicon</h3>
+            <MumbleFavicon />
+        </div>
+      
+    </div>
+  </div>
+
+## Usage
+Each logo is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component [here](/story/components-logo--logos).
+
+
+
+<Canvas withSource="open" withToolbar>
+    <Story id="components-logo--logos" />
+</Canvas>
