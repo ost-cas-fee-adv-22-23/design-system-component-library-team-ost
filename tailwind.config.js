@@ -1,9 +1,8 @@
-const colors = require('tailwindcss/colors')
-
+const colors = require('tailwindcss/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js, jsx, ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
       current: 'currentColor',
@@ -71,10 +70,10 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       fontSize: {
-        'xs': '0.875rem',
-        'sm': '1rem',
-        'base': '1.125rem',
-        'lg': '1.25rem',
+        xs: '0.875rem',
+        sm: '1rem',
+        base: '1.125rem',
+        lg: '1.25rem',
         '2xl': '1.5rem',
         '3xl': '2rem',
         '4xl': '2.5rem',
@@ -108,7 +107,7 @@ module.exports = {
         'gradient-20-80': 'linear-gradient(90deg, var(--tw-gradient-from) -15.33%, var(--tw-gradient-to) 38.87%);',
       },
       cursor: {
-        inherit: 'inherit'
+        inherit: 'inherit',
       },
       outlineWidth: {
         3: '3px',
