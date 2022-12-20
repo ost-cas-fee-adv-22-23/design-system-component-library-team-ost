@@ -20,7 +20,7 @@ export default {
 
 // todo: dynamisch das Icon in der Story auswählen
 const Template: ComponentStory<typeof IconMumble> = ({ size }) => (
-  <div style={{ color: "#475569" }}>
+  <div style={{ color: '#475569' }}>
     <IconMumble size={size} />
   </div>
 );

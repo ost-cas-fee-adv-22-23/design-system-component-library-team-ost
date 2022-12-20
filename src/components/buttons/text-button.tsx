@@ -1,5 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { Label, LabelSizes } from '../text/label';
+import { IconProps } from '../icons/icon-props';
+import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum TextButtonColors {
   slate = 'slate',
@@ -12,17 +14,32 @@ export enum TextButtonSizes {
   l = 'l',
 }
 
+export enum TextButtonDisplayModes {
+  inline = 'inline',
+  fullWidth = 'fullWidth',
+}
+
 export type TextButtonProps = {
   color: TextButtonColors;
   size: TextButtonSizes;
-  text: string;
+  displayMode: TextButtonDisplayModes;
+  icon?: FC<IconProps>;
   onClick: () => void;
-  children: ReactNode; // todo: können ReactNodes typisiert werden. Kann sichergestellt werden, dass nur Icons als Children reingereicht werden?
+  children: string;
 };
 
-export const TextButton: FC<TextButtonProps> = ({ color, size, text, onClick, children }) => {
+export const TextButton: FC<TextButtonProps> = ({ color, size, displayMode, icon, onClick, children }) => {
   const textButtonBaseStyle = [
-    'flex items-center rounded-lg text-white border-0 transition-all ease-in-out duration-350 active:duration-300',
+    'flex',
+    'items-center',
+    'justify-center',
+    'rounded-lg',
+    'text-white',
+    'border-0',
+    'transition-all',
+    'ease-in-out',
+    'duration-350',
+    'active:duration-300',
   ];
 
   const textButtonColorStyles = {
@@ -63,18 +80,30 @@ export const TextButton: FC<TextButtonProps> = ({ color, size, text, onClick, ch
     ],
   };
 
-  // todo: 12px=p-3 passen nicht ins designsystem. Daher wurde p-xs=8px gewählt
+  const textButtonDisplayModeStyles = {
+    inline: [],
+    fullWidth: ['w-full'],
+  };
+
+  // Bei der Grösse M ist gemäss Figma Style-Definition ein Padding von 12px vorgesehen, bei der Grösse L ein gap von 12px. Da unser Design System keine Spacing Definition für 12px aufweist, wurde jeweils bewusst 8px (xs) gewählt.
   const textButtonSizeStyles = {
     m: ['p-xs', 'gap-xs'],
     l: ['py-s', 'px-m', 'gap-xs'],
   };
 
-  const classes = [...textButtonBaseStyle, ...textButtonColorStyles[color], ...textButtonSizeStyles[size]].join(' ');
-  // todo: icon dynamisch setzen oder von aussen als children mitgeben?
+  const classes = mergeClassNames([
+    textButtonBaseStyle,
+    textButtonColorStyles[color],
+    textButtonSizeStyles[size],
+    textButtonDisplayModeStyles[displayMode],
+  ]);
+
   return (
     <button className={classes} onClick={onClick}>
-      <Label size={LabelSizes.m}>{text}</Label>
-      {children}
+      <>
+        <Label size={LabelSizes.m}>{children}</Label>
+        {icon}
+      </>
     </button>
   );
 };

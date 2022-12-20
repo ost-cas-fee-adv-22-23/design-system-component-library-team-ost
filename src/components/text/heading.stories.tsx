@@ -16,7 +16,11 @@ export default {
   },
 } as ComponentMeta<typeof Heading>;
 
-const Template: ComponentStory<typeof Heading> = ({ headingLevel, children }) => <div style={{ color: '#475569' }}><Heading headingLevel={headingLevel}>{children}</Heading></div>;
+const Template: ComponentStory<typeof Heading> = ({ headingLevel, children }) => (
+  <div style={{ color: '#475569' }}>
+    <Heading headingLevel={headingLevel}>{children}</Heading>
+  </div>
+);
 
 export const Headings = Template.bind({});
 Headings.args = {

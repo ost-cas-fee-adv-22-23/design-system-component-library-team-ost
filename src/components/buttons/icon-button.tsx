@@ -1,4 +1,6 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
+import { IconProps } from '../icons/icon-props';
+import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum IconButtonColors {
   slate = 'slate',
@@ -11,16 +13,24 @@ export enum IconButtonSizes {
 export type IconButtonProps = {
   color: IconButtonColors;
   size: IconButtonSizes;
+  icon: FC<IconProps>;
   onClick: () => void;
-  children: ReactNode; // todo: können ReactNodes typisiert werden. Kann sichergestellt werden, dass nur Icons als Children reingereicht werden? FC<IconProps>; IconProps, weisst allerdings nur ein Prop size auf, welches optional ist. Best Practise?
 };
 
-export const IconButton: FC<IconButtonProps> = ({ onClick, children }) => {
+export const IconButton: FC<IconButtonProps> = ({ onClick, icon }) => {
   const color: IconButtonColors = IconButtonColors.slate;
   const size: IconButtonSizes = IconButtonSizes.l;
 
   const iconButtonBaseStyle = [
-    'flex items-center rounded-full text-white border-0 transition-all ease-in-out duration-350 active:duration-300',
+    'flex',
+    'items-center',
+    'rounded-full',
+    'text-white',
+    'border-0',
+    'transition-all',
+    'ease-in-out',
+    'duration-350',
+    'active:duration-300',
   ];
 
   const iconButtonColorStyles = {
@@ -41,11 +51,10 @@ export const IconButton: FC<IconButtonProps> = ({ onClick, children }) => {
     l: ['p-s'],
   };
 
-  const classes = [...iconButtonBaseStyle, ...iconButtonColorStyles[color], ...iconButtonSizeStyles[size]].join(' ');
-  // todo: icon dynamisch setzen oder von aussen als children mitgeben?
+  const classes = mergeClassNames([iconButtonBaseStyle, iconButtonColorStyles[color], iconButtonSizeStyles[size]]);
   return (
     <button className={classes} onClick={onClick}>
-      {children}
+      <>{icon}</>
     </button>
   );
 };
