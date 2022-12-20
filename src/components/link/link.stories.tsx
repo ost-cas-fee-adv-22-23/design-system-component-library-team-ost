@@ -11,6 +11,7 @@ export default {
     },
   },
   parameters: {
+    backgrounds: { default: 'surface' },
     layout: 'centered',
     actions: {
       handles: ['click a'],
@@ -23,7 +24,7 @@ const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
 export const Text = Template.bind({});
 Text.args = {
   type: LinkType.text,
-  href: 'myLink',
+  href: '#',
   target: '_blank',
   children: 'Link Label',
 };
@@ -37,7 +38,7 @@ Text.parameters = {
 export const Profile = Template.bind({});
 Profile.args = {
   type: LinkType.profile,
-  href: 'myLink',
+  href: '#',
   target: '_blank',
   children: 'Username',
 };
@@ -51,7 +52,7 @@ Profile.parameters = {
 export const Joined = Template.bind({});
 Joined.args = {
   type: LinkType.joined,
-  href: 'myLink',
+  href: '#',
   target: '_blank',
   children: 'Joined',
 };
@@ -65,7 +66,7 @@ Joined.parameters = {
 export const Location = Template.bind({});
 Location.args = {
   type: LinkType.location,
-  href: 'myLink',
+  href: '#',
   target: '_blank',
   children: 'Location',
 };
@@ -79,7 +80,7 @@ Location.parameters = {
 export const Timestamp = Template.bind({});
 Timestamp.args = {
   type: LinkType.timestamp,
-  href: 'myLink',
+  href: '#',
   target: '_blank',
   children: 'Timestamp',
 };
