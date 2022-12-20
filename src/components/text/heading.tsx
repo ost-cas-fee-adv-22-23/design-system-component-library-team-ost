@@ -21,5 +21,6 @@ const classMap = {
 export const Heading = ({ headingLevel = HeadingSizes.h1, children }: HeadingProps) => {
   const HeadingElement = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => createElement(headingLevel, props, children);
 
+  // eslint-disable-next-line react/forbid-component-props -- HeadingElement is a html element and not a component.
   return <HeadingElement className={classMap[headingLevel]}>{children}</HeadingElement>;
 };
