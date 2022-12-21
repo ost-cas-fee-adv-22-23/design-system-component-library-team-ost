@@ -111,6 +111,7 @@ module.exports = {
       },
       outlineWidth: {
         3: '3px',
+        6: '6px',
       },
       transitionDuration: {
         350: '350ms',
