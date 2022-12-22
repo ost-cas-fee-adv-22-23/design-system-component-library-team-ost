@@ -22,6 +22,10 @@ export type ProfilePictureProps = {
 export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdit = false, onEditClick }) => {
   const profilePictureBaseStyle = ['flex', 'items-center', 'justify-center', 'rounded-full', 'overflow-hidden'];
 
+  if (size === ProfilePictureSizes.l) {
+    profilePictureBaseStyle.push('hover:rounded-4xl');
+  }
+
   const profilePictureSizeStyles = {
     s: ['h-10', 'w-10'],
     m: ['h-16', 'w-16', 'outline', 'outline-slate-100', 'outline-6'],
@@ -39,7 +43,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
   const profilePictureAnimationStyles = {
     s: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
     m: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    l: ['object-cover'],
+    l: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
     xl: ['object-cover'],
   };
 
