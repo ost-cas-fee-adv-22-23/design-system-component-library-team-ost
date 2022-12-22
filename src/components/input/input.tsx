@@ -18,35 +18,42 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelSize: LabelSizes;
   type: InputTypes;
   value?: string;
-  placeholder?: string;
   icon?: FC<IconProps>;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, type, value, placeholder, ...rest }) => {
+export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, type, value, icon, ...rest }) => {
   const inputId = useId();
   const errorId = useId();
   const inputBaseStyle = [
+    'text-sm text-slate-700 font-poppins medium leading-none',
+    'w-full',
+    'h-xl',
     'rounded-lg',
-    'leading-none text-slate-700',
-    'p-xxs',
+    'p-s',
     'border',
     'border-slate-200',
-    'outline-transparent',
-    'active:border-violet-600',
     'hover:border-violet-600',
+    'focus:outline-violet-600',
     'valid:border-violet-600 valid:border-2',
-    'placeholder:text-sm placeholder:text-slate-200',
+    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:medium placeholder:leading-none',
   ];
 
   const classes = mergeClassNames([inputBaseStyle]);
 
   return (
-    <div className="flex flex-col gap-xxs">
+    <div className="flex flex-col gap-xxs text-slate-700">
       <Label size={labelSize} htmlFor={inputId}>
         {label}
       </Label>
-      <input className={classes} id={inputId} type={type} value={value} placeholder={placeholder} {...rest} />
+      <div className="relative">
+        <input className={classes} id={inputId} type={type} value={value} {...rest} />
+        {icon && (
+          <span className="absolute flex items-center right-s top-0 h-full cursor-pointer">
+            <>{icon}</>
+          </span>
+        )}
+      </div>
       <p id={errorId}>The password should contain at least 18 characters</p>
     </div>
   );

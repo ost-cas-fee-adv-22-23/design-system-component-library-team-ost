@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { Input, InputTypes } from './input';
 import { LabelSizes } from '../text/label';
+import { IconMumble } from '../icons/icon-mumble';
 
 export default {
   title: 'Components/Input',
@@ -34,6 +35,7 @@ InputWithoutIcon.args = {
   type: InputTypes.text,
   required: true,
   placeholder: 'Dein Name hier',
+  icon: <IconMumble />,
 };
 InputWithoutIcon.parameters = {
   design: {
