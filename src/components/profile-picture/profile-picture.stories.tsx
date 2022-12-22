@@ -5,6 +5,7 @@ import { ProfilePicture, ProfilePictureSizes } from './profile-picture';
 export default {
   title: 'Components/ProfilePicture',
   component: ProfilePicture,
+  argTypes: { canEdit: { control: 'boolean' } },
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
