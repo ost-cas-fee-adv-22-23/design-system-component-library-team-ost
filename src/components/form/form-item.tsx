@@ -11,15 +11,15 @@ export type FormItemProps = {
 
 export const FormItem: FC<FormItemProps> = ({ label, labelSize = LabelSizes.m, id, children, errorMessage }) => {
   return (
-    <div className="flex flex-col gap-xxs text-slate-700">
+    <div className="relative flex flex-col gap-xxs text-slate-700 cursor-default">
       <Label size={labelSize} htmlFor={id}>
         {label}
       </Label>
       {children}
       {/* Errormessage is not defined in the design system. Font size xs (14px) from design system was choosen, as 12px doesn't exist. */}
-      {errorMessage ? (
+      {errorMessage && (
         <span className="text-red-600 font-poppins font-medium text-xs leading-none text-right">{errorMessage}</span>
-      ) : null}
+      )}
     </div>
   );
 };

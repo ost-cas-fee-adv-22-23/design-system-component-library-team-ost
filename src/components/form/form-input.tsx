@@ -1,8 +1,8 @@
-import React, { ChangeEvent, FC, InputHTMLAttributes, useId } from 'react';
+import React, { ChangeEvent, FC, InputHTMLAttributes, ReactNode, useId } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { LabelSizes } from '../text/label';
 import { FormItem } from './form-item';
-import { IconProps } from '../icons/icon-props';
+import { IconCancel } from '../icons/icon-cancel';
 
 export enum InputTypes {
   text = 'text',
@@ -19,38 +19,40 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   type: InputTypes;
   value: string;
-  icon?: FC<IconProps>;
-  required: boolean;
+  icon?: ReactNode;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMessage, type, value, icon, ...rest }) => {
   const inputId = useId();
   const inputBaseStyle = [
-    'text-sm text-slate-700 font-poppins medium leading-none',
-    'w-full',
-    'h-xl',
-    'rounded-lg',
-    'p-s',
-    'border',
-    'hover:border-violet-600',
-    'focus:outline-violet-600',
-    'valid:border-violet-600 valid:border-2',
-    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:medium placeholder:leading-none',
+    'text-sm text-slate-700 font-poppins font-medium leading-none',
+    'w-full h-xl z-20',
+    'rounded-lg p-s bg-slate-50',
+    'focus:outline-violet-600 focus:outline-2',
+    'valid:outline-violet-600 valid:outline-2',
+    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:font-medium placeholder:leading-none',
   ];
-
-  errorMessage ? inputBaseStyle.push('border-red-500') : inputBaseStyle.push('border-slate-200');
-
   const inputClasses = mergeClassNames([inputBaseStyle]);
+
+  const inputWrapperStyle = ['relative border border-slate-200 rounded-lg hover:border-violet-600'];
+  errorMessage ? inputWrapperStyle.push(' border-red-600') : inputWrapperStyle.push(' border-slate-200');
+  const inputWrapperClasses = mergeClassNames([inputWrapperStyle]);
 
   return (
     <FormItem label={label} labelSize={labelSize} id={inputId} errorMessage={errorMessage}>
-      <div className="relative">
+      <div className={inputWrapperClasses}>
         <input className={inputClasses} id={inputId} type={type} value={value} {...rest} />
-        {icon && (
-          <span className="absolute flex items-center right-s top-0 h-full cursor-pointer">
-            <>{icon}</>
+        {errorMessage ? (
+          <span className="absolute flex items-center right-s top-0 h-full text-red-600 z-10">
+            <IconCancel />
           </span>
+        ) : (
+          icon && (
+            <span className="absolute flex items-center right-s top-0 h-full z-10">
+              <>{icon}</>
+            </span>
+          )
         )}
       </div>
     </FormItem>
