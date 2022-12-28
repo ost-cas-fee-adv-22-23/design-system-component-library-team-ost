@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { IconProps } from '../icons/icon-props';
+import React, { FC, ReactNode } from 'react';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum IconButtonColors {
@@ -11,16 +10,18 @@ export enum IconButtonSizes {
 }
 
 export type IconButtonProps = {
-  color: IconButtonColors;
-  size: IconButtonSizes;
-  icon: FC<IconProps>;
+  color?: IconButtonColors;
+  size?: IconButtonSizes;
+  icon: ReactNode;
   onClick: () => void;
 };
 
-export const IconButton: FC<IconButtonProps> = ({ onClick, icon }) => {
-  const color: IconButtonColors = IconButtonColors.slate;
-  const size: IconButtonSizes = IconButtonSizes.l;
-
+export const IconButton: FC<IconButtonProps> = ({
+  color = IconButtonColors.slate,
+  size = IconButtonSizes.l,
+  onClick,
+  icon,
+}) => {
   const iconButtonBaseStyle = [
     'flex',
     'items-center',

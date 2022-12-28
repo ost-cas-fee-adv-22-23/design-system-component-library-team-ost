@@ -4,6 +4,7 @@ import { customViewports } from './viewports';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
+    hideNoControlsWarning: true,
     matchers: {
       color: /(background|color)$/i,
       date: /Date$/,
@@ -31,7 +32,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Foundation', 'Components'],
+      order: ['Introduction', 'Foundation', 'Components', 'Layouts'],
     },
   },
 };
