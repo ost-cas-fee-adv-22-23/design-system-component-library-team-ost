@@ -4,5 +4,6 @@ export * from './components/text/public-api';
 export * from './components/icons/public-api';
 export * from './components/logos/public-api';
 export * from './components/profile-picture/public-api';
+export * from './components/user/public-api';
 export * from './layout/navigation/public-api';
 export * from './layout/page-header/public-api';
