@@ -16,7 +16,7 @@ export type ProfilePictureProps = {
   alt: string;
   src?: string;
   canEdit?: boolean;
-  onEditClick: () => void;
+  onEditClick?: () => void;
 };
 
 export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdit = false, onEditClick }) => {
@@ -41,9 +41,9 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
   };
 
   const profilePictureAnimationStyles = {
-    s: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    m: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    l: ['hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
+    s: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
+    m: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
+    l: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
     xl: ['object-cover'],
   };
 
@@ -65,7 +65,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
           </div>
         )}
       </div>
-      {canEdit && size === ProfilePictureSizes.xl && (
+      {canEdit && onEditClick && size === ProfilePictureSizes.xl && (
         <div className="absolute bottom-0 right-0">
           <IconButton icon={<IconEdit />} onClick={onEditClick} />
         </div>

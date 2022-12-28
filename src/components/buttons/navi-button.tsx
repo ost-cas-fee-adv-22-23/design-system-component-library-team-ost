@@ -3,9 +3,9 @@ import { Label, LabelSizes } from '../text/label';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
 export type NaviButtonProps = {
-  icon: ReactNode;
+  icon?: ReactNode;
   onClick: () => void;
-  children?: string;
+  children?: ReactNode;
 };
 
 export const NaviButton: FC<NaviButtonProps> = ({ icon, onClick, children }) => {
