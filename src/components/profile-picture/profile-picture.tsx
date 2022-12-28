@@ -65,7 +65,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
           </div>
         )}
       </div>
-      {canEdit && size === ProfilePictureSizes.xl && (
+      {canEdit && onEditClick && size === ProfilePictureSizes.xl && (
         <div className="absolute bottom-0 right-0">
           <IconButton icon={<IconEdit />} onClick={onEditClick} />
         </div>

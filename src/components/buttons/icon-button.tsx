@@ -1,5 +1,4 @@
-import React, { FC } from 'react';
-import { IconProps } from '../icons/icon-props';
+import React, { FC, ReactNode } from 'react';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum IconButtonColors {
@@ -13,7 +12,7 @@ export enum IconButtonSizes {
 export type IconButtonProps = {
   color?: IconButtonColors;
   size?: IconButtonSizes;
-  icon: FC<IconProps>;
+  icon: ReactNode;
   onClick: () => void;
 };
 
