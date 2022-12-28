@@ -41,3 +41,4 @@ Default.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
+Default.storyName = 'PageHeader';
