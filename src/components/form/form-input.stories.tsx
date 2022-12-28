@@ -33,6 +33,7 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 interface InputWithContainerWidth extends FC<InputProps> {
+  //Todo: Write containerWidth in camelCase -> Console Error.
   containerwidth: number;
 }
 
