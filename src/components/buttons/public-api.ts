@@ -6,3 +6,4 @@ export * from './interaction-buttons/like';
 export * from './navi-button';
 export * from './logout-button';
 export * from './settings-button';
+export * from './profile-picture-button';
