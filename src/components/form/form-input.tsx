@@ -27,7 +27,7 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
   const inputId = useId();
   const inputBaseStyle = [
     'text-sm text-slate-700 font-poppins font-medium leading-none',
-    'w-full h-xl z-20',
+    'w-full h-xl',
     'rounded-lg p-s bg-slate-50',
     'focus:outline-violet-600 focus:outline-2',
     'valid:outline-violet-600 valid:outline-2',
