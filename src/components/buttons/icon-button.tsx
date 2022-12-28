@@ -11,16 +11,18 @@ export enum IconButtonSizes {
 }
 
 export type IconButtonProps = {
-  color: IconButtonColors;
-  size: IconButtonSizes;
+  color?: IconButtonColors;
+  size?: IconButtonSizes;
   icon: FC<IconProps>;
   onClick: () => void;
 };
 
-export const IconButton: FC<IconButtonProps> = ({ onClick, icon }) => {
-  const color: IconButtonColors = IconButtonColors.slate;
-  const size: IconButtonSizes = IconButtonSizes.l;
-
+export const IconButton: FC<IconButtonProps> = ({
+  color = IconButtonColors.slate,
+  size = IconButtonSizes.l,
+  onClick,
+  icon,
+}) => {
   const iconButtonBaseStyle = [
     'flex',
     'items-center',
