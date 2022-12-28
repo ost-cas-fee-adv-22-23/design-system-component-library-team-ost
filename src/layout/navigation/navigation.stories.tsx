@@ -28,3 +28,4 @@ export const Default: ComponentStory<typeof Navigation> = () => (
     <LogoutButton onClick={action('onLogoutButtonClick')} />
   </Navigation>
 );
+Default.storyName = 'Navigation';

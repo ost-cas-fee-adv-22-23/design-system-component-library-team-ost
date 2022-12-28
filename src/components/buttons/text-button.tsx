@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import { Label, LabelSizes } from '../text/label';
-import { IconProps } from '../icons/icon-props';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum TextButtonColors {
@@ -22,13 +21,20 @@ export enum TextButtonDisplayModes {
 export type TextButtonProps = {
   color: TextButtonColors;
   size: TextButtonSizes;
-  displayMode: TextButtonDisplayModes;
-  icon?: FC<IconProps>;
+  displayMode?: TextButtonDisplayModes;
+  icon?: ReactElement;
   onClick: () => void;
   children: string;
 };
 
-export const TextButton: FC<TextButtonProps> = ({ color, size, displayMode, icon, onClick, children }) => {
+export const TextButton: FC<TextButtonProps> = ({
+  color,
+  size,
+  displayMode = TextButtonDisplayModes.inline,
+  icon,
+  onClick,
+  children,
+}) => {
   const textButtonBaseStyle = [
     'flex',
     'items-center',
