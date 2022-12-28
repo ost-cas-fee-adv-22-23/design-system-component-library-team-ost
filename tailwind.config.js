@@ -119,6 +119,9 @@ module.exports = {
       transitionDuration: {
         350: '350ms',
       },
+      translate: {
+        '1/8': '12.5%',
+      },
     },
   },
   plugins: [],
