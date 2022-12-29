@@ -1,40 +1,56 @@
-import React, { FC, TextareaHTMLAttributes, ReactNode, useId } from 'react';
+import React, { FC, TextareaHTMLAttributes, ChangeEvent, useId } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { LabelSizes } from '../text/label';
 import { FormItem } from './form-item';
 
 /* 
     By extending the TextareaHTMLAttributes we can pass all the HTMLTextareaElements to our component.
+
+    As the figma does not has labels for textareas, we force to set an aria-label.
+    An optional label can be set and is styled like the label for input fields.
  */
 export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string;
-  labelSize: LabelSizes;
+  label?: string;
+  labelSize?: LabelSizes;
+  ariaLabel: string;
   errorMessage?: string;
   value: string;
-  icon?: ReactNode;
+  onChange(e: ChangeEvent<HTMLTextAreaElement>): void;
 }
 
-export const Textarea: FC<TextareaProps> = ({ label, labelSize = LabelSizes.m, errorMessage, value, ...rest }) => {
+export const Textarea: FC<TextareaProps> = ({
+  label,
+  labelSize = LabelSizes.m,
+  ariaLabel,
+  errorMessage,
+  value,
+  onChange,
+  ...rest
+}) => {
   const textareaId = useId();
   const textareaBaseStyle = [
-    'text-sm text-slate-700 font-poppins font-medium leading-none',
-    'w-full h-xl',
-    'rounded-lg p-s bg-slate-50',
-    'focus:outline-violet-600 focus:outline-2',
-    'valid:outline-violet-600 valid:outline-2',
-    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:font-medium placeholder:leading-none',
+    'text-lg text-slate-900 font-poppins font-medium leading-snug',
+    'w-full resize-none',
+    'rounded-lg p-s bg-slate-100',
+    'border border-slate-200',
+    'transition-all ease-in-out',
+    'hover:border hover:border-transparent outline outline-transparent outline-2 hover:outline-slate-300',
+    'focus:outline-violet-600 focus:border-transparent focus:outline-2',
+    'placeholder:text-slate-500',
   ];
+  errorMessage ? textareaBaseStyle.push(' border-red-600') : textareaBaseStyle.push(' border-slate-200');
   const textareaClasses = mergeClassNames([textareaBaseStyle]);
-
-  const textareaWrapperStyle = ['relative border border-slate-200 rounded-lg hover:border-violet-600'];
-  errorMessage ? textareaWrapperStyle.push(' border-red-600') : textareaWrapperStyle.push(' border-slate-200');
-  const textareaWrapperClasses = mergeClassNames([textareaWrapperStyle]);
 
   return (
     <FormItem label={label} labelSize={labelSize} id={textareaId} errorMessage={errorMessage}>
-      <div className={textareaWrapperClasses}>
-        <textarea className={textareaClasses} id={textareaId} value={value} {...rest} />
-      </div>
+      <textarea
+        className={textareaClasses}
+        value={value}
+        aria-label={ariaLabel}
+        onChange={onChange}
+        id={textareaId}
+        {...rest}
+      />
     </FormItem>
   );
 };

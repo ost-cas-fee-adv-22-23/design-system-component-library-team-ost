@@ -31,11 +31,13 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
     'rounded-lg p-s bg-slate-50',
     'focus:outline-violet-600 focus:outline-2',
     'valid:outline-violet-600 valid:outline-2',
-    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:font-medium placeholder:leading-none',
+    'placeholder:text-slate-300',
   ];
   const inputClasses = mergeClassNames([inputBaseStyle]);
 
-  const inputWrapperStyle = ['relative border border-slate-200 rounded-lg hover:border-violet-600'];
+  const inputWrapperStyle = [
+    'relative border border-slate-200 rounded-lg transition-all ease-in-out hover:border-violet-600',
+  ];
   errorMessage ? inputWrapperStyle.push(' border-red-600') : inputWrapperStyle.push(' border-slate-200');
   const inputWrapperClasses = mergeClassNames([inputWrapperStyle]);
 
