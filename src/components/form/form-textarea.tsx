@@ -33,7 +33,7 @@ export const Textarea: FC<TextareaProps> = ({
     'w-full resize-none',
     'rounded-lg p-s bg-slate-100',
     'border border-slate-200',
-    'transition-all ease-in-out',
+    'transition-all ease-in-out duration-300',
     'hover:border hover:border-transparent outline outline-transparent outline-2 hover:outline-slate-300',
     'focus:outline-violet-600 focus:border-transparent focus:outline-2',
     'placeholder:text-slate-500',

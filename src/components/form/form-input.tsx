@@ -36,7 +36,7 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
   const inputClasses = mergeClassNames([inputBaseStyle]);
 
   const inputWrapperStyle = [
-    'relative border border-slate-200 rounded-lg transition-all ease-in-out hover:border-violet-600',
+    'relative border border-slate-200 rounded-lg transition-all duration-300 ease-in-out hover:border-violet-600',
   ];
   errorMessage ? inputWrapperStyle.push(' border-red-600') : inputWrapperStyle.push(' border-slate-200');
   const inputWrapperClasses = mergeClassNames([inputWrapperStyle]);
@@ -46,12 +46,12 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
       <div className={inputWrapperClasses}>
         <input className={inputClasses} id={inputId} type={type} value={value} {...rest} />
         {errorMessage ? (
-          <span className="absolute flex items-center right-s top-0 h-full text-red-600 z-10">
+          <span className="absolute flex items-center right-s top-0 h-full text-red-600">
             <IconCancel />
           </span>
         ) : (
           icon && (
-            <span className="absolute flex items-center right-s top-0 h-full z-10">
+            <span className="absolute flex items-center right-s top-0 h-full">
               <>{icon}</>
             </span>
           )
