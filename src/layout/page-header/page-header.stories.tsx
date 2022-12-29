@@ -43,6 +43,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
       </div>
       <Modal isOpen={isOpen} modalType={ModalType.settings} title="Einstellungen" onClose={() => setIsOpen(false)}>
         <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
+        {/** TODO Insert Form Component with Stack */}
         <Input
           label="Name Vorname"
           labelSize={LabelSizes.s}
