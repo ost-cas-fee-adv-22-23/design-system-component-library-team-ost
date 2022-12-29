@@ -32,7 +32,7 @@ export const Modal: FC<ModalProps> = ({ modalType = ModalType.settings, isOpen, 
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-violet-200" aria-hidden="true" />
+          <div className="fixed inset-0 bg-violet-600/20" aria-hidden="true" />
         </Transition.Child>
 
         {/* Full-screen container to center the panel */}
