@@ -3,6 +3,7 @@ export * from './components/link/public-api';
 export * from './components/text/public-api';
 export * from './components/icons/public-api';
 export * from './components/logos/public-api';
+export * from './components/modal/public-api';
 export * from './components/form/public-api';
 export * from './components/profile-picture/public-api';
 export * from './components/user/public-api';

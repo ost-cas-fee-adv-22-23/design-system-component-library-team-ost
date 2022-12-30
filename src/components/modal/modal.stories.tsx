@@ -21,28 +21,28 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   return <Modal {...args} isOpen={isOpen} onClose={() => setIsOpen(false)} />;
 };
 
-export const ModalSettings = Template.bind({});
-ModalSettings.args = {
+export const Settings = Template.bind({});
+Settings.args = {
   title: 'Einstellungen',
   isOpen: true,
   children: 'Modal Content',
   modalType: ModalType.settings,
 };
-ModalSettings.parameters = {
+Settings.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=9P4moAeAyRsJ194k-1',
   },
 };
 
-export const ModalImageUpload = Template.bind({});
-ModalImageUpload.args = {
+export const ImageUpload = Template.bind({});
+ImageUpload.args = {
   title: 'Bild hochladen',
   isOpen: true,
   children: 'Modal Content',
   modalType: ModalType.imageupload,
 };
-ModalImageUpload.parameters = {
+ImageUpload.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=9P4moAeAyRsJ194k-1',
