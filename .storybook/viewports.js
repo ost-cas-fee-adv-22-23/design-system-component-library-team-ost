@@ -1,4 +1,11 @@
 export const customViewports = {
+  mobile: {
+    name: 'mobile',
+    styles: {
+      width: '414px',
+      height: '960px',
+    },
+  },
   sm: {
     name: 'sm',
     styles: {
