@@ -27,15 +27,17 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
   const inputId = useId();
   const inputBaseStyle = [
     'text-sm text-slate-700 font-poppins font-medium leading-none',
-    'w-full h-xl z-20',
+    'w-full h-xl',
     'rounded-lg p-s bg-slate-50',
     'focus:outline-violet-600 focus:outline-2',
     'valid:outline-violet-600 valid:outline-2',
-    'placeholder:text-sm placeholder:text-slate-300 placeholder:font-poppins placeholder:font-medium placeholder:leading-none',
+    'placeholder:text-slate-300',
   ];
   const inputClasses = mergeClassNames([inputBaseStyle]);
 
-  const inputWrapperStyle = ['relative border border-slate-200 rounded-lg hover:border-violet-600'];
+  const inputWrapperStyle = [
+    'relative border border-slate-200 rounded-lg transition-all duration-300 ease-in-out hover:border-violet-600',
+  ];
   errorMessage ? inputWrapperStyle.push(' border-red-600') : inputWrapperStyle.push(' border-slate-200');
   const inputWrapperClasses = mergeClassNames([inputWrapperStyle]);
 
@@ -44,12 +46,12 @@ export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMe
       <div className={inputWrapperClasses}>
         <input className={inputClasses} id={inputId} type={type} value={value} {...rest} />
         {errorMessage ? (
-          <span className="absolute flex items-center right-s top-0 h-full text-red-600 z-10">
+          <span className="absolute flex items-center right-s top-0 h-full text-red-600">
             <IconCancel />
           </span>
         ) : (
           icon && (
-            <span className="absolute flex items-center right-s top-0 h-full z-10">
+            <span className="absolute flex items-center right-s top-0 h-full">
               <>{icon}</>
             </span>
           )
