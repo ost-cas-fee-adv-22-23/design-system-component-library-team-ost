@@ -122,6 +122,9 @@ module.exports = {
       translate: {
         '1/8': '12.5%',
       },
+      rotate: {
+        15: '15deg',
+      },
     },
   },
   plugins: [],
