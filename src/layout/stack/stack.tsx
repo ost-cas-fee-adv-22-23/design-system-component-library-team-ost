@@ -17,10 +17,28 @@ export enum StackSpacings {
   xxl = 'xxl',
 }
 
-// alignItems? justifyContent?
+export enum StackJustifyContent {
+  flexstart = 'flexstart',
+  center = 'center',
+  flexend = 'flexend',
+  spacebetween = 'spacebetween',
+  spacearound = 'spacearound',
+  spaceevenly = 'spaceevenly',
+}
+
+export enum StackAlignItems {
+  flexstart = 'flexstart',
+  center = 'center',
+  flexend = 'flexend',
+  baseline = 'baseline',
+  stretch = 'stretch',
+}
+
 export type StackProps = {
   direction?: StackDirections;
   spacing: StackSpacings;
+  justifycontent?: StackJustifyContent;
+  alignitems?: StackAlignItems;
   withDivider?: boolean;
   children: ReactNode;
 };
@@ -51,6 +69,8 @@ const printChildren = (withDivider: boolean, direction: StackDirections, childre
 export const Stack: FC<StackProps> = ({
   direction = StackDirections.row,
   spacing = StackSpacings.none,
+  justifycontent = StackJustifyContent.flexstart,
+  alignitems = StackAlignItems.flexstart,
   withDivider = false,
   children,
 }) => {
@@ -60,7 +80,21 @@ export const Stack: FC<StackProps> = ({
     row: ['flex-row'],
     col: ['flex-col'],
   };
-
+  const stackJustifyContentStyles = {
+    flexstart: ['justify-start'],
+    center: ['justify-center'],
+    flexend: ['justify-end'],
+    spacebetween: ['justify-between'],
+    spacearound: ['justify-around'],
+    spaceevenly: ['justify-evenly'],
+  };
+  const stackAlignItemsStyles = {
+    flexstart: ['items-start'],
+    center: ['items-center'],
+    flexend: ['items-end'],
+    baseline: ['items-baseline'],
+    stretch: ['items-stretch'],
+  };
   const stackSpacingsVariantStyles = {
     none: ['gap-0'],
     xxs: ['gap-xxs'],
@@ -78,6 +112,8 @@ export const Stack: FC<StackProps> = ({
         stackBaseStyle,
         stackDirectionsVariantStyles[direction],
         stackSpacingsVariantStyles[spacing],
+        stackJustifyContentStyles[justifycontent],
+        stackAlignItemsStyles[alignitems],
       ])}
     >
       {printChildren(withDivider, direction, childrenArray)}
