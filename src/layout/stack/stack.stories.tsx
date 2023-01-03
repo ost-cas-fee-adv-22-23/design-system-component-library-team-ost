@@ -3,6 +3,7 @@ import React from 'react';
 import { Stack, StackDirections, StackSpacings } from './stack';
 import { Input, InputTypes } from '../../components/form/form-input';
 import { Label, LabelSizes } from '../../components/text/label';
+import { Form } from '../../components/form/form';
 
 export default {
   title: 'Layouts/Stack',
@@ -43,7 +44,7 @@ WithDivider.args = {
 export const FormExample: ComponentStory<typeof Stack> = () => {
   return (
     <div className="text-slate-700">
-      <Stack direction={StackDirections.col} spacing={StackSpacings.s}>
+      <Form stackdir={StackDirections.col} stackspacing={StackSpacings.s}>
         <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
         <Input
           label="Name Vorname"
@@ -55,7 +56,7 @@ export const FormExample: ComponentStory<typeof Stack> = () => {
         <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
         <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
         <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-      </Stack>
+      </Form>
     </div>
   );
 };
