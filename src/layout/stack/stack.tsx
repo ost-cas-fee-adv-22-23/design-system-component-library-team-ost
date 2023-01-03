@@ -32,6 +32,7 @@ export enum StackAlignItems {
   flexend = 'flexend',
   baseline = 'baseline',
   stretch = 'stretch',
+  unset = 'unset',
 }
 
 export type StackProps = {
@@ -70,7 +71,7 @@ export const Stack: FC<StackProps> = ({
   direction = StackDirections.row,
   spacing = StackSpacings.none,
   justifycontent = StackJustifyContent.flexstart,
-  alignitems = StackAlignItems.flexstart,
+  alignitems = StackAlignItems.unset,
   withDivider = false,
   children,
 }) => {
@@ -94,6 +95,7 @@ export const Stack: FC<StackProps> = ({
     flexend: ['items-end'],
     baseline: ['items-baseline'],
     stretch: ['items-stretch'],
+    unset: ['unset'],
   };
   const stackSpacingsVariantStyles = {
     none: ['gap-0'],

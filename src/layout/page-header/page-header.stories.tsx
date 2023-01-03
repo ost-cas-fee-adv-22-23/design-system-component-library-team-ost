@@ -47,7 +47,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
       </div>
       {/* MODAL for Settings */}
       <Modal isOpen={isOpen} modalType={ModalType.settings} title="Einstellungen" onClose={() => setIsOpen(false)}>
-        <Form stackdir={StackDirections.col} stackspacing={StackSpacings.s}>
+        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
           <Input
             label="Name Vorname"
@@ -88,33 +88,33 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         title="Bild hochladen"
         onClose={() => setIsOpenImageUpload(false)}
       >
-        <Label size={LabelSizes.xl}>Bild hochladen</Label>
-        {/** TODO Insert Form Component with Stack */}
-        <Fileinput
-          title="Datei hierhin ziehen"
-          description="JPEG oder PNG, maximal 50 MB"
-          onAddFile={(file) => action(file.name)}
-        ></Fileinput>
-        <div className="flex gap-xs">
-          <TextButton
-            color={TextButtonColors.slate}
-            size={TextButtonSizes.m}
-            icon={<IconCancel />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpenImageUpload(false)}
-          >
-            Abbrechen
-          </TextButton>
-          <TextButton
-            color={TextButtonColors.violet}
-            size={TextButtonSizes.m}
-            icon={<IconCheckmark />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpenImageUpload(false)}
-          >
-            Speichern
-          </TextButton>
-        </div>
+        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+          <Fileinput
+            title="Datei hierhin ziehen"
+            description="JPEG oder PNG, maximal 50 MB"
+            onAddFile={(file) => action(file.name)}
+          ></Fileinput>
+          <div className="flex gap-xs">
+            <TextButton
+              color={TextButtonColors.slate}
+              size={TextButtonSizes.m}
+              icon={<IconCancel />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpenImageUpload(false)}
+            >
+              Abbrechen
+            </TextButton>
+            <TextButton
+              color={TextButtonColors.violet}
+              size={TextButtonSizes.m}
+              icon={<IconCheckmark />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpenImageUpload(false)}
+            >
+              Speichern
+            </TextButton>
+          </div>
+        </Form>
       </Modal>
     </PageHeader>
   );
