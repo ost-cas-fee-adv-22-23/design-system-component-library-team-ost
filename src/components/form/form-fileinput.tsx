@@ -20,16 +20,13 @@ export type FileinputProps = {
 
 export const Fileinput: FC<FileinputProps> = ({ title, description, label, labelSize, errorMessage, onAddFile }) => {
   const fileinputId = useId();
-  // ref
   const inputRef = useRef<HTMLInputElement>(null);
-  // drag state
   const [dragActive, setDragActive] = useState(false);
-  // file selected state
   const [isFileSelected, setIsFileSelected] = useState(false);
   const [currentFile, setCurrentFile] = useState('');
 
   // handle drag events
-  const handleDrag = function (e: DragEvent<HTMLInputElement>) {
+  const handleDrag = (e: DragEvent<HTMLInputElement>) => {
     e.preventDefault();
     e.stopPropagation();
     if (e.type === 'dragenter' || e.type === 'dragover') {
@@ -40,7 +37,7 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, label, label
   };
 
   // triggers when file is dropped
-  const handleDrop = function (e: DragEvent<HTMLInputElement>) {
+  const handleDrop = (e: DragEvent<HTMLInputElement>) => {
     e.preventDefault();
     e.stopPropagation();
     setDragActive(false);
@@ -52,7 +49,7 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, label, label
   };
 
   // triggers when file is selected with click
-  const handleChange = function (e: ChangeEvent<HTMLInputElement>) {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
       setCurrentFile(e.target.files?.[0].name);
@@ -84,13 +81,13 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, label, label
           <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
             {!isFileSelected ? (
               <>
-                <IconUpload size={IconSizes.m} />
+                <IconUpload size={IconSizes.l} />
                 <Label size={LabelSizes.xl}>{title}</Label>
                 <Paragraph size={ParagraphSizes.m}>{description}</Paragraph>
               </>
             ) : (
               <>
-                <IconCheckmark size={IconSizes.m} />
+                <IconCheckmark size={IconSizes.l} />
                 <Label size={LabelSizes.xl}>Datei geladen</Label>
                 <Paragraph size={ParagraphSizes.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
               </>

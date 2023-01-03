@@ -90,7 +90,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         <Fileinput
           title="Datei hierhin ziehen"
           description="JPEG oder PNG, maximal 50 MB"
-          onAddFile={(file) => console.log(file)}
+          onAddFile={(file) => action(file.name)}
         ></Fileinput>
         <div className="flex gap-xs">
           <TextButton
