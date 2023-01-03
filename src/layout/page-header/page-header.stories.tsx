@@ -9,6 +9,8 @@ import { SettingsButton } from '../../components/buttons/settings-button';
 import { LogoutButton } from '../../components/buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
 import { Label, LabelSizes } from '../../components/text/label';
+import { Form } from '../../components/form/form';
+import { StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
 import { TextButton, TextButtonColors, TextButtonSizes, TextButtonDisplayModes } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
@@ -42,38 +44,39 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         </Navigation>
       </div>
       <Modal isOpen={isOpen} modalType={ModalType.settings} title="Einstellungen" onClose={() => setIsOpen(false)}>
-        <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
-        {/** TODO Insert Form Component with Stack */}
-        <Input
-          label="Name Vorname"
-          labelSize={LabelSizes.s}
-          value="Input"
-          type={InputTypes.text}
-          errorMessage="Error-Message"
-        />
-        <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
-        <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-        <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-        <div className="flex gap-xs">
-          <TextButton
-            color={TextButtonColors.slate}
-            size={TextButtonSizes.m}
-            icon={<IconCancel />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpen(false)}
-          >
-            Abbrechen
-          </TextButton>
-          <TextButton
-            color={TextButtonColors.violet}
-            size={TextButtonSizes.m}
-            icon={<IconCheckmark />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpen(false)}
-          >
-            Speichern
-          </TextButton>
-        </div>
+        <Form stackdir={StackDirections.col} stackspacing={StackSpacings.s}>
+          <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
+          <Input
+            label="Name Vorname"
+            labelSize={LabelSizes.s}
+            value="Input"
+            type={InputTypes.text}
+            errorMessage="Error-Message"
+          />
+          <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
+          <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
+          <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
+          <div className="flex gap-xs">
+            <TextButton
+              color={TextButtonColors.slate}
+              size={TextButtonSizes.m}
+              icon={<IconCancel />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpen(false)}
+            >
+              Abbrechen
+            </TextButton>
+            <TextButton
+              color={TextButtonColors.violet}
+              size={TextButtonSizes.m}
+              icon={<IconCheckmark />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpen(false)}
+            >
+              Speichern
+            </TextButton>
+          </div>
+        </Form>
       </Modal>
     </PageHeader>
   );
