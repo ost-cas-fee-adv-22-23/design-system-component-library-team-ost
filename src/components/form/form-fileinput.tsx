@@ -9,6 +9,7 @@ import { Paragraph, ParagraphSizes } from '../text/paragraph';
 import { TextButton, TextButtonColors, TextButtonSizes } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
 
+//Todo validate filesize and filetypes
 export type FileinputProps = {
   title: string;
   description: string;
