@@ -1,6 +1,7 @@
 export * from './components/buttons/public-api';
 export * from './components/form/public-api';
 export * from './components/icons/public-api';
+export * from './components/image-container/public-api';
 export * from './components/link/public-api';
 export * from './components/logos/public-api';
 export * from './components/modal/public-api';
