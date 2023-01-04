@@ -86,24 +86,24 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, src, onClick }) =
   if (hasError === true) {
     profileBannerImageStyle.push('p-m');
   } else {
-    profileBannerImageStyle.push('scale-110', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
+    profileBannerImageStyle.push('scale-105', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
   }
-
-  // Da die Pfeile für das Fullscreen Icon gemäss Figma Definition nicht in der Iconography vorhanden sind, wurden bereits bestehende Icons gewählt (ArrowUp und ArrowDown)
-  // und mittels Rotation und Transformation gemäss Anforderungen designt. Die Grösse der Icons ist 16px anstatt 14px, da wir keine Icons mit der Grösse 14px in unserem
-  // Designsystem haben.
+  /*
+   * Es wurde bewusst entschieden, dass IconFullscreen nicht zu wiederzuverwenden, da die Animation der Pfeils hier ein sehr spezifischer
+   * Anwendungsfall darstellt. Gemäss Definition im Figma würde der Pfeil während der Animation aus der viewBox des SVGs ragen. Auf die
+   * Vergrösserung der viewBox wurde aktuell bewusst verzichtet. Dafür wurde die Fullscreen Animation mittels den bestehenden Icons ArrowUp
+   * und ArrowDown realisiert, um dem Benutzer trotzdem ein optimales Benutzererlebnis zu bieten.
+   */
   return (
     <div className={mergeClassNames(imageContainerBaseStyle)}>
       {hasError === false && (
         <div className={mergeClassNames(imageContainerOverlayStyle)} onClick={onClick}>
           <div className={mergeClassNames(imageContainerEditIconStyle)}>
             <div className="group-hover/container:-translate-y-xs duration-300">
-              {' '}
               <IconArrowUp size={IconSizes.l}></IconArrowUp>
             </div>
 
             <div className="group-hover/container:translate-y-xs duration-300">
-              {' '}
               <IconArrowDown size={IconSizes.l}></IconArrowDown>
             </div>
           </div>
