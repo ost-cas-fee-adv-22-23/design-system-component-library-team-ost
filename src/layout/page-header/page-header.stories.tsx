@@ -9,10 +9,13 @@ import { SettingsButton } from '../../components/buttons/settings-button';
 import { LogoutButton } from '../../components/buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
 import { Label, LabelSizes } from '../../components/text/label';
+import { Form } from '../../components/form/form';
+import { StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
 import { TextButton, TextButtonColors, TextButtonSizes, TextButtonDisplayModes } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
 import { IconCheckmark } from '../../components/icons/icon-checkmark';
+import { Fileinput } from '../../components/form/form-fileinput';
 
 export default {
   title: 'Layouts/PageHeader',
@@ -22,6 +25,7 @@ export default {
 // todo: Animation des MumbleWhiteHorizontal Logos
 export const Default: ComponentStory<typeof PageHeader> = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenImageUpload, setIsOpenImageUpload] = useState(false);
 
   return (
     <PageHeader>
@@ -35,45 +39,82 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw'
             }
             alt={'Robert Vogt'}
-            onClick={action('onProfileButtonClick')}
+            onClick={() => setIsOpenImageUpload(true)}
           />
           <SettingsButton onClick={() => setIsOpen(true)} />
           <LogoutButton onClick={action('onLogoutButtonClick')} />
         </Navigation>
       </div>
+      {/* MODAL for Settings */}
       <Modal isOpen={isOpen} modalType={ModalType.settings} title="Einstellungen" onClose={() => setIsOpen(false)}>
-        <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
-        {/** TODO Insert Form Component with Stack */}
-        <Input
-          label="Name Vorname"
-          labelSize={LabelSizes.s}
-          value="Input"
-          type={InputTypes.text}
-          errorMessage="Error-Message"
-        />
-        <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
-        <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-        <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-        <div className="flex gap-xs">
-          <TextButton
-            color={TextButtonColors.slate}
-            size={TextButtonSizes.m}
-            icon={<IconCancel />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpen(false)}
-          >
-            Abbrechen
-          </TextButton>
-          <TextButton
-            color={TextButtonColors.violet}
-            size={TextButtonSizes.m}
-            icon={<IconCheckmark />}
-            displayMode={TextButtonDisplayModes.fullWidth}
-            onClick={() => setIsOpen(false)}
-          >
-            Speichern
-          </TextButton>
-        </div>
+        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+          <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
+          <Input
+            label="Name Vorname"
+            labelSize={LabelSizes.s}
+            value="Input"
+            type={InputTypes.text}
+            errorMessage="Error-Message"
+          />
+          <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
+          <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
+          <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
+          <div className="flex gap-xs">
+            <TextButton
+              color={TextButtonColors.slate}
+              size={TextButtonSizes.m}
+              icon={<IconCancel />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpen(false)}
+            >
+              Abbrechen
+            </TextButton>
+            <TextButton
+              color={TextButtonColors.violet}
+              size={TextButtonSizes.m}
+              icon={<IconCheckmark />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpen(false)}
+            >
+              Speichern
+            </TextButton>
+          </div>
+        </Form>
+      </Modal>
+      {/* MODAL for Image Upload */}
+      <Modal
+        isOpen={isOpenImageUpload}
+        modalType={ModalType.imageupload}
+        title="Bild hochladen"
+        onClose={() => setIsOpenImageUpload(false)}
+      >
+        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+          <Fileinput
+            title="Datei hierhin ziehen"
+            description="JPEG oder PNG, maximal 50 MB"
+            onAddFile={(file) => action(file.name)}
+          ></Fileinput>
+          <div className="flex gap-xs">
+            <TextButton
+              color={TextButtonColors.slate}
+              size={TextButtonSizes.m}
+              icon={<IconCancel />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpenImageUpload(false)}
+            >
+              Abbrechen
+            </TextButton>
+            <TextButton
+              color={TextButtonColors.violet}
+              size={TextButtonSizes.m}
+              icon={<IconCheckmark />}
+              displayMode={TextButtonDisplayModes.fullWidth}
+              onClick={() => setIsOpenImageUpload(false)}
+            >
+              Speichern
+            </TextButton>
+          </div>
+        </Form>
       </Modal>
     </PageHeader>
   );
