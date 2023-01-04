@@ -1,20 +1,20 @@
 import React, { FC, ReactNode, FormHTMLAttributes } from 'react';
 import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
 
-export interface FormProps extends FormHTMLAttributes<HTMLFormElement> {
+export type FormProps = {
   /**
-   * Stack Direction
+   * The form items an labels
+   */
+  children: ReactNode;
+  /**
+   * Stack Direction to style the form
    */
   stackDir?: StackDirections;
   /**
-   * Stack Spacings
+   * Stack Spacings to define the spacings between the form items
    */
   stackSpacing?: StackSpacings;
-  /**
-   * Form children
-   */
-  children: ReactNode;
-}
+} & FormHTMLAttributes<HTMLFormElement>;
 
 export const Form: FC<FormProps> = ({
   children,

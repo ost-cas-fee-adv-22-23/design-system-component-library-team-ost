@@ -8,19 +8,23 @@ export default {
   title: 'Components/Form',
   component: Input,
   argTypes: {
+    errorMessage: {
+      control: { type: 'text' },
+    },
     label: {
       control: { type: 'text' },
     },
     labelSize: {
-      options: LabelSizes,
       control: { type: 'select' },
+    },
+    placeholder: {
+      control: { type: 'text' },
+    },
+    required: {
+      control: { type: 'boolean' },
     },
     type: {
-      options: InputTypes,
-      control: { type: 'select' },
-    },
-    errorMessage: {
-      control: { type: 'text' },
+      control: { type: 'radio' },
     },
     value: {
       control: { type: 'text' },
@@ -33,7 +37,6 @@ export default {
 } as ComponentMeta<typeof Input>;
 
 interface InputWithContainerWidth extends FC<InputProps> {
-  //Todo: Write containerWidth in camelCase -> Console Error.
   containerwidth: number;
 }
 
@@ -59,63 +62,77 @@ const Template: ComponentStory<InputWithContainerWidth> = (args) => {
 export const InputWithIcon = Template.bind({});
 InputWithIcon.args = {
   containerwidth: 500,
+  errorMessage: '',
+  icon: <IconMumble />,
   label: 'Name',
   labelSize: LabelSizes.m,
-  type: InputTypes.text,
-  required: true,
+  onChange: null,
   placeholder: 'Dein Name hier',
-  errorMessage: '',
+  required: true,
+  type: InputTypes.text,
   value: '',
-  icon: <IconMumble />,
 };
 (InputWithIcon.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (InputWithIcon.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
     },
   });
 
 export const InputWithoutIcon = Template.bind({});
 InputWithoutIcon.args = {
   containerwidth: 500,
+  errorMessage: '',
+  icon: null,
   label: 'Name',
   labelSize: LabelSizes.m,
-  type: InputTypes.text,
-  required: true,
+  onChange: null,
   placeholder: 'Dein Name hier',
-  errorMessage: '',
+  required: true,
+  type: InputTypes.text,
   value: '',
 };
 (InputWithoutIcon.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (InputWithoutIcon.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
     },
   });
 
 export const InputWithErrorMessage = Template.bind({});
 InputWithErrorMessage.args = {
   containerwidth: 500,
+  errorMessage: 'Error-Message',
+  icon: null,
   label: 'Name',
   labelSize: LabelSizes.m,
-  type: InputTypes.text,
-  required: true,
+  onChange: null,
   placeholder: 'Dein Name hier',
-  errorMessage: 'Error-Message',
+  required: true,
+  type: InputTypes.text,
   value: '',
 };
 (InputWithErrorMessage.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (InputWithErrorMessage.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
     },
   });

@@ -8,7 +8,6 @@ import { Input, InputTypes } from './form-input';
 export default {
   title: 'Components/Form',
   component: Form,
-  argTypes: {},
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',

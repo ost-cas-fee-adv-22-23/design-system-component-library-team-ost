@@ -11,50 +11,76 @@ export enum InputTypes {
 }
 
 /* 
-    By extending the InputHTMLAttributes we can pass all the HTMLInputElements to our component.
+  By adding the InputHTMLAttributes we can pass every HTMLInputElement to our component.
  */
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string;
-  labelSize: LabelSizes;
+export type InputProps = {
+  /**
+   * The error message will appear below the inputfield.
+   */
   errorMessage?: string;
-  type: InputTypes;
-  value: string;
+  /**
+   * An icon to show within the input field. If an error message is set, the icon is replaced by a cancel-icon.
+   */
   icon?: ReactNode;
+  /**
+   * The label describes the inputfield.
+   */
+  label: string;
+  /**
+   * The label size to style the label and set the font size.
+   */
+  labelSize: LabelSizes;
+  /**
+   * Action on input changes. To be handled outside the component.
+   */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+  /**
+   * A placeholder text to show in an empty inputfield
+   */
+  placeholder?: string;
+  /**
+   * Defines if an input field of a form is required.
+   */
+  required?: boolean;
+  /**
+   * The supported input types.
+   */
+  type: InputTypes;
+  /**
+   * The actual value of the input.
+   */
+  value: string;
+} & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: FC<InputProps> = ({ label, labelSize = LabelSizes.m, errorMessage, type, value, icon, ...rest }) => {
+export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = LabelSizes.m, onChange, type, ...rest }) => {
   const inputId = useId();
-  const inputBaseStyle = [
+  const inputStyle = [
     'text-sm text-slate-700 font-poppins font-medium leading-none',
     'w-full h-xl',
     'rounded-lg p-s bg-slate-50',
     'focus:outline-violet-600 focus:outline-2',
-    'valid:outline-violet-600 valid:outline-2',
     'placeholder:text-slate-300',
   ];
-  const inputClasses = mergeClassNames([inputBaseStyle]);
+  const inputClasses = mergeClassNames([inputStyle]);
 
   const inputWrapperStyle = [
-    'relative border border-slate-200 rounded-lg transition-all duration-300 ease-in-out hover:border-violet-600',
+    'relative',
+    'border border-slate-200 rounded-lg',
+    'transition-all duration-300 ease-in-out hover:border-violet-600',
   ];
   errorMessage ? inputWrapperStyle.push(' border-red-600') : inputWrapperStyle.push(' border-slate-200');
   const inputWrapperClasses = mergeClassNames([inputWrapperStyle]);
 
   return (
-    <FormItem label={label} labelSize={labelSize} id={inputId} errorMessage={errorMessage}>
+    <FormItem errorMessage={errorMessage} id={inputId} label={label} labelSize={labelSize}>
       <div className={inputWrapperClasses}>
-        <input className={inputClasses} id={inputId} type={type} value={value} {...rest} />
+        <input className={inputClasses} id={inputId} onChange={onChange} type={type} {...rest} />
         {errorMessage ? (
           <span className="absolute flex items-center right-s top-0 h-full text-red-600">
             <IconCancel />
           </span>
         ) : (
-          icon && (
-            <span className="absolute flex items-center right-s top-0 h-full">
-              <>{icon}</>
-            </span>
-          )
+          icon && <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
         )}
       </div>
     </FormItem>

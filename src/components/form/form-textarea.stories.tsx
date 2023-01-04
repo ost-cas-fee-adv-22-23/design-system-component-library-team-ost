@@ -7,17 +7,19 @@ export default {
   title: 'Components/Form',
   component: Textarea,
   argTypes: {
-    label: {
-      control: { type: 'text' },
-    },
-    labelSize: {
-      options: LabelSizes,
-      control: { type: 'select' },
-    },
     ariaLabel: {
       control: { type: 'text' },
     },
     errorMessage: {
+      control: { type: 'text' },
+    },
+    label: {
+      control: { type: 'text' },
+    },
+    labelSize: {
+      control: { type: 'select' },
+    },
+    value: {
       control: { type: 'text' },
     },
   },
@@ -28,7 +30,6 @@ export default {
 } as ComponentMeta<typeof Textarea>;
 
 interface TextareaWithContainerWidth extends FC<TextareaProps> {
-  //Todo: Write containerWidth in camelCase -> Console Error.
   containerwidth: number;
 }
 
@@ -54,66 +55,77 @@ const Template: ComponentStory<TextareaWithContainerWidth> = (args) => {
 export const TextareaWithAriaLabel = Template.bind({});
 TextareaWithAriaLabel.args = {
   containerwidth: 500,
-  label: '',
-  required: true,
-  placeholder: 'Was gibt es neues?',
   ariaLabel: 'Was gibt es neues?',
-  rows: 5,
-  cols: 20,
   errorMessage: '',
+  label: '',
+  labelSize: null,
+  onChange: null,
+  placeholder: 'Was gibt es neues?',
+  required: true,
+  rows: 5,
   value: '',
 };
 (TextareaWithAriaLabel.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (TextareaWithAriaLabel.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
     },
   });
 
 export const TextareaWithErrorMessage = Template.bind({});
 TextareaWithErrorMessage.args = {
   containerwidth: 500,
-  label: '',
-  required: true,
-  placeholder: 'Was gibt es neues?',
   ariaLabel: 'Was gibt es neues?',
-  rows: 5,
-  cols: 20,
   errorMessage: 'Error-Message',
+  label: '',
+  labelSize: null,
+  onChange: null,
+  placeholder: 'Was gibt es neues?',
+  required: true,
+  rows: 5,
   value: '',
 };
 (TextareaWithErrorMessage.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (TextareaWithErrorMessage.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
     },
   });
 
 export const TextareaWithLabel = Template.bind({});
 TextareaWithLabel.args = {
   containerwidth: 500,
+  ariaLabel: 'Was gibt es neues?',
+  errorMessage: '',
   label: 'Textarea Label',
   labelSize: LabelSizes.m,
-  ariaLabel: 'Was gibt es neues?',
-  required: true,
+  onChange: null,
   placeholder: 'Was gibt es neues?',
+  required: true,
   rows: 5,
-  cols: 20,
-  errorMessage: '',
   value: '',
 };
 (TextareaWithLabel.argTypes = {
-  containerwidth: { control: { type: 'range', min: 300, max: 800, step: 10 }, description: 'Only Demo Purpose' },
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
 }),
   (TextareaWithLabel.parameters = {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=QJIVy1VLDZMd7xuN-4',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
     },
   });

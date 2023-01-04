@@ -13,13 +13,11 @@ import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../la
 export type FileinputProps = {
   title: string;
   description: string;
-  label?: string;
-  labelSize?: LabelSizes;
   errorMessage?: string;
   onAddFile: (file: File) => void;
 };
 
-export const Fileinput: FC<FileinputProps> = ({ title, description, label, labelSize, errorMessage, onAddFile }) => {
+export const Fileinput: FC<FileinputProps> = ({ title, description, errorMessage, onAddFile }) => {
   const fileinputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -61,7 +59,7 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, label, label
 
   // triggers the input when the button is clicked
   const onButtonClick = () => {
-    // Check if inputRef.current not null for typescript
+    // Check if inputRef.current is not null for typescript
     inputRef.current?.click();
   };
 
@@ -75,9 +73,9 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, label, label
   const dragAreaClasses = mergeClassNames([dragAreaBaseStyle]);
 
   return (
-    <FormItem label={label} labelSize={labelSize} id={fileinputId} errorMessage={errorMessage}>
+    <FormItem id={fileinputId} errorMessage={errorMessage}>
       <input className={'hidden'} type="file" ref={inputRef} id={fileinputId} multiple={false} onChange={handleChange} />
-      <label htmlFor="fileinputId" className={dragAreaClasses}>
+      <label htmlFor={fileinputId} className={dragAreaClasses}>
         <div onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
           <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
             {!isFileSelected ? (
