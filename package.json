@@ -9,15 +9,26 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
+     "import": {
+       "types" : "./dist/esm/types/index.d.ts",
+       "default" : "./dist/esm/index.mjs"
+     },
+     "require": {
+       "types" : "./dist/cjs/types/index.d.ts",
+       "default" : "./dist/cjs/index.js"
+     }
     }
   },
+  "types" : "./dist/cjs/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
   "scripts": {
-    "build": "npm run delete:dist && npm run build:js && npm run build:tailwind-config",
-    "build:js": "tsc",
+    "build": "npm run delete:dist && npm run build:cjs && npm run build:esm && npm run build:tailwind-config",
+    "build:esm": "tsc -p tsconfig.esm.json && npm run rename",
+    "rename": "node -e \"require('fs').rename('dist/esm/index.js', 'dist/esm/index.mjs', function(err) { if (err) console.log(err); console.log('File successfully renamed!') })\"",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:tailwind-config": "cpy tailwind.config.js dist/ --rename=team-ost-styles.js",
     "build:npm-package": "npm pack",
     "build-storybook": "build-storybook",
