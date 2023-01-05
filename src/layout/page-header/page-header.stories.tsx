@@ -24,8 +24,8 @@ export default {
 
 // todo: Animation des MumbleWhiteHorizontal Logos
 export const Default: ComponentStory<typeof PageHeader> = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpenImageUpload, setIsOpenImageUpload] = useState(false);
+  const [isOpenSettings, setIsOpenSettings] = useState(false);
+  const [isOpenFileUpload, setIsOpenFileUpload] = useState(false);
 
   return (
     <PageHeader>
@@ -39,14 +39,19 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw'
             }
             alt={'Robert Vogt'}
-            onClick={() => setIsOpenImageUpload(true)}
+            onClick={() => setIsOpenFileUpload(true)}
           />
-          <SettingsButton onClick={() => setIsOpen(true)} />
+          <SettingsButton onClick={() => setIsOpenSettings(true)} />
           <LogoutButton onClick={action('onLogoutButtonClick')} />
         </Navigation>
       </div>
       {/* MODAL for Settings */}
-      <Modal isOpen={isOpen} modalType={ModalType.settings} title="Einstellungen" onClose={() => setIsOpen(false)}>
+      <Modal
+        isOpen={isOpenSettings}
+        modalType={ModalType.narrow}
+        title="Einstellungen"
+        onClose={() => setIsOpenSettings(false)}
+      >
         <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
           <Input
@@ -65,7 +70,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               size={TextButtonSizes.m}
               icon={<IconCancel />}
               displayMode={TextButtonDisplayModes.fullWidth}
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsOpenSettings(false)}
             >
               Abbrechen
             </TextButton>
@@ -74,7 +79,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               size={TextButtonSizes.m}
               icon={<IconCheckmark />}
               displayMode={TextButtonDisplayModes.fullWidth}
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsOpenSettings(false)}
             >
               Speichern
             </TextButton>
@@ -83,10 +88,10 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
       </Modal>
       {/* MODAL for Image Upload */}
       <Modal
-        isOpen={isOpenImageUpload}
-        modalType={ModalType.imageupload}
+        isOpen={isOpenFileUpload}
+        modalType={ModalType.wide}
         title="Bild hochladen"
-        onClose={() => setIsOpenImageUpload(false)}
+        onClose={() => setIsOpenFileUpload(false)}
       >
         <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Fileinput
@@ -100,7 +105,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               size={TextButtonSizes.m}
               icon={<IconCancel />}
               displayMode={TextButtonDisplayModes.fullWidth}
-              onClick={() => setIsOpenImageUpload(false)}
+              onClick={() => setIsOpenFileUpload(false)}
             >
               Abbrechen
             </TextButton>
@@ -109,7 +114,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               size={TextButtonSizes.m}
               icon={<IconCheckmark />}
               displayMode={TextButtonDisplayModes.fullWidth}
-              onClick={() => setIsOpenImageUpload(false)}
+              onClick={() => setIsOpenFileUpload(false)}
             >
               Speichern
             </TextButton>

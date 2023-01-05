@@ -1,23 +1,38 @@
-import React, { FC, ReactNode, DialogHTMLAttributes, Fragment } from 'react';
+import React, { FC, ReactNode, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { Heading, HeadingSizes } from '../text/heading';
 import { IconCancel } from '../icons/icon-cancel';
 
 export enum ModalType {
-  imageupload = 'imageupload',
-  settings = 'settings',
+  narrow = 'narrow',
+  wide = 'wide',
 }
 
-export interface ModalProps extends DialogHTMLAttributes<HTMLDialogElement> {
-  modalType: ModalType;
-  isOpen: boolean;
-  title: string;
-  onClose: () => void;
+export type ModalProps = {
+  /**
+   * Content of the modal
+   */
   children: ReactNode;
-}
+  /**
+   * Defines if the modal is open or closed
+   */
+  isOpen: boolean;
+  /**
+   * Specifies the width of the modal
+   */
+  modalType: ModalType;
+  /**
+   * Action to handle the modal close event
+   */
+  onClose: () => void;
+  /**
+   * Defines the modal title
+   */
+  title: string;
+};
 
-export const Modal: FC<ModalProps> = ({ modalType = ModalType.settings, isOpen, title, onClose, children }) => {
-  const panelWidth = modalType === 'settings' ? 'w-11/12 sm:w-2/3 md:w-1/2 xl:w-1/3' : 'w-11/12 sm:w-5/6 md:w-2/3 xl:w-1/2';
+export const Modal: FC<ModalProps> = ({ modalType = ModalType.narrow, isOpen, title, onClose, children }) => {
+  const panelWidth = modalType === 'narrow' ? 'w-11/12 sm:w-2/3 md:w-1/2 xl:w-1/3' : 'w-11/12 sm:w-5/6 md:w-2/3 xl:w-1/2';
   return (
     <Transition show={isOpen} as={Fragment}>
       <Dialog onClose={onClose}>
