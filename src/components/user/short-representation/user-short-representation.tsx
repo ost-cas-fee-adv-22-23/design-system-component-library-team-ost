@@ -1,9 +1,13 @@
 import React, { FC } from 'react';
+import { IconProfile } from '../../icons/icon-profile';
+import { IconTime } from '../../icons/icon-time';
+import { IconCalendar } from '../../icons/icon-calendar';
+import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconSettings } from '../../icons/icon-settings';
 import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
 import { Heading, HeadingSizes } from '../../text/heading';
 import { Label, LabelSizes } from '../../text/label';
-import { Link, LinkType } from '../../link/link';
+import { IconLocation } from '../../icons/icon-location';
 
 export enum UserShortRepresentationSizes {
   s = 's',
@@ -59,30 +63,32 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
             </span>
           )}
         </div>
-        <div className="flex gap-s">
-          <Link type={LinkType.profile} href={hrefProfile ?? '#'} target="_self">
-            {username}
-          </Link>
-          {(size === UserShortRepresentationSizes.s ||
-            size === UserShortRepresentationSizes.m ||
-            size === UserShortRepresentationSizes.l) &&
-            timestamp && (
-              <Link type={LinkType.timestamp} href="#" target="_self">
-                {timestamp}
-              </Link>
-            )}
+        {
+          <div className="flex gap-s">
+            <IconLink color={IconLinkColor.violet} href={hrefProfile ?? '#'} icon={<IconProfile />} target="_self">
+              {username}
+            </IconLink>
+            {(size === UserShortRepresentationSizes.s ||
+              size === UserShortRepresentationSizes.m ||
+              size === UserShortRepresentationSizes.l) &&
+              timestamp && (
+                <IconLink color={IconLinkColor.slate} href="#" icon={<IconTime />} target="_self">
+                  {timestamp}
+                </IconLink>
+              )}
 
-          {size === UserShortRepresentationSizes.xl && location && (
-            <Link type={LinkType.location} href="#" target="_self">
-              {location}
-            </Link>
-          )}
-          {size === UserShortRepresentationSizes.xl && joined && (
-            <Link type={LinkType.joined} href="#" target="_self">
-              {joined}
-            </Link>
-          )}
-        </div>
+            {size === UserShortRepresentationSizes.xl && location && (
+              <IconLink color={IconLinkColor.slate} href="#" icon={<IconLocation />} target="_self">
+                {location}
+              </IconLink>
+            )}
+            {size === UserShortRepresentationSizes.xl && joined && (
+              <IconLink color={IconLinkColor.slate} href="#" icon={<IconCalendar />} target="_self">
+                {joined}
+              </IconLink>
+            )}
+          </div>
+        }
       </div>
     </div>
   );
