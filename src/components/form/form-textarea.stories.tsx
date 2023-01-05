@@ -4,7 +4,7 @@ import { Textarea, TextareaProps } from './form-textarea';
 import { LabelSizes } from '../text/label';
 
 export default {
-  title: 'Components/Form',
+  title: 'Components/Form/Textarea',
   component: Textarea,
   argTypes: {
     ariaLabel: {
@@ -52,8 +52,8 @@ const Template: ComponentStory<TextareaWithContainerWidth> = (args) => {
   );
 };
 
-export const TextareaWithAriaLabel = Template.bind({});
-TextareaWithAriaLabel.args = {
+export const WithAriaLabel = Template.bind({});
+WithAriaLabel.args = {
   containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
   errorMessage: '',
@@ -65,21 +65,21 @@ TextareaWithAriaLabel.args = {
   rows: 5,
   value: '',
 };
-(TextareaWithAriaLabel.argTypes = {
+(WithAriaLabel.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (TextareaWithAriaLabel.parameters = {
+  (WithAriaLabel.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
     },
   });
 
-export const TextareaWithErrorMessage = Template.bind({});
-TextareaWithErrorMessage.args = {
+export const WithErrorMessage = Template.bind({});
+WithErrorMessage.args = {
   containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
   errorMessage: 'Error-Message',
@@ -91,21 +91,21 @@ TextareaWithErrorMessage.args = {
   rows: 5,
   value: '',
 };
-(TextareaWithErrorMessage.argTypes = {
+(WithErrorMessage.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (TextareaWithErrorMessage.parameters = {
+  (WithErrorMessage.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
     },
   });
 
-export const TextareaWithLabel = Template.bind({});
-TextareaWithLabel.args = {
+export const WithLabel = Template.bind({});
+WithLabel.args = {
   containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
   errorMessage: '',
@@ -117,13 +117,13 @@ TextareaWithLabel.args = {
   rows: 5,
   value: '',
 };
-(TextareaWithLabel.argTypes = {
+(WithLabel.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (TextareaWithLabel.parameters = {
+  (WithLabel.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',

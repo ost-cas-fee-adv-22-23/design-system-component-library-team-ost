@@ -9,15 +9,26 @@ import { Paragraph, ParagraphSizes } from '../text/paragraph';
 import { TextButton, TextButtonColors, TextButtonSizes } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
 
-//Todo validate filesize and filetypes
 export type FileinputProps = {
-  title: string;
+  /**
+   * Short text to describe the allowed file types and file size
+   */
   description: string;
+  /**
+   * The error message will appear below the fileinput
+   */
   errorMessage?: string;
+  /**
+   * Action to handle the file which is uploaded.
+   */
   onAddFile: (file: File) => void;
+  /**
+   * Title text for the component
+   */
+  title: string;
 };
 
-export const Fileinput: FC<FileinputProps> = ({ title, description, errorMessage, onAddFile }) => {
+export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAddFile, title }) => {
   const fileinputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -67,37 +78,39 @@ export const Fileinput: FC<FileinputProps> = ({ title, description, errorMessage
     'text-slate-500',
     'w-full h-full',
     'rounded-lg border-2 border-dotted',
-    'px-s py-xl mb-s bg-slate-100',
+    'px-s py-xl bg-slate-100',
   ];
   dragActive && dragAreaBaseStyle.push('bg-slate-300');
   const dragAreaClasses = mergeClassNames([dragAreaBaseStyle]);
 
   return (
-    <FormItem id={fileinputId} errorMessage={errorMessage}>
-      <input className={'hidden'} type="file" ref={inputRef} id={fileinputId} multiple={false} onChange={handleChange} />
-      <label htmlFor={fileinputId} className={dragAreaClasses}>
-        <div onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
-          <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
-            {!isFileSelected ? (
-              <>
-                <IconUpload size={IconSizes.l} />
-                <Label size={LabelSizes.xl}>{title}</Label>
-                <Paragraph size={ParagraphSizes.m}>{description}</Paragraph>
-              </>
-            ) : (
-              <>
-                <IconCheckmark size={IconSizes.l} />
-                <Label size={LabelSizes.xl}>Datei geladen</Label>
-                <Paragraph size={ParagraphSizes.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
-              </>
-            )}
-          </Stack>
-        </div>
-      </label>
+    <Stack direction={StackDirections.col} spacing={StackSpacings.s}>
+      <FormItem id={fileinputId} errorMessage={errorMessage}>
+        <input className={'hidden'} type="file" ref={inputRef} id={fileinputId} multiple={false} onChange={handleChange} />
+        <label htmlFor={fileinputId} className={dragAreaClasses}>
+          <div onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
+            <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
+              {!isFileSelected ? (
+                <>
+                  <IconUpload size={IconSizes.l} />
+                  <Label size={LabelSizes.xl}>{title}</Label>
+                  <Paragraph size={ParagraphSizes.m}>{description}</Paragraph>
+                </>
+              ) : (
+                <>
+                  <IconCheckmark size={IconSizes.l} />
+                  <Label size={LabelSizes.xl}>Datei geladen</Label>
+                  <Paragraph size={ParagraphSizes.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
+                </>
+              )}
+            </Stack>
+          </div>
+        </label>
+      </FormItem>
       {/* Textbutton mit Slate-300 existiert gem. Design System nicht, darum wurde der Textbutton-Slate gewählt. */}
       <TextButton color={TextButtonColors.slate} size={TextButtonSizes.m} onClick={onButtonClick} icon={<IconUpload />}>
         ...oder Datei auswählen
       </TextButton>
-    </FormItem>
+    </Stack>
   );
 };

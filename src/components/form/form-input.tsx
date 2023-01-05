@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, InputHTMLAttributes, ReactNode, useId } from 'react';
+import React, { ChangeEvent, FC, InputHTMLAttributes, ReactNode, useId, useState } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { LabelSizes } from '../text/label';
 import { FormItem } from './form-item';
@@ -54,6 +54,7 @@ export type InputProps = {
 
 export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = LabelSizes.m, onChange, type, ...rest }) => {
   const inputId = useId();
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const inputStyle = [
     'text-sm text-slate-700 font-poppins font-medium leading-none',
     'w-full h-xl',
@@ -74,13 +75,23 @@ export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = L
   return (
     <FormItem errorMessage={errorMessage} id={inputId} label={label} labelSize={labelSize}>
       <div className={inputWrapperClasses}>
-        <input className={inputClasses} id={inputId} onChange={onChange} type={type} {...rest} />
+        <input
+          className={inputClasses}
+          id={inputId}
+          onChange={onChange}
+          type={isPasswordVisible ? InputTypes.text : type}
+          {...rest}
+        />
         {errorMessage ? (
           <span className="absolute flex items-center right-s top-0 h-full text-red-600">
             <IconCancel />
           </span>
+        ) : icon && type === 'password' ? (
+          <button className="cursor-pointer" onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+            <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
+          </button>
         ) : (
-          icon && <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
+          <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
         )}
       </div>
     </FormItem>

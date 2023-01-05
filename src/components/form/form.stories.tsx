@@ -14,7 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof Form>;
 
-export const FormExample: ComponentStory<typeof Form> = () => {
+export const ExampleForm: ComponentStory<typeof Form> = () => {
   return (
     <div className="text-slate-700">
       <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>

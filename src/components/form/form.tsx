@@ -23,7 +23,7 @@ export const Form: FC<FormProps> = ({
   ...props
 }) => {
   return (
-    <form className="flex flex-col gap-s" {...props}>
+    <form {...props}>
       <Stack direction={stackDir} spacing={stackSpacing}>
         {children}
       </Stack>

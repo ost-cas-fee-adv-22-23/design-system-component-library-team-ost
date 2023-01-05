@@ -3,9 +3,10 @@ import React, { useEffect, useState, FC } from 'react';
 import { Input, InputTypes, InputProps } from './form-input';
 import { LabelSizes } from '../text/label';
 import { IconMumble } from '../icons/icon-mumble';
+import { IconEye } from '../icons/icon-eye';
 
 export default {
-  title: 'Components/Form',
+  title: 'Components/Form/Input',
   component: Input,
   argTypes: {
     errorMessage: {
@@ -59,8 +60,8 @@ const Template: ComponentStory<InputWithContainerWidth> = (args) => {
   );
 };
 
-export const InputWithIcon = Template.bind({});
-InputWithIcon.args = {
+export const WithIcon = Template.bind({});
+WithIcon.args = {
   containerwidth: 500,
   errorMessage: '',
   icon: <IconMumble />,
@@ -72,21 +73,21 @@ InputWithIcon.args = {
   type: InputTypes.text,
   value: '',
 };
-(InputWithIcon.argTypes = {
+(WithIcon.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (InputWithIcon.parameters = {
+  (WithIcon.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
     },
   });
 
-export const InputWithoutIcon = Template.bind({});
-InputWithoutIcon.args = {
+export const WithoutIcon = Template.bind({});
+WithoutIcon.args = {
   containerwidth: 500,
   errorMessage: '',
   icon: null,
@@ -98,21 +99,47 @@ InputWithoutIcon.args = {
   type: InputTypes.text,
   value: '',
 };
-(InputWithoutIcon.argTypes = {
+(WithoutIcon.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (InputWithoutIcon.parameters = {
+  (WithoutIcon.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
     },
   });
 
-export const InputWithErrorMessage = Template.bind({});
-InputWithErrorMessage.args = {
+export const Password = Template.bind({});
+Password.args = {
+  containerwidth: 500,
+  errorMessage: '',
+  icon: <IconEye />,
+  label: 'Password',
+  labelSize: LabelSizes.m,
+  onChange: null,
+  placeholder: 'Dein Passwort',
+  required: true,
+  type: InputTypes.password,
+  value: '',
+};
+(Password.argTypes = {
+  containerwidth: {
+    control: { type: 'range', min: 300, max: 800, step: 10 },
+    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+  },
+}),
+  (Password.parameters = {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
+    },
+  });
+
+export const ErrorMessage = Template.bind({});
+ErrorMessage.args = {
   containerwidth: 500,
   errorMessage: 'Error-Message',
   icon: null,
@@ -124,13 +151,13 @@ InputWithErrorMessage.args = {
   type: InputTypes.text,
   value: '',
 };
-(InputWithErrorMessage.argTypes = {
+(ErrorMessage.argTypes = {
   containerwidth: {
     control: { type: 'range', min: 300, max: 800, step: 10 },
     description: 'The container width simulates the usage of the input and is not a propertie of the component.',
   },
 }),
-  (InputWithErrorMessage.parameters = {
+  (ErrorMessage.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=BktLD5E2WcBsJoka-1',
