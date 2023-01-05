@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Label, LabelSizes } from './label';
+import { Label, LabelSizes, LabelProps } from './label';
 
 export default {
   title: 'Components/Typography',
   component: Label,
   argTypes: {
     size: {
-      options: LabelSizes,
       control: { type: 'select' },
     },
     children: {
@@ -19,10 +18,14 @@ export default {
   },
 } as ComponentMeta<typeof Label>;
 
-const Template: ComponentStory<typeof Label> = ({ size, children, htmlFor }) => (
-  <div className="text-slate-600">
-    <Label size={size} htmlFor={htmlFor}>
-      {children}
+interface LabelWithColor extends FC<LabelProps> {
+  color: string;
+}
+
+const Template: ComponentStory<LabelWithColor> = (args) => (
+  <div style={{ color: (args as unknown as LabelWithColor).color }}>
+    <Label size={args.size} htmlFor={args.htmlFor}>
+      {args.children}
     </Label>
   </div>
 );
@@ -33,9 +36,15 @@ Labels.args = {
   children: 'Label',
   htmlFor: 'input-id',
 };
-Labels.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=KwYX2EgXyjwXRi98-0',
+(Labels.argTypes = {
+  color: {
+    control: { type: 'color' },
+    description: 'The color simulates the usage of the label component and has to be set on the parent element -> See code.',
   },
-};
+}),
+  (Labels.parameters = {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
+    },
+  });

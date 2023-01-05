@@ -6,10 +6,16 @@ export enum HeadingSizes {
   h3 = 'h3',
   h4 = 'h4',
 }
-interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  headingLevel: HeadingSizes;
+export type HeadingProps = {
+  /**
+   * Heading text
+   */
   children: ReactNode;
-}
+  /**
+   * Heading level which defines the html element and the size
+   */
+  headingLevel: HeadingSizes;
+} & HTMLAttributes<HTMLHeadingElement>;
 
 const classMap = {
   h1: 'font-poppins text-current text-5xl leading-tight font-bold',

@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Heading, HeadingSizes } from './heading';
+import { Heading, HeadingSizes, HeadingProps } from './heading';
 
 export default {
   title: 'Components/Typography',
   component: Heading,
   argTypes: {
     headingLevel: {
-      options: HeadingSizes,
       control: { type: 'select' },
     },
     children: {
@@ -16,20 +15,31 @@ export default {
   },
 } as ComponentMeta<typeof Heading>;
 
-const Template: ComponentStory<typeof Heading> = ({ headingLevel, children }) => (
-  <div style={{ color: '#475569' }}>
-    <Heading headingLevel={headingLevel}>{children}</Heading>
+interface HeadingWithColor extends FC<HeadingProps> {
+  color: string;
+}
+
+const Template: ComponentStory<HeadingWithColor> = (args) => (
+  <div style={{ color: (args as unknown as HeadingWithColor).color }}>
+    <Heading headingLevel={args.headingLevel}>{args.children}</Heading>
   </div>
 );
 
 export const Headings = Template.bind({});
 Headings.args = {
-  headingLevel: HeadingSizes.h1,
   children: 'Überschrift',
+  headingLevel: HeadingSizes.h1,
 };
-Headings.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=KwYX2EgXyjwXRi98-0',
+(Headings.argTypes = {
+  color: {
+    control: { type: 'color' },
+    description:
+      'The color simulates the usage of the heading component and has to be set on the parent element -> See code.',
   },
-};
+}),
+  (Headings.parameters = {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
+    },
+  });

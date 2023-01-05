@@ -9,9 +9,18 @@ export enum LabelSizes {
 }
 
 export type LabelProps = {
+  /**
+   * Label text
+   */
   children: ReactNode;
-  size: LabelSizes;
+  /**
+   * For attribute for the label
+   */
   htmlFor?: string;
+  /**
+   * Label font size
+   */
+  size: LabelSizes;
 };
 
 const classMap = {
