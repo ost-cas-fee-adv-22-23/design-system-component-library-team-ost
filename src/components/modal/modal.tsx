@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { Heading, HeadingSizes } from '../text/heading';
+import { Heading, HeadingSizes } from '../typography/heading';
 import { IconCancel } from '../icons/icon-cancel';
 
 export enum ModalType {
@@ -31,8 +31,12 @@ export type ModalProps = {
   title: string;
 };
 
+const classMap: Record<ModalType, string> = {
+  narrow: 'w-11/12 sm:w-2/3 md:w-1/2 xl:w-1/3',
+  wide: 'w-11/12 sm:w-5/6 md:w-2/3 xl:w-1/2',
+};
+
 export const Modal: FC<ModalProps> = ({ modalType = ModalType.narrow, isOpen, title, onClose, children }) => {
-  const panelWidth = modalType === 'narrow' ? 'w-11/12 sm:w-2/3 md:w-1/2 xl:w-1/3' : 'w-11/12 sm:w-5/6 md:w-2/3 xl:w-1/2';
   return (
     <Transition show={isOpen} as={Fragment}>
       <Dialog onClose={onClose}>
@@ -52,7 +56,7 @@ export const Modal: FC<ModalProps> = ({ modalType = ModalType.narrow, isOpen, ti
 
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex items-center justify-center">
-          <div className={panelWidth}>
+          <div className={classMap[modalType]}>
             {/* This transition is applied to the Dialog panel.
                 Even though the design system doesn't include a transition scale, 
                 it was interesting to try two different transitions for Backdrop and Panel.

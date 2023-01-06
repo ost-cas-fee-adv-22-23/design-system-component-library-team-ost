@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, InputHTMLAttributes, ReactNode, useId, useState } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { LabelSizes } from '../text/label';
+import { LabelSizes } from '../typography/label';
 import { FormItem } from './form-item';
 import { IconCancel } from '../icons/icon-cancel';
 
@@ -52,7 +52,7 @@ export type InputProps = {
   value: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = LabelSizes.m, onChange, type, ...rest }) => {
+export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = LabelSizes.m, onChange, type, ...args }) => {
   const inputId = useId();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const inputStyle = [
@@ -62,6 +62,7 @@ export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = L
     'focus:outline-violet-600 focus:outline-2',
     'placeholder:text-slate-300',
   ];
+  icon && inputStyle.push('pr-xl');
   const inputClasses = mergeClassNames([inputStyle]);
 
   const inputWrapperStyle = [
@@ -80,7 +81,7 @@ export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = L
           id={inputId}
           onChange={onChange}
           type={isPasswordVisible ? InputTypes.text : type}
-          {...rest}
+          {...args}
         />
         {errorMessage ? (
           <span className="absolute flex items-center right-s top-0 h-full text-red-600">

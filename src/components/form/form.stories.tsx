@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form } from './form';
-import { Label, LabelSizes } from '../text/label';
+import { Label, LabelSizes } from '../typography/label';
 import { StackDirections, StackSpacings } from '../../layout/stack/stack';
 import { Input, InputTypes } from './form-input';
 

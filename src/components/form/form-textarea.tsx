@@ -1,6 +1,6 @@
 import React, { FC, TextareaHTMLAttributes, ChangeEvent, useId } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { LabelSizes } from '../text/label';
+import { LabelSizes } from '../typography/label';
 import { FormItem } from './form-item';
 
 /* 
@@ -51,7 +51,7 @@ export const Textarea: FC<TextareaProps> = ({
   labelSize = LabelSizes.m,
   onChange,
   value,
-  ...props
+  ...args
 }) => {
   const textareaId = useId();
   const textareaBaseStyle = [
@@ -75,7 +75,7 @@ export const Textarea: FC<TextareaProps> = ({
         id={textareaId}
         onChange={onChange}
         value={value}
-        {...props}
+        {...args}
       />
     </FormItem>
   );

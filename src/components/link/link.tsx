@@ -4,7 +4,7 @@ import { IconTime } from '../icons/icon-time';
 import { IconLocation } from '../icons/icon-location';
 import { IconCalendar } from '../icons/icon-calendar';
 import { IconSizes } from '../icons/icon-props';
-import { Label, LabelSizes } from '../text/label';
+import { Label, LabelSizes } from '../typography/label';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum LinkType {

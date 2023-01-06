@@ -30,19 +30,28 @@ const Template: ComponentStory<LabelWithColor> = (args) => (
   </div>
 );
 
-export const Labels = Template.bind({});
-Labels.args = {
-  size: LabelSizes.m,
+export const DefaultLabel = Template.bind({});
+DefaultLabel.args = {
   children: 'Label',
+  color: '#0f172a',
   htmlFor: 'input-id',
+  size: LabelSizes.m,
 };
-(Labels.argTypes = {
+DefaultLabel.storyName = 'Label';
+(DefaultLabel.argTypes = {
   color: {
-    control: { type: 'color' },
+    control: {
+      type: 'color',
+      presetColors: [
+        { color: '#0f172a', title: 'slate-900' },
+        { color: '#DB2777', title: 'pink-600' },
+        { color: '#7c3aed', title: 'violet-600' },
+      ],
+    },
     description: 'The color simulates the usage of the label component and has to be set on the parent element -> See code.',
   },
 }),
-  (Labels.parameters = {
+  (DefaultLabel.parameters = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',

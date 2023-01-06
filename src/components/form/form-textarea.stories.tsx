@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useEffect, useState, FC } from 'react';
 import { Textarea, TextareaProps } from './form-textarea';
-import { LabelSizes } from '../text/label';
+import { LabelSizes } from '../typography/label';
 
 export default {
   title: 'Components/Form/Textarea',
@@ -9,6 +9,10 @@ export default {
   argTypes: {
     ariaLabel: {
       control: { type: 'text' },
+    },
+    containerwidth: {
+      control: { type: 'range', min: 300, max: 800, step: 10 },
+      description: 'The container width simulates the usage of the textarea and is not a property of the component.',
     },
     errorMessage: {
       control: { type: 'text' },
@@ -18,6 +22,9 @@ export default {
     },
     labelSize: {
       control: { type: 'select' },
+    },
+    required: {
+      control: { type: 'boolean' },
     },
     value: {
       control: { type: 'text' },
@@ -65,18 +72,12 @@ WithAriaLabel.args = {
   rows: 5,
   value: '',
 };
-(WithAriaLabel.argTypes = {
-  containerwidth: {
-    control: { type: 'range', min: 300, max: 800, step: 10 },
-    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+WithAriaLabel.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
   },
-}),
-  (WithAriaLabel.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
-    },
-  });
+};
 
 export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
@@ -91,18 +92,12 @@ WithErrorMessage.args = {
   rows: 5,
   value: '',
 };
-(WithErrorMessage.argTypes = {
-  containerwidth: {
-    control: { type: 'range', min: 300, max: 800, step: 10 },
-    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+WithErrorMessage.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
   },
-}),
-  (WithErrorMessage.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
-    },
-  });
+};
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
@@ -117,15 +112,9 @@ WithLabel.args = {
   rows: 5,
   value: '',
 };
-(WithLabel.argTypes = {
-  containerwidth: {
-    control: { type: 'range', min: 300, max: 800, step: 10 },
-    description: 'The container width simulates the usage of the input and is not a propertie of the component.',
+WithLabel.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
   },
-}),
-  (WithLabel.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=427%3A334&t=BktLD5E2WcBsJoka-1',
-    },
-  });
+};

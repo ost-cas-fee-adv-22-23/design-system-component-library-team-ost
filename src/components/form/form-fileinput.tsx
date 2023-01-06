@@ -1,11 +1,11 @@
 import React, { FC, DragEvent, useId, useState, useRef, ChangeEvent } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { Label, LabelSizes } from '../text/label';
+import { Label, LabelSizes } from '../typography/label';
 import { FormItem } from './form-item';
 import { IconUpload } from '../icons/icon-upload';
 import { IconCheckmark } from '../icons/icon-checkmark';
 import { IconSizes } from '../icons/icon-props';
-import { Paragraph, ParagraphSizes } from '../text/paragraph';
+import { Paragraph, ParagraphSizes } from '../typography/paragraph';
 import { TextButton, TextButtonColors, TextButtonSizes } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
 

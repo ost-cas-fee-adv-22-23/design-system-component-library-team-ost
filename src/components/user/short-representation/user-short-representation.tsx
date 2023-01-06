@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { IconSettings } from '../../icons/icon-settings';
 import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
-import { Heading, HeadingSizes } from '../../text/heading';
-import { Label, LabelSizes } from '../../text/label';
+import { Heading, HeadingSizes } from '../../typography/heading';
+import { Label, LabelSizes } from '../../typography/label';
 import { Link, LinkType } from '../../link/link';
 
 export enum UserShortRepresentationSizes {

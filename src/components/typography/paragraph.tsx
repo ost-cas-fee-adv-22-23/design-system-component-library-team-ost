@@ -16,13 +16,13 @@ export type ParagraphProps = {
   size: ParagraphSizes;
 } & HTMLAttributes<HTMLParagraphElement>;
 
-const classMap = {
+const classMap: Record<ParagraphSizes, string> = {
   m: 'font-poppins font-medium text-current text-base leading-snug',
   l: 'font-poppins font-medium text-current text-2xl leading-normal',
 };
 
-export const Paragraph: FC<ParagraphProps> = ({ children, size = ParagraphSizes.m, ...props }) => (
-  <p className={classMap[size]} {...props}>
+export const Paragraph: FC<ParagraphProps> = ({ children, size = ParagraphSizes.m, ...args }) => (
+  <p className={classMap[size]} {...args}>
     {children}
   </p>
 );

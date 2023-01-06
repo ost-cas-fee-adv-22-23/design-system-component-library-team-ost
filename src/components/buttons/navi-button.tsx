@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Label, LabelSizes } from '../text/label';
+import { Label, LabelSizes } from '../typography/label';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
 export type NaviButtonProps = {

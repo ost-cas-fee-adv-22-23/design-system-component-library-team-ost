@@ -20,10 +20,10 @@ export const Form: FC<FormProps> = ({
   children,
   stackDir = StackDirections.col,
   stackSpacing = StackSpacings.s,
-  ...props
+  ...args
 }) => {
   return (
-    <form {...props}>
+    <form {...args}>
       <Stack direction={stackDir} spacing={stackSpacing}>
         {children}
       </Stack>

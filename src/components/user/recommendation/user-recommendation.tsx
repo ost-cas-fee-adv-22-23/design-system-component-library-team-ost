@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 import { Link, LinkType } from '../../link/link';
 import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonSizes } from '../../buttons/text-button';
 import { IconMumble } from '../../icons/icon-mumble';

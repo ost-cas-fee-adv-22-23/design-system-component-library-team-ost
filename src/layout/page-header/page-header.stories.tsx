@@ -8,7 +8,7 @@ import { Navigation } from '../navigation/navigation';
 import { SettingsButton } from '../../components/buttons/settings-button';
 import { LogoutButton } from '../../components/buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
-import { Label, LabelSizes } from '../../components/text/label';
+import { Label, LabelSizes } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
 import { StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
