@@ -7,18 +7,27 @@
     "tag": "latest"
   },
   "files": [
-    "dist"
+    "dist/**/*",
+    "tailwind.config.js"
   ],
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js"
-    }
+      "import": {
+        "types" : "./dist/cjs/types/index.d.ts",
+        "default" : "./dist/cjs/index.js"
+      },
+     "require": {
+       "types" : "./dist/cjs/types/index.d.ts",
+       "default" : "./dist/cjs/index.js"
+     }
+    },
+    "./tailwind-config": "./tailwind.config.js"
   },
+  "types" : "./dist/cjs/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
   "scripts": {
-    "build": "npm run delete:dist && npm run build:js && npm run build:tailwind-config",
-    "build:js": "tsc",
-    "build:tailwind-config": "cpy tailwind.config.js dist/ --rename=team-ost-styles.js",
+    "build": "npm run delete:dist && npm run build:cjs",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
     "build:npm-package": "npm pack",
     "build-storybook": "build-storybook",
     "build-storybook-win": "set NODE_OPTIONS=\"--openssl-legacy-provider\" && build-storybook",
@@ -30,6 +39,9 @@
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.7"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
@@ -51,7 +63,6 @@
     "@typescript-eslint/parser": "^5.44.0",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
-    "cpy-cli": "^4.2.0",
     "del-cli": "^5.0.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
@@ -76,8 +87,5 @@
     "src/**/*.{js,ts,jsx,tsx}": [
       "eslint --config ./.eslintrc.js --max-warnings=0 --ext js --ext ts --ext jsx --ext tsx"
     ]
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.7.7"
   }
 }
