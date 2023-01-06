@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { IconReplyFilled } from '../../icons/icon-reply-filled';
 import { IconReplyOutline } from '../../icons/icon-reply-outline';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 

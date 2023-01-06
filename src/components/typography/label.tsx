@@ -9,12 +9,21 @@ export enum LabelSizes {
 }
 
 export type LabelProps = {
+  /**
+   * Label text
+   */
   children: ReactNode;
-  size: LabelSizes;
+  /**
+   * For attribute for the label
+   */
   htmlFor?: string;
+  /**
+   * Label font size
+   */
+  size: LabelSizes;
 };
 
-const classMap = {
+const classMap: Record<LabelSizes, string> = {
   s: 'font-poppins font-semibold text-xs leading-none text-current cursor-inherit',
   m: 'font-poppins font-semibold text-sm leading-none text-current cursor-inherit',
   l: 'font-poppins font-semibold text-lg leading-none text-current cursor-inherit',

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { IconHeartFilled } from '../../icons/icon-heart-filled';
 import { IconHeartOutline } from '../../icons/icon-heart-outline';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 

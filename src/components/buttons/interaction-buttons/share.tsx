@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { IconShare } from '../../icons/icon-share';
 import { interactionButtonsBaseStyle } from './base-style';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 
 export type ShareProps = {
   linkToCopy: string;

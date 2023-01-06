@@ -1,21 +1,20 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form } from './form';
-import { Label, LabelSizes } from '../text/label';
+import { Label, LabelSizes } from '../typography/label';
 import { StackDirections, StackSpacings } from '../../layout/stack/stack';
 import { Input, InputTypes } from './form-input';
 
 export default {
   title: 'Components/Form',
   component: Form,
-  argTypes: {},
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
   },
 } as ComponentMeta<typeof Form>;
 
-export const FormExample: ComponentStory<typeof Form> = () => {
+export const ExampleForm: ComponentStory<typeof Form> = () => {
   return (
     <div className="text-slate-700">
       <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
