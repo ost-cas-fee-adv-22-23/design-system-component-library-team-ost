@@ -9,6 +9,21 @@ export default {
     showSettings: {
       control: { type: 'boolean' },
     },
+    src: {
+      control: { type: 'text' },
+    },
+    alt: {
+      control: { type: 'text' },
+    },
+    displayName: {
+      control: { type: 'text' },
+    },
+    username: {
+      control: { type: 'text' },
+    },
+    timestamp: {
+      control: { type: 'text' },
+    },
   },
   parameters: {
     backgrounds: { default: 'surface' },

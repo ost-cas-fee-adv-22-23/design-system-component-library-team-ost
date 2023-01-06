@@ -1,10 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Link, LinkType } from './link';
+import { IconLink, IconLinkColor } from './icon-link';
+import { IconMumble } from '../../icons/icon-mumble';
+import { IconProfile } from '../../icons/icon-profile';
+import { IconTime } from '../../icons/icon-time';
+import { IconLocation } from '../../icons/icon-location';
+import { IconCalendar } from '../../icons/icon-calendar';
 
 export default {
-  title: 'Components/Link',
-  component: Link,
+  title: 'Components/Links/IconLink',
+  component: IconLink,
   argTypes: {
     children: {
       control: { type: 'text' },
@@ -17,18 +22,19 @@ export default {
       handles: ['click a'],
     },
   },
-} as ComponentMeta<typeof Link>;
+} as ComponentMeta<typeof IconLink>;
 
-const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
+const Template: ComponentStory<typeof IconLink> = (args) => <IconLink {...args} />;
 
-export const Text = Template.bind({});
-Text.args = {
-  type: LinkType.text,
-  href: '#',
-  target: '_blank',
+export const Default = Template.bind({});
+Default.args = {
   children: 'Link Label',
+  color: IconLinkColor.slate,
+  href: '#',
+  icon: <IconMumble />,
+  target: '_blank',
 };
-Text.parameters = {
+Default.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=qteS5dWoA222X5Uw-4',
@@ -37,10 +43,11 @@ Text.parameters = {
 
 export const Profile = Template.bind({});
 Profile.args = {
-  type: LinkType.profile,
+  children: 'Username',
   href: '#',
   target: '_blank',
-  children: 'Username',
+  color: IconLinkColor.violet,
+  icon: <IconProfile />,
 };
 Profile.parameters = {
   design: {
@@ -51,10 +58,11 @@ Profile.parameters = {
 
 export const Joined = Template.bind({});
 Joined.args = {
-  type: LinkType.joined,
+  children: 'Joined',
   href: '#',
   target: '_blank',
-  children: 'Joined',
+  color: IconLinkColor.slate,
+  icon: <IconCalendar />,
 };
 Joined.parameters = {
   design: {
@@ -65,10 +73,11 @@ Joined.parameters = {
 
 export const Location = Template.bind({});
 Location.args = {
-  type: LinkType.location,
+  children: 'Location',
   href: '#',
   target: '_blank',
-  children: 'Location',
+  color: IconLinkColor.slate,
+  icon: <IconLocation />,
 };
 Location.parameters = {
   design: {
@@ -79,10 +88,11 @@ Location.parameters = {
 
 export const Timestamp = Template.bind({});
 Timestamp.args = {
-  type: LinkType.timestamp,
+  children: 'Timestamp',
   href: '#',
   target: '_blank',
-  children: 'Timestamp',
+  color: IconLinkColor.slate,
+  icon: <IconTime />,
 };
 Timestamp.parameters = {
   design: {
