@@ -3,7 +3,7 @@ import React from 'react';
 import { LogoutButton } from './logout-button';
 
 export default {
-  title: 'Components/Buttons/NaviButton/Logout',
+  title: 'Components/Buttons/Navi Buttons/Logout',
   component: LogoutButton,
   parameters: {
     backgrounds: { default: 'surface' },

@@ -2,6 +2,9 @@ import React, { FC } from 'react';
 import { NaviButton } from './navi-button';
 
 export type LogoutButtonProps = {
+  /**
+   * Specifies the action, which is called as the user clicks on the logout button.
+   */
   onClick: () => void;
 };
 

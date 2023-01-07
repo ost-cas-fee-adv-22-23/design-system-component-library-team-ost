@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
-import { LogoutButton } from '../../components/buttons/logout-button';
-import { ProfilePictureButton } from '../../components/buttons/profile-picture-button';
-import { SettingsButton } from '../../components/buttons/settings-button';
+import { LogoutButton } from '../../components/buttons/navi-buttons/logout-button';
+import { ProfilePictureButton } from '../../components/buttons/navi-buttons/profile-picture-button';
+import { SettingsButton } from '../../components/buttons/navi-buttons/settings-button';
 import { Navigation } from './navigation';
 
 export default {

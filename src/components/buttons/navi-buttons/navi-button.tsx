@@ -1,14 +1,23 @@
 import React, { FC, ReactNode } from 'react';
-import { Label, LabelSizes } from '../typography/label';
-import { mergeClassNames } from '../../helpers/merge-class-names';
+import { Label, LabelSizes } from '../../typography/label';
+import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type NaviButtonProps = {
-  icon?: ReactNode;
-  onClick: () => void;
+  /**
+   * Specifies the text to display in the label.
+   */
   children?: ReactNode;
+  /**
+   * Specifies the icon to display in the navi button.
+   */
+  icon?: ReactNode;
+  /**
+   * Specifies the action, which is called as the user clicks on the navi button.
+   */
+  onClick: () => void;
 };
 
-export const NaviButton: FC<NaviButtonProps> = ({ icon, onClick, children }) => {
+export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick }) => {
   const naviButtonBaseStyle = [
     'flex',
     'items-center',
