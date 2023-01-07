@@ -18,7 +18,7 @@ import { IconCheckmark } from '../../components/icons/icon-checkmark';
 import { Fileinput } from '../../components/form/form-fileinput';
 
 export default {
-  title: 'Layouts/PageHeader',
+  title: 'Layouts/Page Header',
   component: PageHeader,
 } as ComponentMeta<typeof PageHeader>;
 
@@ -35,11 +35,9 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         </div>
         <Navigation>
           <ProfilePictureButton
-            src={
-              'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw'
-            }
-            alt={'Robert Vogt'}
+            alt="Robert Vogt"
             onClick={() => setIsOpenFileUpload(true)}
+            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
           />
           <SettingsButton onClick={() => setIsOpenSettings(true)} />
           <LogoutButton onClick={action('onLogoutButtonClick')} />
@@ -49,8 +47,8 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
       <Modal
         isOpen={isOpenSettings}
         modalType={ModalType.narrow}
-        title="Einstellungen"
         onClose={() => setIsOpenSettings(false)}
+        title="Einstellungen"
       >
         <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
@@ -131,4 +129,4 @@ Default.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
-Default.storyName = 'PageHeader';
+Default.storyName = 'Page Header';

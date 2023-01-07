@@ -12,7 +12,7 @@ import { Stack, StackDirections, StackSpacings } from '../stack/stack';
 import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 
 export default {
-  title: 'Layouts/ProfileHeader',
+  title: 'Layouts/Profile Header',
   component: ProfileHeader,
   parameters: {
     layout: 'centered',
