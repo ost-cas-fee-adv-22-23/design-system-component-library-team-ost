@@ -23,3 +23,4 @@ Default.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=GQzfpikOJavswzO7-4',
   },
 };
+Default.storyName = 'Share';

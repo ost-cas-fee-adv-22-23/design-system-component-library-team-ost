@@ -6,12 +6,20 @@ import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 
 export type ReplyProps = {
-  repliesCount: number;
-  withReaction: boolean;
+  /**
+   * Specifies the action, which is called as the user clicks on the reply button.
+   */
   onClick: () => void;
+  /**
+   * Specifies how many users reacted with a reply.
+   */
+  repliesCount: number;
+  /**
+   * Specifies if the user reacted with a reply.
+   */
+  withReaction: boolean;
 };
 
-// with reaction hover: 300ms; without reaction hover 350ms
 export const Reply: FC<ReplyProps> = ({ repliesCount, withReaction, onClick }) => {
   const replyVariantStyles = {
     default: ['hover:bg-violet-50', 'hover:text-violet-600'],
