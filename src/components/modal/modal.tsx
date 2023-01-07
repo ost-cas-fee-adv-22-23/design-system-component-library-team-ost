@@ -1,6 +1,5 @@
 import React, { FC, ReactNode, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { Heading, HeadingSizes } from '../typography/heading';
 import { IconCancel } from '../icons/icon-cancel';
 
 export enum ModalType {
@@ -72,9 +71,10 @@ export const Modal: FC<ModalProps> = ({ modalType = ModalType.narrow, isOpen, ti
             >
               {/* eslint-disable-next-line react/forbid-component-props -- Dialog.Panel is rendered as html element. */}
               <Dialog.Panel className="mx-auto rounded-lg bg-white">
+                {/* As headlessUI creates a H2 Element for the title, we can't use our heading-component for the title, which would create an embedded H3 Element within the H2 Element. */}
                 {/* eslint-disable-next-line react/forbid-component-props -- Dialog.Title is rendered as html element. */}
-                <Dialog.Title className="flex justify-between items-center px-l py-m bg-violet-600 rounded-t-lg text-white">
-                  <Heading headingLevel={HeadingSizes.h3}>{title}</Heading>
+                <Dialog.Title className="flex justify-between items-center px-l py-m bg-violet-600 rounded-t-lg text-white font-poppins text-3xl leading-tight font-semibold">
+                  {title}
                   {/* As the icon is only 16x16px we added the button a bigger clickarea. */}
                   <button
                     type="button"
