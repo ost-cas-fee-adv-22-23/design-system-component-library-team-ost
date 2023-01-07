@@ -1,28 +1,40 @@
 import React, { FC, ReactNode } from 'react';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
-export enum IconButtonColors {
+export enum IconButtonColor {
   slate = 'slate',
 }
 
-export enum IconButtonSizes {
+export enum IconButtonSize {
   l = 'l',
 }
 
 export type IconButtonProps = {
-  color?: IconButtonColors;
-  size?: IconButtonSizes;
+  /**
+   * Specifies the color of the icon button.
+   */
+  color?: IconButtonColor;
+  /**
+   * Specifies the icon which should be displayed in the button.
+   */
   icon: ReactNode;
+  /**
+   * Specifies the action, which is called as the user clicks on the icon button.
+   */
   onClick: () => void;
+  /**
+   * Specifies the size of the icon button.
+   */
+  size?: IconButtonSize;
 };
 
 export const IconButton: FC<IconButtonProps> = ({
-  color = IconButtonColors.slate,
-  size = IconButtonSizes.l,
-  onClick,
+  color = IconButtonColor.slate,
   icon,
+  onClick,
+  size = IconButtonSize.l,
 }) => {
-  const iconButtonBaseStyle = [
+  const iconButtonBaseStyle: string[] = [
     'flex',
     'items-center',
     'rounded-full',
@@ -34,7 +46,7 @@ export const IconButton: FC<IconButtonProps> = ({
     'active:duration-300',
   ];
 
-  const iconButtonColorStyles = {
+  const iconButtonColorStyles: Record<IconButtonColor, string[]> = {
     slate: [
       'bg-slate-600',
       'hover:bg-slate-700',
@@ -48,7 +60,7 @@ export const IconButton: FC<IconButtonProps> = ({
     ],
   };
 
-  const iconButtonSizeStyles = {
+  const iconButtonSizeStyles: Record<IconButtonSize, string[]> = {
     l: ['p-s'],
   };
 
