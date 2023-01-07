@@ -5,8 +5,8 @@ import { IconCalendar } from '../../icons/icon-calendar';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconSettings } from '../../icons/icon-settings';
 import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
-import { Heading, HeadingSizes } from '../../text/heading';
-import { Label, LabelSizes } from '../../text/label';
+import { Heading, HeadingSizes } from '../../typography/heading';
+import { Label, LabelSizes } from '../../typography/label';
 import { IconLocation } from '../../icons/icon-location';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../../layout/stack/stack';
 

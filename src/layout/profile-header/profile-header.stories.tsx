@@ -10,7 +10,7 @@ import {
   UserShortRepresentationProfilePictureSize,
 } from '../../components/user/short-representation/user-short-representation';
 import { Stack, StackDirections, StackSpacings } from '../stack/stack';
-import { Paragraph, ParagraphSizes } from '../../components/text/paragraph';
+import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 
 export default {
   title: 'Layouts/ProfileHeader',

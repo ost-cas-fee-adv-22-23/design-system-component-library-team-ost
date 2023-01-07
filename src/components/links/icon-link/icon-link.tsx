@@ -1,6 +1,6 @@
 import { cloneElement, FC, ReactElement } from 'react';
 import { IconSizes } from '../../icons/icon-props';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export enum IconLinkColor {

@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes } from 'react';
-import { Label, LabelSizes } from '../../text/label';
+import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type TextLinkProps = {

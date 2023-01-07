@@ -6,12 +6,18 @@ export enum HeadingSizes {
   h3 = 'h3',
   h4 = 'h4',
 }
-interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
-  headingLevel: HeadingSizes;
+export type HeadingProps = {
+  /**
+   * Heading text
+   */
   children: ReactNode;
-}
+  /**
+   * Heading level which defines the html element and the size
+   */
+  headingLevel: HeadingSizes;
+} & HTMLAttributes<HTMLHeadingElement>;
 
-const classMap = {
+const classMap: Record<HeadingSizes, string> = {
   h1: 'font-poppins text-current text-5xl leading-tight font-bold',
   h2: 'font-poppins text-current text-4xl leading-tight font-bold',
   h3: 'font-poppins text-current text-3xl leading-tight font-semibold',
@@ -19,7 +25,7 @@ const classMap = {
 };
 
 export const Heading = ({ headingLevel = HeadingSizes.h1, children }: HeadingProps) => {
-  const HeadingElement = ({ ...props }: HTMLAttributes<HTMLHeadingElement>) => createElement(headingLevel, props, children);
+  const HeadingElement = ({ ...args }: HTMLAttributes<HTMLHeadingElement>) => createElement(headingLevel, args, children);
 
   // eslint-disable-next-line react/forbid-component-props -- HeadingElement is a html element and not a component.
   return <HeadingElement className={classMap[headingLevel]}>{children}</HeadingElement>;

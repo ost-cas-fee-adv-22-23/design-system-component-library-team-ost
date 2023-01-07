@@ -1,6 +1,6 @@
 import React, { FC, TextareaHTMLAttributes, ChangeEvent, useId } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { LabelSizes } from '../text/label';
+import { LabelSizes } from '../typography/label';
 import { FormItem } from './form-item';
 
 /* 
@@ -9,23 +9,49 @@ import { FormItem } from './form-item';
     As the figma does not has labels for textareas, we force to set an aria-label.
     An optional label can be set and is styled like the label for input fields.
  */
-export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label?: string;
-  labelSize?: LabelSizes;
+export type TextareaProps = {
+  /**
+   * Aria-label as the label is optional for textareas.
+   */
   ariaLabel: string;
+  /**
+   * The error message will appear below the textarea.
+   */
   errorMessage?: string;
+  /**
+   * The label describes the textarea.
+   */
+  label?: string;
+  /**
+   * The label size to style the label and set the font size.
+   */
+  labelSize?: LabelSizes;
+  /**
+   * Action on textarea changes. To be handled outside the component.
+   */
+  onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  /**
+   * A placeholder text to show in an empty textarea
+   */
+  placeholder?: string;
+  /**
+   * Defines if a textarea of a form is required.
+   */
+  required?: boolean;
+  /**
+   * The actual value of the textarea.
+   */
   value: string;
-  onChange(e: ChangeEvent<HTMLTextAreaElement>): void;
-}
+} & TextareaHTMLAttributes<HTMLTextAreaElement>;
 
 export const Textarea: FC<TextareaProps> = ({
-  label,
-  labelSize = LabelSizes.m,
   ariaLabel,
   errorMessage,
-  value,
+  label,
+  labelSize = LabelSizes.m,
   onChange,
-  ...rest
+  value,
+  ...args
 }) => {
   const textareaId = useId();
   const textareaBaseStyle = [
@@ -42,14 +68,14 @@ export const Textarea: FC<TextareaProps> = ({
   const textareaClasses = mergeClassNames([textareaBaseStyle]);
 
   return (
-    <FormItem label={label} labelSize={labelSize} id={textareaId} errorMessage={errorMessage}>
+    <FormItem errorMessage={errorMessage} id={textareaId} label={label} labelSize={labelSize}>
       <textarea
         className={textareaClasses}
-        value={value}
         aria-label={ariaLabel}
-        onChange={onChange}
         id={textareaId}
-        {...rest}
+        onChange={onChange}
+        value={value}
+        {...args}
       />
     </FormItem>
   );

@@ -21,30 +21,47 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   return <Modal {...args} isOpen={isOpen} onClose={() => setIsOpen(false)} />;
 };
 
+export const Default = Template.bind({});
+Default.args = {
+  children: 'Modal Content',
+  isOpen: true,
+  modalType: ModalType.narrow,
+  onClose: null,
+  title: 'Default',
+};
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
+  },
+};
+
 export const Settings = Template.bind({});
 Settings.args = {
-  title: 'Einstellungen',
-  isOpen: true,
   children: 'Modal Content',
-  modalType: ModalType.settings,
+  isOpen: true,
+  modalType: ModalType.narrow,
+  onClose: null,
+  title: 'Einstellungen',
 };
 Settings.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=9P4moAeAyRsJ194k-1',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
   },
 };
 
 export const ImageUpload = Template.bind({});
 ImageUpload.args = {
-  title: 'Bild hochladen',
-  isOpen: true,
   children: 'Modal Content',
-  modalType: ModalType.imageupload,
+  isOpen: true,
+  modalType: ModalType.wide,
+  onClose: null,
+  title: 'Bild hochladen',
 };
 ImageUpload.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=9P4moAeAyRsJ194k-1',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
   },
 };

@@ -22,7 +22,7 @@ And Finally You'll Learn About Security and How to Run This Thing in the Cloud
 
     ```
     presets: [
-        require('./node_modules/@smartive-education/design-system-component-library-team-ost/dist/team-ost-styles.js')
+        require('@smartive-education/design-system-component-library-team-ost/tailwind-config')
     ],
     ```
 4. Make the Component Library using the Tailwind CSS of your App. You have to add the following code snippet to the tailwind.config.js.
@@ -30,7 +30,7 @@ And Finally You'll Learn About Security and How to Run This Thing in the Cloud
     ```
     content: [
         ...
-        './node_modules/@smartive-education/design-system-component-library-team-ost/**/*.{js,ts,jsx,tsx}'
+        "./node_modules/@smartive-education/design-system-component-library-team-ost/**/*.{js,ts,jsx,tsx}"
     ],
     ```
 5. Add Google Font "Poppins", Medium, Semibold and Bold to your App. So you have the advantage of the built-in font optimization feature. (https://nextjs.org/docs/basic-features/font-optimization)
