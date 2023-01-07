@@ -12,7 +12,7 @@ import { Label, LabelSizes } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
 import { StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
-import { TextButton, TextButtonColors, TextButtonSizes, TextButtonDisplayModes } from '../../components/buttons/text-button';
+import { TextButton, TextButtonColor, TextButtonSize, TextButtonDisplayMode } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
 import { IconCheckmark } from '../../components/icons/icon-checkmark';
 import { Fileinput } from '../../components/form/form-fileinput';
@@ -64,19 +64,19 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
           <div className="flex gap-xs">
             <TextButton
-              color={TextButtonColors.slate}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.slate}
+              size={TextButtonSize.m}
               icon={<IconCancel />}
-              displayMode={TextButtonDisplayModes.fullWidth}
+              displayMode={TextButtonDisplayMode.fullWidth}
               onClick={() => setIsOpenSettings(false)}
             >
               Abbrechen
             </TextButton>
             <TextButton
-              color={TextButtonColors.violet}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.violet}
+              size={TextButtonSize.m}
               icon={<IconCheckmark />}
-              displayMode={TextButtonDisplayModes.fullWidth}
+              displayMode={TextButtonDisplayMode.fullWidth}
               onClick={() => setIsOpenSettings(false)}
             >
               Speichern
@@ -99,19 +99,19 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           ></Fileinput>
           <div className="flex gap-xs">
             <TextButton
-              color={TextButtonColors.slate}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.slate}
+              size={TextButtonSize.m}
               icon={<IconCancel />}
-              displayMode={TextButtonDisplayModes.fullWidth}
+              displayMode={TextButtonDisplayMode.fullWidth}
               onClick={() => setIsOpenFileUpload(false)}
             >
               Abbrechen
             </TextButton>
             <TextButton
-              color={TextButtonColors.violet}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.violet}
+              size={TextButtonSize.m}
               icon={<IconCheckmark />}
-              displayMode={TextButtonDisplayModes.fullWidth}
+              displayMode={TextButtonDisplayMode.fullWidth}
               onClick={() => setIsOpenFileUpload(false)}
             >
               Speichern

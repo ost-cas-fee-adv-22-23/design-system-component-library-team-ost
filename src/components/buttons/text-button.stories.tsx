@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { FC } from 'react';
 import { IconMumble } from '../icons/icon-mumble';
-import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonProps, TextButtonSizes } from './text-button';
+import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonProps, TextButtonSize } from './text-button';
 
 export default {
   title: 'Components/Buttons/TextButton',
@@ -16,9 +16,9 @@ const Template: ComponentStory<typeof TextButton> = (args) => <TextButton {...ar
 
 export const Slate = Template.bind({});
 Slate.args = {
-  color: TextButtonColors.slate,
-  size: TextButtonSizes.m,
   children: 'Button Label',
+  color: TextButtonColor.slate,
+  size: TextButtonSize.m,
 };
 Slate.parameters = {
   design: {
@@ -29,10 +29,10 @@ Slate.parameters = {
 
 export const SlateWithIcon = Template.bind({});
 SlateWithIcon.args = {
-  color: TextButtonColors.slate,
-  size: TextButtonSizes.m,
-  icon: <IconMumble />,
   children: 'Button Label',
+  color: TextButtonColor.slate,
+  icon: <IconMumble />,
+  size: TextButtonSize.m,
 };
 SlateWithIcon.parameters = {
   design: {
@@ -43,9 +43,9 @@ SlateWithIcon.parameters = {
 
 export const Violet = Template.bind({});
 Violet.args = {
-  color: TextButtonColors.violet,
-  size: TextButtonSizes.m,
   children: 'Button Label',
+  color: TextButtonColor.violet,
+  size: TextButtonSize.m,
 };
 Violet.parameters = {
   design: {
@@ -56,10 +56,10 @@ Violet.parameters = {
 
 export const VioletWithIcon = Template.bind({});
 VioletWithIcon.args = {
-  color: TextButtonColors.violet,
-  size: TextButtonSizes.m,
-  icon: <IconMumble />,
   children: 'Button Label',
+  color: TextButtonColor.violet,
+  icon: <IconMumble />,
+  size: TextButtonSize.m,
 };
 VioletWithIcon.parameters = {
   design: {
@@ -70,9 +70,9 @@ VioletWithIcon.parameters = {
 
 export const Gradient = Template.bind({});
 Gradient.args = {
-  color: TextButtonColors.gradient,
-  size: TextButtonSizes.m,
   children: 'Button Label',
+  color: TextButtonColor.gradient,
+  size: TextButtonSize.m,
 };
 Gradient.parameters = {
   design: {
@@ -83,10 +83,10 @@ Gradient.parameters = {
 
 export const GradientWithIcon = Template.bind({});
 GradientWithIcon.args = {
-  color: TextButtonColors.gradient,
-  size: TextButtonSizes.m,
-  icon: <IconMumble />,
   children: 'Button Label',
+  color: TextButtonColor.gradient,
+  icon: <IconMumble />,
+  size: TextButtonSize.m,
 };
 GradientWithIcon.parameters = {
   design: {
@@ -96,6 +96,10 @@ GradientWithIcon.parameters = {
 };
 
 interface TextButtonWithContainerWidth extends FC<TextButtonProps> {
+  /**
+   * Specifies the width of the parent component. It's not a property of the TextButton Component and only
+   * for demo purposes.
+   */
   containerWidth: number;
 }
 
@@ -107,14 +111,20 @@ const TemplateFullWidth: ComponentStory<TextButtonWithContainerWidth> = (args) =
 
 export const SlateWithIconFullWidth = TemplateFullWidth.bind({});
 SlateWithIconFullWidth.args = {
-  containerWidth: 500,
-  color: TextButtonColors.slate,
-  size: TextButtonSizes.m,
-  displayMode: TextButtonDisplayModes.fullWidth,
-  icon: <IconMumble />,
   children: 'Button Label',
+  color: TextButtonColor.slate,
+  containerWidth: 500,
+  displayMode: TextButtonDisplayMode.fullWidth,
+  icon: <IconMumble />,
+  size: TextButtonSize.m,
 };
-(SlateWithIconFullWidth.argTypes = { containerWidth: { control: { type: 'range', min: 200, max: 1000, step: 10 } } }),
+(SlateWithIconFullWidth.argTypes = {
+  containerWidth: {
+    control: { type: 'range', min: 200, max: 1000, step: 10 },
+    description:
+      "Specifies the width of the parent component. It's not a property of the TextButton Component and only for demo purposes.",
+  },
+}),
   (SlateWithIconFullWidth.parameters = {
     design: {
       type: 'figma',

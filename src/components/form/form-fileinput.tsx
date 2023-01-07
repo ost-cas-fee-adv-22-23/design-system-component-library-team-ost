@@ -6,7 +6,7 @@ import { IconUpload } from '../icons/icon-upload';
 import { IconCheckmark } from '../icons/icon-checkmark';
 import { IconSizes } from '../icons/icon-props';
 import { Paragraph, ParagraphSizes } from '../typography/paragraph';
-import { TextButton, TextButtonColors, TextButtonSizes } from '../buttons/text-button';
+import { TextButton, TextButtonColor, TextButtonSize } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
 
 export type FileinputProps = {
@@ -108,7 +108,7 @@ export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAdd
         </label>
       </FormItem>
       {/* Textbutton mit Slate-300 existiert gem. Design System nicht, darum wurde der Textbutton-Slate gewählt. */}
-      <TextButton color={TextButtonColors.slate} size={TextButtonSizes.m} onClick={onButtonClick} icon={<IconUpload />}>
+      <TextButton color={TextButtonColor.slate} size={TextButtonSize.m} onClick={onButtonClick} icon={<IconUpload />}>
         ...oder Datei auswählen
       </TextButton>
     </Stack>
