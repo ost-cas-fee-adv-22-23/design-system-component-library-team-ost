@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, FormHTMLAttributes } from 'react';
+import React, { FC, ReactNode, FormHTMLAttributes, FormEvent } from 'react';
 import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
 
 export type FormProps = {
@@ -6,6 +6,10 @@ export type FormProps = {
    * The form items an labels
    */
   children: ReactNode;
+  /**
+   * The form items an labels
+   */
+  handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   /**
    * Stack Direction to style the form
    */
@@ -18,12 +22,13 @@ export type FormProps = {
 
 export const Form: FC<FormProps> = ({
   children,
+  handleSubmit,
   stackDir = StackDirections.col,
   stackSpacing = StackSpacings.s,
   ...args
 }) => {
   return (
-    <form {...args}>
+    <form onSubmit={handleSubmit} {...args}>
       <Stack direction={stackDir} spacing={stackSpacing}>
         {children}
       </Stack>

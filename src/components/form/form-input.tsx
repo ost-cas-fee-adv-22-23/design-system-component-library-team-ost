@@ -31,6 +31,10 @@ export type InputProps = {
    */
   labelSize: LabelSizes;
   /**
+   * A name identifier for the input field.
+   */
+  name: string;
+  /**
    * Action on input changes. To be handled outside the component.
    */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -52,7 +56,16 @@ export type InputProps = {
   value: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
-export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = LabelSizes.m, onChange, type, ...args }) => {
+export const Input: FC<InputProps> = ({
+  errorMessage,
+  icon,
+  label,
+  labelSize = LabelSizes.m,
+  name,
+  onChange,
+  type,
+  ...args
+}) => {
   const inputId = useId();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const inputStyle = [
@@ -79,6 +92,7 @@ export const Input: FC<InputProps> = ({ errorMessage, icon, label, labelSize = L
         <input
           className={inputClasses}
           id={inputId}
+          name={name}
           onChange={onChange}
           type={isPasswordVisible ? InputTypes.text : type}
           {...args}

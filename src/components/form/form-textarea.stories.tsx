@@ -23,6 +23,12 @@ export default {
     labelSize: {
       control: { type: 'select' },
     },
+    name: {
+      control: { type: 'text' },
+    },
+    placeholder: {
+      control: { type: 'text' },
+    },
     required: {
       control: { type: 'boolean' },
     },
@@ -66,6 +72,7 @@ WithAriaLabel.args = {
   errorMessage: '',
   label: '',
   labelSize: null,
+  name: 'new',
   onChange: null,
   placeholder: 'Was gibt es neues?',
   required: true,
@@ -86,6 +93,7 @@ WithErrorMessage.args = {
   errorMessage: 'Error-Message',
   label: '',
   labelSize: null,
+  name: 'new',
   onChange: null,
   placeholder: 'Was gibt es neues?',
   required: true,
@@ -106,6 +114,7 @@ WithLabel.args = {
   errorMessage: '',
   label: 'Textarea Label',
   labelSize: LabelSizes.m,
+  name: 'new',
   onChange: null,
   placeholder: 'Was gibt es neues?',
   required: true,

@@ -27,6 +27,10 @@ export type TextareaProps = {
    */
   labelSize?: LabelSizes;
   /**
+   * A name identifier for the textarea.
+   */
+  name: string;
+  /**
    * Action on textarea changes. To be handled outside the component.
    */
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
@@ -49,6 +53,7 @@ export const Textarea: FC<TextareaProps> = ({
   errorMessage,
   label,
   labelSize = LabelSizes.m,
+  name,
   onChange,
   value,
   ...args
@@ -73,6 +78,7 @@ export const Textarea: FC<TextareaProps> = ({
         className={textareaClasses}
         aria-label={ariaLabel}
         id={textareaId}
+        name={name}
         onChange={onChange}
         value={value}
         {...args}
