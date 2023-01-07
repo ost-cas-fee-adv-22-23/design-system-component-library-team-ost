@@ -18,7 +18,7 @@ import { IconCheckmark } from '../../components/icons/icon-checkmark';
 import { Fileinput } from '../../components/form/form-fileinput';
 
 export default {
-  title: 'Layouts/Page Header',
+  title: 'Layouts/PageHeader',
   component: PageHeader,
 } as ComponentMeta<typeof PageHeader>;
 
@@ -129,4 +129,4 @@ Default.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
-Default.storyName = 'Page Header';
+Default.storyName = 'PageHeader';
