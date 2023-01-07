@@ -34,6 +34,7 @@ type UserShortRepresentationBaseProps = {
   displayName: string;
   /**
    * Specifies the URL of the page the profile icon link goes to.
+   * To display the profile icon link the following properties are required: "username" and "hrefProfile".
    */
   hrefProfile?: string;
   /**
@@ -73,6 +74,7 @@ type UserShortRepresentationBaseProps = {
   timestamp?: string;
   /**
    * Specifies the username.
+   * To display the profile icon link the following properties are required: "username" and "hrefProfile".
    */
   username?: string;
 };

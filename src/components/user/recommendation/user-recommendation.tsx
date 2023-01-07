@@ -5,44 +5,65 @@ import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonSizes }
 import { IconMumble } from '../../icons/icon-mumble';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconProfile } from '../../icons/icon-profile';
+import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../../layout/stack/stack';
 
-// todo: Sollen für die Props src und alt jeweils ein Interface ProfilePicture erstellt werden?
 export type UserRecommendationProps = {
-  onFollowClick: () => void;
-  displayName?: string;
-  src?: string;
+  /**
+   * Provides alternative information for the profile picture if a user for some reason cannot view it.
+   */
   alt: string;
+  /**
+   * Specifies the name to display in the label.
+   */
+  displayName: string;
+  /**
+   * Specifies the URL of the page the profile icon link goes to.
+   */
+  hrefProfile: string;
+  /**
+   * Specifies the action, which is called as the user clicks on the Follow Button.
+   */
+  onFollowClick: () => void;
+  /**
+   * Specifies the URL of the profile picture.
+   */
+  src: string;
+  /**
+   * Specifies the username.
+   */
   username: string;
-  hrefProfile?: string;
 };
 
 export const UserRecommendation: FC<UserRecommendationProps> = ({
-  onFollowClick,
-  displayName,
-  src,
   alt,
-  username,
+  displayName,
   hrefProfile,
+  onFollowClick,
+  src,
+  username,
 }) => {
   return (
-    <div className="flex flex-col gap-s p-s items-center bg-white rounded-2xl">
-      <ProfilePicture size={ProfilePictureSizes.l} src={src} alt={alt} />
+    <div className="p-s bg-white rounded-2xl">
+      <Stack spacing={StackSpacings.s} direction={StackDirections.col} alignitems={StackAlignItems.center}>
+        <ProfilePicture size={ProfilePictureSizes.l} src={src} alt={alt} />
 
-      <Label size={LabelSizes.l}>{displayName}</Label>
+        <Stack spacing={StackSpacings.xs} direction={StackDirections.col} alignitems={StackAlignItems.center}>
+          <Label size={LabelSizes.l}>{displayName}</Label>
+          <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
+            {username}
+          </IconLink>
+        </Stack>
 
-      <IconLink color={IconLinkColor.violet} href={hrefProfile ?? '#'} icon={<IconProfile />} target="_self">
-        {username}
-      </IconLink>
-
-      <TextButton
-        color={TextButtonColors.violet}
-        size={TextButtonSizes.m}
-        icon={<IconMumble />}
-        displayMode={TextButtonDisplayModes.fullWidth}
-        onClick={onFollowClick}
-      >
-        Follow
-      </TextButton>
+        <TextButton
+          color={TextButtonColors.violet}
+          size={TextButtonSizes.m}
+          icon={<IconMumble />}
+          displayMode={TextButtonDisplayModes.fullWidth}
+          onClick={onFollowClick}
+        >
+          Follow
+        </TextButton>
+      </Stack>
     </div>
   );
 };
