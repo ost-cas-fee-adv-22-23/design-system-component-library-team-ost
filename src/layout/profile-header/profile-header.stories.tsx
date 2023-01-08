@@ -6,7 +6,7 @@ import { ProfileBanner } from '../../components/profile-banner/profile-banner';
 import { ProfilePicture, ProfilePictureSizes } from '../../components/profile-picture/profile-picture';
 import {
   UserShortRepresentation,
-  UserShortRepresentationSizes,
+  UserShortRepresentationLabelType,
 } from '../../components/user/short-representation/user-short-representation';
 import { Stack, StackDirections, StackSpacings } from '../stack/stack';
 import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
@@ -27,35 +27,36 @@ export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
       <Stack spacing={StackSpacings.s} direction={StackDirections.col}>
         <div className="relative w-max">
           <ProfileBanner
-            alt={'Robert Vogt'}
+            alt="Robert Vogt"
+            canEdit={isLoggedIn}
+            onEditClick={action('onEditProfileBannerClick')}
             src={
               'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg'
             }
-            canEdit={isLoggedIn}
-            onEditClick={action('onEditProfileBannerClick')}
           />
 
           <div className="absolute -bottom-20 right-8">
             <ProfilePicture
-              size={ProfilePictureSizes.xl}
-              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
-              alt={'Robert Vogt'}
+              alt="Robert Vogt"
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
-            ></ProfilePicture>
+              size={ProfilePictureSizes.xl}
+              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            />
           </div>
         </div>
 
         <div className="text-slate-900>">
           <UserShortRepresentation
-            size={UserShortRepresentationSizes.xl}
-            showSettings={isLoggedIn}
-            displayName={'Robert Vogt'}
-            username={'robertvogt'}
-            location={'St. Gallen'}
-            joined={'Mitglied seit 4 Wochen'}
+            displayName="Robert Vogt"
+            hrefProfile="#"
+            joined="Mitglied seit 4 Wochen"
+            labelType={UserShortRepresentationLabelType.h3}
+            location="St. Gallen"
             onSettingsClick={action('onSettingsClick')}
-          ></UserShortRepresentation>
+            showSettings={isLoggedIn}
+            username="robertvogt"
+          />
         </div>
 
         <div className="text-slate-400">
@@ -84,35 +85,34 @@ export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
       <Stack spacing={StackSpacings.s} direction={StackDirections.col}>
         <div className="relative">
           <ProfileBanner
-            alt={'Robert Vogt'}
-            src={
-              'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg'
-            }
+            alt="Robert Vogt"
             canEdit={isLoggedIn}
             onEditClick={action('onEditProfileBannerClick')}
+            src="https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg"
           />
 
           <div className="absolute -bottom-20 right-8">
             <ProfilePicture
-              size={ProfilePictureSizes.xl}
-              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
               alt={'Robert Vogt'}
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
-            ></ProfilePicture>
+              size={ProfilePictureSizes.xl}
+              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            />
           </div>
         </div>
 
         <div className="text-slate-900>">
           <UserShortRepresentation
-            size={UserShortRepresentationSizes.xl}
-            showSettings={isLoggedIn}
-            displayName={'Robert Vogt'}
-            username={'robertvogt'}
-            location={'St. Gallen'}
-            joined={'Mitglied seit 4 Wochen'}
+            displayName="Robert Vogt"
+            hrefProfile="#"
+            joined="Mitglied seit 4 Wochen"
+            labelType={UserShortRepresentationLabelType.h3}
+            location="St. Gallen"
             onSettingsClick={action('onSettingsClick')}
-          ></UserShortRepresentation>
+            showSettings={isLoggedIn}
+            username="robertvogt"
+          />
         </div>
 
         <div className="text-slate-400">
@@ -145,19 +145,24 @@ export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
           <div className="absolute -bottom-20 right-8">
             <ProfilePicture
               alt="New Profile Picture"
-              size={ProfilePictureSizes.xl}
               canEdit={isNewUser}
               onEditClick={action('onEditProfilePictureClick')}
-            ></ProfilePicture>
+              size={ProfilePictureSizes.xl}
+            />
           </div>
         </div>
 
         <div className="text-slate-900>">
           <UserShortRepresentation
-            size={UserShortRepresentationSizes.xl}
-            showSettings={isNewUser}
+            displayName="Neuer User"
+            hrefProfile="#"
+            joined="Joined"
+            labelType={UserShortRepresentationLabelType.h3}
+            location="Location"
             onSettingsClick={action('onSettingsClick')}
-          ></UserShortRepresentation>
+            showSettings
+            username="neueruser"
+          />
         </div>
 
         <div className="text-slate-400">

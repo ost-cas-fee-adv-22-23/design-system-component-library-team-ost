@@ -2,6 +2,9 @@ import React, { FC, ReactNode } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
 export type ProfileHeaderProps = {
+  /**
+   * Specifies the content of the profile header.
+   */
   children: ReactNode;
 };
 
