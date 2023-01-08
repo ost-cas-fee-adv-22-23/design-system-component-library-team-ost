@@ -5,5 +5,8 @@ export enum IconSize {
 }
 
 export type IconProps = {
+  /**
+   * Defines the size of the icon.
+   */
   size?: IconSize;
 };
