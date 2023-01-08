@@ -5,7 +5,7 @@ import { Form } from './form';
 import { Label, LabelSizes } from '../typography/label';
 import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
 import { Input, InputTypes } from './form-input';
-import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonSizes } from '../buttons/text-button';
+import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../buttons/text-button';
 import { IconCancel } from '../icons/icon-cancel';
 import { IconCheckmark } from '../icons/icon-checkmark';
 
@@ -72,19 +72,19 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
         />
         <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
           <TextButton
-            color={TextButtonColors.slate}
-            size={TextButtonSizes.m}
+            color={TextButtonColor.slate}
+            size={TextButtonSize.m}
             icon={<IconCancel />}
-            displayMode={TextButtonDisplayModes.fullWidth}
+            displayMode={TextButtonDisplayMode.fullWidth}
             onClick={() => action('Form cancel')}
           >
             Abbrechen
           </TextButton>
           <TextButton
-            color={TextButtonColors.violet}
-            size={TextButtonSizes.m}
+            color={TextButtonColor.violet}
+            size={TextButtonSize.m}
             icon={<IconCheckmark />}
-            displayMode={TextButtonDisplayModes.fullWidth}
+            displayMode={TextButtonDisplayMode.fullWidth}
             onClick={() => action('Form submit')}
           >
             Speichern

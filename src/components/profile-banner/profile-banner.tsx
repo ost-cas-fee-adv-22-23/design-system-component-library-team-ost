@@ -1,7 +1,7 @@
 import React, { FC, ImgHTMLAttributes } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconEdit } from '../icons/icon-edit';
-import { IconSizes } from '../icons/icon-props';
+import { IconSize } from '../icons/icon-props';
 
 export type ProfileBannerProps = {
   /**
@@ -73,7 +73,7 @@ export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, on
       {canEdit && (
         <div className={mergeClassNames(profileBannerOverlayStyle)} onClick={onEditClick}>
           <div className={mergeClassNames(profileBannerEditIconStyle)}>
-            <IconEdit size={IconSizes.l} />
+            <IconEdit size={IconSize.l} />
           </div>
         </div>
       )}

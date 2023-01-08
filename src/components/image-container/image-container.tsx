@@ -2,7 +2,7 @@ import React, { FC, ImgHTMLAttributes, useState } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconArrowDown } from '../icons/icon-arrow-down';
 import { IconArrowUp } from '../icons/icon-arrow-up';
-import { IconSizes } from '../icons/icon-props';
+import { IconSize } from '../icons/icon-props';
 
 export type ImageContainerProps = {
   /**
@@ -100,11 +100,11 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
         <div className={mergeClassNames(imageContainerOverlayStyle)} onClick={onClick}>
           <div className={mergeClassNames(imageContainerEditIconStyle)}>
             <div className="group-hover/container:-translate-y-xs duration-300">
-              <IconArrowUp size={IconSizes.l}></IconArrowUp>
+              <IconArrowUp size={IconSize.l}></IconArrowUp>
             </div>
 
             <div className="group-hover/container:translate-y-xs duration-300">
-              <IconArrowDown size={IconSizes.l}></IconArrowDown>
+              <IconArrowDown size={IconSize.l}></IconArrowDown>
             </div>
           </div>
         </div>
