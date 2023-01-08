@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { IconProps, IconSizes } from './icon-props';
+import { IconProps, IconSize } from './icon-props';
 
-export const IconArrowDown: FC<IconProps> = ({ size = IconSizes.m }) => (
+export const IconArrowDown: FC<IconProps> = ({ size = IconSize.m }) => (
   <svg width={size} height={size} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clipPath="url(#clip0_426_313)">
       <path
