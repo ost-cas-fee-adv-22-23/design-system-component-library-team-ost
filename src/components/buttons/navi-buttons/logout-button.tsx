@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
 
 export type LogoutButtonProps = {
@@ -6,7 +6,7 @@ export type LogoutButtonProps = {
    * Specifies the action, which is called as the user clicks on the logout button.
    */
   onClick: () => void;
-} & HTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const LogoutButton: FC<LogoutButtonProps> = ({ onClick, ...args }) => {
   return (

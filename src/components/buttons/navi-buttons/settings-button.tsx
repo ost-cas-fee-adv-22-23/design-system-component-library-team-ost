@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
 import { IconSettings } from '../../icons/icon-settings';
 
@@ -7,7 +7,7 @@ export type SettingsButtonProps = {
    * Specifies the action, which is called as the user clicks on the settings button.
    */
   onClick: () => void;
-} & HTMLAttributes<HTMLButtonElement>;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const SettingsButton: FC<SettingsButtonProps> = ({ onClick, ...args }) => {
   return (
