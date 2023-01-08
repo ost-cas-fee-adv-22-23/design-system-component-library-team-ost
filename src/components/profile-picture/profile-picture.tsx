@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconButton } from '../buttons/icon-button';
 import { IconEdit } from '../icons/icon-edit';
@@ -20,7 +20,7 @@ export type ProfilePictureProps = {
 };
 
 export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdit = false, onEditClick }) => {
-  const profilePictureBaseStyle = ['flex', 'items-center', 'justify-center', 'rounded-full', 'overflow-hidden'];
+  const profilePictureBaseStyle = ['relative', 'flex', 'items-center', 'justify-center', 'rounded-full', 'overflow-hidden'];
 
   if (size === ProfilePictureSizes.l) {
     profilePictureBaseStyle.push('hover:rounded-4xl');
@@ -28,17 +28,33 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
 
   const profilePictureSizeStyles = {
     s: ['h-10', 'w-10'],
-    m: ['h-16', 'w-16', 'outline', 'outline-slate-100', 'outline-6'],
-    l: ['h-24', 'w-24', 'outline', 'outline-slate-100', 'outline-6'],
-    xl: ['h-40', 'w-40', 'outline', 'outline-slate-100', 'outline-6'],
+    m: ['h-16', 'w-16'],
+    l: ['h-24', 'w-24'],
+    xl: ['h-40', 'w-40'],
   };
+  // const profilePictureSizeStyles = {
+  //   s: ['h-10', 'w-10'],
+  //   m: ['h-16', 'w-16', 'outline', 'outline-slate-100', 'outline-6'],
+  //   l: ['h-24', 'w-24', 'outline', 'outline-slate-100', 'outline-6'],
+  //   xl: ['h-40', 'w-40', 'outline', 'outline-slate-100', 'outline-6'],
+  // };
 
   const profilePictureBorderStyles = {
     s: [],
-    m: ['outline', 'outline-slate-100', 'outline-6'],
-    l: ['outline', 'outline-slate-100', 'outline-6'],
+    m: [
+      'before:content-{} before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:border-6 before:border-solid before:border-slate-100 before:rounded-full group-hover:scale-125',
+    ],
+    l: [
+      'before:content-{} before:absolute before:top-0 before:right-0 before:left-0 before:bottom-0 before:border-6 before:border-solid before:border-slate-100 before:rounded-full hover:before:rounded-4xl',
+    ],
     xl: ['outline-slate-100', 'outline-6'],
   };
+  // const profilePictureBorderStyles = {
+  //   s: [],
+  //   m: ['outline', 'outline-slate-100', 'outline-6'],
+  //   l: ['outline', 'outline-slate-100', 'outline-6'],
+  //   xl: ['outline-slate-100', 'outline-6'],
+  // };
 
   const profilePictureAnimationStyles = {
     s: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
@@ -60,7 +76,7 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, src, canEdi
         {src ? (
           <img src={src} alt={alt} className={mergeClassNames(profilePictureAnimationStyles[size])} />
         ) : (
-          <div className="flex items-center justify-center h-3/5 w-3/5">
+          <div className="flex items-center justify-center h-3/5 w-3/5 ">
             <NoProfilePicture />
           </div>
         )}

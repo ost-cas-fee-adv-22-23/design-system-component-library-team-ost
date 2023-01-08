@@ -112,6 +112,9 @@ module.exports = {
       cursor: {
         inherit: 'inherit',
       },
+      borderWidth: {
+        6: '6px',
+      },
       outlineWidth: {
         3: '3px',
         6: '6px',
