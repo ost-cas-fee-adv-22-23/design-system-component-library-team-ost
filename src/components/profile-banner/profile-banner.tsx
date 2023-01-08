@@ -22,7 +22,7 @@ export type ProfileBannerProps = {
   src?: string;
 } & ImgHTMLAttributes<HTMLImageElement>;
 
-export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, src, canEdit = false, onEditClick }) => {
+export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, onEditClick, src, ...args }) => {
   const profileBannerBaseStyle = [
     'flex',
     'items-center',
@@ -78,7 +78,7 @@ export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, src, canEdit = fals
         </div>
       )}
 
-      <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} />
+      <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} {...args} />
     </div>
   );
 };
