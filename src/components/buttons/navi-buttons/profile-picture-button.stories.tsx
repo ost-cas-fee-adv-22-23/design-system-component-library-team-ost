@@ -3,7 +3,7 @@ import React from 'react';
 import { ProfilePictureButton } from './profile-picture-button';
 
 export default {
-  title: 'Components/Buttons/NaviButton/ProfilePicture',
+  title: 'Components/Buttons/Navi Buttons/ProfilePicture',
   component: ProfilePictureButton,
   parameters: {
     backgrounds: { default: 'surface' },

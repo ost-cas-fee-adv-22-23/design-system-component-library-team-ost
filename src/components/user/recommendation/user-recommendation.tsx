@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
 import { Label, LabelSizes } from '../../typography/label';
-import { TextButton, TextButtonColors, TextButtonDisplayModes, TextButtonSizes } from '../../buttons/text-button';
+import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../../buttons/text-button';
 import { IconMumble } from '../../icons/icon-mumble';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconProfile } from '../../icons/icon-profile';
@@ -55,10 +55,10 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
         </Stack>
 
         <TextButton
-          color={TextButtonColors.violet}
-          size={TextButtonSizes.m}
+          color={TextButtonColor.violet}
+          size={TextButtonSize.m}
           icon={<IconMumble />}
-          displayMode={TextButtonDisplayModes.fullWidth}
+          displayMode={TextButtonDisplayMode.fullWidth}
           onClick={onFollowClick}
         >
           Follow

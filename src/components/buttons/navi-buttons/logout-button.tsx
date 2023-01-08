@@ -1,11 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, ButtonHTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
 
 export type LogoutButtonProps = {
+  /**
+   * Specifies the action, which is called as the user clicks on the logout button.
+   */
   onClick: () => void;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const LogoutButton: FC<LogoutButtonProps> = ({ onClick }) => {
+export const LogoutButton: FC<LogoutButtonProps> = ({ onClick, ...args }) => {
   return (
     <NaviButton
       /*
@@ -34,6 +37,7 @@ export const LogoutButton: FC<LogoutButtonProps> = ({ onClick }) => {
         </svg>
       }
       onClick={onClick}
+      {...args}
     >
       Logout
     </NaviButton>

@@ -3,7 +3,7 @@ import React from 'react';
 import { SettingsButton } from './settings-button';
 
 export default {
-  title: 'Components/Buttons/NaviButton/Settings',
+  title: 'Components/Buttons/Navi Buttons/Settings',
   component: SettingsButton,
   parameters: {
     backgrounds: { default: 'surface' },

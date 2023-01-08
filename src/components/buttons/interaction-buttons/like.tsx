@@ -6,12 +6,21 @@ import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 
 export type LikeProps = {
+  /**
+   * Specifies how many users reacted with a like.
+   */
   likesCount: number;
-  withReaction: boolean;
+  /**
+   * Specifies the action, which is called as the user clicks on the like button.
+   */
   onClick: () => void;
+  /**
+   * Specifies if the user reacted with a like.
+   */
+  withReaction: boolean;
 };
 
-export const Like: FC<LikeProps> = ({ likesCount, withReaction, onClick }) => {
+export const Like: FC<LikeProps> = ({ likesCount, onClick, withReaction }) => {
   const likeVariantStyles = {
     withoutReaction: ['hover:bg-pink-50', 'hover:text-pink-600'],
     withReaction: ['hover:bg-pink-50', 'hover:text-pink-600', 'text-pink-900'],
@@ -32,11 +41,15 @@ export const Like: FC<LikeProps> = ({ likesCount, withReaction, onClick }) => {
     }
   };
 
-  // todo: Gibt es hier eine elegantere Lösung? Aktuell ist die Reihenfolge der useEffects relevant.
   const [likesCountState, setLikesCount] = useState(likesCount);
   const [withReactionState, setWithReaction] = useState(withReaction);
   const [isReactionButtonActive, setIsReactionButtonActive] = useState(false);
 
+  /**
+   * Es wurde bewusst entschieden, den State bereits innerhalb der Component zu modifizieren und nicht auf
+   * Veränderung der Props zu warten (Optimistic Update). Falls ein möglicher Request an den Server länger
+   * dauert als die "Liked"-Animation, würde der Benutzer noch den alten State sehen.
+   */
   useEffect(() => {
     withReactionState ? setLikesCount(() => likesCountState + 1) : setLikesCount(() => likesCountState - 1);
   }, [withReactionState]);

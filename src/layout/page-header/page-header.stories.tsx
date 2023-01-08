@@ -3,16 +3,16 @@ import { action } from '@storybook/addon-actions';
 import React, { ChangeEvent, useState } from 'react';
 import { PageHeader } from './page-header';
 import { MumbleWhiteHorizontal } from '../../components/logos/mumble-white-horizontal';
-import { ProfilePictureButton } from '../../components/buttons/profile-picture-button';
+import { ProfilePictureButton } from '../../components/buttons/navi-buttons/profile-picture-button';
 import { Navigation } from '../navigation/navigation';
-import { SettingsButton } from '../../components/buttons/settings-button';
-import { LogoutButton } from '../../components/buttons/logout-button';
+import { SettingsButton } from '../../components/buttons/navi-buttons/settings-button';
+import { LogoutButton } from '../../components/buttons/navi-buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
 import { Label, LabelSizes } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
 import { Stack, StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
-import { TextButton, TextButtonColors, TextButtonSizes, TextButtonDisplayModes } from '../../components/buttons/text-button';
+import { TextButton, TextButtonColor, TextButtonSize, TextButtonDisplayMode } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
 import { IconCheckmark } from '../../components/icons/icon-checkmark';
 import { Fileinput } from '../../components/form/form-fileinput';
@@ -102,20 +102,20 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           />
           <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
             <TextButton
-              color={TextButtonColors.slate}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.slate}
+              displayMode={TextButtonDisplayMode.fullWidth}
               icon={<IconCancel />}
-              displayMode={TextButtonDisplayModes.fullWidth}
               onClick={() => setIsOpenSettings(false)}
+              size={TextButtonSize.m}
             >
               Abbrechen
             </TextButton>
             <TextButton
-              color={TextButtonColors.violet}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.violet}
+              displayMode={TextButtonDisplayMode.fullWidth}
               icon={<IconCheckmark />}
-              displayMode={TextButtonDisplayModes.fullWidth}
               onClick={() => action('Form submit')}
+              size={TextButtonSize.m}
             >
               Speichern
             </TextButton>
@@ -131,26 +131,26 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
       >
         <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Fileinput
-            title="Datei hierhin ziehen"
             description="JPEG oder PNG, maximal 50 MB"
             onAddFile={(file) => action(file.name)}
+            title="Datei hierhin ziehen"
           ></Fileinput>
           <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
             <TextButton
-              color={TextButtonColors.slate}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.slate}
+              displayMode={TextButtonDisplayMode.fullWidth}
               icon={<IconCancel />}
-              displayMode={TextButtonDisplayModes.fullWidth}
               onClick={() => setIsOpenFileUpload(false)}
+              size={TextButtonSize.m}
             >
               Abbrechen
             </TextButton>
             <TextButton
-              color={TextButtonColors.violet}
-              size={TextButtonSizes.m}
+              color={TextButtonColor.violet}
+              displayMode={TextButtonDisplayMode.fullWidth}
               icon={<IconCheckmark />}
-              displayMode={TextButtonDisplayModes.fullWidth}
               onClick={() => setIsOpenFileUpload(false)}
+              size={TextButtonSize.m}
             >
               Speichern
             </TextButton>

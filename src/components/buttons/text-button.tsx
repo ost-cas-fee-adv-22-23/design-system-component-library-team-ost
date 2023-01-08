@@ -1,41 +1,60 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { Label, LabelSizes } from '../typography/label';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
-export enum TextButtonColors {
+export enum TextButtonColor {
   slate = 'slate',
   violet = 'violet',
   gradient = 'gradient',
 }
 
-export enum TextButtonSizes {
+export enum TextButtonSize {
   m = 'm',
   l = 'l',
 }
 
-export enum TextButtonDisplayModes {
+export enum TextButtonDisplayMode {
   inline = 'inline',
   fullWidth = 'fullWidth',
 }
 
 export type TextButtonProps = {
-  color: TextButtonColors;
-  size: TextButtonSizes;
-  displayMode?: TextButtonDisplayModes;
-  icon?: ReactElement;
-  onClick: () => void;
+  /**
+   * Specifies the text which should be displayed in the button.
+   */
   children: string;
-};
+  /**
+   * Specifies the color of the button.
+   */
+  color: TextButtonColor;
+  /**
+   * Specifies how the button should be displayed.
+   */
+  displayMode?: TextButtonDisplayMode;
+  /**
+   * Specifies the icon which should be displayed in the button.
+   */
+  icon?: ReactElement;
+  /**
+   * Specifies the action, which is called as the user clicks on the button.
+   */
+  onClick: () => void;
+  /**
+   * Specifies the size of the button.
+   */
+  size: TextButtonSize;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const TextButton: FC<TextButtonProps> = ({
+  children,
   color,
-  size,
-  displayMode = TextButtonDisplayModes.inline,
+  displayMode = TextButtonDisplayMode.inline,
   icon,
   onClick,
-  children,
+  size,
+  ...args
 }) => {
-  const textButtonBaseStyle = [
+  const textButtonBaseStyle: string[] = [
     'flex',
     'items-center',
     'justify-center',
@@ -48,7 +67,7 @@ export const TextButton: FC<TextButtonProps> = ({
     'active:duration-300',
   ];
 
-  const textButtonColorStyles = {
+  const textButtonColorStyles: Record<TextButtonColor, string[]> = {
     slate: [
       'bg-slate-600',
       'hover:bg-slate-700',
@@ -86,13 +105,13 @@ export const TextButton: FC<TextButtonProps> = ({
     ],
   };
 
-  const textButtonDisplayModeStyles = {
+  const textButtonDisplayModeStyles: Record<TextButtonDisplayMode, string[]> = {
     inline: [],
     fullWidth: ['w-full'],
   };
 
   // Bei der Grösse M ist gemäss Figma Style-Definition ein Padding von 12px vorgesehen, bei der Grösse L ein gap von 12px. Da unser Design System keine Spacing Definition für 12px aufweist, wurde jeweils bewusst 8px (xs) gewählt.
-  const textButtonSizeStyles = {
+  const textButtonSizeStyles: Record<TextButtonSize, string[]> = {
     m: ['p-xs', 'gap-xs'],
     l: ['py-s', 'px-m', 'gap-xs'],
   };
@@ -105,7 +124,7 @@ export const TextButton: FC<TextButtonProps> = ({
   ]);
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button className={classes} onClick={onClick} {...args}>
       <>
         <Label size={LabelSizes.m}>{children}</Label>
         {icon}

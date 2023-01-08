@@ -1,14 +1,19 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { IconMumble } from '../icons/icon-mumble';
+import { IconMumble } from '../../icons/icon-mumble';
 import { NaviButton } from './navi-button';
 
 export default {
-  title: 'Components/Buttons/NaviButton',
+  title: 'Components/Buttons/Navi Buttons',
   component: NaviButton,
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
+  },
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+    },
   },
 } as ComponentMeta<typeof NaviButton>;
 
