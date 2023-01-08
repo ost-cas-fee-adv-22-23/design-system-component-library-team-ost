@@ -6,9 +6,9 @@ export default {
   title: 'Components/ProfileBanner',
   component: ProfileBanner,
   argTypes: {
-    src: { control: 'text' },
     alt: { control: 'text' },
     canEdit: { control: 'boolean' },
+    src: { control: 'text' },
   },
   parameters: {
     backgrounds: { default: 'surface' },
@@ -33,8 +33,8 @@ WithPicture.parameters = {
 export const WithPictureCanEdit = Template.bind({});
 WithPictureCanEdit.args = {
   alt: 'Robert Vogt',
-  src: 'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg',
   canEdit: true,
+  src: 'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg',
 };
 WithPictureCanEdit.parameters = {
   design: {
