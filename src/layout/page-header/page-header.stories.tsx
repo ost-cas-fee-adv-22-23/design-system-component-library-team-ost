@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { PageHeader } from './page-header';
 import { MumbleWhiteHorizontal } from '../../components/logos/mumble-white-horizontal';
 import { ProfilePictureButton } from '../../components/buttons/profile-picture-button';
@@ -10,7 +10,7 @@ import { LogoutButton } from '../../components/buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
 import { Label, LabelSizes } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
-import { StackDirections, StackSpacings } from '../stack/stack';
+import { Stack, StackDirections, StackSpacings } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
 import { TextButton, TextButtonColors, TextButtonSizes, TextButtonDisplayModes } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
@@ -26,6 +26,20 @@ export default {
 export const Default: ComponentStory<typeof PageHeader> = () => {
   const [isOpenSettings, setIsOpenSettings] = useState(false);
   const [isOpenFileUpload, setIsOpenFileUpload] = useState(false);
+
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    city: '',
+    biography: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <PageHeader>
@@ -50,19 +64,43 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         onClose={() => setIsOpenSettings(false)}
         title="Einstellungen"
       >
-        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
           <Input
+            errorMessage="Error-Message"
             label="Name Vorname"
             labelSize={LabelSizes.s}
-            value="Input"
+            name="name"
+            onChange={handleChange}
             type={InputTypes.text}
-            errorMessage="Error-Message"
+            value={form.name}
           />
-          <Input label="E-Mail-Adresse" labelSize={LabelSizes.s} value="" type={InputTypes.text} placeholder="Placeholder" />
-          <Input label="Ortschaft" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-          <Input label="Biografie" labelSize={LabelSizes.s} value="" type={InputTypes.text} />
-          <div className="flex gap-xs">
+          <Input
+            label="E-Mail-Adresse"
+            labelSize={LabelSizes.s}
+            name="email"
+            onChange={handleChange}
+            placeholder="E-Mail"
+            type={InputTypes.email}
+            value={form.email}
+          />
+          <Input
+            label="Ortschaft"
+            labelSize={LabelSizes.s}
+            name="city"
+            onChange={handleChange}
+            type={InputTypes.text}
+            value={form.city}
+          />
+          <Input
+            label="Biografie"
+            labelSize={LabelSizes.s}
+            name="biography"
+            onChange={handleChange}
+            type={InputTypes.text}
+            value={form.biography}
+          />
+          <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
             <TextButton
               color={TextButtonColors.slate}
               size={TextButtonSizes.m}
@@ -77,11 +115,11 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
               size={TextButtonSizes.m}
               icon={<IconCheckmark />}
               displayMode={TextButtonDisplayModes.fullWidth}
-              onClick={() => setIsOpenSettings(false)}
+              onClick={() => action('Form submit')}
             >
               Speichern
             </TextButton>
-          </div>
+          </Stack>
         </Form>
       </Modal>
       {/* MODAL for Image Upload */}
@@ -91,13 +129,13 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         title="Bild hochladen"
         onClose={() => setIsOpenFileUpload(false)}
       >
-        <Form stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
           <Fileinput
             title="Datei hierhin ziehen"
             description="JPEG oder PNG, maximal 50 MB"
             onAddFile={(file) => action(file.name)}
           ></Fileinput>
-          <div className="flex gap-xs">
+          <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
             <TextButton
               color={TextButtonColors.slate}
               size={TextButtonSizes.m}
@@ -116,7 +154,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
             >
               Speichern
             </TextButton>
-          </div>
+          </Stack>
         </Form>
       </Modal>
     </PageHeader>
