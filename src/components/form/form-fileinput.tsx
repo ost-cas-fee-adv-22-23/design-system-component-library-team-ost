@@ -4,7 +4,7 @@ import { Label, LabelSizes } from '../typography/label';
 import { FormItem } from './form-item';
 import { IconUpload } from '../icons/icon-upload';
 import { IconCheckmark } from '../icons/icon-checkmark';
-import { IconSizes } from '../icons/icon-props';
+import { IconSize } from '../icons/icon-props';
 import { Paragraph, ParagraphSizes } from '../typography/paragraph';
 import { TextButton, TextButtonColors, TextButtonSizes } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
@@ -92,13 +92,13 @@ export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAdd
             <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
               {!isFileSelected ? (
                 <>
-                  <IconUpload size={IconSizes.l} />
+                  <IconUpload size={IconSize.l} />
                   <Label size={LabelSizes.xl}>{title}</Label>
                   <Paragraph size={ParagraphSizes.m}>{description}</Paragraph>
                 </>
               ) : (
                 <>
-                  <IconCheckmark size={IconSizes.l} />
+                  <IconCheckmark size={IconSize.l} />
                   <Label size={LabelSizes.xl}>Datei geladen</Label>
                   <Paragraph size={ParagraphSizes.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
                 </>
