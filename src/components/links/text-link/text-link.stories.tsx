@@ -23,9 +23,9 @@ const Template: ComponentStory<typeof TextLink> = (args) => <TextLink {...args} 
 
 export const Default = Template.bind({});
 Default.args = {
+  children: 'Link Label',
   href: '#',
   target: '_blank',
-  children: 'Link Label',
 };
 Default.parameters = {
   design: {

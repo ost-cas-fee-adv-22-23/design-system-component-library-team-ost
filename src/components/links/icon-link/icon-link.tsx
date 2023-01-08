@@ -1,4 +1,4 @@
-import { cloneElement, FC, ReactElement } from 'react';
+import React, { AnchorHTMLAttributes, cloneElement, FC, ReactElement } from 'react';
 import { IconSizes } from '../../icons/icon-props';
 import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
@@ -29,9 +29,9 @@ export type IconLinkProps = {
    * Specifies where to open the linked document.
    */
   target?: '_blank' | '_self';
-};
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, target = '_blank' }) => {
+export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, target = '_blank', ...args }) => {
   const iconLinkBaseStyle = ['flex', 'items-center', 'gap-xxs', 'transition-all', 'ease-in-out', 'duration-350'];
 
   const iconLinkColorVariantStyles: Record<IconLinkColor, string[]> = {
@@ -42,7 +42,7 @@ export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, targe
   const classes = mergeClassNames([iconLinkBaseStyle, iconLinkColorVariantStyles[color]]);
 
   return (
-    <a className={classes} href={href} target={target}>
+    <a className={classes} href={href} target={target} {...args}>
       {cloneElement(icon, { size: IconSizes.s })}
       <Label size={LabelSizes.s}>{children}</Label>
     </a>
