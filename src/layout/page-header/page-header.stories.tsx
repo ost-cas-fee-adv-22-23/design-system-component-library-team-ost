@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { PageHeader } from './page-header';
 import { MumbleWhiteHorizontal } from '../../components/logos/mumble-white-horizontal';
 import { ProfilePictureButton } from '../../components/buttons/profile-picture-button';
@@ -34,7 +34,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
     biography: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,

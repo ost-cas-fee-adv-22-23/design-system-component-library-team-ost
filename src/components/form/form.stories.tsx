@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form } from './form';
 import { Label, LabelSizes } from '../typography/label';
@@ -26,7 +26,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
     biography: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
