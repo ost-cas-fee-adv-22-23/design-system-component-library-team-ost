@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
+import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profile-picture';
 import { Label, LabelSizes } from '../../typography/label';
 import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../../buttons/text-button';
 import { IconMumble } from '../../icons/icon-mumble';
@@ -45,7 +45,7 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
   return (
     <div className="p-s bg-white rounded-2xl">
       <Stack spacing={StackSpacings.s} direction={StackDirections.col} alignitems={StackAlignItems.center}>
-        <ProfilePicture size={ProfilePictureSizes.l} src={src} alt={alt} />
+        <ProfilePicture size={ProfilePictureSize.l} src={src} alt={alt} />
 
         <Stack spacing={StackSpacings.xs} direction={StackDirections.col} alignitems={StackAlignItems.center}>
           <Label size={LabelSizes.l}>{displayName}</Label>

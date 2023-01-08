@@ -1,11 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { ProfilePicture, ProfilePictureSizes } from './profile-picture';
+import { ProfilePicture, ProfilePictureSize } from './profile-picture';
 
 export default {
   title: 'Components/ProfilePicture',
   component: ProfilePicture,
-  argTypes: { canEdit: { control: 'boolean' } },
+  argTypes: {
+    canEdit: { control: 'boolean' },
+    size: { control: 'select' },
+  },
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
@@ -16,8 +19,8 @@ const Template: ComponentStory<typeof ProfilePicture> = (args) => <ProfilePictur
 
 export const SizeS = Template.bind({});
 SizeS.args = {
-  size: ProfilePictureSizes.s,
   alt: 'Robert Vogt',
+  size: ProfilePictureSize.s,
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 SizeS.parameters = {
@@ -29,8 +32,8 @@ SizeS.parameters = {
 
 export const SizeM = Template.bind({});
 SizeM.args = {
-  size: ProfilePictureSizes.m,
   alt: 'Robert Vogt',
+  size: ProfilePictureSize.m,
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 SizeM.parameters = {
@@ -42,8 +45,8 @@ SizeM.parameters = {
 
 export const SizeL = Template.bind({});
 SizeL.args = {
-  size: ProfilePictureSizes.l,
   alt: 'Robert Vogt',
+  size: ProfilePictureSize.l,
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 SizeL.parameters = {
@@ -55,8 +58,8 @@ SizeL.parameters = {
 
 export const SizeXL = Template.bind({});
 SizeXL.args = {
-  size: ProfilePictureSizes.xl,
   alt: 'Robert Vogt',
+  size: ProfilePictureSize.xl,
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 SizeXL.parameters = {
@@ -68,10 +71,10 @@ SizeXL.parameters = {
 
 export const SizeXLWithEditButton = Template.bind({});
 SizeXLWithEditButton.args = {
-  size: ProfilePictureSizes.xl,
   alt: 'Robert Vogt',
-  src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
   canEdit: true,
+  size: ProfilePictureSize.xl,
+  src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 SizeXLWithEditButton.parameters = {
   design: {
@@ -82,9 +85,9 @@ SizeXLWithEditButton.parameters = {
 
 export const WithoutPicture = Template.bind({});
 WithoutPicture.args = {
-  size: ProfilePictureSizes.xl,
   alt: 'Neuer User',
   canEdit: true,
+  size: ProfilePictureSize.xl,
 };
 WithoutPicture.parameters = {
   design: {

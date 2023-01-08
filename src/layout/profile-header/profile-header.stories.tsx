@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import React from 'react';
 import { ProfileHeader } from './profile-header';
 import { ProfileBanner } from '../../components/profile-banner/profile-banner';
-import { ProfilePicture, ProfilePictureSizes } from '../../components/profile-picture/profile-picture';
+import { ProfilePicture, ProfilePictureSize } from '../../components/profile-picture/profile-picture';
 import {
   UserShortRepresentation,
   UserShortRepresentationLabelType,
@@ -40,7 +40,7 @@ export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
               alt="Robert Vogt"
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
-              size={ProfilePictureSizes.xl}
+              size={ProfilePictureSize.xl}
               src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
             />
           </div>
@@ -96,7 +96,7 @@ export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
               alt={'Robert Vogt'}
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
-              size={ProfilePictureSizes.xl}
+              size={ProfilePictureSize.xl}
               src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
             />
           </div>
@@ -147,7 +147,7 @@ export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
               alt="New Profile Picture"
               canEdit={isNewUser}
               onEditClick={action('onEditProfilePictureClick')}
-              size={ProfilePictureSizes.xl}
+              size={ProfilePictureSize.xl}
             />
           </div>
         </div>

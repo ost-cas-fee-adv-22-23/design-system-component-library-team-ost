@@ -1,6 +1,6 @@
 import React, { FC, ButtonHTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
-import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
+import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profile-picture';
 
 export type ProfilePictureButtonProps = {
   /**
@@ -20,7 +20,7 @@ export type ProfilePictureButtonProps = {
 export const ProfilePictureButton: FC<ProfilePictureButtonProps> = ({ alt, onClick, src, ...args }) => {
   return (
     <NaviButton onClick={onClick} {...args}>
-      <ProfilePicture size={ProfilePictureSizes.s} alt={alt} src={src} />
+      <ProfilePicture size={ProfilePictureSize.s} alt={alt} src={src} />
     </NaviButton>
   );
 };

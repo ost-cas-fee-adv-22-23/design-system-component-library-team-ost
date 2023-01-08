@@ -5,11 +5,11 @@ import { IconSizes } from '../icons/icon-props';
 
 export type ProfileBannerProps = {
   /**
-   * Alt Attribute for the picture. It provides alternative information if a user for some reason cannot view the picture.
+   * Alt Attribute for the picture. It provides alternative information if a user for some reason cannot view it.
    */
   alt?: string;
   /**
-   *  Determines if the user can edit the profile picture.
+   *  Specifies if the user can edit the profile banner.
    */
   canEdit?: boolean;
   /**
@@ -17,7 +17,7 @@ export type ProfileBannerProps = {
    */
   onEditClick?: () => void;
   /**
-   * URL of Image.
+   * Specifies the URL of the profile banner.
    */
   src?: string;
 } & ImgHTMLAttributes<HTMLImageElement>;
