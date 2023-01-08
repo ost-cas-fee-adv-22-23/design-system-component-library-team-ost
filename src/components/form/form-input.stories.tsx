@@ -22,6 +22,9 @@ export default {
     labelSize: {
       control: { type: 'select' },
     },
+    name: {
+      control: { type: 'text' },
+    },
     placeholder: {
       control: { type: 'text' },
     },
@@ -71,6 +74,7 @@ WithIcon.args = {
   icon: <IconMumble />,
   label: 'Name',
   labelSize: LabelSizes.m,
+  name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',
   required: true,
@@ -91,6 +95,7 @@ WithoutIcon.args = {
   icon: null,
   label: 'Name',
   labelSize: LabelSizes.m,
+  name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',
   required: true,
@@ -111,6 +116,7 @@ Password.args = {
   icon: <IconEye />,
   label: 'Password',
   labelSize: LabelSizes.m,
+  name: 'password',
   onChange: null,
   placeholder: 'Dein Passwort',
   required: true,
@@ -131,6 +137,7 @@ ErrorMessage.args = {
   icon: null,
   label: 'Name',
   labelSize: LabelSizes.m,
+  name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',
   required: true,
