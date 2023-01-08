@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactElement } from 'react';
 import { Label, LabelSizes } from '../typography/label';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
@@ -43,7 +43,7 @@ export type TextButtonProps = {
    * Specifies the size of the button.
    */
   size: TextButtonSize;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const TextButton: FC<TextButtonProps> = ({
   children,
@@ -52,6 +52,7 @@ export const TextButton: FC<TextButtonProps> = ({
   icon,
   onClick,
   size,
+  ...args
 }) => {
   const textButtonBaseStyle: string[] = [
     'flex',
@@ -123,7 +124,7 @@ export const TextButton: FC<TextButtonProps> = ({
   ]);
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button className={classes} onClick={onClick} {...args}>
       <>
         <Label size={LabelSizes.m}>{children}</Label>
         {icon}

@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 

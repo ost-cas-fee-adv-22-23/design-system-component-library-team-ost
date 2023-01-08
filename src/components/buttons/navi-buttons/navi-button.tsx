@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
@@ -15,9 +15,9 @@ export type NaviButtonProps = {
    * Specifies the action, which is called as the user clicks on the navi button.
    */
   onClick: () => void;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick }) => {
+export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick, ...args }) => {
   const naviButtonBaseStyle = [
     'flex',
     'items-center',
@@ -38,7 +38,7 @@ export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick }) => 
   const classes = mergeClassNames(naviButtonBaseStyle);
 
   return (
-    <button className={classes} onClick={onClick}>
+    <button className={classes} onClick={onClick} {...args}>
       <>
         {icon}
         <Label size={LabelSizes.s}>{children}</Label>

@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum IconButtonColor {
@@ -26,13 +26,14 @@ export type IconButtonProps = {
    * Specifies the size of the icon button.
    */
   size?: IconButtonSize;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const IconButton: FC<IconButtonProps> = ({
   color = IconButtonColor.slate,
   icon,
   onClick,
   size = IconButtonSize.l,
+  ...args
 }) => {
   const iconButtonBaseStyle: string[] = [
     'flex',
@@ -66,7 +67,7 @@ export const IconButton: FC<IconButtonProps> = ({
 
   const classes = mergeClassNames([iconButtonBaseStyle, iconButtonColorStyles[color], iconButtonSizeStyles[size]]);
   return (
-    <button className={classes} onClick={onClick}>
+    <button className={classes} onClick={onClick} {...args}>
       <>{icon}</>
     </button>
   );

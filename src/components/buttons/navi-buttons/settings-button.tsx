@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
 import { IconSettings } from '../../icons/icon-settings';
 
@@ -7,9 +7,9 @@ export type SettingsButtonProps = {
    * Specifies the action, which is called as the user clicks on the settings button.
    */
   onClick: () => void;
-};
+} & HTMLAttributes<HTMLButtonElement>;
 
-export const SettingsButton: FC<SettingsButtonProps> = ({ onClick }) => {
+export const SettingsButton: FC<SettingsButtonProps> = ({ onClick, ...args }) => {
   return (
     <NaviButton
       icon={
@@ -18,6 +18,7 @@ export const SettingsButton: FC<SettingsButtonProps> = ({ onClick }) => {
         </span>
       }
       onClick={onClick}
+      {...args}
     >
       Settings
     </NaviButton>
