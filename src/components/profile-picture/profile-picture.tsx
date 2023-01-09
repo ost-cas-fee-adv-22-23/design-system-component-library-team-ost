@@ -57,9 +57,9 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, canEdit = f
 
   const profilePictureSizeStyles: Record<ProfilePictureSize, string[]> = {
     s: ['h-10', 'w-10'],
-    m: ['h-16', 'w-16', 'outline', 'outline-slate-100', 'outline-6'],
-    l: ['h-24', 'w-24', 'outline', 'outline-slate-100', 'outline-6'],
-    xl: ['h-40', 'w-40', 'outline', 'outline-slate-100', 'outline-6'],
+    m: ['h-16', 'w-16'],
+    l: ['h-24', 'w-24'],
+    xl: ['h-40', 'w-40'],
   };
 
   const profilePictureBorderStyles: Record<ProfilePictureSize, string[]> = {

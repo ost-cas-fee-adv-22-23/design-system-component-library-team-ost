@@ -9,7 +9,6 @@ export type ImageContainerProps = {
    * Alt Attribute for the image. It provides alternative information if a user for some reason cannot view it.
    */
   alt?: string;
-  // Todo: Evtl. innerhalb der Component lösen. Mittels Modal?
   /**
    * Specifies the action, which is called as the user clicks on the overlay with the fullscreen icon.
    */
