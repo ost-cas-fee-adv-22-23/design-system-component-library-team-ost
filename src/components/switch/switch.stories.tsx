@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof Switch> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  tabNames: ['Deine Mumbles', 'Deine Likes', 'Deine Mömbles'],
+  tabNames: ['Deine Mumbles', 'Deine Likes'],
   tabChange: null,
 };
 Default.parameters = {
