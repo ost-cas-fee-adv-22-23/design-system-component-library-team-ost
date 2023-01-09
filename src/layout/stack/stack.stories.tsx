@@ -34,7 +34,9 @@ Default.args = {
 
 export const WithDivider = Template.bind({});
 WithDivider.args = {
+  alignItems: StackAlignItems.unset,
   direction: StackDirection.row,
+  justifyContent: StackJustifyContent.flexstart,
   spacing: StackSpacing.m,
   withDivider: true,
 };
