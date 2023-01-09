@@ -8,7 +8,7 @@ import {
   UserShortRepresentation,
   UserShortRepresentationLabelType,
 } from '../../components/user/short-representation/user-short-representation';
-import { Stack, StackDirections, StackSpacings } from '../stack/stack';
+import { Stack, StackDirection, StackSpacing } from '../stack/stack';
 import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 
 export default {
@@ -24,7 +24,7 @@ export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
 
   return (
     <ProfileHeader>
-      <Stack spacing={StackSpacings.s} direction={StackDirections.col}>
+      <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative w-max">
           <ProfileBanner
             alt="Robert Vogt"
@@ -82,7 +82,7 @@ export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
 
   return (
     <ProfileHeader>
-      <Stack spacing={StackSpacings.s} direction={StackDirections.col}>
+      <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative">
           <ProfileBanner
             alt="Robert Vogt"
@@ -138,7 +138,7 @@ export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
 
   return (
     <ProfileHeader>
-      <Stack spacing={StackSpacings.s} direction={StackDirections.col}>
+      <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative">
           <ProfileBanner canEdit={isNewUser} onEditClick={action('onEditProfileBannerClick')} />
 

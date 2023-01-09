@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { Stack, StackAlignItems, StackJustifyContent, StackSpacings } from '../stack/stack';
+import { Stack, StackAlignItems, StackJustifyContent, StackSpacing } from '../stack/stack';
 
 export type PageHeaderProps = {
   /**
@@ -15,7 +15,7 @@ export const PageHeader: FC<PageHeaderProps> = ({ children }) => {
 
   return (
     <header className={mergeClassNames(pageHeaderBaseStyle)}>
-      <Stack spacing={StackSpacings.none} alignitems={StackAlignItems.center} justifycontent={StackJustifyContent.center}>
+      <Stack spacing={StackSpacing.none} alignItems={StackAlignItems.center} justifyContent={StackJustifyContent.center}>
         {children}
       </Stack>
     </header>

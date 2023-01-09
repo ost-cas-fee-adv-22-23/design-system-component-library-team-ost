@@ -10,7 +10,7 @@ import { LogoutButton } from '../../components/buttons/navi-buttons/logout-butto
 import { Modal, ModalType } from '../../components/modal/modal';
 import { Label, LabelSizes } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
-import { Stack, StackDirections, StackSpacings } from '../stack/stack';
+import { Stack, StackDirection, StackSpacing } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
 import { TextButton, TextButtonColor, TextButtonSize, TextButtonDisplayMode } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
@@ -22,7 +22,6 @@ export default {
   component: PageHeader,
 } as ComponentMeta<typeof PageHeader>;
 
-// todo: Animation des MumbleWhiteHorizontal Logos
 export const Default: ComponentStory<typeof PageHeader> = () => {
   const [isOpenSettings, setIsOpenSettings] = useState(false);
   const [isOpenFileUpload, setIsOpenFileUpload] = useState(false);
@@ -64,7 +63,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         onClose={() => setIsOpenSettings(false)}
         title="Einstellungen"
       >
-        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirection.col} stackSpacing={StackSpacing.s}>
           <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
           <Input
             errorMessage="Error-Message"
@@ -100,7 +99,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
             type={InputTypes.text}
             value={form.biography}
           />
-          <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
+          <Stack direction={StackDirection.row} spacing={StackSpacing.xs}>
             <TextButton
               color={TextButtonColor.slate}
               displayMode={TextButtonDisplayMode.fullWidth}
@@ -129,13 +128,13 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         title="Bild hochladen"
         onClose={() => setIsOpenFileUpload(false)}
       >
-        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+        <Form handleSubmit={action('Handle form submit')} stackDir={StackDirection.col} stackSpacing={StackSpacing.s}>
           <Fileinput
             description="JPEG oder PNG, maximal 50 MB"
             onAddFile={(file) => action(file.name)}
             title="Datei hierhin ziehen"
           ></Fileinput>
-          <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
+          <Stack direction={StackDirection.row} spacing={StackSpacing.xs}>
             <TextButton
               color={TextButtonColor.slate}
               displayMode={TextButtonDisplayMode.fullWidth}
