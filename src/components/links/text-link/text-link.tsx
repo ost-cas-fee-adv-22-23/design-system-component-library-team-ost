@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, FC } from 'react';
 import { Label, LabelSizes } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
@@ -15,7 +15,7 @@ export type TextLinkProps = {
    * Specifies where to open the linked document.
    */
   target?: '_blank' | '_self';
-} & HTMLAttributes<HTMLAnchorElement>;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export const TextLink: FC<TextLinkProps> = ({ children, href, target = '_blank', ...args }) => {
   const classes = mergeClassNames([

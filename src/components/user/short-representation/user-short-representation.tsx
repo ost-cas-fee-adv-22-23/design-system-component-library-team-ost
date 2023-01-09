@@ -4,7 +4,7 @@ import { IconTime } from '../../icons/icon-time';
 import { IconCalendar } from '../../icons/icon-calendar';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconSettings } from '../../icons/icon-settings';
-import { ProfilePicture, ProfilePictureSizes } from '../../profile-picture/profile-picture';
+import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profile-picture';
 import { Heading, HeadingSizes } from '../../typography/heading';
 import { Label, LabelSizes } from '../../typography/label';
 import { IconLocation } from '../../icons/icon-location';
@@ -132,9 +132,9 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   timestamp,
   username,
 }) => {
-  const profilePictureVariantStyles: Record<UserShortRepresentationProfilePictureSize, ProfilePictureSizes> = {
-    s: ProfilePictureSizes.s,
-    m: ProfilePictureSizes.m,
+  const profilePictureVariantStyles: Record<UserShortRepresentationProfilePictureSize, ProfilePictureSize> = {
+    s: ProfilePictureSize.s,
+    m: ProfilePictureSize.m,
   };
 
   const labelVariantStyles: Record<UserShortRepresentationLabelType, ReactElement> = {

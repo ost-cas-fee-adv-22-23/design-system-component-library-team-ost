@@ -1,28 +1,28 @@
-import React, { FC } from 'react';
+import React, { FC, ImgHTMLAttributes } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconEdit } from '../icons/icon-edit';
 import { IconSize } from '../icons/icon-props';
 
 export type ProfileBannerProps = {
   /**
-   * URL of Image.
-   */
-  src?: string;
-  /**
-   * Alt Attribute for the picture. It provides alternative information if a user for some reason cannot view the picture.
+   * Alt Attribute for the picture. It provides alternative information if a user for some reason cannot view it.
    */
   alt?: string;
   /**
-   *  Determines if user can edit profile picture.
+   *  Specifies if the user can edit the profile banner.
    */
   canEdit?: boolean;
   /**
-   * Action, when you click on Edit Icon while hovering. It is only relevant if the user can edit the profile banner.
+   * Specifies the action, which is called as the user clicks on the edit icon. It is only relevant if the user can edit the profile banner.
    */
   onEditClick?: () => void;
-};
+  /**
+   * Specifies the URL of the profile banner.
+   */
+  src?: string;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
-export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, src, canEdit = false, onEditClick }) => {
+export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, onEditClick, src, ...args }) => {
   const profileBannerBaseStyle = [
     'flex',
     'items-center',
@@ -78,7 +78,7 @@ export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, src, canEdit = fals
         </div>
       )}
 
-      <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} />
+      <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} {...args} />
     </div>
   );
 };

@@ -44,10 +44,10 @@ Default.parameters = {
 export const Profile = Template.bind({});
 Profile.args = {
   children: 'Username',
-  href: '#',
-  target: '_blank',
   color: IconLinkColor.violet,
+  href: '#',
   icon: <IconProfile />,
+  target: '_blank',
 };
 Profile.parameters = {
   design: {
@@ -59,10 +59,10 @@ Profile.parameters = {
 export const Joined = Template.bind({});
 Joined.args = {
   children: 'Joined',
-  href: '#',
-  target: '_blank',
   color: IconLinkColor.slate,
+  href: '#',
   icon: <IconCalendar />,
+  target: '_blank',
 };
 Joined.parameters = {
   design: {
@@ -74,10 +74,10 @@ Joined.parameters = {
 export const Location = Template.bind({});
 Location.args = {
   children: 'Location',
-  href: '#',
-  target: '_blank',
   color: IconLinkColor.slate,
+  href: '#',
   icon: <IconLocation />,
+  target: '_blank',
 };
 Location.parameters = {
   design: {
@@ -89,10 +89,10 @@ Location.parameters = {
 export const Timestamp = Template.bind({});
 Timestamp.args = {
   children: 'Timestamp',
-  href: '#',
-  target: '_blank',
   color: IconLinkColor.slate,
+  href: '#',
   icon: <IconTime />,
+  target: '_blank',
 };
 Timestamp.parameters = {
   design: {

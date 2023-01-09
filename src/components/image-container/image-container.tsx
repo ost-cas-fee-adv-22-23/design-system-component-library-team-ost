@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, ImgHTMLAttributes, useState } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconArrowDown } from '../icons/icon-arrow-down';
 import { IconArrowUp } from '../icons/icon-arrow-up';
@@ -6,21 +6,20 @@ import { IconSize } from '../icons/icon-props';
 
 export type ImageContainerProps = {
   /**
-   * URL of Image.
-   */
-  src?: string;
-  /**
-   * Alt Attribute for the image. It provides alternative information if a user for some reason cannot view the image.
+   * Alt Attribute for the image. It provides alternative information if a user for some reason cannot view it.
    */
   alt?: string;
-  // Todo: Evtl. innerhalb der Component lösen. Mittels Modal?
   /**
-   * Action, when you click on Fullscreen Icon while hovering.
+   * Specifies the action, which is called as the user clicks on the overlay with the fullscreen icon.
    */
   onClick?: () => void;
-};
+  /**
+   * Specifies the URL of the image.
+   */
+  src?: string;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
-export const ImageContainer: FC<ImageContainerProps> = ({ alt, src, onClick }) => {
+export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...args }) => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -111,7 +110,14 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, src, onClick }) =
       )}
 
       {src && (
-        <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} onLoad={onLoad} onError={onError} />
+        <img
+          className={mergeClassNames(profileBannerImageStyle)}
+          src={src}
+          alt={alt}
+          onLoad={onLoad}
+          onError={onError}
+          {...args}
+        />
       )}
     </div>
   );
