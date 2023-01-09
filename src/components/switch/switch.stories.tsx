@@ -18,13 +18,13 @@ const Template: ComponentStory<typeof Switch> = (args) => {
   //   setIsOpen(args.isOpen);
   // }, [args.isOpen]);
 
-  return <Switch {...args} onClose={() => console.log('switch')} />;
+  return <Switch {...args} tabChange={() => console.log('switch')} />;
 };
 
 export const Default = Template.bind({});
 Default.args = {
-  children: 'Switch Content',
-  onClose: null,
+  tabNames: ['Deine Mumbles', 'Deine Likes', 'Deine Mömbles'],
+  tabChange: null,
 };
 Default.parameters = {
   design: {
