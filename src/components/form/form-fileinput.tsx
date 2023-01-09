@@ -7,7 +7,7 @@ import { IconCheckmark } from '../icons/icon-checkmark';
 import { IconSize } from '../icons/icon-props';
 import { Paragraph, ParagraphSizes } from '../typography/paragraph';
 import { TextButton, TextButtonColor, TextButtonSize } from '../buttons/text-button';
-import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../layout/stack/stack';
+import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
 export type FileinputProps = {
   /**
@@ -84,12 +84,12 @@ export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAdd
   const dragAreaClasses = mergeClassNames([dragAreaBaseStyle]);
 
   return (
-    <Stack direction={StackDirections.col} spacing={StackSpacings.s}>
+    <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
       <FormItem id={fileinputId} errorMessage={errorMessage}>
         <input className={'hidden'} type="file" ref={inputRef} id={fileinputId} multiple={false} onChange={handleChange} />
         <label htmlFor={fileinputId} className={dragAreaClasses}>
           <div onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}>
-            <Stack direction={StackDirections.col} spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
+            <Stack direction={StackDirection.col} spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
               {!isFileSelected ? (
                 <>
                   <IconUpload size={IconSize.l} />

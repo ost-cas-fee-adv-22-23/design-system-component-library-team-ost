@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, FormHTMLAttributes, FormEvent } from 'react';
-import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
+import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
 export type FormProps = {
   /**
@@ -13,18 +13,18 @@ export type FormProps = {
   /**
    * Stack Direction to style the form
    */
-  stackDir?: StackDirections;
+  stackDir?: StackDirection;
   /**
    * Stack Spacings to define the spacings between the form items
    */
-  stackSpacing?: StackSpacings;
+  stackSpacing?: StackSpacing;
 } & FormHTMLAttributes<HTMLFormElement>;
 
 export const Form: FC<FormProps> = ({
   children,
   handleSubmit,
-  stackDir = StackDirections.col,
-  stackSpacing = StackSpacings.s,
+  stackDir = StackDirection.col,
+  stackSpacing = StackSpacing.s,
   ...args
 }) => {
   return (

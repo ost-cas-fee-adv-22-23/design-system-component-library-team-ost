@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { Label, LabelSizes } from '../typography/label';
-import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
+import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
 export type FormItemProps = {
   /**
@@ -27,7 +27,7 @@ export type FormItemProps = {
 
 export const FormItem: FC<FormItemProps> = ({ label, labelSize = LabelSizes.m, id, children, errorMessage }) => {
   return (
-    <Stack direction={StackDirections.col} spacing={StackSpacings.xxs}>
+    <Stack direction={StackDirection.col} spacing={StackSpacing.xxs}>
       {label && (
         <Label size={labelSize} htmlFor={id}>
           {label}

@@ -8,7 +8,7 @@ import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profil
 import { Heading, HeadingSizes } from '../../typography/heading';
 import { Label, LabelSizes } from '../../typography/label';
 import { IconLocation } from '../../icons/icon-location';
-import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../../layout/stack/stack';
+import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../../layout/stack/stack';
 
 export enum UserShortRepresentationProfilePictureSize {
   s = 's',
@@ -145,13 +145,13 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   };
 
   return (
-    <Stack spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
+    <Stack spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
       {profilePictureSize && src && alt && (
         <ProfilePicture size={profilePictureVariantStyles[profilePictureSize]} src={src} alt={alt} />
       )}
 
-      <Stack direction={StackDirections.col} spacing={StackSpacings.xs}>
-        <Stack spacing={StackSpacings.xs} alignitems={StackAlignItems.center}>
+      <Stack direction={StackDirection.col} spacing={StackSpacing.xs}>
+        <Stack spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
           {labelVariantStyles[labelType]}
 
           {showSettings && onSettingsClick && (
@@ -160,7 +160,7 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
             </span>
           )}
         </Stack>
-        <Stack spacing={StackSpacings.s}>
+        <Stack spacing={StackSpacing.s}>
           {username && hrefProfile && (
             <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
               {username}

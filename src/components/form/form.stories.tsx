@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form } from './form';
 import { Label, LabelSizes } from '../typography/label';
-import { Stack, StackDirections, StackSpacings } from '../../layout/stack/stack';
+import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 import { Input, InputTypes } from './form-input';
 import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../buttons/text-button';
 import { IconCancel } from '../icons/icon-cancel';
@@ -34,7 +34,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
   };
   return (
     <div className="text-slate-700">
-      <Form handleSubmit={action('Handle form submit')} stackDir={StackDirections.col} stackSpacing={StackSpacings.s}>
+      <Form handleSubmit={action('Handle form submit')} stackDir={StackDirection.col} stackSpacing={StackSpacing.s}>
         <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
         <Input
           errorMessage="Error-Message"
@@ -70,7 +70,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
           type={InputTypes.text}
           value={form.biography}
         />
-        <Stack direction={StackDirections.row} spacing={StackSpacings.xs}>
+        <Stack direction={StackDirection.row} spacing={StackSpacing.xs}>
           <TextButton
             color={TextButtonColor.slate}
             size={TextButtonSize.m}

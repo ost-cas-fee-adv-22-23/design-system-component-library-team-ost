@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { Stack, StackDirections, StackSpacings } from './stack';
+import { Stack, StackDirection, StackSpacing } from './stack';
 
 export default {
   title: 'Layouts/Stack',
@@ -26,14 +26,14 @@ const Template: ComponentStory<typeof Stack> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  direction: StackDirections.row,
-  spacing: StackSpacings.m,
+  direction: StackDirection.row,
+  spacing: StackSpacing.m,
   withDivider: false,
 };
 
 export const WithDivider = Template.bind({});
 WithDivider.args = {
-  direction: StackDirections.row,
-  spacing: StackSpacings.m,
+  direction: StackDirection.row,
+  spacing: StackSpacing.m,
   withDivider: true,
 };

@@ -1,12 +1,12 @@
-import { Children, FC, ReactNode } from 'react';
+import React, { Children, FC, ReactNode } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
-export enum StackDirections {
+export enum StackDirection {
   row = 'row',
   col = 'col',
 }
 
-export enum StackSpacings {
+export enum StackSpacing {
   none = 'none',
   xxs = 'xxs',
   xs = 'xs',
@@ -36,28 +36,45 @@ export enum StackAlignItems {
 }
 
 export type StackProps = {
-  direction?: StackDirections;
-  spacing: StackSpacings;
-  justifycontent?: StackJustifyContent;
-  alignitems?: StackAlignItems;
-  withDivider?: boolean;
+  /**
+   * Specifies the alignment of items on the Cross Axis.
+   */
+  alignItems?: StackAlignItems;
+  /**
+   * Specifies the content of the stack.
+   */
   children: ReactNode;
+  /**
+   * Specifies the direction of the stack items.
+   */
+  direction?: StackDirection;
+  /**
+   * Defines how the browser distributes space between and around content items along the Main Axis.
+   */
+  justifyContent?: StackJustifyContent;
+  /**
+   * Defines the space between immediate children.
+   */
+  spacing?: StackSpacing;
+  /**
+   * Specifies if the items are divided by a divider.
+   */
+  withDivider?: boolean;
 };
 
-const printChildren = (withDivider: boolean, direction: StackDirections, children: ReactNode[]) => {
+const printChildren = (withDivider: boolean, direction: StackDirection, children: ReactNode[]) => {
   if (Children.count(children) < 2 || withDivider !== true) {
     return children;
   }
   const mappedChildren = Children.map(children, (child, index) => {
     const isLast = index === children.length - 1;
 
-    // todo: Divider als eigene Component implementieren und konfigurierbar machen
     return (
       <>
         {child}{' '}
         {!isLast && (
           <span
-            className={mergeClassNames([direction === StackDirections.row ? 'h-auto w-px' : 'h-px w-auto', 'bg-slate-100'])}
+            className={mergeClassNames([direction === StackDirection.row ? 'h-auto w-px' : 'h-px w-auto', 'bg-slate-100'])}
           ></span>
         )}
       </>
@@ -68,20 +85,20 @@ const printChildren = (withDivider: boolean, direction: StackDirections, childre
 };
 
 export const Stack: FC<StackProps> = ({
-  direction = StackDirections.row,
-  spacing = StackSpacings.none,
-  justifycontent = StackJustifyContent.flexstart,
-  alignitems = StackAlignItems.unset,
-  withDivider = false,
+  alignItems: alignitems = StackAlignItems.unset,
   children,
+  direction = StackDirection.row,
+  justifyContent: justifycontent = StackJustifyContent.flexstart,
+  spacing = StackSpacing.none,
+  withDivider = false,
 }) => {
   const stackBaseStyle = ['flex'];
   const childrenArray = Children.toArray(children);
-  const stackDirectionsVariantStyles = {
+  const stackDirectionsVariantStyles: Record<StackDirection, string[]> = {
     row: ['flex-row'],
     col: ['flex-col'],
   };
-  const stackJustifyContentStyles = {
+  const stackJustifyContentStyles: Record<StackJustifyContent, string[]> = {
     flexstart: ['justify-start'],
     center: ['justify-center'],
     flexend: ['justify-end'],
@@ -89,7 +106,7 @@ export const Stack: FC<StackProps> = ({
     spacearound: ['justify-around'],
     spaceevenly: ['justify-evenly'],
   };
-  const stackAlignItemsStyles = {
+  const stackAlignItemsStyles: Record<StackAlignItems, string[]> = {
     flexstart: ['items-start'],
     center: ['items-center'],
     flexend: ['items-end'],
@@ -97,7 +114,7 @@ export const Stack: FC<StackProps> = ({
     stretch: ['items-stretch'],
     unset: ['unset'],
   };
-  const stackSpacingsVariantStyles = {
+  const stackSpacingsVariantStyles: Record<StackSpacing, string[]> = {
     none: ['gap-0'],
     xxs: ['gap-xxs'],
     xs: ['gap-xs'],

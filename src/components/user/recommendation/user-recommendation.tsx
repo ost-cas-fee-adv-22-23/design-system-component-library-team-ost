@@ -5,7 +5,7 @@ import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } fr
 import { IconMumble } from '../../icons/icon-mumble';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconProfile } from '../../icons/icon-profile';
-import { Stack, StackAlignItems, StackDirections, StackSpacings } from '../../../layout/stack/stack';
+import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../../layout/stack/stack';
 
 export type UserRecommendationProps = {
   /**
@@ -44,10 +44,10 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
 }) => {
   return (
     <div className="p-s bg-white rounded-2xl">
-      <Stack spacing={StackSpacings.s} direction={StackDirections.col} alignitems={StackAlignItems.center}>
+      <Stack spacing={StackSpacing.s} direction={StackDirection.col} alignItems={StackAlignItems.center}>
         <ProfilePicture size={ProfilePictureSize.l} src={src} alt={alt} />
 
-        <Stack spacing={StackSpacings.xs} direction={StackDirections.col} alignitems={StackAlignItems.center}>
+        <Stack spacing={StackSpacing.xs} direction={StackDirection.col} alignItems={StackAlignItems.center}>
           <Label size={LabelSizes.l}>{displayName}</Label>
           <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
             {username}
