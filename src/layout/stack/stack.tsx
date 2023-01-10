@@ -85,10 +85,10 @@ const printChildren = (withDivider: boolean, direction: StackDirection, children
 };
 
 export const Stack: FC<StackProps> = ({
-  alignItems: alignitems = StackAlignItems.unset,
+  alignItems = StackAlignItems.unset,
   children,
   direction = StackDirection.row,
-  justifyContent: justifycontent = StackJustifyContent.flexstart,
+  justifyContent = StackJustifyContent.flexstart,
   spacing = StackSpacing.none,
   withDivider = false,
 }) => {
@@ -131,8 +131,8 @@ export const Stack: FC<StackProps> = ({
         stackBaseStyle,
         stackDirectionsVariantStyles[direction],
         stackSpacingsVariantStyles[spacing],
-        stackJustifyContentStyles[justifycontent],
-        stackAlignItemsStyles[alignitems],
+        stackJustifyContentStyles[justifyContent],
+        stackAlignItemsStyles[alignItems],
       ])}
     >
       {printChildren(withDivider, direction, childrenArray)}
