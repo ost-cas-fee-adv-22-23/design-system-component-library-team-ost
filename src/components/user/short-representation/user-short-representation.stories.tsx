@@ -92,6 +92,7 @@ SizeS.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=418%3A135&t=vb5ZoC3oO12VDJQW-4',
   },
 };
+SizeS.storyName = '🐼 Size S';
 
 export const SizeM = Template.bind({});
 SizeM.args = {
@@ -107,6 +108,7 @@ SizeM.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=418%3A135&t=vb5ZoC3oO12VDJQW-4',
   },
 };
+SizeM.storyName = '🐼 Size M';
 
 export const SizeL = Template.bind({});
 SizeL.args = {
@@ -122,6 +124,7 @@ SizeL.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=418%3A135&t=vb5ZoC3oO12VDJQW-4',
   },
 };
+SizeL.storyName = '🐼 Size L';
 
 export const SizeXl = Template.bind({});
 SizeXl.args = {
@@ -140,6 +143,7 @@ SizeXl.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=418%3A135&t=vb5ZoC3oO12VDJQW-4',
   },
 };
+SizeXl.storyName = '🐼 Size XL';
 
 export const NewUser = Template.bind({});
 NewUser.args = {
@@ -158,3 +162,4 @@ NewUser.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=418%3A135&t=vb5ZoC3oO12VDJQW-4',
   },
 };
+NewUser.storyName = '🐼 New User';

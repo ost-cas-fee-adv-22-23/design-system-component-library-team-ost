@@ -120,6 +120,7 @@ MumbleAsResponse.args = {
   containerWidth: 680,
   isInteractive: false,
 };
+MumbleAsResponse.storyName = '🐼 Mumble As Response';
 
 const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
@@ -173,6 +174,7 @@ MumbleOnDetailpage.args = {
   containerWidth: 680,
   isInteractive: false,
 };
+MumbleOnDetailpage.storyName = '🐼 Mumble On Detailpage';
 
 const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
@@ -226,3 +228,4 @@ MumbleInTimeline.args = {
   containerWidth: 680,
   isInteractive: true,
 };
+MumbleInTimeline.storyName = '🐼 Mumble In Timeline';

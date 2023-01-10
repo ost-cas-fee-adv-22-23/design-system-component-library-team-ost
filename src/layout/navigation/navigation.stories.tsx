@@ -15,7 +15,24 @@ export default {
   },
 } as ComponentMeta<typeof Navigation>;
 
-export const Default: ComponentStory<typeof Navigation> = () => {
+const Template: ComponentStory<typeof Navigation> = (args) => (
+  <Navigation {...args}>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item A</div>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item B</div>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item C</div>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item D</div>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item E</div>
+  </Navigation>
+);
+
+export const Default = Template.bind({});
+Default.argTypes = {
+  children: {
+    control: { disable: true },
+  },
+};
+
+export const MumbleNavigation: ComponentStory<typeof Navigation> = () => {
   return (
     <Navigation>
       <ProfilePictureButton
@@ -28,4 +45,4 @@ export const Default: ComponentStory<typeof Navigation> = () => {
     </Navigation>
   );
 };
-Default.storyName = 'Navigation';
+MumbleNavigation.storyName = '🐼 Mumble Navigation';

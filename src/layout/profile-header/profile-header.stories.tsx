@@ -76,6 +76,7 @@ LoggedIn.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
+LoggedIn.storyName = '🐼 Logged In';
 
 export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
   const isLoggedIn = false;
@@ -132,6 +133,7 @@ Stranger.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
+Stranger.storyName = '🐼 Stranger';
 
 export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
   const isNewUser = true;
@@ -179,3 +181,4 @@ NewUser.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
+NewUser.storyName = '🐼 New User';
