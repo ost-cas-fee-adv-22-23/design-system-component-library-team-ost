@@ -1,29 +1,47 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import React from 'react';
-import { ProfileHeader } from './profile-header';
+import React, { FC } from 'react';
 import { ProfileBanner } from '../../components/profile-banner/profile-banner';
 import { ProfilePicture, ProfilePictureSize } from '../../components/profile-picture/profile-picture';
 import {
   UserShortRepresentation,
   UserShortRepresentationLabelType,
 } from '../../components/user/short-representation/user-short-representation';
-import { Stack, StackDirection, StackSpacing } from '../stack/stack';
+import { Stack, StackDirection, StackProps, StackSpacing } from '../stack/stack';
 import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 
+interface StackWithContainerWidth extends FC<StackProps> {
+  /**
+   * Specifies the width of the parent component. It's only for demo purposes.
+   */
+  containerWidth: number;
+}
+
 export default {
-  title: 'Layouts/ProfileHeader',
-  component: ProfileHeader,
+  title: 'Layouts/🐼 Profile Header',
+  component: Stack,
+  argTypes: {
+    alignItems: { table: { disable: true } },
+    children: { table: { disable: true } },
+    containerWidth: {
+      control: { type: 'range', min: 200, max: 1000, step: 10 },
+      description: "Specifies the width of the parent component. It's only for demo purposes.",
+    },
+    direction: { table: { disable: true } },
+    justifyContent: { table: { disable: true } },
+    spacing: { table: { disable: true } },
+    withDivider: { table: { disable: true } },
+  },
   parameters: {
     layout: 'centered',
   },
-} as ComponentMeta<typeof ProfileHeader>;
+} as ComponentMeta<typeof Stack>;
 
-export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
+const LoggedInTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
   const isLoggedIn = true;
 
   return (
-    <ProfileHeader>
+    <div style={{ width: (args as unknown as StackWithContainerWidth).containerWidth + 'px' }}>
       <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative w-max">
           <ProfileBanner
@@ -66,10 +84,13 @@ export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
           </Paragraph>
         </div>
       </Stack>
-    </ProfileHeader>
+    </div>
   );
 };
-
+export const LoggedIn = LoggedInTemplate.bind({});
+LoggedIn.args = {
+  containerWidth: 680,
+};
 LoggedIn.parameters = {
   design: {
     type: 'figma',
@@ -78,11 +99,11 @@ LoggedIn.parameters = {
 };
 LoggedIn.storyName = '🐼 Logged In';
 
-export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
+const StrangerTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
   const isLoggedIn = false;
 
   return (
-    <ProfileHeader>
+    <div style={{ width: (args as unknown as StackWithContainerWidth).containerWidth + 'px' }}>
       <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative">
           <ProfileBanner
@@ -123,10 +144,14 @@ export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
           </Paragraph>
         </div>
       </Stack>
-    </ProfileHeader>
+    </div>
   );
 };
 
+export const Stranger = StrangerTemplate.bind({});
+Stranger.args = {
+  containerWidth: 680,
+};
 Stranger.parameters = {
   design: {
     type: 'figma',
@@ -135,11 +160,11 @@ Stranger.parameters = {
 };
 Stranger.storyName = '🐼 Stranger';
 
-export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
+const NewUserTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
   const isNewUser = true;
 
   return (
-    <ProfileHeader>
+    <div style={{ width: (args as unknown as StackWithContainerWidth).containerWidth + 'px' }}>
       <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
         <div className="relative">
           <ProfileBanner canEdit={isNewUser} onEditClick={action('onEditProfileBannerClick')} />
@@ -171,10 +196,14 @@ export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
           <Paragraph size={ParagraphSizes.m}>Schreibe etwas über dich!</Paragraph>
         </div>
       </Stack>
-    </ProfileHeader>
+    </div>
   );
 };
 
+export const NewUser = NewUserTemplate.bind({});
+NewUser.args = {
+  containerWidth: 680,
+};
 NewUser.parameters = {
   design: {
     type: 'figma',
