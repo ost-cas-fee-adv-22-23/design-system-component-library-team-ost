@@ -125,6 +125,9 @@ module.exports = {
       rotate: {
         15: '15deg',
       },
+      width: {
+        tabnav: 'calc(100% + 15px)',
+      }
     },
   },
   plugins: [
