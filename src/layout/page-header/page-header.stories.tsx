@@ -22,7 +22,20 @@ export default {
   component: PageHeader,
 } as ComponentMeta<typeof PageHeader>;
 
-export const Default: ComponentStory<typeof PageHeader> = () => {
+const Template: ComponentStory<typeof PageHeader> = (args) => (
+  <PageHeader {...args}>
+    <div className="flex items-center justify-center w-16 h-16 bg-slate-700 text-white font-bold">Item A</div>
+  </PageHeader>
+);
+
+export const Default = Template.bind({});
+Default.argTypes = {
+  children: {
+    control: { disable: true },
+  },
+};
+
+export const MumblePageHeader: ComponentStory<typeof PageHeader> = () => {
   const [isOpenSettings, setIsOpenSettings] = useState(false);
   const [isOpenFileUpload, setIsOpenFileUpload] = useState(false);
 
@@ -160,10 +173,10 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
   );
 };
 
-Default.parameters = {
+MumblePageHeader.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
   },
 };
-Default.storyName = 'PageHeader';
+MumblePageHeader.storyName = '🐼 Mumble PageHeader';

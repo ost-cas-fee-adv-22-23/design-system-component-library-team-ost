@@ -50,6 +50,7 @@ Settings.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
   },
 };
+Settings.storyName = '🐼 Settings';
 
 export const ImageUpload = Template.bind({});
 ImageUpload.args = {
@@ -65,3 +66,4 @@ ImageUpload.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
   },
 };
+ImageUpload.storyName = '🐼 Image Upload';
