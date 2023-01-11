@@ -1,22 +1,34 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { MumbleViolet } from './mumble-violet';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Components/Logo',
   component: MumbleViolet,
-  argTypes: {},
   parameters: {
     layout: 'centered',
   },
 } as ComponentMeta<typeof MumbleViolet>;
 
-// todo: dynamisch das Icon in der Story auswählen
-const Template: ComponentStory<typeof MumbleViolet> = () => <MumbleViolet />;
+const Template: ComponentStory<typeof MumbleViolet> = (args) => <MumbleViolet {...args} />;
 
-export const Logos = Template.bind({});
-Logos.args = {};
-Logos.parameters = {
+export const LogoWithClick = Template.bind({});
+LogoWithClick.args = {
+  onClick: action('onLogoClick'),
+};
+LogoWithClick.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A1020&t=tlJtbjJyXZq0OW7Z-0',
+  },
+};
+
+export const LogoWithoutClick = Template.bind({});
+LogoWithoutClick.args = {
+  onClick: null,
+};
+LogoWithoutClick.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A1020&t=tlJtbjJyXZq0OW7Z-0',

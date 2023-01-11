@@ -7,8 +7,8 @@ import {
   UserShortRepresentation,
   UserShortRepresentationLabelType,
 } from '../../components/user/short-representation/user-short-representation';
+import { Paragraph, ParagraphSize } from '../../components/typography/paragraph';
 import { Stack, StackDirection, StackProps, StackSpacing } from '../stack/stack';
-import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 
 interface StackWithContainerWidth extends FC<StackProps> {
   /**
@@ -78,7 +78,7 @@ const LoggedInTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>
+          <Paragraph size={ParagraphSize.m}>
             Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu
             Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.
           </Paragraph>
@@ -138,7 +138,7 @@ const StrangerTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>
+          <Paragraph size={ParagraphSize.m}>
             Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu
             Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.
           </Paragraph>
@@ -193,7 +193,7 @@ const NewUserTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>Schreibe etwas über dich!</Paragraph>
+          <Paragraph size={ParagraphSize.m}>Schreibe etwas über dich!</Paragraph>
         </div>
       </Stack>
     </div>

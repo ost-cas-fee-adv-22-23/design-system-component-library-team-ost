@@ -1,7 +1,16 @@
 import React, { FC } from 'react';
+import { LogoProps } from './logo-props';
 
-export const MumbleGradient: FC = () => (
-  <svg width="247" height="128" viewBox="0 0 247 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const MumbleGradient: FC<LogoProps> = ({ onClick }) => (
+  <svg
+    className={onClick ? 'cursor-pointer' : 'cursor-default'}
+    onClick={onClick}
+    width="100%"
+    height="100%"
+    viewBox="0 0 247 128"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g clipPath="url(#clip0_447_514)">
       <path
         d="M128.535 40H117.868C116.342 40 114.972 40.849 114.29 42.2135C113.607 43.5755 113.753 45.1823 114.667 46.3985L120.001 53.513C120.764 54.5287 121.93 55.112 123.201 55.112C124.472 55.112 125.639 54.5287 126.402 53.5104L131.735 46.401C132.649 45.1823 132.795 43.5755 132.113 42.2135C131.43 40.849 130.061 40 128.535 40Z"

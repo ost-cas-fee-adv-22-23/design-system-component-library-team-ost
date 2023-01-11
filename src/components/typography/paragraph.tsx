@@ -1,6 +1,6 @@
 import React, { FC, ReactNode, HTMLAttributes } from 'react';
 
-export enum ParagraphSizes {
+export enum ParagraphSize {
   m = 'm',
   l = 'l',
 }
@@ -13,15 +13,15 @@ export type ParagraphProps = {
   /**
    * Paragraph font size
    */
-  size: ParagraphSizes;
+  size: ParagraphSize;
 } & HTMLAttributes<HTMLParagraphElement>;
 
-const classMap: Record<ParagraphSizes, string> = {
+const classMap: Record<ParagraphSize, string> = {
   m: 'font-poppins font-medium text-current text-base leading-snug',
   l: 'font-poppins font-medium text-current text-2xl leading-normal',
 };
 
-export const Paragraph: FC<ParagraphProps> = ({ children, size = ParagraphSizes.m, ...args }) => (
+export const Paragraph: FC<ParagraphProps> = ({ children, size = ParagraphSize.m, ...args }) => (
   <p className={classMap[size]} {...args}>
     {children}
   </p>

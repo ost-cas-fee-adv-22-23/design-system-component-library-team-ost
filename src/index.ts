@@ -7,6 +7,7 @@ export * from './components/logos/public-api';
 export * from './components/modal/public-api';
 export * from './components/profile-banner/public-api';
 export * from './components/profile-picture/public-api';
+export * from './components/tab-nav/public-api';
 export * from './components/typography/public-api';
 export * from './components/user/public-api';
 export * from './layout/navigation/public-api';
