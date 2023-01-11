@@ -22,7 +22,7 @@ Default.args = {
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=s6xM5WOtclNzotKV-1',
   },
 };
 
@@ -35,6 +35,6 @@ MumbleSwitch.storyName = '🐼 Switch';
 MumbleSwitch.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3177&t=FA0Jm3Ru09rCucgV-1',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=s6xM5WOtclNzotKV-1',
   },
 };
