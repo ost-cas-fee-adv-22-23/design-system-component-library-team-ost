@@ -43,7 +43,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.7"
+    "@headlessui/react": "^1.7.7",
+    "@headlessui/tailwindcss": "^0.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
