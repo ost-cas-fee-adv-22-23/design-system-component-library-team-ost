@@ -37,7 +37,6 @@ export const Card: FC<CardProps> = ({
     'outline-slate-200',
     'hover:outline',
     'hover:outline-2',
-    'hover:outline-slate-200',
   ];
 
   const cardBorderRadiusStyles: Record<BorderRadiusType, string[]> = {
