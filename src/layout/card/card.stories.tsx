@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
 import {
   UserShortRepresentation,
@@ -14,6 +14,11 @@ import { Like } from '../../components/buttons/interaction-buttons/like';
 import { Share } from '../../components/buttons/interaction-buttons/share';
 import { Reply } from '../../components/buttons/interaction-buttons/reply';
 import { ProfilePicture, ProfilePictureSize } from '../../components/profile-picture/profile-picture';
+import { Form } from '../../components/form/form';
+import { Textarea } from '../../components/form/form-textarea';
+import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../../components/buttons/text-button';
+import { IconUpload } from '../../components/icons/icon-upload';
+import { Heading, HeadingSizes } from '../../components/typography/heading';
 
 interface CardWithContainerWidth extends FC<CardProps> {
   /**
@@ -29,6 +34,9 @@ export default {
   argTypes: {
     borderRadiusType: {
       control: { type: 'select' },
+    },
+    children: {
+      control: { disable: true },
     },
     containerWidth: {
       control: { type: 'range', min: 200, max: 1000, step: 10 },
@@ -76,7 +84,7 @@ Interactive.args = {
 const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={BorderRadiusType.none}>
+      <Card borderRadiusType={args.borderRadiusType}>
         <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
           <UserShortRepresentation
             alt="Robert Vogt"
@@ -125,7 +133,7 @@ MumbleAsResponse.storyName = '🐼 Mumble As Response';
 const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={BorderRadiusType.roundedTop}>
+      <Card borderRadiusType={args.borderRadiusType}>
         <div className="absolute -left-l">
           <ProfilePicture
             alt="Robert Vogt"
@@ -179,7 +187,7 @@ MumbleOnDetailpage.storyName = '🐼 Mumble On Detailpage';
 const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={BorderRadiusType.roundedFull} isInteractive={args.isInteractive}>
+      <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
         <div className="absolute -left-l">
           <ProfilePicture
             alt="Robert Vogt"
@@ -229,3 +237,160 @@ MumbleInTimeline.args = {
   isInteractive: true,
 };
 MumbleInTimeline.storyName = '🐼 Mumble In Timeline';
+
+const WriteComponentInlineTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
+  const [form, setForm] = useState({
+    text: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
+      <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
+        <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
+          <UserShortRepresentation
+            alt="Robert Vogt"
+            displayName="Robert Vogt"
+            hrefProfile="#"
+            labelType={UserShortRepresentationLabelType.m}
+            username="robertvogt"
+            profilePictureSize={UserShortRepresentationProfilePictureSize.s}
+            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+          />
+
+          <Form handleSubmit={action('Handle form submit')}>
+            <Textarea
+              ariaLabel="Und was meinst du dazu?"
+              errorMessage=""
+              name="text"
+              onChange={handleChange}
+              placeholder="Und was meinst du dazu?"
+              required
+              rows={5}
+              value={form.text}
+            />
+          </Form>
+
+          <Stack spacing={StackSpacing.s}>
+            <TextButton
+              color={TextButtonColor.slate}
+              displayMode={TextButtonDisplayMode.fullWidth}
+              icon={<IconUpload />}
+              onClick={action('onBildHochladenClick')}
+              size={TextButtonSize.m}
+            >
+              Bild hochladen
+            </TextButton>
+            <TextButton
+              color={TextButtonColor.violet}
+              displayMode={TextButtonDisplayMode.fullWidth}
+              icon={<IconUpload />}
+              onClick={action('onAbsendenClick')}
+              size={TextButtonSize.m}
+              type="submit"
+            >
+              Absenden
+            </TextButton>
+          </Stack>
+        </Stack>
+      </Card>
+    </div>
+  );
+};
+export const WriteComponentInline = WriteComponentInlineTemplate.bind({});
+WriteComponentInline.args = {
+  borderRadiusType: BorderRadiusType.none,
+  containerWidth: 680,
+  isInteractive: false,
+};
+WriteComponentInline.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=648dM1ZOl1gEZTal-4',
+  },
+};
+WriteComponentInline.storyName = '🐼 Write Component Inline';
+
+const WriteComponentHauptfeldTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
+  const [form, setForm] = useState({
+    text: '',
+  });
+
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  return (
+    <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
+      <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
+        <div className="absolute -left-l top-m">
+          <ProfilePicture
+            alt="Robert Vogt"
+            size={ProfilePictureSize.m}
+            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+          />
+        </div>
+        <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
+          <Heading headingLevel={HeadingSizes.h4}>Hey, was läuft?</Heading>
+
+          <Form handleSubmit={action('Handle form submit')}>
+            <Textarea
+              ariaLabel="Und was meinst du dazu?"
+              errorMessage=""
+              name="text"
+              onChange={handleChange}
+              placeholder="Und was meinst du dazu?"
+              required
+              rows={5}
+              value={form.text}
+            />
+          </Form>
+
+          <Stack spacing={StackSpacing.s}>
+            <TextButton
+              color={TextButtonColor.slate}
+              displayMode={TextButtonDisplayMode.fullWidth}
+              icon={<IconUpload />}
+              onClick={action('onBildHochladenClick')}
+              size={TextButtonSize.m}
+            >
+              Bild hochladen
+            </TextButton>
+            <TextButton
+              color={TextButtonColor.violet}
+              displayMode={TextButtonDisplayMode.fullWidth}
+              icon={<IconUpload />}
+              onClick={action('onAbsendenClick')}
+              size={TextButtonSize.m}
+              type="submit"
+            >
+              Absenden
+            </TextButton>
+          </Stack>
+        </Stack>
+      </Card>
+    </div>
+  );
+};
+export const WriteComponentHauptfeld = WriteComponentHauptfeldTemplate.bind({});
+WriteComponentHauptfeld.args = {
+  borderRadiusType: BorderRadiusType.roundedFull,
+  containerWidth: 680,
+  isInteractive: false,
+};
+WriteComponentHauptfeld.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=648dM1ZOl1gEZTal-4',
+  },
+};
+WriteComponentHauptfeld.storyName = '🐼 Write Component Hauptfeld';
