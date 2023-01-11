@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Heading, HeadingSizes, HeadingProps } from './heading';
+import { Heading, HeadingSize, HeadingProps } from './heading';
 
 export default {
   title: 'Components/Typography',
@@ -28,7 +28,7 @@ const Template: ComponentStory<HeadingWithColor> = (args) => (
 export const DefaultHeading = Template.bind({});
 DefaultHeading.args = {
   children: 'Überschrift',
-  headingLevel: HeadingSizes.h1,
+  headingLevel: HeadingSize.h1,
   color: '#0f172a',
 };
 DefaultHeading.storyName = 'Heading';

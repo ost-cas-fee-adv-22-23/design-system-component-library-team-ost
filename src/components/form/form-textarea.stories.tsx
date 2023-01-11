@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useEffect, useState, FC } from 'react';
 import { Textarea, TextareaProps } from './form-textarea';
-import { LabelSizes } from '../typography/label';
+import { LabelSize } from '../typography/label';
 
 export default {
   title: 'Components/Form/Textarea',
@@ -113,7 +113,7 @@ WithLabel.args = {
   ariaLabel: 'Was gibt es neues?',
   errorMessage: '',
   label: 'Textarea Label',
-  labelSize: LabelSizes.m,
+  labelSize: LabelSize.m,
   name: 'new',
   onChange: null,
   placeholder: 'Was gibt es neues?',

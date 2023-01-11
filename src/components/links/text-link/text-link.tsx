@@ -1,5 +1,5 @@
 import React, { AnchorHTMLAttributes, FC } from 'react';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type TextLinkProps = {
@@ -28,7 +28,7 @@ export const TextLink: FC<TextLinkProps> = ({ children, href, target = '_blank',
 
   return (
     <a className={classes} href={href} target={target} {...args}>
-      <Label size={LabelSizes.s}>{children}</Label>
+      <Label size={LabelSize.s}>{children}</Label>
     </a>
   );
 };

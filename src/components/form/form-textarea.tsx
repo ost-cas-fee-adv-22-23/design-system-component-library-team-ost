@@ -1,6 +1,6 @@
 import React, { FC, TextareaHTMLAttributes, ChangeEvent, useId } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { LabelSizes } from '../typography/label';
+import { LabelSize } from '../typography/label';
 import { FormItem } from './form-item';
 
 /* 
@@ -25,7 +25,7 @@ export type TextareaProps = {
   /**
    * The label size to style the label and set the font size.
    */
-  labelSize?: LabelSizes;
+  labelSize?: LabelSize;
   /**
    * A name identifier for the textarea.
    */
@@ -52,7 +52,7 @@ export const Textarea: FC<TextareaProps> = ({
   ariaLabel,
   errorMessage,
   label,
-  labelSize = LabelSizes.m,
+  labelSize = LabelSize.m,
   name,
   onChange,
   value,

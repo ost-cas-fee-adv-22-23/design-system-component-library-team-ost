@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { IconReplyFilled } from '../../icons/icon-reply-filled';
 import { IconReplyOutline } from '../../icons/icon-reply-outline';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 
@@ -37,7 +37,7 @@ export const Reply: FC<ReplyProps> = ({ repliesCount, withReaction, onClick }) =
         <IconReplyOutline />
       )}
 
-      <Label size={LabelSizes.m}>
+      <Label size={LabelSize.m}>
         {repliesCount === 0 ? 'Comment' : repliesCount > 1 ? repliesCount + ' Comments' : repliesCount + ' Comment'}
       </Label>
     </button>

@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type NaviButtonProps = {
@@ -41,7 +41,7 @@ export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick, ...ar
     <button className={classes} onClick={onClick} {...args}>
       <>
         {icon}
-        <Label size={LabelSizes.s}>{children}</Label>
+        <Label size={LabelSize.s}>{children}</Label>
       </>
     </button>
   );

@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes, FC, ReactElement } from 'react';
-import { Label, LabelSizes } from '../typography/label';
+import { Label, LabelSize } from '../typography/label';
 import { mergeClassNames } from './../../helpers/merge-class-names';
 
 export enum TextButtonColor {
@@ -126,7 +126,7 @@ export const TextButton: FC<TextButtonProps> = ({
   return (
     <button className={classes} onClick={onClick} {...args}>
       <>
-        <Label size={LabelSizes.m}>{children}</Label>
+        <Label size={LabelSize.m}>{children}</Label>
         {icon}
       </>
     </button>

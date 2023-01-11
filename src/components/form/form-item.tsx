@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Label, LabelSizes } from '../typography/label';
+import { Label, LabelSize } from '../typography/label';
 import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
 export type FormItemProps = {
@@ -22,10 +22,10 @@ export type FormItemProps = {
   /**
    * The label-size to set the label in the correct typo.
    */
-  labelSize?: LabelSizes;
+  labelSize?: LabelSize;
 };
 
-export const FormItem: FC<FormItemProps> = ({ label, labelSize = LabelSizes.m, id, children, errorMessage }) => {
+export const FormItem: FC<FormItemProps> = ({ label, labelSize = LabelSize.m, id, children, errorMessage }) => {
   return (
     <Stack direction={StackDirection.col} spacing={StackSpacing.xxs}>
       {label && (

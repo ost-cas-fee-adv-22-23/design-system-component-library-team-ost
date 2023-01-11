@@ -1,6 +1,6 @@
 import React, { AnchorHTMLAttributes, cloneElement, FC, ReactElement } from 'react';
 import { IconSize } from '../../icons/icon-props';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export enum IconLinkColor {
@@ -44,7 +44,7 @@ export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, targe
   return (
     <a className={classes} href={href} target={target} {...args}>
       {cloneElement(icon, { size: IconSize.s })}
-      <Label size={LabelSizes.s}>{children}</Label>
+      <Label size={LabelSize.s}>{children}</Label>
     </a>
   );
 };

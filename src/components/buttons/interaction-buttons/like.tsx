@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { IconHeartFilled } from '../../icons/icon-heart-filled';
 import { IconHeartOutline } from '../../icons/icon-heart-outline';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 
@@ -81,7 +81,7 @@ export const Like: FC<LikeProps> = ({ likesCount, onClick, withReaction }) => {
         <IconHeartOutline />
       )}
 
-      <Label size={LabelSizes.m}>
+      <Label size={LabelSize.m}>
         {isReactionButtonActive && withReactionState
           ? 'Liked'
           : isReactionButtonActive && !withReactionState

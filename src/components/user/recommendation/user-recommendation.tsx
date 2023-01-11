@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profile-picture';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../../buttons/text-button';
 import { IconMumble } from '../../icons/icon-mumble';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
@@ -48,7 +48,7 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
         <ProfilePicture size={ProfilePictureSize.l} src={src} alt={alt} />
 
         <Stack spacing={StackSpacing.xs} direction={StackDirection.col} alignItems={StackAlignItems.center}>
-          <Label size={LabelSizes.l}>{displayName}</Label>
+          <Label size={LabelSize.l}>{displayName}</Label>
           <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
             {username}
           </IconLink>

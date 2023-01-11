@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Label, LabelSizes, LabelProps } from './label';
+import { Label, LabelSize, LabelProps } from './label';
 
 export default {
   title: 'Components/Typography',
@@ -35,7 +35,7 @@ DefaultLabel.args = {
   children: 'Label',
   color: '#0f172a',
   htmlFor: 'input-id',
-  size: LabelSizes.m,
+  size: LabelSize.m,
 };
 DefaultLabel.storyName = 'Label';
 (DefaultLabel.argTypes = {

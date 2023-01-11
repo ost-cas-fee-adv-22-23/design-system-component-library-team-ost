@@ -9,7 +9,7 @@ import {
   UserShortRepresentationLabelType,
 } from '../../components/user/short-representation/user-short-representation';
 import { Stack, StackDirection, StackSpacing } from '../stack/stack';
-import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
+import { Paragraph, ParagraphSize } from '../../components/typography/paragraph';
 
 export default {
   title: 'Layouts/ProfileHeader',
@@ -60,7 +60,7 @@ export const LoggedIn: ComponentStory<typeof ProfileHeader> = () => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>
+          <Paragraph size={ParagraphSize.m}>
             Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu
             Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.
           </Paragraph>
@@ -116,7 +116,7 @@ export const Stranger: ComponentStory<typeof ProfileHeader> = () => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>
+          <Paragraph size={ParagraphSize.m}>
             Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu
             Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.
           </Paragraph>
@@ -166,7 +166,7 @@ export const NewUser: ComponentStory<typeof ProfileHeader> = () => {
         </div>
 
         <div className="text-slate-400">
-          <Paragraph size={ParagraphSizes.m}>Schreibe etwas über dich!</Paragraph>
+          <Paragraph size={ParagraphSize.m}>Schreibe etwas über dich!</Paragraph>
         </div>
       </Stack>
     </ProfileHeader>

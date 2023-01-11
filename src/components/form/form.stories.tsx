@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions';
 import React, { useState, ChangeEvent } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Form } from './form';
-import { Label, LabelSizes } from '../typography/label';
+import { Label, LabelSize } from '../typography/label';
 import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 import { Input, InputTypes } from './form-input';
 import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../buttons/text-button';
@@ -35,11 +35,11 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
   return (
     <div className="text-slate-700">
       <Form handleSubmit={action('Handle form submit')} stackDir={StackDirection.col} stackSpacing={StackSpacing.s}>
-        <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
+        <Label size={LabelSize.xl}>Persönliche Einstellungen</Label>
         <Input
           errorMessage="Error-Message"
           label="Name Vorname"
-          labelSize={LabelSizes.s}
+          labelSize={LabelSize.s}
           name="name"
           onChange={handleChange}
           type={InputTypes.text}
@@ -47,7 +47,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
         />
         <Input
           label="E-Mail-Adresse"
-          labelSize={LabelSizes.s}
+          labelSize={LabelSize.s}
           name="email"
           onChange={handleChange}
           placeholder="E-Mail"
@@ -56,7 +56,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
         />
         <Input
           label="Ortschaft"
-          labelSize={LabelSizes.s}
+          labelSize={LabelSize.s}
           name="city"
           onChange={handleChange}
           type={InputTypes.text}
@@ -64,7 +64,7 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
         />
         <Input
           label="Biografie"
-          labelSize={LabelSizes.s}
+          labelSize={LabelSize.s}
           name="biography"
           onChange={handleChange}
           type={InputTypes.text}

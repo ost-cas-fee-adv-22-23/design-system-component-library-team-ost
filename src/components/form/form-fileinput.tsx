@@ -1,11 +1,11 @@
 import React, { FC, DragEvent, useId, useState, useRef, ChangeEvent } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { Label, LabelSizes } from '../typography/label';
+import { Label, LabelSize } from '../typography/label';
 import { FormItem } from './form-item';
 import { IconUpload } from '../icons/icon-upload';
 import { IconCheckmark } from '../icons/icon-checkmark';
 import { IconSize } from '../icons/icon-props';
-import { Paragraph, ParagraphSizes } from '../typography/paragraph';
+import { Paragraph, ParagraphSize } from '../typography/paragraph';
 import { TextButton, TextButtonColor, TextButtonSize } from '../buttons/text-button';
 import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
@@ -93,14 +93,14 @@ export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAdd
               {!isFileSelected ? (
                 <>
                   <IconUpload size={IconSize.l} />
-                  <Label size={LabelSizes.xl}>{title}</Label>
-                  <Paragraph size={ParagraphSizes.m}>{description}</Paragraph>
+                  <Label size={LabelSize.xl}>{title}</Label>
+                  <Paragraph size={ParagraphSize.m}>{description}</Paragraph>
                 </>
               ) : (
                 <>
                   <IconCheckmark size={IconSize.l} />
-                  <Label size={LabelSizes.xl}>Datei geladen</Label>
-                  <Paragraph size={ParagraphSizes.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
+                  <Label size={LabelSize.xl}>Datei geladen</Label>
+                  <Paragraph size={ParagraphSize.m}>{`${currentFile} wurde hinzugefügt.`}</Paragraph>
                 </>
               )}
             </Stack>

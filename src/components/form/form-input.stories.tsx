@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useEffect, useState, FC } from 'react';
 import { Input, InputTypes, InputProps } from './form-input';
-import { LabelSizes } from '../typography/label';
+import { LabelSize } from '../typography/label';
 import { IconMumble } from '../icons/icon-mumble';
 import { IconEye } from '../icons/icon-eye';
 
@@ -73,7 +73,7 @@ WithIcon.args = {
   errorMessage: '',
   icon: <IconMumble />,
   label: 'Name',
-  labelSize: LabelSizes.m,
+  labelSize: LabelSize.m,
   name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',
@@ -94,7 +94,7 @@ WithoutIcon.args = {
   errorMessage: '',
   icon: null,
   label: 'Name',
-  labelSize: LabelSizes.m,
+  labelSize: LabelSize.m,
   name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',
@@ -115,7 +115,7 @@ Password.args = {
   errorMessage: '',
   icon: <IconEye />,
   label: 'Password',
-  labelSize: LabelSizes.m,
+  labelSize: LabelSize.m,
   name: 'password',
   onChange: null,
   placeholder: 'Dein Passwort',
@@ -136,7 +136,7 @@ ErrorMessage.args = {
   errorMessage: 'Error-Message',
   icon: null,
   label: 'Name',
-  labelSize: LabelSizes.m,
+  labelSize: LabelSize.m,
   name: 'name',
   onChange: null,
   placeholder: 'Dein Name hier',

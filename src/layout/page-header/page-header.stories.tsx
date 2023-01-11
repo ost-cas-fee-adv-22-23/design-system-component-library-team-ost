@@ -8,7 +8,7 @@ import { Navigation } from '../navigation/navigation';
 import { SettingsButton } from '../../components/buttons/navi-buttons/settings-button';
 import { LogoutButton } from '../../components/buttons/navi-buttons/logout-button';
 import { Modal, ModalType } from '../../components/modal/modal';
-import { Label, LabelSizes } from '../../components/typography/label';
+import { Label, LabelSize } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
 import { Stack, StackDirection, StackSpacing } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
@@ -64,11 +64,11 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
         title="Einstellungen"
       >
         <Form handleSubmit={action('Handle form submit')} stackDir={StackDirection.col} stackSpacing={StackSpacing.s}>
-          <Label size={LabelSizes.xl}>Persönliche Einstellungen</Label>
+          <Label size={LabelSize.xl}>Persönliche Einstellungen</Label>
           <Input
             errorMessage="Error-Message"
             label="Name Vorname"
-            labelSize={LabelSizes.s}
+            labelSize={LabelSize.s}
             name="name"
             onChange={handleChange}
             type={InputTypes.text}
@@ -76,7 +76,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           />
           <Input
             label="E-Mail-Adresse"
-            labelSize={LabelSizes.s}
+            labelSize={LabelSize.s}
             name="email"
             onChange={handleChange}
             placeholder="E-Mail"
@@ -85,7 +85,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           />
           <Input
             label="Ortschaft"
-            labelSize={LabelSizes.s}
+            labelSize={LabelSize.s}
             name="city"
             onChange={handleChange}
             type={InputTypes.text}
@@ -93,7 +93,7 @@ export const Default: ComponentStory<typeof PageHeader> = () => {
           />
           <Input
             label="Biografie"
-            labelSize={LabelSizes.s}
+            labelSize={LabelSize.s}
             name="biography"
             onChange={handleChange}
             type={InputTypes.text}
