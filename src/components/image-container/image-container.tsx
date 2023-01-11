@@ -82,11 +82,10 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
 
   const imageContainerImageStyle = ['w-full', 'object-cover', 'object-center'];
 
-  if (hasError === true) {
-    imageContainerImageStyle.push('p-m');
-  } else {
-    imageContainerImageStyle.push('scale-105', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
-  }
+  hasError
+    ? imageContainerImageStyle.push('p-m')
+    : imageContainerImageStyle.push('scale-105', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
+
   /*
    * Es wurde bewusst entschieden, dass IconFullscreen nicht zu wiederzuverwenden, da die Animation der Pfeils hier ein sehr spezifischer
    * Anwendungsfall darstellt. Gemäss Definition im Figma würde der Pfeil während der Animation aus der viewBox des SVGs ragen. Auf die
@@ -95,7 +94,7 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
    */
   return (
     <div className={mergeClassNames(imageContainerBaseStyle)}>
-      {hasError === false && (
+      {!hasError && (
         <div className={mergeClassNames(imageContainerOverlayStyle)} onClick={onClick}>
           <div className={mergeClassNames(imageContainerFullscreenIconStyle)}>
             <div className="group-hover/container:-translate-y-xs duration-300">
