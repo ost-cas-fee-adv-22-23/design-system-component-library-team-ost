@@ -13,17 +13,17 @@
   "exports": {
     ".": {
       "import": {
-        "types" : "./dist/cjs/types/index.d.ts",
-        "default" : "./dist/cjs/index.js"
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
       },
-     "require": {
-       "types" : "./dist/cjs/types/index.d.ts",
-       "default" : "./dist/cjs/index.js"
-     }
+      "require": {
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
     },
     "./tailwind-config": "./tailwind.config.js"
   },
-  "types" : "./dist/cjs/types/index.d.ts",
+  "types": "./dist/cjs/types/index.d.ts",
   "main": "./dist/cjs/index.js",
   "scripts": {
     "build": "npm run delete:dist && npm run build:cjs",
@@ -38,6 +38,8 @@
     "format": "prettier --write src/**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
     "lint:fix": "eslint --fix src/**/*.{js,jsx,ts,tsx,json} --no-error-on-unmatched-pattern",
+    "dep-graph:validate": "npx depcruise src --include-only \"^src\" --config .dependency-cruiser.js",
+    "dep-graph:create-svg": "npx depcruise src --include-only \"^src\" --config .dependency-cruiser.js --output-type dot | dot -T svg > dependency-graph.svg",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -64,6 +66,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "del-cli": "^5.0.0",
+    "dependency-cruiser": "^12.4.0",
     "eslint": "^8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.2",
