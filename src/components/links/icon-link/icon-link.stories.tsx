@@ -55,6 +55,7 @@ Profile.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=qteS5dWoA222X5Uw-4',
   },
 };
+Profile.storyName = '🐼 Profile';
 
 export const Joined = Template.bind({});
 Joined.args = {
@@ -70,6 +71,7 @@ Joined.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=qteS5dWoA222X5Uw-4',
   },
 };
+Joined.storyName = '🐼 Joined';
 
 export const Location = Template.bind({});
 Location.args = {
@@ -85,6 +87,7 @@ Location.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=qteS5dWoA222X5Uw-4',
   },
 };
+Location.storyName = '🐼 Location';
 
 export const Timestamp = Template.bind({});
 Timestamp.args = {
@@ -100,3 +103,4 @@ Timestamp.parameters = {
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=413%3A288&t=qteS5dWoA222X5Uw-4',
   },
 };
+Timestamp.storyName = '🐼 Timestamp';
