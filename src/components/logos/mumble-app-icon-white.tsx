@@ -1,7 +1,16 @@
 import React, { FC } from 'react';
+import { LogoProps } from './logo-props';
 
-export const MumbleAppIconWhite: FC = () => (
-  <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const MumbleAppIconWhite: FC<LogoProps> = ({ onClick }) => (
+  <svg
+    className={onClick ? 'cursor-pointer' : 'cursor-default'}
+    onClick={onClick}
+    width="100%"
+    height="100%"
+    viewBox="0 0 160 160"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M0 64C0 41.5979 0 30.3968 4.35974 21.8404C8.19467 14.3139 14.3139 8.19467 21.8404 4.35974C30.3968 0 41.5979 0 64 0H96C118.402 0 129.603 0 138.16 4.35974C145.686 8.19467 151.805 14.3139 155.64 21.8404C160 30.3968 160 41.5979 160 64V96C160 118.402 160 129.603 155.64 138.16C151.805 145.686 145.686 151.805 138.16 155.64C129.603 160 118.402 160 96 160H64C41.5979 160 30.3968 160 21.8404 155.64C14.3139 151.805 8.19467 145.686 4.35974 138.16C0 129.603 0 118.402 0 96V64Z"
       fill="white"
