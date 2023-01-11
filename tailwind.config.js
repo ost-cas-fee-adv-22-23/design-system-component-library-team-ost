@@ -127,6 +127,7 @@ module.exports = {
       },
       aspectRatio: {
         '16/9': '16 / 9',
+      },
       width: {
         tabnav: 'calc(100% + 15px)',
       }
