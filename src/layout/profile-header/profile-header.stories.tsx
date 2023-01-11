@@ -43,7 +43,7 @@ const LoggedInTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as StackWithContainerWidth).containerWidth + 'px' }}>
       <Stack spacing={StackSpacing.s} direction={StackDirection.col}>
-        <div className="relative w-max">
+        <div className="relative">
           <ProfileBanner
             alt="Robert Vogt"
             canEdit={isLoggedIn}
