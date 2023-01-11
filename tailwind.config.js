@@ -125,6 +125,9 @@ module.exports = {
       rotate: {
         15: '15deg',
       },
+      aspectRatio: {
+        '16/9': '16 / 9',
+      }
     },
   },
   plugins: [],
