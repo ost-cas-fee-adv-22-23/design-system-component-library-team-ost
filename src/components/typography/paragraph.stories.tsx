@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Paragraph, ParagraphSizes, ParagraphProps } from './paragraph';
+import { Paragraph, ParagraphSize, ParagraphProps } from './paragraph';
 
 export default {
   title: 'Components/Typography',
@@ -26,7 +26,7 @@ export const DefaultParagraph = Template.bind({});
 DefaultParagraph.args = {
   children:
     'Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum optio sed quis cumque error magni.',
-  size: ParagraphSizes.m,
+  size: ParagraphSize.m,
   color: '#0f172a',
 };
 DefaultParagraph.storyName = 'Paragraph';

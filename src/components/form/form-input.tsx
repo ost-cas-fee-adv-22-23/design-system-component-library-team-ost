@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, InputHTMLAttributes, ReactNode, useId, useState } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
-import { LabelSizes } from '../typography/label';
+import { LabelSize } from '../typography/label';
 import { FormItem } from './form-item';
 import { IconCancel } from '../icons/icon-cancel';
 
@@ -29,7 +29,7 @@ export type InputProps = {
   /**
    * The label size to style the label and set the font size.
    */
-  labelSize: LabelSizes;
+  labelSize: LabelSize;
   /**
    * A name identifier for the input field.
    */
@@ -60,7 +60,7 @@ export const Input: FC<InputProps> = ({
   errorMessage,
   icon,
   label,
-  labelSize = LabelSizes.m,
+  labelSize = LabelSize.m,
   name,
   onChange,
   type,

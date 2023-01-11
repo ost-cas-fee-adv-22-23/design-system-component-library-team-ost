@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { IconShare } from '../../icons/icon-share';
 import { interactionButtonsBaseStyle } from './base-style';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
-import { Label, LabelSizes } from '../../typography/label';
+import { Label, LabelSize } from '../../typography/label';
 
 export type ShareProps = {
   /**
@@ -36,7 +36,7 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
   return (
     <button className={classes} onClick={copyToClipboard}>
       <IconShare />
-      <Label size={LabelSizes.m}>{copied ? 'Link copied' : 'Copy Link'}</Label>
+      <Label size={LabelSize.m}>{copied ? 'Link copied' : 'Copy Link'}</Label>
     </button>
   );
 };

@@ -5,8 +5,8 @@ import { IconCalendar } from '../../icons/icon-calendar';
 import { IconLink, IconLinkColor } from '../../links/icon-link/icon-link';
 import { IconSettings } from '../../icons/icon-settings';
 import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profile-picture';
-import { Heading, HeadingSizes } from '../../typography/heading';
-import { Label, LabelSizes } from '../../typography/label';
+import { Heading, HeadingSize } from '../../typography/heading';
+import { Label, LabelSize } from '../../typography/label';
 import { IconLocation } from '../../icons/icon-location';
 import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../../layout/stack/stack';
 
@@ -138,10 +138,10 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   };
 
   const labelVariantStyles: Record<UserShortRepresentationLabelType, ReactElement> = {
-    s: <Label size={LabelSizes.s}>{displayName}</Label>,
-    m: <Label size={LabelSizes.m}>{displayName}</Label>,
-    l: <Label size={LabelSizes.l}>{displayName}</Label>,
-    h3: <Heading headingLevel={HeadingSizes.h3}>{displayName}</Heading>,
+    s: <Label size={LabelSize.s}>{displayName}</Label>,
+    m: <Label size={LabelSize.m}>{displayName}</Label>,
+    l: <Label size={LabelSize.l}>{displayName}</Label>,
+    h3: <Heading headingLevel={HeadingSize.h3}>{displayName}</Heading>,
   };
 
   return (
