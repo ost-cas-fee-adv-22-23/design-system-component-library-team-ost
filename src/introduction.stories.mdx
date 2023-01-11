@@ -4,35 +4,103 @@ import { Meta } from '@storybook/addon-docs';
 
 # Design System Component Library Team Ost
 
-🐼
+This Library is the result of the first part of the CAS Frontend Engineering
+Advanced course. It will be used in the second part for building our very
+own Twitter Clone - Mumble - with Next.js.
 
-Our goal for the Design System Block: Create our Frontend Components (React) in Storybook and release them as a npm package.
-In the Second Block, Your Components Will Become an App with Next.js
-And Finally You'll Learn About Security and How to Run This Thing in the Cloud
+## Mumble Stories
 
+This Storybook contains the stories of the Design System Component Library Team Ost,
+in Addition there are Mumble Stories. Mumble Stories are marked with a 🐼 emoji and
+show specific use cases for the Mumble App.
 
-## How to use in a Next.js project
+## How to use in a Next.js App
 
-1. Setting up Tailwind CSS in a Next.js project. You could find additional information [here](https://tailwindcss.com/docs/guides/nextjs).
-2. Install Component Library
+### Create Next.js App
 
-    ```
-    npm install @smartive-education/design-system-component-library-team-ost
-    ```
-3. Make your app using the tailwind presets of our design system. You have to add the following code snippet to the tailwind.config.js.
+```console
+npx create-next-app@latest --typescript
+```
 
-    ```
-    presets: [
-        require('@smartive-education/design-system-component-library-team-ost/tailwind-config')
-    ],
-    ```
-4. Make the Component Library using the Tailwind CSS of your App. You have to add the following code snippet to the tailwind.config.js.
+Additional information can be found [here](https://nextjs.org/docs/getting-started).
 
-    ```
-    content: [
-        ...
-        "./node_modules/@smartive-education/design-system-component-library-team-ost/**/*.{js,ts,jsx,tsx}"
-    ],
-    ```
-5. Add Google Font "Poppins", Medium, Semibold and Bold to your App. So you have the advantage of the built-in font optimization feature. (https://nextjs.org/docs/basic-features/font-optimization)
-6. Start using the components :-D
+### Authenticating GitHub Registry
+
+1. Create a personal GitHub access token.
+2. Create a new ~/.npmrc file if one doesn't exist.
+3. Include the following line, replacing TOKEN with your personal access token.
+
+```console
+@smartive-education:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=TOKEN
+```
+
+Additional information can be found [here](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry).
+
+### Install Package from GitHub Registry
+
+```console
+npm install @smartive-education/design-system-component-library-team-ost@latest
+```
+
+### Setup Tailwind CSS
+
+1. Install Tailwind CSS
+2. Make your app use the Tailwind presets of this Design System. Include the following code snippet
+   to the tailwind.config.js.
+
+```javascript
+presets: [
+    require('@smartive-education/design-system-component-library-team-ost/tailwind-config')
+],
+```
+
+3. Make this Component Library use the Tailwind CSS of the App. Include the following code snippet
+   to the tailwind.config.js.
+
+```javascript
+content: [
+    ...
+    "./node_modules/@smartive-education/design-system-component-library-team-ost/**/*.{js,ts,jsx,tsx}"
+],
+```
+
+Additional information can be found [here](https://tailwindcss.com/docs/guides/nextjs).
+
+### Install Google Font
+
+Add Google Font "Poppins", Medium, Semibold and Bold to the App. So you have the advantage of the built-in
+[font optimization](https://nextjs.org/docs/basic-features/font-optimization) feature.
+
+## Usage
+
+The Usage of a certain component can be found at the Docs Tab of the corresponding story.
+It's only necessary to add an import-statement for the component.
+
+```javascript
+import { XXX } from '@smartive-education/design-system-component-library-team-ost';
+```
+
+In addition to the listed props in a story, default HTMLAttributes can be used for the following
+components:
+
+- TextButton
+- IconButton
+- NaviButton
+- LogoutButton
+- ProfilePictureButton
+- SettingsButton
+- Input
+- Textarea
+- Form
+- ImageContainer
+- TextLink
+- IconLink
+- ProfileBanner
+- Heading
+- Paragraph
+
+## Maintainer
+
+- Martin Thomann
+- Nando Schär
