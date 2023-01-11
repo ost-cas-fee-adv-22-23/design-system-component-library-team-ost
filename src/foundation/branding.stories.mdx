@@ -11,72 +11,98 @@ import { MumbleFavicon } from '../components/logos/mumble-favicon';
 
 <Meta title="Foundation/Branding" />
 
+<style>
+    {
+        `
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            background-color: #475569;
+            padding: 40px;
+        }
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .icon-container {
+
+        }
+        `
+    }
+</style>
+
 # Branding
 
 All available brand components can be found below:
 
-<div>
-    <h2>Mumble Logo Variants</h2>
-    <div className="flex w-full gap-xxl flex-wrap items-start">
-        <div className="w-full p-s">
-            <h3>MumbleViolet</h3>
-            <MumbleViolet />
-        </div>
-        <div className="w-full p-s">
-            <h3>MumbleVioletHorizontal</h3>
-            <MumbleVioletHorizontal />
-        </div>
-    </div>
-    <div className="flex w-full gap-xxl flex-wrap items-start">
-        <div className="w-full p-s">
-            <h3>MumbleWhite</h3>
+## Mumble Logos
+
+<div class="grid-container">
+  <div class="grid-item">
+    <h3>MumbleViolet</h3>
+    <MumbleViolet />
+  </div>
+  <div class="grid-item">
+    <h3>MumbleVioletHorizontal</h3>
+    <MumbleVioletHorizontal />
+  </div>
+  <div class="grid-item">
+    <h3>MumbleWhite</h3>
             <div className="bg-violet-600 rounded-lg p-s">
                 <MumbleWhite />
             </div>
-        </div>
-        <div className="w-full p-s">
-            <h3>MumbleWhiteHorizontal</h3>
+    </div>  
+  <div class="grid-item">
+    <h3>MumbleWhiteHorizontal</h3>
             <div className="bg-violet-600 rounded-lg p-s">
                 <MumbleWhiteHorizontal />
             </div>
-        </div>
     </div>
-    <div className="flex w-full gap-xxl flex-wrap items-start">
-        <div className="w-full p-s">
-            <h3>MumbleGradient</h3>
+  <div class="grid-item">
+    <h3>MumbleGradient</h3>
             <MumbleGradient />
-        </div>
-        <div className="w-full p-s">
-            <h3>MumbleGradientHorizontal</h3>
+  </div>
+  <div class="grid-item">
+    <h3>MumbleGradientHorizontal</h3>
             <MumbleGradientHorizontal />
-        </div>
-    </div>
-    
-    <h2>App Icons</h2>
-    <div className="flex w-full gap-xxl flex-wrap items-start">
-         <div className="w-full p-s">
-            <h3>MumbleAppIconGradient</h3>
+            </div>  
+</div>
+
+## Mumble App Icons
+
+<div class="grid-container">
+  <div class="grid-item">
+     <h3>MumbleAppIconGradient</h3>
             <MumbleAppIconGradient />
-        </div>
-         <div className="w-full p-s">
-            <h3>MumbleAppIconWhite</h3>
+  </div>
+  <div class="grid-item">
+    <h3>MumbleAppIconWhite</h3>
             <div className="bg-violet-600 rounded-lg p-s">
                 <MumbleAppIconWhite />
             </div>
-        </div>
-         <div className="w-full p-s">
-            <h3>MumbleFavicon</h3>
-            <MumbleFavicon />
-        </div>
-      
-    </div>
   </div>
+  <div class="grid-item">
+    <h3>MumbleFavicon</h3>
+            <MumbleFavicon />
+    </div>
+</div>
 
 ## Usage
-Each logo is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component [here](/story/components-logo--logos).
+Each logo is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component [Component](/story/components-logo--logo-with-click).
+```jsx 
+import { MumbleViolet } from './mumble-violet';
+```
 
-
+### Click action
+By passing a onClick function, the icon will be clickable.
+```jsx 
+<MumbleViolet onClick={()=> {}} />
+```
 
 <Canvas withSource="open" withToolbar>
-    <Story id="components-logo--logos" />
+    <Story id="components-logo--logo-with-click" />
 </Canvas>

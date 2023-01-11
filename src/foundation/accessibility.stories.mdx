@@ -1,0 +1,64 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Foundation/Accessibility" />
+
+# Accessibility
+
+As an open platform for people, we want to offer the best possible experience for everyone. That's why we paid a lot of attention to accessibility when implementing the components. 
+
+Some components were implemented with [headlessUI](https://headlessui.com/), which is optimized for accessible web.
+
+For A11y validation of our components we use an addon for Storybook [storybook-addon-a11y](https://storybook.js.org/addons/@storybook/addon-a11y).
+
+## Why is it important to us?
+- Accessible design means better design, for everyone
+- We care about creating a product that can be used by people from all walks of life, accessibility is a critical aspect of that
+- It's a best practice for designing and building software
+- It ensures legal compliance
+
+## Best practices
+We followed the best practices of [gusto](https://workbench.gusto.com) and have listed them here.
+
+The [A11YProject](https://www.a11yproject.com/checklist/) provides also a good checklist.
+
+### Color
+- Don't use color as the only visual means of conveying information.
+- Avoid using red and green together.
+- Use color to highlight or complement what's already visible.
+
+### Contrast
+- Many users with low vision still read content on their devices, so providing good contrast is essential for all important information
+- Check contrast for body copy, links, buttons, headers, icons, images with functional text
+- Elements that don't need to pass contrast: logos, disabled states(inactive menu or buttons).
+
+### Content design
+- Use plain language that simplifies complexity wherever possible
+- Use bullet points, headings, and lean on structured content where possible
+- Give users enough time to read and use the content—avoid content that disappears or is animated
+- Write descriptive labels for headers, buttons, links, and input fields
+- Avoid obscure, out of context copy such as “Learn more”
+- On buttons and links, use a verb + noun format (eg: Save form ) wherever possible so people know what action they're taking—where this isn't possible use an aria-label on the link target with the verb + noun format. Screen readers may navigate through all the links of the page directly, so if link text does not have enough context on its own it may be inaccessible.
+
+### Form fields
+- Place labels or instructions outside of form fields
+- Don't use placeholder text as a label
+
+### Media
+- Think about it as supporting all senses when possible.
+- Provide text alternatives for media(images or video ).
+- Video transcription or captioning.
+- Allow for viewing at multiple speeds, or the ability to pause or turn off.
+- If it's purely decorative, no description is necessary.
+
+### Images
+- Add alt text descriptions to describe the content.
+- Never add “picture of” to thealt text description.
+
+### Keyboard
+- Remember that our big desk power users also benefit from keyboard use !
+- When possible, make everything operable from a keyboard.
+- Follow WAI-ARIA authoring guides or use design systems components to ensure standard keyboard interactions
+- Provide visual focus indication for keyboard focus.
+- Make sure keyboard focus order matches the order of the layout visually
+- Never use positive tabindex. Instead, order your HTML in accordance with tab navigation. If tab order does not match visual order, use CSS and not HTML tabindex. - If content automatically hides after a timeout, make sure to provide users enough time to tab to the relevant content or ensure that there is an alternative way to perform the same task which is persistent - Avoid programmatically moving focus, except in very specific situations
+- Dialogs are an exception where focus must be trapped and managed to maintain context
