@@ -4,7 +4,7 @@ import React from 'react';
 import { TabNav } from './tab-nav';
 
 export default {
-  title: 'Components/Tab Navigation',
+  title: 'Components/TabNav',
   component: TabNav,
   parameters: {
     backgrounds: { default: 'surface' },
@@ -16,8 +16,8 @@ const Template: ComponentStory<typeof TabNav> = (args) => <TabNav {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  onTabChange: action('Tab Navigation change to tab'),
   tabNames: ['Tab 1', 'Tab 2', 'Tab 3'],
-  tabChange: action('Tab Navigation change to tab'),
 };
 Default.parameters = {
   design: {
@@ -28,8 +28,8 @@ Default.parameters = {
 
 export const MumbleSwitch = Template.bind({});
 MumbleSwitch.args = {
+  onTabChange: action('Tab Navigation change to tab'),
   tabNames: ['Deine Mumbles', 'Deine Likes'],
-  tabChange: action('Tab Navigation change to tab'),
 };
 MumbleSwitch.storyName = '🐼 Switch';
 MumbleSwitch.parameters = {

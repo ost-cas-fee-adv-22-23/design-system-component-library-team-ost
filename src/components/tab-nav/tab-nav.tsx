@@ -21,9 +21,9 @@ export type TabProps = {
    */
   tabNames: Array<string>;
   /**
-   * Action to handle the tab change event
+   * Action to handle the tab change event return the index of the active tab
    */
-  tabChange: (index: number) => void;
+  onTabChange: (index: number) => void;
 };
 
 const tabListBaseStyle = [
@@ -60,9 +60,9 @@ const tabItemLeft = ['justify-start'];
 const tabItemMiddle = ['justify-center'];
 const tabItemRight = ['justify-end'];
 
-export const TabNav: FC<TabProps> = ({ tabChange, tabNames }) => {
+export const TabNav: FC<TabProps> = ({ onTabChange, tabNames }) => {
   return (
-    <Tab.Group defaultIndex={0} onChange={(index) => tabChange(index)}>
+    <Tab.Group defaultIndex={0} onChange={(index) => onTabChange(index)}>
       <Tab.List>
         <div className={mergeClassNames([tabListBaseStyle])}>
           {tabNames.map((tabName, i, tabNames) => (
