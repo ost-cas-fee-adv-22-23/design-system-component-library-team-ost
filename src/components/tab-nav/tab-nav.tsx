@@ -1,6 +1,6 @@
 import React, { FC, Fragment } from 'react';
 import { Tab } from '@headlessui/react';
-import { Label, LabelSizes } from '../typography/label';
+import { Label, LabelSize } from '../typography/label';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
 /**
@@ -76,7 +76,7 @@ export const TabNav: FC<TabProps> = ({ onTabChange, tabNames }) => {
                     : mergeClassNames([tabItemBaseStyle, tabItemMiddle])
                 }
               >
-                <Label size={LabelSizes.l}>{tabName}</Label>
+                <Label size={LabelSize.l}>{tabName}</Label>
               </div>
             </Tab>
           ))}

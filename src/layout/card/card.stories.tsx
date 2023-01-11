@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { ChangeEvent, FC, useState } from 'react';
-import { Paragraph, ParagraphSizes } from '../../components/typography/paragraph';
+import { Paragraph, ParagraphSize } from '../../components/typography/paragraph';
 import {
   UserShortRepresentation,
   UserShortRepresentationLabelType,
@@ -18,7 +18,7 @@ import { Form } from '../../components/form/form';
 import { Textarea } from '../../components/form/form-textarea';
 import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonSize } from '../../components/buttons/text-button';
 import { IconUpload } from '../../components/icons/icon-upload';
-import { Heading, HeadingSizes } from '../../components/typography/heading';
+import { Heading, HeadingSize } from '../../components/typography/heading';
 
 interface CardWithContainerWidth extends FC<CardProps> {
   /**
@@ -57,7 +57,7 @@ const Template: ComponentStory<CardWithContainerWidth> = (args) => (
   <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
     <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
       <div className="text-slate-900">
-        <Paragraph size={ParagraphSizes.m}>
+        <Paragraph size={ParagraphSize.m}>
           Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum optio
           sed quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae quos
           excepturi ut deleniti ut repellat magni.
@@ -97,7 +97,7 @@ const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) 
             username="robertvogt"
           />
           <div className="text-slate-900">
-            <Paragraph size={ParagraphSizes.m}>
+            <Paragraph size={ParagraphSize.m}>
               Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum
               optio sed quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae
               quos excepturi ut deleniti ut repellat magni.
@@ -151,7 +151,7 @@ const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args
             username="robertvogt"
           />
           <div className="text-slate-900">
-            <Paragraph size={ParagraphSizes.l}>
+            <Paragraph size={ParagraphSize.l}>
               Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum
               optio sed quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae
               quos excepturi ut deleniti ut repellat magni.
@@ -205,7 +205,7 @@ const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) 
             username="robertvogt"
           />
           <div className="text-slate-900">
-            <Paragraph size={ParagraphSizes.m}>
+            <Paragraph size={ParagraphSize.m}>
               Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum
               optio sed quis cumque error magni. Deserunt pariatur molestiae incidunt. Omnis deserunt ratione et recusandae
               quos excepturi ut deleniti ut repellat magni.
@@ -340,7 +340,7 @@ const WriteComponentHauptfeldTemplate: ComponentStory<CardWithContainerWidth> = 
           />
         </div>
         <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
-          <Heading headingLevel={HeadingSizes.h4}>Hey, was läuft?</Heading>
+          <Heading headingLevel={HeadingSize.h4}>Hey, was läuft?</Heading>
 
           <Form handleSubmit={action('Handle form submit')}>
             <Textarea
