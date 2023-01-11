@@ -38,8 +38,8 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
     'items-center',
     'justify-center',
     'relative',
-    'h-[320px]',
-    'w-[584px]',
+    'w-full',
+    'aspect-16/9',
     'overflow-hidden',
     'rounded-lg',
     'bg-violet-100',
@@ -69,7 +69,7 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
     'duration-300',
   ];
 
-  const imageContainerEditIconStyle = [
+  const imageContainerFullscreenIconStyle = [
     'rotate-45',
     'absolute',
     'top-1/2',
@@ -80,13 +80,12 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
     'text-white',
   ];
 
-  const profileBannerImageStyle = ['w-full', 'object-cover', 'object-center'];
+  const imageContainerImageStyle = ['w-full', 'object-cover', 'object-center'];
 
-  if (hasError === true) {
-    profileBannerImageStyle.push('p-m');
-  } else {
-    profileBannerImageStyle.push('scale-105', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
-  }
+  hasError
+    ? imageContainerImageStyle.push('p-m')
+    : imageContainerImageStyle.push('scale-105', 'ease-in-out', 'duration-300', 'group-hover/container:scale-100');
+
   /*
    * Es wurde bewusst entschieden, dass IconFullscreen nicht zu wiederzuverwenden, da die Animation der Pfeils hier ein sehr spezifischer
    * Anwendungsfall darstellt. Gemäss Definition im Figma würde der Pfeil während der Animation aus der viewBox des SVGs ragen. Auf die
@@ -95,9 +94,9 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
    */
   return (
     <div className={mergeClassNames(imageContainerBaseStyle)}>
-      {hasError === false && (
+      {!hasError && (
         <div className={mergeClassNames(imageContainerOverlayStyle)} onClick={onClick}>
-          <div className={mergeClassNames(imageContainerEditIconStyle)}>
+          <div className={mergeClassNames(imageContainerFullscreenIconStyle)}>
             <div className="group-hover/container:-translate-y-xs duration-300">
               <IconArrowUp size={IconSize.l}></IconArrowUp>
             </div>
@@ -111,7 +110,7 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
 
       {src && (
         <img
-          className={mergeClassNames(profileBannerImageStyle)}
+          className={mergeClassNames(imageContainerImageStyle)}
           src={src}
           alt={alt}
           onLoad={onLoad}

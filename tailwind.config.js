@@ -125,6 +125,8 @@ module.exports = {
       rotate: {
         15: '15deg',
       },
+      aspectRatio: {
+        '16/9': '16 / 9',
       width: {
         tabnav: 'calc(100% + 15px)',
       }
