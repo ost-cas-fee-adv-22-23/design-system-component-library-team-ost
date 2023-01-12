@@ -28,6 +28,8 @@ import { IconUpload } from '../components/icons/icon-upload';
 
 # Iconography
 
+Our icon library is based on the nucleo icon library. The icons are used in navigation, components and on their own.
+
 All available icon components can be found below:
 
 <IconGallery>
@@ -106,15 +108,31 @@ All available icon components can be found below:
 </IconGallery>
 
 ## Usage
-Each icon is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component [here](/story/components-icon--icons).
+Each icon is a single react component. All you have to do is to import the desired icon and start use it in your code. You can try a single icon component. [Component documentation](/story/components-icon--default-icon).
 
-The color of the icon refers to the current text color of the element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx 
+import { IconMumble } from './icon-mumble';
+```
 
-Size...
+### Color
+The color of the icon refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx 
+<div className="text-slate-700">
+  <IconMumble />
+</div>
+```
 
+### Size
+The default size of the icon is 16x16px. Which is the recommended size for the most use cases. Sometimes a smaller or larger icon is needed and we provide iconsizes 12x12px and 32x32px.
 
+The size is a property of the icon compoment and we provide the sizes: "s", "m" and "l"
+```jsx 
+<IconMumble size={IconSize.m} />
+```
+
+## Rendered icon with code example
 <Canvas withSource="open" withToolbar>
-    <Story id="components-icon--icons" />
+    <Story id="components-icon--default-icon" />
 </Canvas>
 
 <ArgsTable of={IconMumble} />

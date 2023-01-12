@@ -30,7 +30,10 @@ export const SampleHeading = 'Heading Text';
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 export const SampleLabel = 'Labeltext';
 
-# Heading Typography
+# Typography
+Mumble uses the google font "Poppins" as primary font. Poppins is a contemporary sans-serif that's accessible and with a smooth typeface. It's ideal for short texts like mumbles and for headlines. Poppins Medium is used for text and Poppins Semibold and Bold for headings and interactions.
+
+# Headings
 
 **Font:** Poppins
 
@@ -51,20 +54,24 @@ export const SampleLabel = 'Labeltext';
 />
 
 ## Usage
-The heading component can be used as H1-H4 headings. [Documentation](/story/components-typography--headings).
+The heading component can be used as HTML headings. It creates depending on the size a "h1"-"h4" HTML Element. [Component documentation](/story/components-typography--default-heading).
 
-The text color is inherited from the parent element and has to be set outside the component.
-
-<ArgsTable of={Heading} />
+### Color
+The color of the headline refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Headline />
+</div>
+```
 
 <Canvas withSource="open">
-    <Story id="components-typography--headings" />
+    <Story id="components-typography--default-heading" />
 </Canvas>
 
 
 
 
-# Paragraph Typography
+# Paragraph
 
 **Font:** Poppins
 
@@ -83,19 +90,22 @@ The text color is inherited from the parent element and has to be set outside th
 />
 
 ## Usage
-The paragraph component can be used in two different sizes. [Documentation](/story/components-typography--paragraphs).
+The paragraph component can be used in two different sizes. It creates a "p" HTML-Element. [Component documentation](/story/components-typography--default-paragraph).
 
-The text color is inherited from the parent element and has to be set outside the component.
-
-<ArgsTable of={Paragraph} />
-
+### Color
+The color of the paragraph refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Paragraph />
+</div>
+```
 <Canvas withSource="open" withToolbar>
-    <Story id="components-typography--paragraphs" />
+    <Story id="components-typography--default-paragraph" />
 </Canvas>
 
 
 
-# Label Typography
+# Label
 
 **Font:** Poppins
 
@@ -116,12 +126,23 @@ The text color is inherited from the parent element and has to be set outside th
 />
 
 ## Usage
-The label component can be used in four different sizes. An optional for attribute can be passed. [Documentation](/story/components-typography--labels).
+The label component has two uses. It can be used as a label for form items (input, textarea, ...), or also for labeling buttons, links, help texts, etc. Depending on the use case it creates a "span" or "label" HTML element. [Component documentation](/story/components-typography--default-label).
 
-The text color is inherited from the parent element and has to be set outside the component.
+### Color
+The color of the label refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Label />
+</div>
+```
 
-<ArgsTable of={Label} />
+### Type
+If an htmlFor parameter is supplied, the component creates a label HTML element. Without hmtlFor parameter, a "span" HTML element is created.
+```jsx
+  <Label htmlFor={id} />
+</div>
+```
 
 <Canvas withSource="open" withToolbar>
-    <Story id="components-typography--labels" />
+    <Story id="components-typography--default-label" />
 </Canvas>
