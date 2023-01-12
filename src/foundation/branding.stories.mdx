@@ -16,20 +16,25 @@ import { MumbleFavicon } from '../components/logos/mumble-favicon';
         `
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto auto auto;
+            grid-template-columns: auto auto;
+            grid-gap: 15px;
             background-color: #475569;
-            padding: 40px;
+            padding: 60px;
+        }
+        .grid-container-3 {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            grid-gap: 15px;
+            background-color: #475569;
+            padding: 60px;
         }
         .grid-item {
             background-color: rgba(255, 255, 255, 0.8);
-            border: 1px solid rgba(0, 0, 0, 0.8);
+            border: 1px solid #475569;
             border-radius: 8px;
             padding: 20px;
             font-size: 30px;
             text-align: center;
-        }
-        .icon-container {
-
         }
         `
     }
@@ -52,43 +57,43 @@ All available brand components can be found below:
   </div>
   <div class="grid-item">
     <h3>MumbleWhite</h3>
-            <div className="bg-violet-600 rounded-lg p-s">
-                <MumbleWhite />
-            </div>
-    </div>  
+    <div className="bg-violet-600 rounded-lg p-s">
+        <MumbleWhite />
+    </div>
+  </div>  
   <div class="grid-item">
     <h3>MumbleWhiteHorizontal</h3>
-            <div className="bg-violet-600 rounded-lg p-s">
-                <MumbleWhiteHorizontal />
-            </div>
+    <div className="bg-violet-600 rounded-lg p-s">
+        <MumbleWhiteHorizontal />
     </div>
+  </div>
   <div class="grid-item">
     <h3>MumbleGradient</h3>
-            <MumbleGradient />
+    <MumbleGradient />
   </div>
   <div class="grid-item">
     <h3>MumbleGradientHorizontal</h3>
-            <MumbleGradientHorizontal />
-            </div>  
+    <MumbleGradientHorizontal />
+  </div>  
 </div>
 
 ## Mumble App Icons
 
-<div class="grid-container">
+<div class="grid-container-3">
   <div class="grid-item">
-     <h3>MumbleAppIconGradient</h3>
-            <MumbleAppIconGradient />
+    <h3>MumbleAppIconGradient</h3>
+    <MumbleAppIconGradient />
   </div>
   <div class="grid-item">
     <h3>MumbleAppIconWhite</h3>
-            <div className="bg-violet-600 rounded-lg p-s">
-                <MumbleAppIconWhite />
-            </div>
+    <div className="bg-violet-600 rounded-lg p-s">
+    <MumbleAppIconWhite />
+  </div>
   </div>
   <div class="grid-item">
     <h3>MumbleFavicon</h3>
-            <MumbleFavicon />
-    </div>
+    <MumbleFavicon />
+  </div>
 </div>
 
 ## Usage
