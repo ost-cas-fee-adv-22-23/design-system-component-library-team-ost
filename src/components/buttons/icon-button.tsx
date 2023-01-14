@@ -11,6 +11,10 @@ export enum IconButtonSize {
 
 export type IconButtonProps = {
   /**
+   * Has to be set (Verb + Noun), as icon button has no inner text
+   */
+  ariaLabel: string;
+  /**
    * Specifies the color of the icon button.
    */
   color?: IconButtonColor;
@@ -29,6 +33,7 @@ export type IconButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const IconButton: FC<IconButtonProps> = ({
+  ariaLabel,
   color = IconButtonColor.slate,
   icon,
   onClick,
@@ -67,7 +72,7 @@ export const IconButton: FC<IconButtonProps> = ({
 
   const classes = mergeClassNames([iconButtonBaseStyle, iconButtonColorStyles[color], iconButtonSizeStyles[size]]);
   return (
-    <button className={classes} onClick={onClick} {...args}>
+    <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
       <>{icon}</>
     </button>
   );

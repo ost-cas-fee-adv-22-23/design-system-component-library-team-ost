@@ -16,6 +16,7 @@ const Template: ComponentStory<typeof TextButton> = (args) => <TextButton {...ar
 
 export const Slate = Template.bind({});
 Slate.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.slate,
   size: TextButtonSize.m,
@@ -29,6 +30,7 @@ Slate.parameters = {
 
 export const SlateWithIcon = Template.bind({});
 SlateWithIcon.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.slate,
   icon: <IconMumble />,
@@ -43,6 +45,7 @@ SlateWithIcon.parameters = {
 
 export const Violet = Template.bind({});
 Violet.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.violet,
   size: TextButtonSize.m,
@@ -56,6 +59,7 @@ Violet.parameters = {
 
 export const VioletWithIcon = Template.bind({});
 VioletWithIcon.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.violet,
   icon: <IconMumble />,
@@ -70,6 +74,7 @@ VioletWithIcon.parameters = {
 
 export const Gradient = Template.bind({});
 Gradient.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.gradient,
   size: TextButtonSize.m,
@@ -83,6 +88,7 @@ Gradient.parameters = {
 
 export const GradientWithIcon = Template.bind({});
 GradientWithIcon.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.gradient,
   icon: <IconMumble />,
@@ -111,6 +117,7 @@ const TemplateFullWidth: ComponentStory<TextButtonWithContainerWidth> = (args) =
 
 export const SlateWithIconFullWidth = TemplateFullWidth.bind({});
 SlateWithIconFullWidth.args = {
+  ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.slate,
   containerWidth: 500,

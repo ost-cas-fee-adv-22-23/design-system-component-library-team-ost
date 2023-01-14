@@ -4,6 +4,10 @@ import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type NaviButtonProps = {
   /**
+   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action
+   */
+  ariaLabel?: string;
+  /**
    * Specifies the text to display in the label.
    */
   children?: ReactNode;
@@ -17,7 +21,7 @@ export type NaviButtonProps = {
   onClick: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick, ...args }) => {
+export const NaviButton: FC<NaviButtonProps> = ({ ariaLabel, children, icon, onClick, ...args }) => {
   const naviButtonBaseStyle = [
     'flex',
     'items-center',
@@ -38,7 +42,7 @@ export const NaviButton: FC<NaviButtonProps> = ({ children, icon, onClick, ...ar
   const classes = mergeClassNames(naviButtonBaseStyle);
 
   return (
-    <button className={classes} onClick={onClick} {...args}>
+    <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
       <>
         {icon}
         <Label size={LabelSize.s}>{children}</Label>
