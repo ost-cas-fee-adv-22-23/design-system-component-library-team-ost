@@ -102,7 +102,11 @@ export const Input: FC<InputProps> = ({
             <IconCancel />
           </span>
         ) : icon && type === 'password' ? (
-          <button className="cursor-pointer" onClick={() => setIsPasswordVisible(!isPasswordVisible)}>
+          <button
+            className="cursor-pointer"
+            aria-label="Show password"
+            onClick={() => setIsPasswordVisible(!isPasswordVisible)}
+          >
             <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
           </button>
         ) : (
