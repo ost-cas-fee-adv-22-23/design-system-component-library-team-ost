@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { LogoProps } from './logo-props';
 
-export const MumbleWhite: FC<LogoProps> = ({ onClick }) => (
+export const MumbleWhite: FC<LogoProps> = ({ ariaLabel, onClick }) => (
   <svg
+    aria-label={ariaLabel}
     className={onClick ? 'cursor-pointer' : 'cursor-default'}
     onClick={onClick}
     width="100%"
