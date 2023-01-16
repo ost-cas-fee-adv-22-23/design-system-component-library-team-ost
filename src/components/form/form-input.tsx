@@ -95,6 +95,7 @@ export const Input: FC<InputProps> = ({
           name={name}
           onChange={onChange}
           type={isPasswordVisible ? InputTypes.text : type}
+          spellCheck={type === 'password' ? 'false' : 'true'}
           {...args}
         />
         {errorMessage ? (
@@ -104,7 +105,7 @@ export const Input: FC<InputProps> = ({
         ) : icon && type === 'password' ? (
           <button
             className="cursor-pointer"
-            aria-label="Show password"
+            aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
             onClick={() => setIsPasswordVisible(!isPasswordVisible)}
           >
             <span className="absolute flex items-center right-s top-0 h-full">{icon}</span>
