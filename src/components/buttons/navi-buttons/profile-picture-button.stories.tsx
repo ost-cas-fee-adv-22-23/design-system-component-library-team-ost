@@ -18,6 +18,7 @@ const Template: ComponentStory<typeof ProfilePictureButton> = (args) => (
 export const ProfilePicture = Template.bind({});
 ProfilePicture.args = {
   alt: 'Robert Vogt',
+  ariaLabel: 'Edit profilepicture',
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 ProfilePicture.parameters = {

@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof MumbleViolet> = (args) => <MumbleViolet {.
 
 export const LogoWithClick = Template.bind({});
 LogoWithClick.args = {
+  ariaLabel: 'Go to mumble',
   onClick: action('onLogoClick'),
 };
 LogoWithClick.parameters = {

@@ -20,6 +20,10 @@ export enum TextButtonDisplayMode {
 
 export type TextButtonProps = {
   /**
+   * Optional aria-label (Verb + Noun) has to be set, if the text of the button does not describe the action
+   */
+  ariaLabel?: string;
+  /**
    * Specifies the text which should be displayed in the button.
    */
   children: string;

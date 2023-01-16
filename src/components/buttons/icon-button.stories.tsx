@@ -26,6 +26,7 @@ const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...ar
 
 export const Slate = Template.bind({});
 Slate.args = {
+  ariaLabel: 'Start mumble',
   color: IconButtonColor.slate,
   icon: <IconMumble />,
   size: IconButtonSize.l,

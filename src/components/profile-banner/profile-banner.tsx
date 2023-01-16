@@ -78,7 +78,7 @@ export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, on
         </div>
       )}
 
-      <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} {...args} />
+      {src && <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} {...args} />}
     </div>
   );
 };

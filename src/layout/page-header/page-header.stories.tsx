@@ -12,6 +12,7 @@ import { Label, LabelSize } from '../../components/typography/label';
 import { Form } from '../../components/form/form';
 import { Stack, StackDirection, StackSpacing } from '../stack/stack';
 import { Input, InputTypes } from '../../components/form/form-input';
+import { Textarea } from '../../components/form/form-textarea';
 import { TextButton, TextButtonColor, TextButtonSize, TextButtonDisplayMode } from '../../components/buttons/text-button';
 import { IconCancel } from '../../components/icons/icon-cancel';
 import { IconCheckmark } from '../../components/icons/icon-checkmark';
@@ -46,7 +47,7 @@ export const MumblePageHeader: ComponentStory<typeof PageHeader> = () => {
     biography: '',
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value,
@@ -57,11 +58,12 @@ export const MumblePageHeader: ComponentStory<typeof PageHeader> = () => {
     <PageHeader>
       <div className="flex items-center justify-between gap-56">
         <div className="h-10">
-          <MumbleWhiteHorizontal onClick={action('onLogoClick')} />
+          <MumbleWhiteHorizontal ariaLabel="Go to mumble" onClick={action('onLogoClick')} />
         </div>
         <Navigation>
           <ProfilePictureButton
             alt="Robert Vogt"
+            aria-label="Edit profilepicture"
             onClick={() => setIsOpenFileUpload(true)}
             src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
           />
@@ -104,12 +106,13 @@ export const MumblePageHeader: ComponentStory<typeof PageHeader> = () => {
             type={InputTypes.text}
             value={form.city}
           />
-          <Input
+          <Textarea
+            ariaLabel="biography"
             label="Biografie"
             labelSize={LabelSize.s}
             name="biography"
             onChange={handleChange}
-            type={InputTypes.text}
+            rows={2}
             value={form.biography}
           />
           <Stack direction={StackDirection.row} spacing={StackSpacing.xs}>

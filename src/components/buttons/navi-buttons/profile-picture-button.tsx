@@ -4,6 +4,10 @@ import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profil
 
 export type ProfilePictureButtonProps = {
   /**
+   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action
+   */
+  ariaLabel?: string;
+  /**
    * Provides alternative information for the profile picture if a user for some reason cannot view it.
    */
   alt: string;
@@ -17,9 +21,9 @@ export type ProfilePictureButtonProps = {
   src: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const ProfilePictureButton: FC<ProfilePictureButtonProps> = ({ alt, onClick, src, ...args }) => {
+export const ProfilePictureButton: FC<ProfilePictureButtonProps> = ({ alt, ariaLabel, onClick, src, ...args }) => {
   return (
-    <NaviButton onClick={onClick} {...args}>
+    <NaviButton aria-label={ariaLabel} onClick={onClick} {...args}>
       <ProfilePicture size={ProfilePictureSize.s} alt={alt} src={src} />
     </NaviButton>
   );
