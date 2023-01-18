@@ -94,3 +94,4 @@ export const ExampleForm: ComponentStory<typeof Form> = () => {
     </div>
   );
 };
+ExampleForm.storyName = '🐼 Form';

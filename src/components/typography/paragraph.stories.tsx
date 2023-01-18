@@ -26,11 +26,11 @@ export const DefaultParagraph = Template.bind({});
 DefaultParagraph.args = {
   children:
     'Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum optio sed quis cumque error magni.',
-  size: ParagraphSize.m,
   color: '#0f172a',
+  size: ParagraphSize.m,
 };
 DefaultParagraph.storyName = 'Paragraph';
-(DefaultParagraph.argTypes = {
+DefaultParagraph.argTypes = {
   color: {
     control: {
       type: 'color',
@@ -43,10 +43,10 @@ DefaultParagraph.storyName = 'Paragraph';
     description:
       'The color simulates the usage of the paragraph component and has to be set on the parent element -> See code.',
   },
-}),
-  (DefaultParagraph.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
-    },
-  });
+};
+DefaultParagraph.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
+  },
+};

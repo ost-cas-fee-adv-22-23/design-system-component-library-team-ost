@@ -9,23 +9,23 @@ export enum ModalType {
 
 export type ModalProps = {
   /**
-   * Content of the modal
+   * Content of the modal.
    */
   children: ReactNode;
   /**
-   * Defines if the modal is open or closed
+   * Defines if the modal is open or closed.
    */
   isOpen: boolean;
   /**
-   * Specifies the width of the modal
+   * Specifies the width of the modal.
    */
   modalType: ModalType;
   /**
-   * Action to handle the modal close event
+   * Action to handle the modal close event.
    */
   onClose: () => void;
   /**
-   * Defines the modal title
+   * Defines the modal title.
    */
   title: string;
 };

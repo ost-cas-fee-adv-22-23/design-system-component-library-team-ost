@@ -70,15 +70,29 @@ const Template: ComponentStory<CardWithContainerWidth> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   borderRadiusType: BorderRadiusType.roundedFull,
+  children: undefined,
   containerWidth: 680,
   isInteractive: false,
+};
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A676&t=cRJ318aLvInTEJn4-4',
+  },
 };
 
 export const Interactive = Template.bind({});
 Interactive.args = {
   borderRadiusType: BorderRadiusType.roundedFull,
+  children: undefined,
   containerWidth: 680,
   isInteractive: true,
+};
+Interactive.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A676&t=cRJ318aLvInTEJn4-4',
+  },
 };
 
 const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
@@ -125,8 +139,15 @@ const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) 
 export const MumbleAsResponse = MumbleAsResponseTemplate.bind({});
 MumbleAsResponse.args = {
   borderRadiusType: BorderRadiusType.none,
+  children: undefined,
   containerWidth: 680,
   isInteractive: false,
+};
+MumbleAsResponse.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A710&t=cRJ318aLvInTEJn4-4',
+  },
 };
 MumbleAsResponse.storyName = '🐼 Mumble As Response';
 
@@ -179,8 +200,15 @@ const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args
 export const MumbleOnDetailpage = MumbleOnDetailpageTemplate.bind({});
 MumbleOnDetailpage.args = {
   borderRadiusType: BorderRadiusType.roundedTop,
+  children: undefined,
   containerWidth: 680,
   isInteractive: false,
+};
+MumbleOnDetailpage.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A710&t=cRJ318aLvInTEJn4-4',
+  },
 };
 MumbleOnDetailpage.storyName = '🐼 Mumble On Detailpage';
 
@@ -233,8 +261,15 @@ const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) 
 export const MumbleInTimeline = MumbleInTimelineTemplate.bind({});
 MumbleInTimeline.args = {
   borderRadiusType: BorderRadiusType.roundedFull,
+  children: undefined,
   containerWidth: 680,
   isInteractive: true,
+};
+MumbleInTimeline.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=437%3A710&t=cRJ318aLvInTEJn4-4',
+  },
 };
 MumbleInTimeline.storyName = '🐼 Mumble In Timeline';
 
@@ -306,13 +341,14 @@ const WriteComponentInlineTemplate: ComponentStory<CardWithContainerWidth> = (ar
 export const WriteComponentInline = WriteComponentInlineTemplate.bind({});
 WriteComponentInline.args = {
   borderRadiusType: BorderRadiusType.none,
+  children: undefined,
   containerWidth: 680,
   isInteractive: false,
 };
 WriteComponentInline.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=648dM1ZOl1gEZTal-4',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=cRJ318aLvInTEJn4-4',
   },
 };
 WriteComponentInline.storyName = '🐼 Write Component Inline';
@@ -384,6 +420,7 @@ const WriteComponentHauptfeldTemplate: ComponentStory<CardWithContainerWidth> = 
 export const WriteComponentHauptfeld = WriteComponentHauptfeldTemplate.bind({});
 WriteComponentHauptfeld.args = {
   borderRadiusType: BorderRadiusType.roundedFull,
+  children: undefined,
   containerWidth: 680,
   isInteractive: false,
 };
@@ -391,6 +428,12 @@ WriteComponentHauptfeld.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=648dM1ZOl1gEZTal-4',
+  },
+};
+WriteComponentHauptfeld.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=457%3A3326&t=cRJ318aLvInTEJn4-4',
   },
 };
 WriteComponentHauptfeld.storyName = '🐼 Write Component Hauptfeld';

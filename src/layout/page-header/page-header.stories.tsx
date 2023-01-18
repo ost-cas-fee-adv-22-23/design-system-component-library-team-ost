@@ -35,6 +35,12 @@ Default.argTypes = {
     control: { disable: true },
   },
 };
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=cRJ318aLvInTEJn4-4',
+  },
+};
 
 export const MumblePageHeader: ComponentStory<typeof PageHeader> = () => {
   const [isOpenSettings, setIsOpenSettings] = useState(false);
@@ -180,6 +186,12 @@ MumblePageHeader.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
+  },
+};
+MumblePageHeader.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=cRJ318aLvInTEJn4-4',
   },
 };
 MumblePageHeader.storyName = '🐼 Mumble PageHeader';

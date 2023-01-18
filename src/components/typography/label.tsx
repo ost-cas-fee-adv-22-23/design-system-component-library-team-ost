@@ -10,7 +10,7 @@ export enum LabelSize {
 
 export type LabelProps = {
   /**
-   * Label/span text
+   * Label/span text.
    */
   children: ReactNode;
   /**
@@ -18,7 +18,7 @@ export type LabelProps = {
    */
   htmlFor?: string;
   /**
-   * Label/span font size
+   * Label/span font size.
    */
   size: LabelSize;
 };

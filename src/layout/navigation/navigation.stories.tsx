@@ -31,6 +31,12 @@ Default.argTypes = {
     control: { disable: true },
   },
 };
+Default.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=cRJ318aLvInTEJn4-4',
+  },
+};
 
 export const MumbleNavigation: ComponentStory<typeof Navigation> = () => {
   return (
@@ -45,5 +51,11 @@ export const MumbleNavigation: ComponentStory<typeof Navigation> = () => {
       <LogoutButton onClick={action('onLogoutButtonClick')} />
     </Navigation>
   );
+};
+MumbleNavigation.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=cRJ318aLvInTEJn4-4',
+  },
 };
 MumbleNavigation.storyName = '🐼 Mumble Navigation';

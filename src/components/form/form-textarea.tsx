@@ -35,7 +35,7 @@ export type TextareaProps = {
    */
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
   /**
-   * A placeholder text to show in an empty textarea
+   * A placeholder text to show in an empty textarea.
    */
   placeholder?: string;
   /**

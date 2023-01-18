@@ -38,7 +38,7 @@ DefaultLabel.args = {
   size: LabelSize.m,
 };
 DefaultLabel.storyName = 'Label';
-(DefaultLabel.argTypes = {
+DefaultLabel.argTypes = {
   color: {
     control: {
       type: 'color',
@@ -50,10 +50,10 @@ DefaultLabel.storyName = 'Label';
     },
     description: 'The color simulates the usage of the label component and has to be set on the parent element -> See code.',
   },
-}),
-  (DefaultLabel.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
-    },
-  });
+};
+DefaultLabel.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
+  },
+};

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { FC } from 'react';
 import { ProfileBanner, ProfileBannerProps } from './profile-banner';
@@ -6,12 +7,12 @@ export default {
   title: 'Components/ProfileBanner',
   component: ProfileBanner,
   argTypes: {
+    alt: { control: 'text' },
+    canEdit: { control: 'boolean' },
     containerwidth: {
       control: { type: 'range', min: 300, max: 800, step: 10 },
       description: 'The container width simulates the usage of the profile banner and is not a property of the component.',
     },
-    alt: { control: 'text' },
-    canEdit: { control: 'boolean' },
     src: { control: 'text' },
   },
   parameters: {
@@ -33,8 +34,10 @@ const Template: ComponentStory<ProfileBannerWithContainerWidth> = (args) => {
 };
 export const WithPicture = Template.bind({});
 WithPicture.args = {
-  containerwidth: 590,
   alt: 'Robert Vogt',
+  canEdit: undefined,
+  containerwidth: 590,
+  onEditClick: undefined,
   src: 'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg',
 };
 WithPicture.parameters = {
@@ -46,9 +49,10 @@ WithPicture.parameters = {
 
 export const WithPictureCanEdit = Template.bind({});
 WithPictureCanEdit.args = {
-  containerwidth: 590,
   alt: 'Robert Vogt',
   canEdit: true,
+  containerwidth: 590,
+  onEditClick: action('onEditClick'),
   src: 'https://newinzurich.com/wp-content/uploads/2013/09/55769975_2481568891894108_3190627635357024256_o-compressed.jpg',
 };
 WithPictureCanEdit.parameters = {
@@ -60,8 +64,11 @@ WithPictureCanEdit.parameters = {
 
 export const WithoutPictureCanEdit = Template.bind({});
 WithoutPictureCanEdit.args = {
-  containerwidth: 590,
+  alt: undefined,
   canEdit: true,
+  containerwidth: 590,
+  onEditClick: action('onEditClick'),
+  src: undefined,
 };
 WithoutPictureCanEdit.parameters = {
   design: {

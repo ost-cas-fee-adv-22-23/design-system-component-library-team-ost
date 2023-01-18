@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { FC } from 'react';
 import { IconMumble } from '../icons/icon-mumble';
@@ -6,6 +7,11 @@ import { TextButton, TextButtonColor, TextButtonDisplayMode, TextButtonProps, Te
 export default {
   title: 'Components/Buttons/TextButton',
   component: TextButton,
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+    },
+  },
   parameters: {
     backgrounds: { default: 'surface' },
     layout: 'centered',
@@ -19,6 +25,9 @@ Slate.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.slate,
+  displayMode: TextButtonDisplayMode.inline,
+  icon: undefined,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 Slate.parameters = {
@@ -33,7 +42,9 @@ SlateWithIcon.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.slate,
+  displayMode: TextButtonDisplayMode.inline,
   icon: <IconMumble />,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 SlateWithIcon.parameters = {
@@ -48,6 +59,9 @@ Violet.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.violet,
+  displayMode: TextButtonDisplayMode.inline,
+  icon: undefined,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 Violet.parameters = {
@@ -62,7 +76,9 @@ VioletWithIcon.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.violet,
+  displayMode: TextButtonDisplayMode.inline,
   icon: <IconMumble />,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 VioletWithIcon.parameters = {
@@ -77,6 +93,9 @@ Gradient.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.gradient,
+  displayMode: TextButtonDisplayMode.inline,
+  icon: undefined,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 Gradient.parameters = {
@@ -91,7 +110,9 @@ GradientWithIcon.args = {
   ariaLabel: 'Start mumble',
   children: 'Button Label',
   color: TextButtonColor.gradient,
+  displayMode: TextButtonDisplayMode.inline,
   icon: <IconMumble />,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 GradientWithIcon.parameters = {
@@ -123,6 +144,7 @@ SlateWithIconFullWidth.args = {
   containerWidth: 500,
   displayMode: TextButtonDisplayMode.fullWidth,
   icon: <IconMumble />,
+  onClick: action('onClick'),
   size: TextButtonSize.m,
 };
 (SlateWithIconFullWidth.argTypes = {
