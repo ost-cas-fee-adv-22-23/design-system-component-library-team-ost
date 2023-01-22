@@ -11,7 +11,7 @@ export enum IconButtonSize {
 
 export type IconButtonProps = {
   /**
-   * Has to be set (Verb + Noun), as icon button has no inner text
+   * Has to be set (Verb + Noun), as icon button has no inner text.
    */
   ariaLabel: string;
   /**

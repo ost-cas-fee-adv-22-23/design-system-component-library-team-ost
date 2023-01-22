@@ -94,7 +94,7 @@ LoggedIn.args = {
 LoggedIn.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=488%3A2110&t=cRJ318aLvInTEJn4-4',
   },
 };
 LoggedIn.storyName = '🐼 Logged In';
@@ -155,7 +155,7 @@ Stranger.args = {
 Stranger.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=503%3A1779&t=cRJ318aLvInTEJn4-4',
   },
 };
 Stranger.storyName = '🐼 Stranger';
@@ -207,7 +207,7 @@ NewUser.args = {
 NewUser.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A780&t=dW7d9mR1MQqmSsA6-4',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=521%3A3328&t=cRJ318aLvInTEJn4-4',
   },
 };
 NewUser.storyName = '🐼 New User';

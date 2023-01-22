@@ -27,7 +27,8 @@ LogoWithClick.parameters = {
 
 export const LogoWithoutClick = Template.bind({});
 LogoWithoutClick.args = {
-  onClick: null,
+  ariaLabel: undefined,
+  onClick: undefined,
 };
 LogoWithoutClick.parameters = {
   design: {

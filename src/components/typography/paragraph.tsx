@@ -7,11 +7,11 @@ export enum ParagraphSize {
 
 export type ParagraphProps = {
   /**
-   * Paragraph text
+   * Paragraph text.
    */
   children: ReactNode;
   /**
-   * Paragraph font size
+   * Paragraph font size.
    */
   size: ParagraphSize;
 } & HTMLAttributes<HTMLParagraphElement>;

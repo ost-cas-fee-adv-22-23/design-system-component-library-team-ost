@@ -3,19 +3,19 @@ import { Stack, StackDirection, StackSpacing } from '../../layout/stack/stack';
 
 export type FormProps = {
   /**
-   * The form items an labels
+   * The form items an labels.
    */
   children: ReactNode;
   /**
-   * The form items an labels
+   * The form items an labels.
    */
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   /**
-   * Stack Direction to style the form
+   * Stack Direction to style the form.
    */
   stackDir?: StackDirection;
   /**
-   * Stack Spacings to define the spacings between the form items
+   * Stack Spacings to define the spacings between the form items.
    */
   stackSpacing?: StackSpacing;
 } & FormHTMLAttributes<HTMLFormElement>;

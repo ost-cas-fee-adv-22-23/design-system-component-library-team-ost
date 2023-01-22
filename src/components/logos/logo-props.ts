@@ -4,7 +4,7 @@ export type LogoProps = {
    */
   ariaLabel: string;
   /**
-   * Action to handle a user click on a logo
+   * Action to handle a user click on a logo.
    */
   onClick?: () => void;
 };

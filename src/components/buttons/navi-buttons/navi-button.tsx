@@ -4,7 +4,7 @@ import { mergeClassNames } from '../../../helpers/merge-class-names';
 
 export type NaviButtonProps = {
   /**
-   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action
+   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action.
    */
   ariaLabel?: string;
   /**

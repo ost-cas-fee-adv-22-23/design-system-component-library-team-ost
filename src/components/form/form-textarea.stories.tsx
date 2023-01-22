@@ -32,6 +32,10 @@ export default {
     required: {
       control: { type: 'boolean' },
     },
+    rows: {
+      control: { type: 'number' },
+      description: 'Specifies the visible height of a text area, in lines.',
+    },
     value: {
       control: { type: 'text' },
     },
@@ -67,8 +71,8 @@ const Template: ComponentStory<TextareaWithContainerWidth> = (args) => {
 
 export const WithAriaLabel = Template.bind({});
 WithAriaLabel.args = {
-  containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
+  containerwidth: 500,
   errorMessage: '',
   label: '',
   labelSize: null,
@@ -88,8 +92,8 @@ WithAriaLabel.parameters = {
 
 export const WithErrorMessage = Template.bind({});
 WithErrorMessage.args = {
-  containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
+  containerwidth: 500,
   errorMessage: 'Error-Message',
   label: '',
   labelSize: null,
@@ -109,8 +113,8 @@ WithErrorMessage.parameters = {
 
 export const WithLabel = Template.bind({});
 WithLabel.args = {
-  containerwidth: 500,
   ariaLabel: 'Was gibt es neues?',
+  containerwidth: 500,
   errorMessage: '',
   label: 'Textarea Label',
   labelSize: LabelSize.m,

@@ -4,7 +4,7 @@ import { ProfilePicture, ProfilePictureSize } from '../../profile-picture/profil
 
 export type ProfilePictureButtonProps = {
   /**
-   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action
+   * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action.
    */
   ariaLabel?: string;
   /**

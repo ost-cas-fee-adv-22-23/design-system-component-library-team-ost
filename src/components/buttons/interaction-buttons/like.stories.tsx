@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { Like } from './like';
@@ -16,6 +17,7 @@ const Template: ComponentStory<typeof Like> = (args) => <Like {...args} />;
 export const WithoutReaction = Template.bind({});
 WithoutReaction.args = {
   likesCount: 0,
+  onClick: action('onClick'),
   withReaction: false,
 };
 WithoutReaction.parameters = {
@@ -28,6 +30,7 @@ WithoutReaction.parameters = {
 export const WithoutReactionAndMultipleLikes = Template.bind({});
 WithoutReactionAndMultipleLikes.args = {
   likesCount: 42,
+  onClick: action('onClick'),
   withReaction: false,
 };
 WithoutReactionAndMultipleLikes.parameters = {
@@ -40,6 +43,7 @@ WithoutReactionAndMultipleLikes.parameters = {
 export const WithReaction = Template.bind({});
 WithReaction.args = {
   likesCount: 1,
+  onClick: action('onClick'),
   withReaction: true,
 };
 WithReaction.parameters = {
@@ -52,6 +56,7 @@ WithReaction.parameters = {
 export const WithReactionAndMultipleLikes = Template.bind({});
 WithReactionAndMultipleLikes.args = {
   likesCount: 42,
+  onClick: action('onClick'),
   withReaction: true,
 };
 WithReactionAndMultipleLikes.parameters = {

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { IconMumble } from '../../icons/icon-mumble';
@@ -21,8 +22,10 @@ const Template: ComponentStory<typeof NaviButton> = (args) => <NaviButton {...ar
 
 export const Default = Template.bind({});
 Default.args = {
-  icon: <IconMumble />,
+  ariaLabel: undefined,
   children: 'Label',
+  icon: <IconMumble />,
+  onClick: action('onClick'),
 };
 Default.parameters = {
   design: {

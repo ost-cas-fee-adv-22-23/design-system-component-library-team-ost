@@ -21,7 +21,7 @@ export type TabProps = {
    */
   tabNames: Array<string>;
   /**
-   * Action to handle the tab change event return the index of the active tab
+   * Action to handle the tab change event return the index of the active tab.
    */
   onTabChange: (index: number) => void;
 };

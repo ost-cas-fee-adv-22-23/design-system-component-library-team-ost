@@ -27,6 +27,7 @@ const Template: ComponentStory<typeof Stack> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   alignItems: StackAlignItems.unset,
+  children: undefined,
   direction: StackDirection.row,
   justifyContent: StackJustifyContent.flexstart,
   spacing: StackSpacing.m,
@@ -36,6 +37,7 @@ Default.args = {
 export const WithDivider = Template.bind({});
 WithDivider.args = {
   alignItems: StackAlignItems.unset,
+  children: undefined,
   direction: StackDirection.row,
   justifyContent: StackJustifyContent.flexstart,
   spacing: StackSpacing.m,
@@ -83,5 +85,9 @@ MumblesInTimeline.argTypes = {
 MumblesInTimeline.parameters = {
   backgrounds: { default: 'background' },
   layout: 'centered',
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=447%3A583&t=cRJ318aLvInTEJn4-4',
+  },
 };
 MumblesInTimeline.storyName = '🐼 Mumbles In Timeline';

@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { IconMumble } from '../icons/icon-mumble';
@@ -29,6 +30,7 @@ Slate.args = {
   ariaLabel: 'Start mumble',
   color: IconButtonColor.slate,
   icon: <IconMumble />,
+  onClick: action('onClick'),
   size: IconButtonSize.l,
 };
 Slate.parameters = {

@@ -39,7 +39,7 @@ export type InputProps = {
    */
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   /**
-   * A placeholder text to show in an empty inputfield
+   * A placeholder text to show in an empty inputfield.
    */
   placeholder?: string;
   /**

@@ -6,11 +6,11 @@ export default {
   title: 'Components/Typography',
   component: Heading,
   argTypes: {
-    headingLevel: {
-      control: { type: 'select' },
-    },
     children: {
       control: { type: 'text' },
+    },
+    headingLevel: {
+      control: { type: 'select' },
     },
   },
 } as ComponentMeta<typeof Heading>;
@@ -28,11 +28,11 @@ const Template: ComponentStory<HeadingWithColor> = (args) => (
 export const DefaultHeading = Template.bind({});
 DefaultHeading.args = {
   children: 'Überschrift',
-  headingLevel: HeadingSize.h1,
   color: '#0f172a',
+  headingLevel: HeadingSize.h1,
 };
 DefaultHeading.storyName = 'Heading';
-(DefaultHeading.argTypes = {
+DefaultHeading.argTypes = {
   color: {
     control: {
       type: 'color',
@@ -45,10 +45,10 @@ DefaultHeading.storyName = 'Heading';
     description:
       'The color simulates the usage of the heading component and has to be set on the parent element -> See code.',
   },
-}),
-  (DefaultHeading.parameters = {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
-    },
-  });
+};
+DefaultHeading.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/nsXR2h0KwciWpuwKRD58FX/Mumble?node-id=406%3A47&t=FA0Jm3Ru09rCucgV-1',
+  },
+};

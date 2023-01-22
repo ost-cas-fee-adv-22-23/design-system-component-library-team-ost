@@ -8,11 +8,11 @@ export enum HeadingSize {
 }
 export type HeadingProps = {
   /**
-   * Heading text
+   * Heading text.
    */
   children: ReactNode;
   /**
-   * Heading level which defines the html element and the size
+   * Heading level which defines the html element and the size.
    */
   headingLevel: HeadingSize;
 } & HTMLAttributes<HTMLHeadingElement>;

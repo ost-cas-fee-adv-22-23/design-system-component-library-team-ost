@@ -11,11 +11,11 @@ import { Stack, StackAlignItems, StackDirection, StackSpacing } from '../../layo
 
 export type FileinputProps = {
   /**
-   * Short text to describe the allowed file types and file size
+   * Short text to describe the allowed file types and file size.
    */
   description: string;
   /**
-   * The error message will appear below the fileinput
+   * The error message will appear below the fileinput.
    */
   errorMessage?: string;
   /**
@@ -23,7 +23,7 @@ export type FileinputProps = {
    */
   onAddFile: (file: File) => void;
   /**
-   * Title text for the component
+   * Title text for the component.
    */
   title: string;
 };

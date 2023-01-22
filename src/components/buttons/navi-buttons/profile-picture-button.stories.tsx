@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import { ProfilePictureButton } from './profile-picture-button';
@@ -18,7 +19,8 @@ const Template: ComponentStory<typeof ProfilePictureButton> = (args) => (
 export const ProfilePicture = Template.bind({});
 ProfilePicture.args = {
   alt: 'Robert Vogt',
-  ariaLabel: 'Edit profilepicture',
+  ariaLabel: 'Edit profile picture',
+  onClick: action('onClick'),
   src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
 };
 ProfilePicture.parameters = {
