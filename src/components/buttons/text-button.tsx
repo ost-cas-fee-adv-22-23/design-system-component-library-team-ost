@@ -50,6 +50,7 @@ export type TextButtonProps = {
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const TextButton: FC<TextButtonProps> = ({
+  ariaLabel,
   children,
   color,
   displayMode = TextButtonDisplayMode.inline,
@@ -128,7 +129,7 @@ export const TextButton: FC<TextButtonProps> = ({
   ]);
 
   return (
-    <button className={classes} onClick={onClick} {...args}>
+    <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
       <>
         <Label size={LabelSize.m}>{children}</Label>
         {icon}
