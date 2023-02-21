@@ -46,6 +46,9 @@ export default {
     isInteractive: {
       control: { type: 'boolean' },
     },
+    key: {
+      control: { type: 'text' },
+    },
   },
   parameters: {
     backgrounds: { default: 'background' },
@@ -55,7 +58,7 @@ export default {
 
 const Template: ComponentStory<CardWithContainerWidth> = (args) => (
   <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-    <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
+    <Card key={args.key} borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
       <div className="text-slate-900">
         <Paragraph size={ParagraphSize.m}>
           Paragraph – Quia aut et aut. Sunt et eligendi similique enim qui quo minus. Aut aut error velit voluptatum optio
@@ -98,7 +101,7 @@ Interactive.parameters = {
 const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={args.borderRadiusType}>
+      <Card key={args.key} borderRadiusType={args.borderRadiusType}>
         <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
           <UserShortRepresentation
             alt="Robert Vogt"
@@ -142,6 +145,7 @@ MumbleAsResponse.args = {
   children: undefined,
   containerWidth: 680,
   isInteractive: false,
+  key: '1',
 };
 MumbleAsResponse.parameters = {
   design: {
@@ -154,7 +158,7 @@ MumbleAsResponse.storyName = '🐼 Mumble As Response';
 const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={args.borderRadiusType}>
+      <Card key={args.key} borderRadiusType={args.borderRadiusType}>
         <div className="absolute -left-l">
           <ProfilePicture
             alt="Robert Vogt"
@@ -203,6 +207,7 @@ MumbleOnDetailpage.args = {
   children: undefined,
   containerWidth: 680,
   isInteractive: false,
+  key: '1',
 };
 MumbleOnDetailpage.parameters = {
   design: {
@@ -215,7 +220,7 @@ MumbleOnDetailpage.storyName = '🐼 Mumble On Detailpage';
 const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) => {
   return (
     <div style={{ width: (args as unknown as CardWithContainerWidth).containerWidth + 'px' }}>
-      <Card borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
+      <Card key={args.key} borderRadiusType={args.borderRadiusType} isInteractive={args.isInteractive}>
         <div className="absolute -left-l">
           <ProfilePicture
             alt="Robert Vogt"
@@ -264,6 +269,7 @@ MumbleInTimeline.args = {
   children: undefined,
   containerWidth: 680,
   isInteractive: true,
+  key: '1',
 };
 MumbleInTimeline.parameters = {
   design: {

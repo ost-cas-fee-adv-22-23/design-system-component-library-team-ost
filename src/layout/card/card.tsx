@@ -21,12 +21,17 @@ export type CardProps = {
    * Specifies if the card has a hover effect.
    */
   isInteractive?: boolean;
+  /**
+   * A unique key for the card, when using in a list
+   */
+  key?: string;
 };
 
 export const Card: FC<CardProps> = ({
   children,
   borderRadiusType = BorderRadiusType.roundedFull,
   isInteractive = false,
+  key,
 }) => {
   const cardBaseStyle = ['relative', 'bg-white', 'py-l', 'px-xl'];
 
@@ -50,5 +55,9 @@ export const Card: FC<CardProps> = ({
 
   isInteractive && classes.push(cardInteractiveStyle);
 
-  return <div className={mergeClassNames(classes)}>{children}</div>;
+  return (
+    <article key={key} className={mergeClassNames(classes)}>
+      {children}
+    </article>
+  );
 };
