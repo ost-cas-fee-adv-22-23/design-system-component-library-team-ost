@@ -46,6 +46,12 @@ type UserShortRepresentationBaseProps = {
    */
   labelType: UserShortRepresentationLabelType;
   /**
+   * Specifies a custom link component for the IconLinks, e.g. next/link.
+   */
+  // todo: muss noch mit dem korrekten type ergänzt werden
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  linkComponent?: FC<any>;
+  /**
    * Specifies the location where the user is from.
    */
   location?: string;
@@ -124,6 +130,7 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   hrefProfile,
   joined,
   labelType,
+  linkComponent,
   location,
   onSettingsClick,
   profilePictureSize,
@@ -162,22 +169,22 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
         </Stack>
         <Stack spacing={StackSpacing.s}>
           {username && hrefProfile && (
-            <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
+            <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} linkComponent={linkComponent}>
               {username}
             </IconLink>
           )}
           {location && (
-            <IconLink color={IconLinkColor.slate} href="#" icon={<IconLocation />} target="_self">
+            <IconLink color={IconLinkColor.slate} href="#" icon={<IconLocation />} linkComponent={linkComponent}>
               {location}
             </IconLink>
           )}
           {joined && (
-            <IconLink color={IconLinkColor.slate} href="#" icon={<IconCalendar />} target="_self">
+            <IconLink color={IconLinkColor.slate} href="#" icon={<IconCalendar />} linkComponent={linkComponent}>
               {joined}
             </IconLink>
           )}
           {timestamp && (
-            <IconLink color={IconLinkColor.slate} href="#" icon={<IconTime />} target="_self">
+            <IconLink color={IconLinkColor.slate} href="#" icon={<IconTime />} linkComponent={linkComponent}>
               {timestamp}
             </IconLink>
           )}

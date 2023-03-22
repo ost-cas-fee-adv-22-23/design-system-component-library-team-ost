@@ -2,7 +2,7 @@ import React, { AnchorHTMLAttributes, FC } from 'react';
 import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
-export type TextLinkProps = {
+export type TextLinkProps<T> = {
   /**
    * Specifies the display text.
    */
@@ -12,12 +12,24 @@ export type TextLinkProps = {
    */
   href: string;
   /**
-   * Specifies where to open the linked document.
+   * Specifies a custom link component, e.g. next/link.
    */
-  target?: '_blank' | '_self';
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+  linkComponent?: FC<T>;
+  /**
+   * Specifies if the linkd document opens in a new tab.
+   */
+  newTab?: boolean;
+} & Omit<T, 'className' | 'target' | 'rel'>;
 
-export const TextLink: FC<TextLinkProps> = ({ children, href, target = '_blank', ...args }) => {
+export function TextLink<
+  T extends {
+    className?: string;
+    rel?: string;
+    target?: string;
+  } = AnchorHTMLAttributes<HTMLElement>
+>({ children, href, linkComponent, newTab = false, ...args }: TextLinkProps<T>): JSX.Element {
+  const LinkComponent = linkComponent || 'a';
+
   const classes = mergeClassNames([
     'text-violet-600',
     'underline',
@@ -27,8 +39,15 @@ export const TextLink: FC<TextLinkProps> = ({ children, href, target = '_blank',
   ]);
 
   return (
-    <a className={classes} href={href} target={target} {...args}>
+    <LinkComponent
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(args as any)}
+      // eslint-disable-next-line react/forbid-component-props
+      className={classes}
+      href={href}
+      {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
+    >
       <Label size={LabelSize.s}>{children}</Label>
-    </a>
+    </LinkComponent>
   );
-};
+}

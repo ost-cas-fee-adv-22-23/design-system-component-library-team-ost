@@ -25,7 +25,7 @@ export const Default = Template.bind({});
 Default.args = {
   children: 'Link Label',
   href: '#',
-  target: '_blank',
+  newTab: false,
 };
 Default.parameters = {
   design: {

@@ -128,7 +128,7 @@ const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) 
           />
 
           <Stack spacing={StackSpacing.m}>
-            <Reply onClick={action('onReplyClick')} repliesCount={0} withReaction={false} />
+            <Reply href="#" repliesCount={0} withReaction={false} />
 
             <Like likesCount={0} onClick={action('onLikeClick')} withReaction={false} />
 
@@ -190,7 +190,7 @@ const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args
           />
 
           <Stack spacing={StackSpacing.m}>
-            <Reply onClick={action('onReplyClick')} repliesCount={32} withReaction={true} />
+            <Reply href="#" repliesCount={32} withReaction={true} />
 
             <Like likesCount={42} onClick={action('onLikeClick')} withReaction={true} />
 
@@ -252,7 +252,7 @@ const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) 
           />
 
           <Stack spacing={StackSpacing.m}>
-            <Reply onClick={action('onReplyClick')} repliesCount={32} withReaction={true} />
+            <Reply href="#" repliesCount={32} withReaction={true} />
 
             <Like likesCount={42} onClick={action('onLikeClick')} withReaction={true} />
 

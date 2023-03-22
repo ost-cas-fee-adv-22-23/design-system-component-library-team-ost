@@ -32,7 +32,7 @@ Default.args = {
   color: IconLinkColor.slate,
   href: '#',
   icon: <IconMumble />,
-  target: '_blank',
+  newTab: false,
 };
 Default.parameters = {
   design: {
@@ -47,7 +47,7 @@ Profile.args = {
   color: IconLinkColor.violet,
   href: '#',
   icon: <IconProfile />,
-  target: '_blank',
+  newTab: false,
 };
 Profile.parameters = {
   design: {
@@ -63,7 +63,7 @@ Joined.args = {
   color: IconLinkColor.slate,
   href: '#',
   icon: <IconCalendar />,
-  target: '_blank',
+  newTab: false,
 };
 Joined.parameters = {
   design: {
@@ -79,7 +79,7 @@ Location.args = {
   color: IconLinkColor.slate,
   href: '#',
   icon: <IconLocation />,
-  target: '_blank',
+  newTab: false,
 };
 Location.parameters = {
   design: {
@@ -95,7 +95,7 @@ Timestamp.args = {
   color: IconLinkColor.slate,
   href: '#',
   icon: <IconTime />,
-  target: '_blank',
+  newTab: false,
 };
 Timestamp.parameters = {
   design: {

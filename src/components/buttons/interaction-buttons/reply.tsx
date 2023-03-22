@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { AnchorHTMLAttributes, FC } from 'react';
 import { IconReplyFilled } from '../../icons/icon-reply-filled';
 import { IconReplyOutline } from '../../icons/icon-reply-outline';
 import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 import { interactionButtonsBaseStyle } from './base-style';
 
-export type ReplyProps = {
+export type ReplyProps<T> = {
   /**
-   * Specifies the action, which is called as the user clicks on the reply button.
+   * Specifies a custom link component, e.g. next/link.
    */
-  onClick: () => void;
+  linkComponent?: FC<T>;
   /**
    * Specifies how many users reacted with a reply.
    */
@@ -18,17 +18,29 @@ export type ReplyProps = {
    * Specifies if the user reacted with a reply.
    */
   withReaction: boolean;
-};
+} & AnchorHTMLAttributes<HTMLAnchorElement> &
+  Omit<T, 'className'>;
 
-export const Reply: FC<ReplyProps> = ({ repliesCount, withReaction, onClick }) => {
+export function Reply<
+  T extends {
+    className?: string;
+  } = AnchorHTMLAttributes<HTMLElement>
+>({ repliesCount, withReaction, linkComponent, ...args }: ReplyProps<T>): JSX.Element {
+  const LinkComponent = linkComponent || 'a';
+
   const replyVariantStyles = {
-    default: ['hover:bg-violet-50', 'hover:text-violet-600'],
+    default: ['hover:bg-violet-50', 'hover:text-violet-600', 'cursor-pointer'],
   };
 
   const classes = mergeClassNames([interactionButtonsBaseStyle, replyVariantStyles.default]);
 
   return (
-    <button className={classes} onClick={onClick}>
+    <LinkComponent
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(args as any)}
+      // eslint-disable-next-line react/forbid-component-props
+      className={classes}
+    >
       {withReaction ? (
         <span className="text-violet-600">
           <IconReplyFilled />
@@ -40,6 +52,6 @@ export const Reply: FC<ReplyProps> = ({ repliesCount, withReaction, onClick }) =
       <Label size={LabelSize.m}>
         {repliesCount === 0 ? 'Comment' : repliesCount > 1 ? repliesCount + ' Comments' : repliesCount + ' Comment'}
       </Label>
-    </button>
+    </LinkComponent>
   );
-};
+}

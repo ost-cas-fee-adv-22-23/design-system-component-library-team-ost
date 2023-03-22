@@ -8,7 +8,7 @@ export enum IconLinkColor {
   violet = 'violet',
 }
 
-export type IconLinkProps = {
+export type IconLinkProps<T> = {
   /**
    * Specifies the display text.
    */
@@ -26,13 +26,33 @@ export type IconLinkProps = {
    */
   icon: ReactElement;
   /**
-   * Specifies where to open the linked document.
+   * Specifies a custom link component, e.g. next/link.
    */
-  target?: '_blank' | '_self';
-} & AnchorHTMLAttributes<HTMLAnchorElement>;
+  linkComponent?: FC<T>;
+  /**
+   * Specifies if the linkd document opens in a new tab.
+   */
+  newTab?: boolean;
+} & Omit<T, 'className' | 'target' | 'rel'>;
 
-export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, target = '_blank', ...args }) => {
-  const iconLinkBaseStyle = ['flex', 'items-center', 'gap-xxs', 'transition-all', 'ease-in-out', 'duration-350'];
+export function IconLink<
+  T extends {
+    className?: string;
+    rel?: string;
+    target?: string;
+  } = AnchorHTMLAttributes<HTMLElement>
+>({ children, color, href, icon, linkComponent, newTab = false, ...args }: IconLinkProps<T>): JSX.Element {
+  const LinkComponent = linkComponent || 'a';
+
+  const iconLinkBaseStyle = [
+    'flex',
+    'items-center',
+    'gap-xxs',
+    'transition-all',
+    'ease-in-out',
+    'duration-350',
+    'cursor-pointer',
+  ];
 
   const iconLinkColorVariantStyles: Record<IconLinkColor, string[]> = {
     slate: ['text-slate-400', 'hover:text-slate-600'],
@@ -42,9 +62,16 @@ export const IconLink: FC<IconLinkProps> = ({ children, color, icon, href, targe
   const classes = mergeClassNames([iconLinkBaseStyle, iconLinkColorVariantStyles[color]]);
 
   return (
-    <a className={classes} href={href} target={target} {...args}>
+    <LinkComponent
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(args as any)}
+      // eslint-disable-next-line react/forbid-component-props
+      className={classes}
+      href={href}
+      {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
+    >
       {cloneElement(icon, { size: IconSize.s })}
       <Label size={LabelSize.s}>{children}</Label>
-    </a>
+    </LinkComponent>
   );
-};
+}
