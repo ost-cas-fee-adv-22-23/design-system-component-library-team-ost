@@ -21,6 +21,12 @@ export type UserRecommendationProps = {
    */
   hrefProfile: string;
   /**
+   * Specifies a custom link component for the profile icon link, e.g. next/link.
+   */
+  // todo: muss noch mit dem korrekten type ergänzt werden
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  linkComponent?: FC<any>;
+  /**
    * Specifies the action, which is called as the user clicks on the Follow Button.
    */
   onFollowClick: () => void;
@@ -38,6 +44,7 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
   alt,
   displayName,
   hrefProfile,
+  linkComponent,
   onFollowClick,
   src,
   username,
@@ -49,7 +56,7 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
 
         <Stack spacing={StackSpacing.xs} direction={StackDirection.col} alignItems={StackAlignItems.center}>
           <Label size={LabelSize.l}>{displayName}</Label>
-          <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} target="_self">
+          <IconLink color={IconLinkColor.violet} href={hrefProfile} icon={<IconProfile />} linkComponent={linkComponent}>
             {username}
           </IconLink>
         </Stack>
