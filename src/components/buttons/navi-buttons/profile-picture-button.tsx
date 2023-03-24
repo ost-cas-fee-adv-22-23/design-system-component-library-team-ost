@@ -12,6 +12,16 @@ export type ProfilePictureButtonProps = {
    */
   alt: string;
   /**
+   * Specifies a custom image component for the ProfilePicture, e.g. next/image.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponent?: FC<any>;
+  /**
+   * Specifies the arguments of the custom image component.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponentArgs?: Record<string, any>;
+  /**
    * Specifies the action, which is called as the user clicks on the profile picture button.
    */
   onClick: () => void;
@@ -21,10 +31,24 @@ export type ProfilePictureButtonProps = {
   src: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const ProfilePictureButton: FC<ProfilePictureButtonProps> = ({ alt, ariaLabel, onClick, src, ...args }) => {
+export const ProfilePictureButton: FC<ProfilePictureButtonProps> = ({
+  alt,
+  ariaLabel,
+  imageComponent,
+  imageComponentArgs,
+  onClick,
+  src,
+  ...args
+}) => {
   return (
     <NaviButton aria-label={ariaLabel} onClick={onClick} {...args}>
-      <ProfilePicture size={ProfilePictureSize.s} alt={alt} src={src} />
+      <ProfilePicture
+        imageComponent={imageComponent}
+        {...imageComponentArgs}
+        size={ProfilePictureSize.s}
+        alt={alt}
+        src={src}
+      />
     </NaviButton>
   );
 };

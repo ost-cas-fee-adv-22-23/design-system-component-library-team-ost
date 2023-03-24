@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ImgHTMLAttributes } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconButton } from '../buttons/icon-button';
 import { IconEdit } from '../icons/icon-edit';
@@ -11,7 +11,7 @@ export enum ProfilePictureSize {
   xl = 'xl',
 }
 
-export type ProfilePictureBaseProps = {
+export type ProfilePictureBaseProps<T> = {
   /**
    * Alt Attribute for the profile picture. It provides alternative information if a user for some reason cannot view it.
    */
@@ -20,6 +20,10 @@ export type ProfilePictureBaseProps = {
    * Specifies if the user can edit the profile picture. Could only be set if size is "XL".
    */
   canEdit?: boolean;
+  /**
+   * Specifies a custom image component, e.g. next/image.
+   */
+  imageComponent?: FC<T>;
   /**
    * Specifies the action, which is called as the user clicks on the edit icon. Could only be set if size is "XL".
    */
@@ -32,7 +36,7 @@ export type ProfilePictureBaseProps = {
    * Specifies the URL of the profile picture.
    */
   src?: string;
-};
+} & Omit<T, 'className' | 'src'>;
 
 type WithoutSizeXL = {
   canEdit?: never;
@@ -46,10 +50,20 @@ type WithSizeXL = {
   size: ProfilePictureSize.xl;
 };
 
-type ProfilePictureProps = (ProfilePictureBaseProps & WithoutSizeXL) | (ProfilePictureBaseProps & WithSizeXL);
+type ProfilePictureProps<T> = (ProfilePictureBaseProps<T> & WithoutSizeXL) | (ProfilePictureBaseProps<T> & WithSizeXL);
 
-export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, canEdit = false, src, onEditClick }) => {
-  const profilePictureBaseStyle = ['flex', 'items-center', 'justify-center', 'rounded-full', 'overflow-hidden'];
+export function ProfilePicture<T = ImgHTMLAttributes<HTMLImageElement>>({
+  size,
+  alt,
+  canEdit = false,
+  imageComponent,
+  src,
+  onEditClick,
+  ...args
+}: Omit<ProfilePictureProps<T>, 'className'>): JSX.Element {
+  const ImageComponent = imageComponent || 'img';
+
+  const profilePictureBaseStyle = ['relative', 'flex', 'items-center', 'justify-center', 'rounded-full', 'overflow-hidden'];
 
   if (size === ProfilePictureSize.l) {
     profilePictureBaseStyle.push('hover:rounded-4xl');
@@ -87,7 +101,14 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, canEdit = f
         ])}
       >
         {src ? (
-          <img src={src} alt={alt} className={mergeClassNames(profilePictureAnimationStyles[size])} />
+          <ImageComponent
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            {...(args as any)}
+            // eslint-disable-next-line react/forbid-component-props
+            className={mergeClassNames(profilePictureAnimationStyles[size])}
+            src={src}
+            alt={alt}
+          />
         ) : (
           <div className="flex items-center justify-center h-3/5 w-3/5">
             <NoProfilePicture />
@@ -101,4 +122,4 @@ export const ProfilePicture: FC<ProfilePictureProps> = ({ size, alt, canEdit = f
       )}
     </div>
   );
-};
+}

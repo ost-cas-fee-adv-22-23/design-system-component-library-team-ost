@@ -4,11 +4,15 @@ import { IconArrowDown } from '../icons/icon-arrow-down';
 import { IconArrowUp } from '../icons/icon-arrow-up';
 import { IconSize } from '../icons/icon-props';
 
-export type ImageContainerProps = {
+export type ImageContainerProps<T> = {
   /**
    * Alt Attribute for the image. It provides alternative information if a user for some reason cannot view it.
    */
   alt?: string;
+  /**
+   * Specifies a custom image component, e.g. next/image.
+   */
+  imageComponent?: FC<T>;
   /**
    * Specifies the action, which is called as the user clicks on the overlay with the fullscreen icon.
    */
@@ -17,9 +21,17 @@ export type ImageContainerProps = {
    * Specifies the URL of the image.
    */
   src?: string;
-} & ImgHTMLAttributes<HTMLImageElement>;
+} & Omit<T, 'className' | 'src'>;
 
-export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...args }) => {
+export function ImageContainer<T = ImgHTMLAttributes<HTMLImageElement>>({
+  alt,
+  imageComponent,
+  onClick,
+  src,
+  ...args
+}: Omit<ImageContainerProps<T>, 'className'>): JSX.Element {
+  const ImageComponent = imageComponent || 'img';
+
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -109,15 +121,17 @@ export const ImageContainer: FC<ImageContainerProps> = ({ alt, onClick, src, ...
       )}
 
       {src && (
-        <img
+        <ImageComponent
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          {...(args as any)}
+          // eslint-disable-next-line react/forbid-component-props
           className={mergeClassNames(imageContainerImageStyle)}
           src={src}
           alt={alt}
           onLoad={onLoad}
           onError={onError}
-          {...args}
         />
       )}
     </div>
   );
-};
+}
