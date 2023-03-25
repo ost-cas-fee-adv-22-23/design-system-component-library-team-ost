@@ -3,7 +3,7 @@ import { mergeClassNames } from '../../helpers/merge-class-names';
 import { IconEdit } from '../icons/icon-edit';
 import { IconSize } from '../icons/icon-props';
 
-export type ProfileBannerProps = {
+export type ProfileBannerProps<T> = {
   /**
    * Alt Attribute for the picture. It provides alternative information if a user for some reason cannot view it.
    */
@@ -13,6 +13,10 @@ export type ProfileBannerProps = {
    */
   canEdit?: boolean;
   /**
+   * Specifies a custom image component, e.g. next/image.
+   */
+  imageComponent?: FC<T>;
+  /**
    * Specifies the action, which is called as the user clicks on the edit icon. It is only relevant if the user can edit the profile banner.
    */
   onEditClick?: () => void;
@@ -20,9 +24,19 @@ export type ProfileBannerProps = {
    * Specifies the URL of the profile banner.
    */
   src?: string;
-} & ImgHTMLAttributes<HTMLImageElement>;
+} & Omit<T, 'className' | 'src'> &
+  ImgHTMLAttributes<HTMLImageElement>;
 
-export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, onEditClick, src, ...args }) => {
+export function ProfileBanner<T = ImgHTMLAttributes<HTMLImageElement>>({
+  alt,
+  canEdit = false,
+  imageComponent,
+  onEditClick,
+  src,
+  ...args
+}: Omit<ProfileBannerProps<T>, 'className'>): JSX.Element {
+  const ImageComponent = imageComponent || 'img';
+
   const profileBannerBaseStyle = [
     'flex',
     'items-center',
@@ -78,7 +92,16 @@ export const ProfileBanner: FC<ProfileBannerProps> = ({ alt, canEdit = false, on
         </div>
       )}
 
-      {src && <img className={mergeClassNames(profileBannerImageStyle)} src={src} alt={alt} {...args} />}
+      {src && (
+        <ImageComponent
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          {...(args as any)}
+          // eslint-disable-next-line react/forbid-component-props
+          className={mergeClassNames(profileBannerImageStyle)}
+          src={src}
+          alt={alt}
+        />
+      )}
     </div>
   );
-};
+}

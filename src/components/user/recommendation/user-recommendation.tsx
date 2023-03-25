@@ -17,6 +17,16 @@ export type UserRecommendationProps = {
    */
   displayName: string;
   /**
+   * Specifies a custom image component for the ProfilePicture, e.g. next/image.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponent?: FC<any>;
+  /**
+   * Specifies the arguments of the custom image component.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponentArgs?: Record<string, any>;
+  /**
    * Specifies the URL of the page the profile icon link goes to.
    */
   hrefProfile: string;
@@ -43,6 +53,8 @@ export type UserRecommendationProps = {
 export const UserRecommendation: FC<UserRecommendationProps> = ({
   alt,
   displayName,
+  imageComponent,
+  imageComponentArgs,
   hrefProfile,
   linkComponent,
   onFollowClick,
@@ -52,7 +64,13 @@ export const UserRecommendation: FC<UserRecommendationProps> = ({
   return (
     <div className="p-s bg-white rounded-2xl">
       <Stack spacing={StackSpacing.s} direction={StackDirection.col} alignItems={StackAlignItems.center}>
-        <ProfilePicture size={ProfilePictureSize.l} src={src} alt={alt} />
+        <ProfilePicture
+          imageComponent={imageComponent}
+          {...imageComponentArgs}
+          size={ProfilePictureSize.l}
+          src={src}
+          alt={alt}
+        />
 
         <Stack spacing={StackSpacing.xs} direction={StackDirection.col} alignItems={StackAlignItems.center}>
           <Label size={LabelSize.l}>{displayName}</Label>

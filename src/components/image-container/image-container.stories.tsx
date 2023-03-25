@@ -20,7 +20,7 @@ export default {
   },
 } as ComponentMeta<typeof ImageContainer>;
 
-interface ImageContainerWithContainerWidth extends FC<ImageContainerProps> {
+interface ImageContainerWithContainerWidth extends FC<ImageContainerProps<unknown>> {
   containerwidth: number;
 }
 

@@ -38,6 +38,16 @@ type UserShortRepresentationBaseProps = {
    */
   hrefProfile?: string;
   /**
+   * Specifies a custom image component for the ProfilePicture, e.g. next/image.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponent?: FC<any>;
+  /**
+   * Specifies the arguments of the custom image component.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageComponentArgs?: Record<string, any>;
+  /**
    * Specifies when the user has joined.
    */
   joined?: string;
@@ -128,6 +138,8 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   alt,
   displayName,
   hrefProfile,
+  imageComponent,
+  imageComponentArgs,
   joined,
   labelType,
   linkComponent,
@@ -154,7 +166,13 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   return (
     <Stack spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
       {profilePictureSize && src && alt && (
-        <ProfilePicture size={profilePictureVariantStyles[profilePictureSize]} src={src} alt={alt} />
+        <ProfilePicture
+          imageComponent={imageComponent}
+          {...imageComponentArgs}
+          size={profilePictureVariantStyles[profilePictureSize]}
+          src={src}
+          alt={alt}
+        />
       )}
 
       <Stack direction={StackDirection.col} spacing={StackSpacing.xs}>
