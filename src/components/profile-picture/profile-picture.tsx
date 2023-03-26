@@ -84,10 +84,10 @@ export function ProfilePicture<T = ImgHTMLAttributes<HTMLImageElement>>({
   };
 
   const profilePictureAnimationStyles: Record<ProfilePictureSize, string[]> = {
-    s: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    m: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    l: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'object-cover'],
-    xl: ['object-cover'],
+    s: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'w-full', 'h-full', 'object-cover'],
+    m: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'w-full', 'h-full', 'object-cover'],
+    l: ['hover:scale-125', 'group-hover:scale-125', 'ease-in-out', 'duration-300', 'w-full', 'h-full', 'object-cover'],
+    xl: ['w-full', 'h-full', 'object-cover'],
   };
 
   return (

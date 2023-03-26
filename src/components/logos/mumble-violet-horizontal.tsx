@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { LogoProps } from './logo-props';
 
-export const MumbleVioletHorizontal: FC<LogoProps> = ({ ariaLabel, onClick }) => (
+export const MumbleVioletHorizontal: FC<LogoProps<unknown>> = ({ ariaLabel, onClick }) => (
   <svg
     aria-label={ariaLabel}
     className={onClick ? 'cursor-pointer' : 'cursor-default'}
