@@ -11,7 +11,7 @@ export type PageHeaderProps = {
 
 export const PageHeader: FC<PageHeaderProps> = ({ children }) => {
   // Gemäss Figma Style-Definition ist ein Padding Y von 12px vorgesehen. Da unser Design System keine Spacing Definition für 12px aufweist, wurde hier bewusst 16px (s) gewählt.
-  const pageHeaderBaseStyle = ['bg-violet-600', 'py-s', 'px-l'];
+  const pageHeaderBaseStyle = ['sticky', 'top-0', 'z-[100]', 'bg-violet-600', 'py-s', 'px-l'];
 
   return (
     <header className={mergeClassNames(pageHeaderBaseStyle)}>
