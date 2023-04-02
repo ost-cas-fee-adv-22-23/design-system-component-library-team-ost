@@ -44,6 +44,21 @@ WithDivider.args = {
   withDivider: true,
 };
 
+export const Responsive = Template.bind({});
+Responsive.args = {
+  alignItems: StackAlignItems.unset,
+  children: undefined,
+  direction: {
+    default: StackDirection.col,
+    sm: StackDirection.col,
+    md: StackDirection.col,
+    lg: StackDirection.row,
+  },
+  justifyContent: StackJustifyContent.flexstart,
+  spacing: StackSpacing.m,
+  withDivider: false,
+};
+
 interface StackWithContainerWidth extends FC<StackProps> {
   /**
    * Specifies the width of the parent component. It's not a property of the Stack Component and only
