@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { Label, LabelSize } from '../../typography/label';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
 
-export type NaviButtonProps = {
+export type NaviButtonProps<T> = {
   /**
    * Optional aria-label (Verb + Noun) has to be set, if no inner text is set or the text of the button does not describe the action.
    */
@@ -16,12 +16,28 @@ export type NaviButtonProps = {
    */
   icon?: ReactNode;
   /**
+   * Specifies a custom link component, e.g. next/link.
+   */
+  linkComponent?: FC<T>;
+  /**
    * Specifies the action, which is called as the user clicks on the navi button.
    */
-  onClick: () => void;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  onClick?: () => void;
+  /**
+   * Specifies if the navi button should render as a link component.
+   */
+  renderAsLink?: boolean;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement> &
+  Omit<T, 'className'>;
 
-export const NaviButton: FC<NaviButtonProps> = ({ ariaLabel, children, icon, onClick, ...args }) => {
+export function NaviButton<
+  T extends {
+    className?: string;
+  } = AnchorHTMLAttributes<HTMLElement>
+>({ ariaLabel, children, icon, linkComponent, onClick, renderAsLink = false, ...args }: NaviButtonProps<T>): JSX.Element {
+  const LinkComponent = linkComponent || 'a';
+
   const naviButtonBaseStyle = [
     'flex',
     'items-center',
@@ -41,7 +57,22 @@ export const NaviButton: FC<NaviButtonProps> = ({ ariaLabel, children, icon, onC
 
   const classes = mergeClassNames(naviButtonBaseStyle);
 
-  return (
+  const linkComponentToRender = (
+    <LinkComponent
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      {...(args as any)}
+      aria-label={ariaLabel}
+      // eslint-disable-next-line react/forbid-component-props
+      className={classes}
+    >
+      <>
+        {icon}
+        <Label size={LabelSize.s}>{children}</Label>
+      </>
+    </LinkComponent>
+  );
+
+  const buttonComponentToRender = (
     <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
       <>
         {icon}
@@ -49,4 +80,6 @@ export const NaviButton: FC<NaviButtonProps> = ({ ariaLabel, children, icon, onC
       </>
     </button>
   );
-};
+
+  return renderAsLink ? linkComponentToRender : buttonComponentToRender;
+}

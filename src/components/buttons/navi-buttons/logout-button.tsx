@@ -1,16 +1,39 @@
-import React, { FC, ButtonHTMLAttributes } from 'react';
+import React, { FC, ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react';
 import { NaviButton } from './navi-button';
 
 export type LogoutButtonProps = {
   /**
+   * Specifies a custom link component, e.g. next/link.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  linkComponent?: FC<any>;
+  /**
+   * Specifies the arguments of the custom link component.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  linkComponentArgs?: Record<string, any>;
+  /**
    * Specifies the action, which is called as the user clicks on the logout button.
    */
-  onClick: () => void;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  onClick?: () => void;
+  /**
+   * Specifies if the navi button should render as a link component.
+   */
+  renderAsLink?: boolean;
+} & ButtonHTMLAttributes<HTMLButtonElement> &
+  AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export const LogoutButton: FC<LogoutButtonProps> = ({ onClick, ...args }) => {
+export const LogoutButton: FC<LogoutButtonProps> = ({
+  linkComponent,
+  linkComponentArgs,
+  onClick,
+  renderAsLink = false,
+  ...args
+}) => {
   return (
     <NaviButton
+      {...args}
+      {...linkComponentArgs}
       /*
        * Es wurde bewusst entschieden, dass IconLogout zu kopieren und nicht dieses wiederzuverwenden, da die Animation des Pfeils hier ein sehr spezifischer
        * Anwendungsfall darstellt. Gemäss Definition im Figma würde der Pfeil initial 3px aus der viewBox des SVGs ragen. Auf die Vergrösserung der viewBox wurde
@@ -36,8 +59,9 @@ export const LogoutButton: FC<LogoutButtonProps> = ({ onClick, ...args }) => {
           </defs>
         </svg>
       }
+      linkComponent={linkComponent}
       onClick={onClick}
-      {...args}
+      renderAsLink={renderAsLink}
     >
       Logout
     </NaviButton>
