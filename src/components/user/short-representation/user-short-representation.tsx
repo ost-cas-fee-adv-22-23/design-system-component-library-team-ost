@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ImgHTMLAttributes, ReactElement } from 'react';
 import { IconProfile } from '../../icons/icon-profile';
 import { IconTime } from '../../icons/icon-time';
 import { IconCalendar } from '../../icons/icon-calendar';
@@ -41,12 +41,12 @@ type UserShortRepresentationBaseProps = {
    * Specifies a custom image component for the ProfilePicture, e.g. next/image.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  imageComponent?: FC<any>;
+  imageComponent?: FC<ImgHTMLAttributes<HTMLImageElement>>;
   /**
    * Specifies the arguments of the custom image component.
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  imageComponentArgs?: Record<string, any>;
+  imageComponentArgs?: ImgHTMLAttributes<HTMLImageElement>;
   /**
    * Specifies when the user has joined.
    */
