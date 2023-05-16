@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Foundation/Spacing" />
+
+<style>
+  {`
+    .spacing {
+        height: 20px;
+        background-color: #7c3aed;
+    }
+
+    .w-xxs {
+        width: 4px;
+    }
+
+    .w-xs {
+        width: 8px;
+    }
+
+    .w-s {
+        width: 16px;
+    }
+
+    .w-m {
+        width: 24px;
+    }
+
+    .w-l {
+        width: 32px;
+    }
+
+    .w-xl {
+        width: 48px;
+    }
+
+    .w-xxl {
+        width: 64px;
+    }
+  `}
+</style>
+
+# Spacing
+
+The spacing scale is defined as follows:
+
+
+| **Name**       | **Size [Pixels]**  |                                                                   |
+| :------------- | :----------------- | :---------------------------------------------------------------- |
+| **xxs**        | 4                  | <div className="spacing w-xxs"></div>                             |
+| **xs**         | 8                  | <div className="spacing w-xs"></div>                              |
+| **s**          | 16                 | <div className="spacing w-s"></div>                               |
+| **m**          | 24                 | <div className="spacing w-m"></div>                               |
+| **l**          | 32                 | <div className="spacing w-l"></div>                               |
+| **xl**         | 48                 | <div className="spacing w-xl"></div>                              |
+| **xxl**        | 64                 | <div className="spacing w-xxl"></div>                             |
+
+
+The spacing scale is inherited by the padding, margin, width, height, maxHeight, gap, inset, space, and translate core plugins of tailwind.

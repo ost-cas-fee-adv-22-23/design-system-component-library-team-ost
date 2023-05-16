@@ -1,0 +1,95 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+
+<Meta title="Foundation/Colors" />
+
+# Colors
+
+The Color Palette is based on the Tailwind colors "Slate", "Pink" and "Violet".
+
+## Color Slate
+Our primary text color "Slate", can be used for links, input, placeholder. It's designed to be accessible for text with slate-600 and above.
+Slate-100 is also used as page background.
+
+<ColorPalette>
+  <ColorItem 
+    title="Slate" 
+    colors={{
+         50: '#f8fafc',
+         100: '#f1f5f9',
+         200: '#e2e8f0',
+         300: '#cbd5e1',
+         400: '#94a3b8',
+         500: '#64748b',
+         600: '#475569',
+         700: '#334155',
+         800: '#1e293b',
+         900: '#0f172a',
+    }} 
+  />
+</ColorPalette>
+
+## Color Violet
+The color "Violet" is used to signify clickable elements with interactions and navigation. It can also be used for hover or selected states.
+<ColorPalette>
+  <ColorItem 
+    title="Violet" 
+    colors={{
+         50: '#f5f3ff',
+         100: '#ede9fe',
+         200: '#ddd6fe',
+         300: '#c4b5fd',
+         400: '#a78bfa',
+         500: '#8b5cf6',
+         600: '#7c3aed',
+         700: '#6d28d9',
+         800: '#5b21b6',
+         900: '#4c1d95',
+    }} 
+  />
+</ColorPalette>
+
+
+## Color Pink
+For secondary interaction elements the color "Pink" should be used.
+<ColorPalette>
+   <ColorItem 
+    title="Pink" 
+    colors={{
+         50: '#fdf2f8',
+         100: '#fce7f3',
+         200: '#fbcfe8',
+         300: '#f9a8d4',
+         400: '#f472b6',
+         500: '#ec4899',
+         600: '#db2777',
+         700: '#be185d',
+         800: '#9d174d',
+         900: '#831843',
+    }} 
+  />
+</ColorPalette>
+
+## Color Red
+For warnings or errormessages the color "Red" is used.
+<ColorPalette>
+   <ColorItem 
+    title="Red" 
+    colors={{
+         400: '#f87171',
+         600: '#dc2626',
+         900: '#7f1d1d',
+    }} 
+  />
+</ColorPalette>
+
+## Gradient
+The gradient from pink to violet should be used sparingly. For example, as a mood background or for special buttons that should stand out from primary buttons.
+<ColorPalette>
+   <ColorItem 
+    title="Gradient" 
+    colors={{
+         50: 'linear-gradient(153.75deg, #EC4899 -75.32%, #7C3AED 100%)',
+         
+    }} 
+  />
+</ColorPalette>

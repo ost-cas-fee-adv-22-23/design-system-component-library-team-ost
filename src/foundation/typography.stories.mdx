@@ -1,0 +1,148 @@
+import { ArgsTable, Canvas, Meta, Typeset, Story, Title } from '@storybook/addon-docs/blocks';
+import { Heading } from '../components/typography/heading';
+import { Paragraph } from '../components/typography/paragraph';
+import { Label } from '../components/typography/label';
+
+<Meta title="Foundation/Typography" />
+
+export const typography = {
+  type: {
+    primary: '"Poppins", sans-serif',
+  },
+  weight: {
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+  },
+  size: {
+    xs: 14,
+    sm: 16,
+    base: 18,
+    lg: 20,
+    xxl: 24,
+    xxxl: 32,
+    xxxxl: 40,
+    xxxxxl: 48,
+  },
+};
+
+export const SampleHeading = 'Heading Text';
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+export const SampleLabel = 'Labeltext';
+
+# Typography
+Mumble uses the google font "Poppins" as primary font. Poppins is a contemporary sans-serif that's accessible and with a smooth typeface. It's ideal for short texts like mumbles and for headlines. Poppins Medium is used for text and Poppins Semibold and Bold for headings and interactions.
+
+# Headings
+
+**Font:** Poppins
+
+**Sizes:** 2xl(1.5rem), 3xl(2rem), 4xl(2.5rem), 5xl(3rem)
+
+**Weights:** 600(semibold), 700(bold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxxxxl),
+    Number(typography.size.xxxxl),
+    Number(typography.size.xxxl),
+    Number(typography.size.xxl),
+  ]}
+  fontWeight={typography.weight.bold}
+  sampleText={SampleHeading}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The heading component can be used as HTML headings. It creates depending on the size a "h1"-"h4" HTML Element. [Component documentation](/story/components-typography--default-heading).
+
+### Color
+The color of the headline refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Headline />
+</div>
+```
+
+<Canvas withSource="open">
+    <Story id="components-typography--default-heading" />
+</Canvas>
+
+
+
+
+# Paragraph
+
+**Font:** Poppins
+
+**Sizes:** base(1.125rem), 2xl(1.5rem)
+
+**Weights:** 500(medium)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxl),
+    Number(typography.size.base),
+  ]}
+  fontWeight={typography.weight.medium}
+  sampleText={SampleText}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The paragraph component can be used in two different sizes. It creates a "p" HTML-Element. [Component documentation](/story/components-typography--default-paragraph).
+
+### Color
+The color of the paragraph refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Paragraph />
+</div>
+```
+<Canvas withSource="open" withToolbar>
+    <Story id="components-typography--default-paragraph" />
+</Canvas>
+
+
+
+# Label
+
+**Font:** Poppins
+
+**Sizes:** xs(0.875rem), sm(1rem), lg(1.25rem), 2xl(1.5rem)
+
+**Weights:** 500(medium), 600(semibold)
+
+<Typeset
+  fontSizes={[
+    Number(typography.size.xxl),
+    Number(typography.size.lg),
+    Number(typography.size.sm),
+    Number(typography.size.xs),
+  ]}
+  fontWeight={typography.weight.semibold}
+  sampleText={SampleLabel}
+  fontFamily={typography.type.primary}
+/>
+
+## Usage
+The label component has two uses. It can be used as a label for form items (input, textarea, ...), or also for labeling buttons, links, help texts, etc. Depending on the use case it creates a "span" or "label" HTML element. [Component documentation](/story/components-typography--default-label).
+
+### Color
+The color of the label refers to the current text color of the parent element. So you could easily set the desired color of the icon outside the component. In the following example the color is set on the parent div element of the icon.
+```jsx
+<div className="text-slate-700">
+  <Label />
+</div>
+```
+
+### Type
+If an htmlFor parameter is supplied, the component creates a label HTML element. Without hmtlFor parameter, a "span" HTML element is created.
+```jsx
+  <Label htmlFor={id} />
+</div>
+```
+
+<Canvas withSource="open" withToolbar>
+    <Story id="components-typography--default-label" />
+</Canvas>

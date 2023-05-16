@@ -1,0 +1,79 @@
+import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import { mergeClassNames } from './../../helpers/merge-class-names';
+
+export enum IconButtonColor {
+  slate = 'slate',
+}
+
+export enum IconButtonSize {
+  l = 'l',
+}
+
+export type IconButtonProps = {
+  /**
+   * Has to be set (Verb + Noun), as icon button has no inner text.
+   */
+  ariaLabel: string;
+  /**
+   * Specifies the color of the icon button.
+   */
+  color?: IconButtonColor;
+  /**
+   * Specifies the icon which should be displayed in the button.
+   */
+  icon: ReactNode;
+  /**
+   * Specifies the action, which is called as the user clicks on the icon button.
+   */
+  onClick: () => void;
+  /**
+   * Specifies the size of the icon button.
+   */
+  size?: IconButtonSize;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
+
+export const IconButton: FC<IconButtonProps> = ({
+  ariaLabel,
+  color = IconButtonColor.slate,
+  icon,
+  onClick,
+  size = IconButtonSize.l,
+  ...args
+}) => {
+  const iconButtonBaseStyle: string[] = [
+    'flex',
+    'items-center',
+    'rounded-full',
+    'text-white',
+    'border-0',
+    'transition-all',
+    'ease-in-out',
+    'duration-350',
+    'active:duration-300',
+  ];
+
+  const iconButtonColorStyles: Record<IconButtonColor, string[]> = {
+    slate: [
+      'bg-slate-600',
+      'hover:bg-slate-700',
+      'active:bg-slate-700',
+      'outline-none',
+      'outline-offset-0',
+      'hover:outline-3',
+      'hover:outline-slate-100',
+      'active:outline-4',
+      'active:outline-slate-200',
+    ],
+  };
+
+  const iconButtonSizeStyles: Record<IconButtonSize, string[]> = {
+    l: ['p-s'],
+  };
+
+  const classes = mergeClassNames([iconButtonBaseStyle, iconButtonColorStyles[color], iconButtonSizeStyles[size]]);
+  return (
+    <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
+      <>{icon}</>
+    </button>
+  );
+};
