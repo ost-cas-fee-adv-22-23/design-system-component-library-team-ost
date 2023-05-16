@@ -100,6 +100,7 @@ export function ProfileBanner<T = ImgHTMLAttributes<HTMLImageElement>>({
           className={mergeClassNames(profileBannerImageStyle)}
           src={src}
           alt={alt}
+          role="img"
         />
       )}
     </div>

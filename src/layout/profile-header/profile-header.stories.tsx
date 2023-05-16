@@ -59,7 +59,7 @@ const LoggedInTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
               size={ProfilePictureSize.xl}
-              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+              src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
             />
           </div>
         </div>
@@ -119,7 +119,7 @@ const StrangerTemplate: ComponentStory<StackWithContainerWidth> = (args) => {
               canEdit={isLoggedIn}
               onEditClick={action('onEditProfilePictureClick')}
               size={ProfilePictureSize.xl}
-              src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+              src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
             />
           </div>
         </div>

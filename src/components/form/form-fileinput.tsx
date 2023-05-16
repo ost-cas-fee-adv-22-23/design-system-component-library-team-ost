@@ -1,4 +1,4 @@
-import React, { FC, DragEvent, useId, useState, useRef, ChangeEvent } from 'react';
+import React, { FC, DragEvent, useId, useState, useRef, ChangeEvent, HTMLAttributes } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 import { Label, LabelSize } from '../typography/label';
 import { FormItem } from './form-item';
@@ -26,9 +26,9 @@ export type FileinputProps = {
    * Title text for the component.
    */
   title: string;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>;
 
-export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAddFile, title }) => {
+export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAddFile, title, ...args }) => {
   const fileinputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -84,7 +84,7 @@ export const Fileinput: FC<FileinputProps> = ({ description, errorMessage, onAdd
   const dragAreaClasses = mergeClassNames([dragAreaBaseStyle]);
 
   return (
-    <Stack direction={StackDirection.col} spacing={StackSpacing.s}>
+    <Stack {...args} direction={StackDirection.col} spacing={StackSpacing.s}>
       <FormItem id={fileinputId} errorMessage={errorMessage}>
         <input className={'hidden'} type="file" ref={inputRef} id={fileinputId} multiple={false} onChange={handleChange} />
         <label htmlFor={fileinputId} className={dragAreaClasses}>

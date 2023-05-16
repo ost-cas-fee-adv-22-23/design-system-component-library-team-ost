@@ -109,7 +109,7 @@ const MumbleAsResponseTemplate: ComponentStory<CardWithContainerWidth> = (args) 
             hrefProfile="#"
             labelType={UserShortRepresentationLabelType.s}
             profilePictureSize={UserShortRepresentationProfilePictureSize.s}
-            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
             timestamp="vor 42 Minuten"
             username="robertvogt"
           />
@@ -163,7 +163,7 @@ const MumbleOnDetailpageTemplate: ComponentStory<CardWithContainerWidth> = (args
           <ProfilePicture
             alt="Robert Vogt"
             size={ProfilePictureSize.m}
-            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
           />
         </div>
 
@@ -225,7 +225,7 @@ const MumbleInTimelineTemplate: ComponentStory<CardWithContainerWidth> = (args) 
           <ProfilePicture
             alt="Robert Vogt"
             size={ProfilePictureSize.m}
-            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
           />
         </div>
 
@@ -302,7 +302,7 @@ const WriteComponentInlineTemplate: ComponentStory<CardWithContainerWidth> = (ar
             labelType={UserShortRepresentationLabelType.m}
             username="robertvogt"
             profilePictureSize={UserShortRepresentationProfilePictureSize.s}
-            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
           />
 
           <Form handleSubmit={action('Handle form submit')}>
@@ -378,7 +378,7 @@ const WriteComponentHauptfeldTemplate: ComponentStory<CardWithContainerWidth> = 
           <ProfilePicture
             alt="Robert Vogt"
             size={ProfilePictureSize.m}
-            src="https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw"
+            src="https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg"
           />
         </div>
         <Stack direction={StackDirection.col} spacing={StackSpacing.s}>

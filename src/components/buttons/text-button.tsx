@@ -47,7 +47,7 @@ export type TextButtonProps = {
    * Specifies the size of the button.
    */
   size: TextButtonSize;
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'onClick'>;
 
 export const TextButton: FC<TextButtonProps> = ({
   ariaLabel,
@@ -129,7 +129,7 @@ export const TextButton: FC<TextButtonProps> = ({
   ]);
 
   return (
-    <button aria-label={ariaLabel} className={classes} onClick={onClick} {...args}>
+    <button {...args} aria-label={ariaLabel} className={classes} onClick={onClick}>
       <>
         <Label size={LabelSize.m}>{children}</Label>
         {icon}

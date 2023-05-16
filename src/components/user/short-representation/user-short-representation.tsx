@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, HTMLAttributes, ReactElement } from 'react';
 import { IconProfile } from '../../icons/icon-profile';
 import { IconTime } from '../../icons/icon-time';
 import { IconCalendar } from '../../icons/icon-calendar';
@@ -128,11 +128,13 @@ type BaseWithoutProfilePictureWithSettings = UserShortRepresentationBaseProps &
   WithSettingsProps;
 type BaseWithProfilePictureWithSettings = UserShortRepresentationBaseProps & WithProfilePictureProps & WithSettingsProps;
 
-type UserShortRepresentationProps =
+type UserShortRepresentationProps = (
   | BaseWithoutProfilePictureWithoutSettings
   | BaseWithProfilePictureWithoutSettings
   | BaseWithoutProfilePictureWithSettings
-  | BaseWithProfilePictureWithSettings;
+  | BaseWithProfilePictureWithSettings
+) &
+  Omit<HTMLAttributes<HTMLDivElement>, 'className'>;
 
 export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   alt,
@@ -150,6 +152,7 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   src,
   timestamp,
   username,
+  ...args
 }) => {
   const profilePictureVariantStyles: Record<UserShortRepresentationProfilePictureSize, ProfilePictureSize> = {
     s: ProfilePictureSize.s,
@@ -164,7 +167,7 @@ export const UserShortRepresentation: FC<UserShortRepresentationProps> = ({
   };
 
   return (
-    <Stack spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
+    <Stack {...args} spacing={StackSpacing.xs} alignItems={StackAlignItems.center}>
       {profilePictureSize && src && alt && (
         <ProfilePicture
           imageComponent={imageComponent}

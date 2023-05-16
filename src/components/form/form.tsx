@@ -18,7 +18,7 @@ export type FormProps = {
    * Stack Spacings to define the spacings between the form items.
    */
   stackSpacing?: StackSpacing;
-} & FormHTMLAttributes<HTMLFormElement>;
+} & Omit<FormHTMLAttributes<HTMLFormElement>, 'className'>;
 
 export const Form: FC<FormProps> = ({
   children,
@@ -28,7 +28,7 @@ export const Form: FC<FormProps> = ({
   ...args
 }) => {
   return (
-    <form onSubmit={handleSubmit} {...args}>
+    <form {...args} role="form" onSubmit={handleSubmit}>
       <Stack direction={stackDir} spacing={stackSpacing}>
         {children}
       </Stack>

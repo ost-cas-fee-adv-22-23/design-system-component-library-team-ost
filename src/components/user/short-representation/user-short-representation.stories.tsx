@@ -64,7 +64,7 @@ Default.args = {
   onSettingsClick: action('onSettingsClick'),
   profilePictureSize: UserShortRepresentationProfilePictureSize.s,
   showSettings: true,
-  src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
+  src: 'https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg',
   timestamp: 'vor 42 Minuten',
   username: 'robertvogt',
 };
@@ -82,7 +82,7 @@ SizeS.args = {
   hrefProfile: '#',
   labelType: UserShortRepresentationLabelType.s,
   profilePictureSize: UserShortRepresentationProfilePictureSize.s,
-  src: 'https://media.licdn.com/dms/image/D4E03AQEXHsHgH4BwJg/profile-displayphoto-shrink_800_800/0/1666815812197?e=2147483647&v=beta&t=Vx6xecdYFjUt3UTCmKdh2U-iHvY0bS-fcxlp_LKbxYw',
+  src: 'https://res.cloudinary.com/smartive/image/upload/f_auto,c_limit,w_640,q_auto/v1676359202/Team/robert_wmi22t.jpg',
   timestamp: 'vor 42 Minuten',
   username: 'robertvogt',
 };
