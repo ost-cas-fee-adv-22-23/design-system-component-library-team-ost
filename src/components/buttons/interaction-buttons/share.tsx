@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { ButtonHTMLAttributes, FC, useState } from 'react';
 import { IconShare } from '../../icons/icon-share';
 import { interactionButtonsBaseStyle } from './base-style';
 import { mergeClassNames } from '../../../helpers/merge-class-names';
@@ -9,9 +9,9 @@ export type ShareProps = {
    * Specifies the link, which should be copied to clipboard as the user clicks on the share button.
    */
   linkToCopy: string;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className'>;
 
-export const Share: FC<ShareProps> = ({ linkToCopy }) => {
+export const Share: FC<ShareProps> = ({ linkToCopy, ...args }) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
@@ -34,7 +34,7 @@ export const Share: FC<ShareProps> = ({ linkToCopy }) => {
   ]);
 
   return (
-    <button className={classes} onClick={copyToClipboard}>
+    <button {...args} className={classes} onClick={copyToClipboard}>
       <IconShare />
       <Label size={LabelSize.m}>{copied ? 'Link copied' : 'Copy Link'}</Label>
     </button>

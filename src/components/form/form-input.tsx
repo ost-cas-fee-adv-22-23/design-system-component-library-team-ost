@@ -10,7 +10,7 @@ export enum InputTypes {
   email = 'email',
 }
 
-/* 
+/*
   By adding the InputHTMLAttributes we can pass every HTMLInputElement to our component.
  */
 export type InputProps = {
@@ -54,7 +54,7 @@ export type InputProps = {
    * The actual value of the input.
    */
   value: string;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & Omit<InputHTMLAttributes<HTMLInputElement>, 'className'>;
 
 export const Input: FC<InputProps> = ({
   errorMessage,
@@ -90,13 +90,13 @@ export const Input: FC<InputProps> = ({
     <FormItem errorMessage={errorMessage} id={inputId} label={label} labelSize={labelSize}>
       <div className={inputWrapperClasses}>
         <input
+          {...args}
           className={inputClasses}
           id={inputId}
           name={name}
           onChange={onChange}
           type={isPasswordVisible ? InputTypes.text : type}
           spellCheck={type === 'password' ? 'false' : 'true'}
-          {...args}
         />
         {errorMessage ? (
           <span className="absolute flex items-center right-s top-0 h-full text-red-600">

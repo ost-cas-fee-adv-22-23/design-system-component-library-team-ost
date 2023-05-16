@@ -108,6 +108,7 @@ export function ProfilePicture<T = ImgHTMLAttributes<HTMLImageElement>>({
             className={mergeClassNames(profilePictureAnimationStyles[size])}
             src={src}
             alt={alt}
+            role="img"
           />
         ) : (
           <div className="flex items-center justify-center h-3/5 w-3/5">

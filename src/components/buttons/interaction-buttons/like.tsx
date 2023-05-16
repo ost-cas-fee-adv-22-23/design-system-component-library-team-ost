@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ButtonHTMLAttributes, FC, useEffect, useState } from 'react';
 import { IconHeartFilled } from '../../icons/icon-heart-filled';
 import { IconHeartOutline } from '../../icons/icon-heart-outline';
 import { Label, LabelSize } from '../../typography/label';
@@ -18,9 +18,9 @@ export type LikeProps = {
    * Specifies if the user reacted with a like.
    */
   withReaction: boolean;
-};
+} & Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'className' | 'onClick'>;
 
-export const Like: FC<LikeProps> = ({ likesCount, onClick, withReaction }) => {
+export const Like: FC<LikeProps> = ({ likesCount, onClick, withReaction, ...args }) => {
   const likeVariantStyles = {
     withoutReaction: ['hover:bg-pink-50', 'hover:text-pink-600'],
     withReaction: ['hover:bg-pink-50', 'hover:text-pink-600', 'text-pink-900'],
@@ -67,6 +67,7 @@ export const Like: FC<LikeProps> = ({ likesCount, onClick, withReaction }) => {
 
   return (
     <button
+      {...args}
       className={classes}
       onClick={() => {
         onClick();

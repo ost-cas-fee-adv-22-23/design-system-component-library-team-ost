@@ -3,7 +3,7 @@ import { mergeClassNames } from '../../helpers/merge-class-names';
 import { LabelSize } from '../typography/label';
 import { FormItem } from './form-item';
 
-/* 
+/*
     By extending the TextareaHTMLAttributes we can pass all the HTMLTextareaElements to our component.
 
     As the figma does not has labels for textareas, we force to set an aria-label.
@@ -46,7 +46,7 @@ export type TextareaProps = {
    * The actual value of the textarea.
    */
   value: string;
-} & TextareaHTMLAttributes<HTMLTextAreaElement>;
+} & Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, 'className'>;
 
 export const Textarea: FC<TextareaProps> = ({
   ariaLabel,
@@ -75,13 +75,13 @@ export const Textarea: FC<TextareaProps> = ({
   return (
     <FormItem errorMessage={errorMessage} id={textareaId} label={label} labelSize={labelSize}>
       <textarea
+        {...args}
         className={textareaClasses}
         aria-label={ariaLabel}
         id={textareaId}
         name={name}
         onChange={onChange}
         value={value}
-        {...args}
       />
     </FormItem>
   );

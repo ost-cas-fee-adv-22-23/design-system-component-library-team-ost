@@ -1,4 +1,4 @@
-import React, { Children, FC, ReactNode } from 'react';
+import React, { Children, FC, HTMLAttributes, ReactNode } from 'react';
 import { mergeClassNames } from '../../helpers/merge-class-names';
 
 export enum StackDirection {
@@ -163,7 +163,7 @@ export type StackProps = {
    * Specifies if the items are divided by a divider.
    */
   withDivider?: boolean;
-};
+} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>;
 
 const printChildren = (
   withDivider: boolean,
@@ -221,6 +221,7 @@ export const Stack: FC<StackProps> = ({
   justifyContent = StackJustifyContent.flexstart,
   spacing = StackSpacing.none,
   withDivider = false,
+  ...args
 }) => {
   const stackBaseStyle = ['flex'];
   const childrenArray = Children.toArray(children);
@@ -230,6 +231,7 @@ export const Stack: FC<StackProps> = ({
 
   return (
     <div
+      {...args}
       className={mergeClassNames([
         stackBaseStyle,
         stackDirectionClasses,
